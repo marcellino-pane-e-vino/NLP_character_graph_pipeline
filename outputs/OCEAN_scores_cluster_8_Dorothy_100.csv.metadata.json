@@ -1,0 +1,30 @@
+{
+  "cluster_id": 8,
+  "subject": "Dorothy",
+  "requested_mentions": 100,
+  "scored_mentions": 100,
+  "sample_mentions": true,
+  "random_seed": 9191102268370712042,
+  "sort_sample_by_cluster_order": true,
+  "start_index": 0,
+  "total_mentions_in_cluster": 1900,
+  "context_extraction_seconds": 1.1866138000041246,
+  "scoring_seconds": 81.98954260000028,
+  "total_seconds": 83.1761564000044,
+  "seconds_per_mention_scoring_only": 0.8198954260000028,
+  "estimated_seconds_for_100_mentions": 81.98954260000028,
+  "estimated_seconds_for_1000_mentions": 819.8954260000028,
+  "estimated_seconds_for_full_cluster": 1557.8013094000053,
+  "chunk_size": 16,
+  "pair_batch_size": 16,
+  "device": "cuda: NVIDIA GeForce GTX 1050 with Max-Q Design",
+  "model_name": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+  "ocean_weight_enabled": false,
+  "mention_rendering": {
+    "canonicalize_simple_mentions": true,
+    "keep_first_second_person": true
+  },
+  "csv_path": "outputs\\OCEAN_scores_cluster_8_Dorothy_100.csv",
+  "raw_probabilities_in_csv": true,
+  "doc_annotation_performed": false
+}

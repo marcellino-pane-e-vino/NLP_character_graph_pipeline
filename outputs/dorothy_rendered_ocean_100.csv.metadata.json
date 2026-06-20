@@ -1,0 +1,27 @@
+{
+  "cluster_id": 97,
+  "subject": "the Scarecrow",
+  "requested_mentions": 100,
+  "scored_mentions": 100,
+  "start_index": 0,
+  "total_mentions_in_cluster": 1032,
+  "context_extraction_seconds": 1.6258972999967227,
+  "scoring_seconds": 126.72657679999975,
+  "total_seconds": 128.35247409999647,
+  "seconds_per_mention_scoring_only": 1.2672657679999975,
+  "estimated_seconds_for_100_mentions": 126.72657679999975,
+  "estimated_seconds_for_1000_mentions": 1267.2657679999975,
+  "estimated_seconds_for_full_cluster": 1307.8182725759973,
+  "chunk_size": 16,
+  "pair_batch_size": 16,
+  "device": "cuda: NVIDIA GeForce GTX 1050 with Max-Q Design",
+  "model_name": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0",
+  "ocean_weight_enabled": true,
+  "mention_rendering": {
+    "canonicalize_simple_mentions": true,
+    "keep_first_second_person": true
+  },
+  "csv_path": "outputs\\dorothy_rendered_ocean_100.csv",
+  "raw_probabilities_in_csv": true,
+  "doc_annotation_performed": false
+}

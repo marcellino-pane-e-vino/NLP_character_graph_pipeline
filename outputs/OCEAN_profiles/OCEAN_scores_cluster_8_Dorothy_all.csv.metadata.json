@@ -1,0 +1,23 @@
+{
+  "status": "running",
+  "cluster_id": 8,
+  "subject": "Dorothy",
+  "requested_mentions": null,
+  "selected_mentions": 1900,
+  "pending_mentions_at_start": 1900,
+  "skipped_from_existing_csv": 0,
+  "run_config_hash": "87f7b6d484513150601a5077a786b0504a667048df566a5aad5a03a4fde38c4f",
+  "csv_path": "outputs\\OCEAN_profiles\\OCEAN_scores_cluster_8_Dorothy_all.csv",
+  "cache_path": "outputs\\OCEAN_profiles\\OCEAN_scores_cluster_8_Dorothy_all.csv.cache.sqlite3",
+  "output_is_resumable": true,
+  "resume_from_csv": true,
+  "use_sqlite_cache": true,
+  "started_at_unix": 1781992408.7834246,
+  "last_completed_chunk": 163,
+  "newly_written_rows": 1304,
+  "completed_mentions_total_selected": 1304,
+  "cache_hits": 90,
+  "cache_misses": 1214,
+  "elapsed_seconds_scoring_this_invocation": 2663.4514452000003,
+  "updated_at_unix": 1781995072.2368326
+}

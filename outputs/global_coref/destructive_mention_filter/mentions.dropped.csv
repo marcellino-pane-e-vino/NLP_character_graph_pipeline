@@ -1,0 +1,740 @@
+row_index,local_cluster_uid,cluster_canonical_name,mention_text,mention_key,matched_anchor,matched_anchor_key,matched_anchor_n_mentions,match_score,match_method
+35,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+39,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+50,chunk_000::cluster_002,Aunt Em,the Witch of the North,witch of the north,a witch,witch,547,0.25,token_subset
+58,chunk_000::cluster_002,Aunt Em,a real witch,real witch,a witch,witch,547,0.5,token_subset
+64,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+66,chunk_000::cluster_002,Aunt Em,The Witch of the North,witch of the north,a witch,witch,547,0.25,token_subset
+74,chunk_000::cluster_002,Aunt Em,the Witch,witch,a witch,witch,547,1.0,exact
+76,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+77,chunk_000::cluster_002,Aunt Em,the Witch of the North,witch of the north,a witch,witch,547,0.25,token_subset
+80,chunk_000::cluster_002,Aunt Em,the Witch,witch,a witch,witch,547,1.0,exact
+85,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+90,chunk_000::cluster_002,Aunt Em,The little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+99,chunk_000::cluster_002,Aunt Em,"the girl, who had begun to look upon the little old woman as her only friend",girl who had begun to look upon the little old woman as her only friend,the old woman,old woman,62,0.13333333333333333,token_subset
+100,chunk_000::cluster_002,Aunt Em,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+101,chunk_000::cluster_002,Aunt Em,the little old woman as her only friend,little old woman as her only friend,the old woman,old woman,62,0.2857142857142857,token_subset
+107,chunk_000::cluster_002,Aunt Em,the Witch of the North,witch of the north,a witch,witch,547,0.25,token_subset
+110,chunk_000::cluster_002,Aunt Em,the Witch,witch,a witch,witch,547,1.0,exact
+113,chunk_000::cluster_002,Aunt Em,The Witch,witch,a witch,witch,547,1.0,exact
+137,chunk_000::cluster_004,the house,the house where Dorothy was standing in the doorway,house where dorothy was standing in the doorway,Dorothy,dorothy,3394,0.125,token_subset
+146,chunk_000::cluster_004,the house,the house where the Wicked Witch,house where the wicked witch,the Wicked Witch,wicked witch,103,0.4,token_subset
+153,chunk_000::cluster_004,the house,the home of one of the richest Munchkins in the land,home of one of the richest munchkins in the land,the Munchkins,munchkins,118,0.125,token_subset
+276,chunk_000::cluster_012,Dorothy,"the girl, who was half frightened at facing a real witch",girl who was half frightened at facing a real witch,a witch,witch,547,0.1,token_subset
+501,chunk_000::cluster_019,Toto,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+502,chunk_000::cluster_019,Toto,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+507,chunk_000::cluster_019,Toto,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+510,chunk_000::cluster_019,Toto,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+511,chunk_000::cluster_019,Toto,the Witch of the East,witch of the east,a witch,witch,547,0.25,token_subset
+512,chunk_000::cluster_019,Toto,the Wicked Witch was who ruled here,wicked witch was who ruled here,the Wicked Witch,wicked witch,103,0.3333333333333333,token_subset
+513,chunk_000::cluster_019,Toto,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+514,chunk_000::cluster_019,Toto,the dead Witch,dead witch,a witch,witch,547,0.5,token_subset
+518,chunk_000::cluster_019,Toto,The Witch of the East,witch of the east,a witch,witch,547,0.25,token_subset
+527,chunk_000::cluster_019,Toto,the Witch of the East,witch of the east,a witch,witch,547,0.25,token_subset
+531,chunk_000::cluster_019,Toto,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+532,chunk_000::cluster_019,Toto,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+533,chunk_000::cluster_019,Toto,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+606,chunk_000::cluster_043,the Munchkins,the people,people,those people,those people,72,0.5,token_subset
+635,chunk_000::cluster_063,the West,"that country, where the Winkies live",that country where the winkies live,the Winkies,winkies,150,0.16666666666666666,token_subset
+1012,chunk_001::cluster_000,Dorothy,a Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1013,chunk_001::cluster_000,Dorothy,"a Scarecrow, placed high on a pole to keep the birds from the ripe corn",scarecrow placed high on a pole to keep the birds from the ripe corn,the Scarecrow,scarecrow,1259,0.07692307692307693,token_subset
+1017,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1024,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1032,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1035,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1042,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1052,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1060,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1093,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1119,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1124,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1136,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1137,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1139,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1152,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1168,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1174,chunk_001::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1180,chunk_001::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1187,chunk_001::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1258,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1261,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1262,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1265,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1268,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1276,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1281,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1286,chunk_001::cluster_000,Dorothy,"The Scarecrow, who was never tired",scarecrow who was never tired,the Scarecrow,scarecrow,1259,0.2,token_subset
+1290,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1299,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1306,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1313,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1324,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1348,chunk_001::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1350,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1356,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1357,chunk_001::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1384,chunk_001::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+1387,chunk_001::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1396,chunk_001::cluster_001,the Munchkins,the Witch,witch,a witch,witch,547,1.0,exact
+1407,chunk_001::cluster_001,the Munchkins,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+1412,chunk_001::cluster_001,the Munchkins,The little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+1421,chunk_001::cluster_001,the Munchkins,"the girl, who had begun to look upon the little old woman as her only friend",girl who had begun to look upon the little old woman as her only friend,the old woman,old woman,62,0.13333333333333333,token_subset
+1422,chunk_001::cluster_001,the Munchkins,the little old woman,little old woman,the old woman,old woman,62,0.6666666666666666,token_subset
+1428,chunk_001::cluster_001,the Munchkins,the Witch of the North,witch of the north,a witch,witch,547,0.25,token_subset
+1432,chunk_001::cluster_001,the Munchkins,the Witch,witch,a witch,witch,547,1.0,exact
+1437,chunk_001::cluster_001,the Munchkins,The Witch,witch,a witch,witch,547,1.0,exact
+1443,chunk_001::cluster_001,the Munchkins,a witch,witch,a witch,witch,547,1.0,exact
+1448,chunk_001::cluster_001,the Munchkins,the people,people,those people,those people,72,0.5,token_subset
+1449,chunk_001::cluster_001,the Munchkins,The people,people,those people,those people,72,0.5,token_subset
+1453,chunk_001::cluster_001,the Munchkins,the people,people,those people,those people,72,0.5,token_subset
+1458,chunk_001::cluster_001,the Munchkins,witch,witch,a witch,witch,547,1.0,exact
+1460,chunk_001::cluster_001,the Munchkins,a witch,witch,a witch,witch,547,1.0,exact
+1489,chunk_001::cluster_008,the other,his friend,his friend,his friends,his friends,121,0.9523809523809523,fuzzy
+1526,chunk_001::cluster_021,the Emerald City,"the dry, gray place you call Kansas",dry gray place you call kansas,Kansas,kansas,146,0.16666666666666666,token_subset
+1575,chunk_001::cluster_031,The road to the City of Emeralds,the home of one of the richest Munchkins in the land,home of one of the richest munchkins in the land,the Munchkins,munchkins,118,0.125,token_subset
+1958,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1965,chunk_002::cluster_000,the Scarecrow,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1986,chunk_002::cluster_000,the Scarecrow,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1990,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1996,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+1998,chunk_002::cluster_000,the Scarecrow,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2003,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2010,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2016,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2020,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2026,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2108,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2113,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2114,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2116,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2118,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2126,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2129,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2130,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2143,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2146,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2147,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2158,chunk_002::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2162,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2163,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2164,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2171,chunk_002::cluster_000,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2386,chunk_002::cluster_007,the world,"the dry, gray place you call Kansas",dry gray place you call kansas,Kansas,kansas,146,0.16666666666666666,token_subset
+2403,chunk_002::cluster_014,the old woman,the other,other,the others,others,63,0.9090909090909091,fuzzy
+2405,chunk_002::cluster_014,the old woman,the other,other,the others,others,63,0.9090909090909091,fuzzy
+2407,chunk_002::cluster_014,the old woman,his friend,his friend,his friends,his friends,121,0.9523809523809523,fuzzy
+2412,chunk_002::cluster_014,the old woman,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+2415,chunk_002::cluster_014,the old woman,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+2416,chunk_002::cluster_014,the old woman,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+2420,chunk_002::cluster_014,the old woman,The Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+2421,chunk_002::cluster_014,the old woman,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+2425,chunk_002::cluster_014,the old woman,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+2481,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2482,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2483,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2484,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2486,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2487,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2489,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2490,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2492,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2503,chunk_002::cluster_035,the Lion,Little Toto,little toto,Toto,toto,273,0.5,token_subset
+2509,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2513,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2542,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2596,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2615,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2621,chunk_002::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+2743,chunk_003::cluster_000,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2896,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2901,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2904,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2909,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2990,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2993,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+2994,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2995,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+2996,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3003,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3009,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3013,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3081,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3084,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3099,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3103,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3120,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3121,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3128,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3134,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3147,chunk_003::cluster_003,the Lion,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3155,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3159,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3171,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3184,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3202,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3217,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3221,chunk_003::cluster_003,the Lion,The Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3227,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3240,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3241,chunk_003::cluster_003,the Lion,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3248,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3252,chunk_003::cluster_003,the Lion,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3253,chunk_003::cluster_003,the Lion,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3256,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3257,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3260,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3261,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3265,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3268,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3284,chunk_003::cluster_003,the Lion,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3425,chunk_003::cluster_011,the old woman,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+3428,chunk_003::cluster_011,the old woman,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+3431,chunk_003::cluster_011,the old woman,the Wicked Witch of the East,wicked witch of the east,the Wicked Witch,wicked witch,103,0.4,token_subset
+3436,chunk_003::cluster_011,the old woman,The Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+3437,chunk_003::cluster_011,the old woman,the Wicked Witch,wicked witch,the Wicked Witch,wicked witch,103,1.0,exact
+3448,chunk_003::cluster_011,the old woman,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+3524,chunk_003::cluster_034,the river,the Emerald City,emerald city,the Emerald City,emerald city,263,1.0,exact
+3527,chunk_003::cluster_034,the river,the Emerald City,emerald city,the Emerald City,emerald city,263,1.0,exact
+3533,chunk_003::cluster_034,the river,the Emerald City,emerald city,the Emerald City,emerald city,263,1.0,exact
+3535,chunk_003::cluster_034,the river,the Emerald City,emerald city,the Emerald City,emerald city,263,1.0,exact
+3540,chunk_003::cluster_034,the river,the Emerald City,emerald city,the Emerald City,emerald city,263,1.0,exact
+3643,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3644,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3652,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3659,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3661,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3674,chunk_004::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3682,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3689,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3692,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3696,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3702,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3717,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3718,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3719,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3721,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3723,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3726,chunk_004::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3727,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3728,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3736,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3740,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3741,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3744,chunk_004::cluster_000,Dorothy,The Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3746,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3749,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3750,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3752,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3754,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3757,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3758,chunk_004::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3760,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3765,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3766,chunk_004::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3767,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3770,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3773,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3778,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3781,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3782,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3783,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3785,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3787,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3790,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3794,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3798,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3808,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3810,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3811,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3816,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3818,chunk_004::cluster_000,Dorothy,The Lion and the Woodman,lion and the woodman,the Lion,lion,1369,0.25,token_subset
+3819,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3824,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3830,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3831,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3849,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3854,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3860,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3863,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3870,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3874,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3875,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3876,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3879,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3882,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3884,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3889,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3892,chunk_004::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3896,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3897,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3900,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3904,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3909,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3914,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3931,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3934,chunk_004::cluster_000,Dorothy,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+3938,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3939,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3944,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+3948,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3950,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3956,chunk_004::cluster_000,Dorothy,these mice which call you Queen and are willing to obey you,these mice which call you queen and are willing to obey you,the mice,mice,58,0.09090909090909091,token_subset
+3963,chunk_004::cluster_000,Dorothy,the mice that attended her,mice that attended her,the mice,mice,58,0.25,token_subset
+3970,chunk_004::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+3971,chunk_004::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+3973,chunk_004::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+4054,chunk_004::cluster_001,the Lion,the poor Scarecrow,poor scarecrow,the Scarecrow,scarecrow,1259,0.5,token_subset
+4057,chunk_004::cluster_001,the Lion,the poor Scarecrow,poor scarecrow,the Scarecrow,scarecrow,1259,0.5,token_subset
+4071,chunk_004::cluster_001,the Lion,the poor Scarecrow,poor scarecrow,the Scarecrow,scarecrow,1259,0.5,token_subset
+4072,chunk_004::cluster_001,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+4076,chunk_004::cluster_001,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+4078,chunk_004::cluster_001,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+4088,chunk_004::cluster_001,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+4090,chunk_004::cluster_001,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+4256,chunk_004::cluster_003,the travelers,his friends,his friends,his friends,his friends,121,1.0,exact
+4557,chunk_005::cluster_000,Dorothy,"the girl, ""and these are my friends, the Tin Woodman",girl and these are my friends the tin woodman,the Tin Woodman,tin woodman,331,0.2222222222222222,token_subset
+4606,chunk_005::cluster_000,Dorothy,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+4620,chunk_005::cluster_000,Dorothy,the mice that attended her,mice that attended her,the mice,mice,58,0.25,token_subset
+4648,chunk_005::cluster_000,Dorothy,The Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+4663,chunk_005::cluster_000,Dorothy,A woman,woman,the old woman,old woman,62,0.5,token_subset
+4672,chunk_005::cluster_000,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+4676,chunk_005::cluster_000,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+4678,chunk_005::cluster_000,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+4679,chunk_005::cluster_000,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+4698,chunk_005::cluster_000,Dorothy,The woman,woman,the old woman,old woman,62,0.5,token_subset
+4701,chunk_005::cluster_000,Dorothy,The woman,woman,the old woman,old woman,62,0.5,token_subset
+4755,chunk_005::cluster_001,the travelers,his friends,his friends,his friends,his friends,121,1.0,exact
+4883,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4890,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4893,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4895,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4900,chunk_005::cluster_002,the Scarecrow,The Lion,lion,the Lion,lion,1369,1.0,exact
+4902,chunk_005::cluster_002,the Scarecrow,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+4915,chunk_005::cluster_002,the Scarecrow,the Stork with her great claws grabbed the Scarecrow,stork with her great claws grabbed the scarecrow,the Stork,stork,58,0.125,token_subset
+4918,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4924,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4938,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4940,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4946,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4950,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4956,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+4966,chunk_005::cluster_002,the Scarecrow,The Lion,lion,the Lion,lion,1369,1.0,exact
+4976,chunk_005::cluster_002,the Scarecrow,"the Cowardly Lion, who is asleep in the poppy bed",cowardly lion who is asleep in the poppy bed,the Lion,lion,1369,0.1111111111111111,token_subset
+4977,chunk_005::cluster_002,the Scarecrow,A Lion,lion,the Lion,lion,1369,1.0,exact
+4980,chunk_005::cluster_002,the Scarecrow,this Lion,this lion,the Lion,lion,1369,0.5,token_subset
+4990,chunk_005::cluster_002,the Scarecrow,the Scarecrow to the Tin Woodman,scarecrow to the tin woodman,the Tin Woodman,tin woodman,331,0.4,token_subset
+4991,chunk_005::cluster_002,the Scarecrow,a truck that will carry the Lion,truck that will carry the lion,the Lion,lion,1369,0.16666666666666666,token_subset
+4992,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5005,chunk_005::cluster_002,the Scarecrow,the place where the Lion lay asleep,place where the lion lay asleep,the Lion,lion,1369,0.16666666666666666,token_subset
+5006,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5007,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5012,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5015,chunk_005::cluster_002,the Scarecrow,the big Lion,big lion,the Lion,lion,1369,0.5,token_subset
+5018,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5021,chunk_005::cluster_002,the Scarecrow,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5035,chunk_005::cluster_002,the Scarecrow,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5040,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5042,chunk_005::cluster_002,the Scarecrow,the great Lion,great lion,the Lion,lion,1369,0.5,token_subset
+5045,chunk_005::cluster_002,the Scarecrow,that great Lion,that great lion,the Lion,lion,1369,0.3333333333333333,token_subset
+5046,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5051,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5058,chunk_005::cluster_002,the Scarecrow,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5060,chunk_005::cluster_002,the Scarecrow,The Lion,lion,the Lion,lion,1369,1.0,exact
+5062,chunk_005::cluster_002,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+5185,chunk_005::cluster_009,the road,the road of yellow brick that led to the Emerald City,road of yellow brick that led to the emerald city,the Emerald City,emerald city,263,0.2,token_subset
+5434,chunk_005::cluster_058,the man,a little man about the same size as the Munchkins,little man about the same size as the munchkins,the Munchkins,munchkins,118,0.125,token_subset
+5486,chunk_006::cluster_001,Dorothy,the mice that attended her,mice that attended her,the mice,mice,58,0.25,token_subset
+5512,chunk_006::cluster_001,Dorothy,The Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+5527,chunk_006::cluster_001,Dorothy,A woman,woman,the old woman,old woman,62,0.5,token_subset
+5536,chunk_006::cluster_001,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+5540,chunk_006::cluster_001,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+5542,chunk_006::cluster_001,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+5543,chunk_006::cluster_001,Dorothy,the woman,woman,the old woman,old woman,62,0.5,token_subset
+5563,chunk_006::cluster_001,Dorothy,The woman,woman,the old woman,old woman,62,0.5,token_subset
+5566,chunk_006::cluster_001,Dorothy,The woman,woman,the old woman,old woman,62,0.5,token_subset
+5762,chunk_006::cluster_005,Oz,a truck that will carry the Lion,truck that will carry the lion,the Lion,lion,1369,0.16666666666666666,token_subset
+5763,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5764,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5765,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5767,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5770,chunk_006::cluster_005,Oz,the big Lion,big lion,the Lion,lion,1369,0.5,token_subset
+5772,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5774,chunk_006::cluster_005,Oz,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5786,chunk_006::cluster_005,Oz,"him of the field mice, and how they had generously saved him",him of the field mice and how they had generously saved him,the mice,mice,58,0.09090909090909091,token_subset
+5788,chunk_006::cluster_005,Oz,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5793,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5796,chunk_006::cluster_005,Oz,the great Lion,great lion,the Lion,lion,1369,0.5,token_subset
+5797,chunk_006::cluster_005,Oz,that great Lion,that great lion,the Lion,lion,1369,0.3333333333333333,token_subset
+5798,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5803,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5838,chunk_006::cluster_005,Oz,the Cowardly Lion,cowardly lion,the Lion,lion,1369,0.5,token_subset
+5851,chunk_006::cluster_005,Oz,The Lion,lion,the Lion,lion,1369,1.0,exact
+5852,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5867,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5868,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+5886,chunk_006::cluster_005,Oz,The Lion,lion,the Lion,lion,1369,1.0,exact
+5940,chunk_006::cluster_005,Oz,the Lion,lion,the Lion,lion,1369,1.0,exact
+6106,chunk_006::cluster_008,the people,the others,others,the others,others,63,1.0,exact
+6281,chunk_006::cluster_036,the man,the great Head Dorothy had told him of,great head dorothy had told him of,Dorothy,dorothy,3394,0.14285714285714285,token_subset
+6389,chunk_006::cluster_101,the Wicked Witch of the West,aunt,aunt,Aunt Em,aunt em,142,0.5,token_subset
+6505,chunk_007::cluster_001,the Scarecrow,the soldier with the green whiskers led the Lion,soldier with the green whiskers led the lion,the Lion,lion,1369,0.14285714285714285,token_subset
+6625,chunk_007::cluster_002,Oz,the great Head Dorothy had told him of,great head dorothy had told him of,Dorothy,dorothy,3394,0.14285714285714285,token_subset
+6845,chunk_007::cluster_008,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+6847,chunk_007::cluster_008,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+6858,chunk_007::cluster_008,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+6861,chunk_007::cluster_008,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+6997,chunk_007::cluster_012,the streets,the streets of the Emerald City,streets of the emerald city,the Emerald City,emerald city,263,0.4,token_subset
+7000,chunk_007::cluster_012,the streets,the streets of the Emerald City,streets of the emerald city,the Emerald City,emerald city,263,0.4,token_subset
+7077,chunk_007::cluster_028,his friends,the others,others,the others,others,63,1.0,exact
+7078,chunk_007::cluster_028,his friends,These people,these people,those people,those people,72,0.9166666666666666,fuzzy
+7382,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7388,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7392,chunk_008::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7396,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7397,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7398,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7400,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7410,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7412,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7413,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7424,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7427,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7430,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7440,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7442,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7452,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7456,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7458,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7461,chunk_008::cluster_000,Dorothy,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7469,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7476,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7477,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7483,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7484,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7486,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7492,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7496,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7497,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7500,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7505,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7513,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7517,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7523,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7525,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7526,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7532,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7533,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7537,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7538,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7542,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7544,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7545,chunk_008::cluster_000,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+7548,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7549,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7556,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7561,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7579,chunk_008::cluster_000,Dorothy,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7580,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7600,chunk_008::cluster_000,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+7601,chunk_008::cluster_000,Dorothy,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+7861,chunk_008::cluster_001,the Witch,the Lion did not have to do as the Witch,lion did not have to do as the witch,the Lion,lion,1369,0.1111111111111111,token_subset
+7863,chunk_008::cluster_001,the Witch,the woman,woman,the old woman,old woman,62,0.5,token_subset
+7953,chunk_008::cluster_009,the Witch,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+7954,chunk_008::cluster_009,the Witch,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+7968,chunk_008::cluster_009,the Witch,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+7970,chunk_008::cluster_011,her friends,his friends,his friends,his friends,his friends,121,1.0,exact
+7972,chunk_008::cluster_011,her friends,his friends,his friends,his friends,his friends,121,1.0,exact
+7976,chunk_008::cluster_011,her friends,his friends,his friends,his friends,his friends,121,1.0,exact
+8004,chunk_008::cluster_013,the soldier with the green whiskers,The leader of the Winged Monkeys,leader of the winged monkeys,the Winged Monkeys,winged monkeys,107,0.4,token_subset
+8008,chunk_008::cluster_013,the soldier with the green whiskers,the others,others,the others,others,63,1.0,exact
+8036,chunk_008::cluster_017,the castle,the Witch's castle,witch castle,a witch,witch,547,0.5,token_subset
+8037,chunk_008::cluster_017,the castle,the castle of the Wicked Witch,castle of the wicked witch,the Wicked Witch,wicked witch,103,0.4,token_subset
+8051,chunk_008::cluster_018,the Lion,a more dreadful-looking monster,more dreadful looking monster,the monster,monster,70,0.25,token_subset
+8121,chunk_008::cluster_018,the Lion,the Witch to the Lion,witch to the lion,a witch,witch,547,0.25,token_subset
+8305,chunk_008::cluster_072,their country,the land of the Winkies,land of the winkies,the Winkies,winkies,150,0.25,token_subset
+8559,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8563,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8564,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8565,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8567,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8568,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8569,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8572,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8580,chunk_009::cluster_002,the Scarecrow,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8582,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8585,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8586,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8589,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8593,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8596,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8601,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8611,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8614,chunk_009::cluster_002,the Scarecrow,the Winged Monkeys had tossed the Scarecrow,winged monkeys had tossed the scarecrow,the Winged Monkeys,winged monkeys,107,0.3333333333333333,token_subset
+8616,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8618,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8620,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8622,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8626,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8632,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8636,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8638,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8645,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8652,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8654,chunk_009::cluster_002,the Scarecrow,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+8656,chunk_009::cluster_002,the Scarecrow,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+8861,chunk_009::cluster_006,the Witch,the Lion did not have to do as the Witch,lion did not have to do as the witch,the Lion,lion,1369,0.1111111111111111,token_subset
+8863,chunk_009::cluster_006,the Witch,the woman,woman,the old woman,old woman,62,0.5,token_subset
+8936,chunk_009::cluster_006,the Witch,the old woman,old woman,the old woman,old woman,62,1.0,exact
+9006,chunk_009::cluster_008,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+9132,chunk_009::cluster_025,the King,The leader of the Winged Monkeys,leader of the winged monkeys,the Winged Monkeys,winged monkeys,107,0.4,token_subset
+9136,chunk_009::cluster_025,the King,the others,others,the others,others,63,1.0,exact
+9166,chunk_009::cluster_028,the castle,the Witch's castle,witch castle,a witch,witch,547,0.5,token_subset
+9167,chunk_009::cluster_028,the castle,the castle of the Wicked Witch,castle of the wicked witch,the Wicked Witch,wicked witch,103,0.4,token_subset
+9180,chunk_009::cluster_028,the castle,the castle of the Wicked Witch,castle of the wicked witch,the Wicked Witch,wicked witch,103,0.4,token_subset
+9232,chunk_009::cluster_051,they,a number of the Winkies who looked as if they knew the most,number of the winkies who looked as if they knew the most,the Winkies,winkies,150,0.09090909090909091,token_subset
+9284,chunk_009::cluster_082,the Queen,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+9293,chunk_009::cluster_082,the Queen,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+9338,chunk_010::cluster_000,the Witch,the old woman,old woman,the old woman,old woman,62,1.0,exact
+9620,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9637,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9638,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9640,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9641,chunk_010::cluster_010,the Winkies,the Monkeys,monkeys,the Winged Monkeys,winged monkeys,107,0.5,token_subset
+9642,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9644,chunk_010::cluster_010,the Winkies,the Winged Monkeys which lived in the forest near Gayelette's palace,winged monkeys which lived in the forest near gayelette palace,the Winged Monkeys,winged monkeys,107,0.2,token_subset
+9645,chunk_010::cluster_010,the Winkies,all the Winged Monkeys,all the winged monkeys,the Winged Monkeys,winged monkeys,107,0.5,token_subset
+9649,chunk_010::cluster_010,the Winkies,the Monkeys,monkeys,the Winged Monkeys,winged monkeys,107,0.5,token_subset
+9653,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9656,chunk_010::cluster_010,the Winkies,the Monkeys,monkeys,the Winged Monkeys,winged monkeys,107,0.5,token_subset
+9658,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9659,chunk_010::cluster_010,the Winkies,the Winged Monkeys,winged monkeys,the Winged Monkeys,winged monkeys,107,1.0,exact
+9801,chunk_010::cluster_015,they,a number of the Winkies who looked as if they knew the most,number of the winkies who looked as if they knew the most,the Winkies,winkies,150,0.09090909090909091,token_subset
+9841,chunk_010::cluster_016,the Tin Woodman,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+9902,chunk_010::cluster_026,the Scarecrow,Toto,toto,Toto,toto,273,1.0,exact
+9910,chunk_010::cluster_026,the Scarecrow,Toto,toto,Toto,toto,273,1.0,exact
+9919,chunk_010::cluster_026,the Scarecrow,Toto,toto,Toto,toto,273,1.0,exact
+9929,chunk_010::cluster_026,the Scarecrow,Toto,toto,Toto,toto,273,1.0,exact
+10077,chunk_010::cluster_048,Gayelette,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+10086,chunk_010::cluster_048,Gayelette,the Queen of the Mice,queen of the mice,the mice,mice,58,0.25,token_subset
+10089,chunk_010::cluster_048,Gayelette,"a beautiful princess, who was also a powerful sorceress",beautiful princess who was also a powerful sorceress,a princess,princess,108,0.125,token_subset
+10112,chunk_010::cluster_048,Gayelette,The princess,princess,a princess,princess,108,1.0,exact
+10118,chunk_010::cluster_048,Gayelette,the princess,princess,a princess,princess,108,1.0,exact
+10153,chunk_010::cluster_060,your people,the people,people,those people,those people,72,0.5,token_subset
+10306,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10307,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10308,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10320,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10354,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10357,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10364,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10365,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10369,chunk_011::cluster_000,Oz,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10383,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10386,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10399,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10405,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10410,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10445,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10448,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10451,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10521,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10524,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10543,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10551,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10557,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10581,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10591,chunk_011::cluster_000,Oz,a Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10598,chunk_011::cluster_000,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10602,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10609,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10618,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10620,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10627,chunk_011::cluster_000,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10641,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10646,chunk_011::cluster_000,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+10649,chunk_011::cluster_000,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+10659,chunk_011::cluster_000,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+10662,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10667,chunk_011::cluster_000,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+10678,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10694,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10695,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10699,chunk_011::cluster_000,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10700,chunk_011::cluster_000,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+10705,chunk_011::cluster_000,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+10710,chunk_011::cluster_000,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+10851,chunk_011::cluster_002,Dorothy,The princess,princess,a princess,princess,108,1.0,exact
+10858,chunk_011::cluster_002,Dorothy,the princess,princess,a princess,princess,108,1.0,exact
+10869,chunk_011::cluster_002,Dorothy,the Lion,lion,the Lion,lion,1369,1.0,exact
+10872,chunk_011::cluster_002,Dorothy,the Lion,lion,the Lion,lion,1369,1.0,exact
+11293,chunk_012::cluster_002,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11294,chunk_012::cluster_002,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11309,chunk_012::cluster_002,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11312,chunk_012::cluster_002,Dorothy,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11313,chunk_012::cluster_002,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11372,chunk_012::cluster_002,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11404,chunk_012::cluster_002,Dorothy,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11483,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11486,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11505,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11540,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11550,chunk_012::cluster_003,Oz,a Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11557,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11561,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11568,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11577,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11579,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11586,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11602,chunk_012::cluster_003,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11605,chunk_012::cluster_003,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11615,chunk_012::cluster_003,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11618,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11621,chunk_012::cluster_003,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11624,chunk_012::cluster_003,Oz,the Woodman,woodman,the Tin Woodman,tin woodman,331,0.5,token_subset
+11635,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11651,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11655,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11660,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11665,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11717,chunk_012::cluster_003,Oz,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11723,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11743,chunk_012::cluster_003,Oz,the Wise Scarecrow,wise scarecrow,the Scarecrow,scarecrow,1259,0.5,token_subset
+11746,chunk_012::cluster_003,Oz,The Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11756,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11761,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11765,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11774,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11777,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11778,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11783,chunk_012::cluster_003,Oz,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11787,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11790,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11791,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11793,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11795,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11798,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11806,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11808,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11812,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11820,chunk_012::cluster_003,Oz,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+11821,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11823,chunk_012::cluster_003,Oz,the Tin Woodman,tin woodman,the Tin Woodman,tin woodman,331,1.0,exact
+11849,chunk_012::cluster_009,the people,his friends,his friends,his friends,his friends,121,1.0,exact
+11850,chunk_012::cluster_009,the people,his friends,his friends,his friends,his friends,121,1.0,exact
+11975,chunk_012::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+11991,chunk_012::cluster_035,the Lion,Glinda,glinda,Glinda,glinda,158,1.0,exact
+11992,chunk_012::cluster_035,the Lion,Glinda,glinda,Glinda,glinda,158,1.0,exact
+11993,chunk_012::cluster_035,the Lion,The Witch of the South,witch of the south,a witch,witch,547,0.25,token_subset
+11997,chunk_012::cluster_035,the Lion,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12001,chunk_012::cluster_035,the Lion,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12004,chunk_012::cluster_035,the Lion,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12012,chunk_012::cluster_035,the Lion,Toto,toto,Toto,toto,273,1.0,exact
+12452,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12471,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12496,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12500,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12512,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12531,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12539,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12541,chunk_013::cluster_001,the Scarecrow,The Lion,lion,the Lion,lion,1369,1.0,exact
+12548,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12557,chunk_013::cluster_001,the Scarecrow,The Lion,lion,the Lion,lion,1369,1.0,exact
+12569,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12570,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12579,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12583,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12587,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12589,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12591,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12595,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12599,chunk_013::cluster_001,the Scarecrow,the Lion,lion,the Lion,lion,1369,1.0,exact
+12653,chunk_013::cluster_002,the travelers,the others,others,the others,others,63,1.0,exact
+12787,chunk_013::cluster_006,the people,the others,others,the others,others,63,1.0,exact
+12805,chunk_013::cluster_006,the people,the others,others,the others,others,63,1.0,exact
+12933,chunk_013::cluster_031,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12934,chunk_013::cluster_031,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12935,chunk_013::cluster_031,the Princess,The Witch of the South,witch of the south,a witch,witch,547,0.25,token_subset
+12939,chunk_013::cluster_031,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12943,chunk_013::cluster_031,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+12946,chunk_013::cluster_031,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+13101,chunk_013::cluster_084,the Clown,the monster,monster,the monster,monster,70,1.0,exact
+13139,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13146,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13150,chunk_014::cluster_000,the Lion,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13153,chunk_014::cluster_000,the Lion,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13155,chunk_014::cluster_000,the Lion,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13160,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13161,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13162,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13164,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13167,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13176,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13182,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13190,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13230,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13232,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13233,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13234,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13238,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13241,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13245,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13253,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13256,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13266,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13268,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13279,chunk_014::cluster_000,the Lion,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13286,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13295,chunk_014::cluster_000,the Lion,"the soft, stuffed body of the Scarecrow",soft stuffed body of the scarecrow,the Scarecrow,scarecrow,1259,0.16666666666666666,token_subset
+13296,chunk_014::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+13325,chunk_014::cluster_001,the travelers,the others,others,the others,others,63,1.0,exact
+13370,chunk_014::cluster_001,the travelers,the others,others,the others,others,63,1.0,exact
+13381,chunk_014::cluster_001,the travelers,"the King, and at once the Winged Monkeys caught the four travelers",king and at once the winged monkeys caught the four travelers,the Winged Monkeys,winged monkeys,107,0.2,token_subset
+13397,chunk_014::cluster_001,the travelers,the others,others,the others,others,63,1.0,exact
+13732,chunk_014::cluster_027,the Princess,Glinda,glinda,Glinda,glinda,158,1.0,exact
+13926,chunk_014::cluster_073,the country of the Quadlings,the country of the Winkies,country of the winkies,the Winkies,winkies,150,0.25,token_subset
+13929,chunk_014::cluster_073,the country of the Quadlings,the land of the Winkies,land of the winkies,the Winkies,winkies,150,0.25,token_subset
+13941,chunk_014::cluster_081,Glinda,the woman,woman,the old woman,old woman,62,0.5,token_subset
+13954,chunk_014::cluster_081,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+13955,chunk_014::cluster_081,Glinda,the Witch Glinda,witch glinda,a witch,witch,547,0.5,token_subset
+13964,chunk_014::cluster_081,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+13978,chunk_014::cluster_081,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+13986,chunk_014::cluster_081,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+13990,chunk_014::cluster_081,Glinda,the Tin Woodman and the Lion now thanked the Good Witch,tin woodman and the lion now thanked the good witch,the Tin Woodman,tin woodman,331,0.2222222222222222,token_subset
+13991,chunk_014::cluster_081,Glinda,the Lion now thanked the Good Witch,lion now thanked the good witch,the Lion,lion,1369,0.16666666666666666,token_subset
+13992,chunk_014::cluster_081,Glinda,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+13998,chunk_014::cluster_081,Glinda,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+14006,chunk_014::cluster_083,the Castle,the Castle of Glinda,castle of glinda,Glinda,glinda,158,0.3333333333333333,token_subset
+14091,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14093,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14094,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14095,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14099,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14102,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14106,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14111,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14114,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14124,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14126,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14137,chunk_015::cluster_000,the Lion,The Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14144,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14153,chunk_015::cluster_000,the Lion,"the soft, stuffed body of the Scarecrow",soft stuffed body of the scarecrow,the Scarecrow,scarecrow,1259,0.16666666666666666,token_subset
+14154,chunk_015::cluster_000,the Lion,the Scarecrow,scarecrow,the Scarecrow,scarecrow,1259,1.0,exact
+14191,chunk_015::cluster_001,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+14192,chunk_015::cluster_001,Glinda,the Witch Glinda,witch glinda,a witch,witch,547,0.5,token_subset
+14201,chunk_015::cluster_001,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+14202,chunk_015::cluster_001,Glinda,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+14217,chunk_015::cluster_001,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+14225,chunk_015::cluster_001,Glinda,the Witch,witch,a witch,witch,547,1.0,exact
+14229,chunk_015::cluster_001,Glinda,the Tin Woodman and the Lion now thanked the Good Witch,tin woodman and the lion now thanked the good witch,the Tin Woodman,tin woodman,331,0.2222222222222222,token_subset
+14230,chunk_015::cluster_001,Glinda,the Lion now thanked the Good Witch,lion now thanked the good witch,the Lion,lion,1369,0.16666666666666666,token_subset
+14231,chunk_015::cluster_001,Glinda,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+14237,chunk_015::cluster_001,Glinda,your Aunt Em,your aunt em,Aunt Em,aunt em,142,0.6666666666666666,token_subset
+14238,chunk_015::cluster_001,Glinda,the Good Witch,good witch,a witch,witch,547,0.5,token_subset
+14243,chunk_015::cluster_001,Glinda,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+14244,chunk_015::cluster_001,Glinda,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+14250,chunk_015::cluster_001,Glinda,Aunt Em,aunt em,Aunt Em,aunt em,142,1.0,exact
+14403,chunk_015::cluster_016,the four travelers,the others,others,the others,others,63,1.0,exact
+14414,chunk_015::cluster_016,the four travelers,"the King, and at once the Winged Monkeys caught the four travelers",king and at once the winged monkeys caught the four travelers,the Winged Monkeys,winged monkeys,107,0.2,token_subset
+14430,chunk_015::cluster_016,the four travelers,the others,others,the others,others,63,1.0,exact
+14520,chunk_015::cluster_037,the farmer's wife,the woman,woman,the old woman,old woman,62,0.5,token_subset
+14537,chunk_015::cluster_040,the Castle,the Castle of Glinda,castle of glinda,Glinda,glinda,158,0.3333333333333333,token_subset
