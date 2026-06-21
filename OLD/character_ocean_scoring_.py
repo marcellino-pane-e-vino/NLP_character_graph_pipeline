@@ -10,6 +10,13 @@ import sqlite3
 import time
 from typing import Any, Callable, Iterable, Optional
 
+from ocean.prompts import (
+    OG_OCEAN_LABELS,
+    OCEAN_LABELS_V2_CONSERVATIVE,
+    OCEAN_LABELS_V2_EVIDENCE_CALIBRATED,
+    OCEAN_LABELS_V2_NARRATIVE_INFERENCE
+)
+
 import torch
 from transformers import pipeline
 
@@ -82,90 +89,9 @@ class ContextConfig:
 
 # Each trait has competing labels: high-side, low-side, no-evidence.
 # These can be edited without touching batching, caching, doc extraction, or aggregation.
-OCEAN_LABELS: dict[str, dict[str, str]] = {
-    "openness": {
-        "positive": (
-            "high openness: curiosity, imagination, exploration, intellectual interest, "
-            "openness to new experiences"
-        ),
-        "negative": (
-            "low openness: rigidity, lack of curiosity, conventionality, "
-            "resistance to new experiences"
-        ),
-        "neutral": (
-            "no clear evidence about openness, curiosity, imagination, or exploration"
-        ),
-    },
-    "conscientiousness": {
-        "positive": (
-            "high conscientiousness: carefulness, planning, responsibility, "
-            "discipline, persistence, duty"
-        ),
-        "negative": (
-            "low conscientiousness: carelessness, impulsiveness, irresponsibility, "
-            "disorganization, lack of planning"
-        ),
-        "neutral": (
-            "no clear evidence about conscientiousness, carefulness, planning, or responsibility"
-        ),
-    },
-    "extraversion": {
-        "positive": (
-            "high extraversion: sociability, friendliness, outgoing social engagement, "
-            "enthusiasm, enjoyment of interaction"
-        ),
-        "negative": (
-            "low extraversion: social withdrawal, reserve, avoidance of interaction, "
-            "quietness, lack of social engagement"
-        ),
-        "neutral": (
-            "no clear evidence about extraversion, sociability, assertiveness, or outgoing energy"
-        ),
-    },
-    "agreeableness": {
-        "positive": (
-            "high agreeableness: kindness, compassion, cooperation, helpfulness, "
-            "trust, concern for others"
-        ),
-        "negative": (
-            "low agreeableness: hostility, selfishness, cruelty, refusal to help, "
-            "uncooperative behavior"
-        ),
-        "neutral": (
-            "no clear evidence about agreeableness, kindness, compassion, cooperation, or hostility"
-        ),
-    },
-    "neuroticism": {
-        "positive": (
-            "high neuroticism: fear, anxiety, sadness, distress, emotional instability, worry"
-        ),
-        "negative": (
-            "low neuroticism: calmness, confidence, emotional stability, composure, lack of distress"
-        ),
-        "neutral": (
-            "no clear evidence about neuroticism, fear, anxiety, sadness, worry, or emotional stability"
-        ),
-    },
-}
+OCEAN_LABELS: OCEAN_LABELS_V2_NARRATIVE_INFERENCE
 
 
-# Optional future direction: trait decomposition.
-# Not used by default; included as a simple extension point, not as a second framework.
-DECOMPOSED_OCEAN_LABELS: dict[str, dict[str, tuple[str, ...] | str]] = {
-    "agreeableness": {
-        "positive": (
-            "kind toward others",
-            "helpful or cooperative toward others",
-            "compassionate or concerned for others",
-        ),
-        "negative": (
-            "hostile toward others",
-            "selfish or uncooperative toward others",
-            "cruel or indifferent to others",
-        ),
-        "neutral": "no clear evidence about agreeableness or hostility",
-    },
-}
 
 
 # =============================================================================
