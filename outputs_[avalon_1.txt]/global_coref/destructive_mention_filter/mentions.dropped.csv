@@ -1,0 +1,109 @@
+row_index,local_cluster_uid,cluster_canonical_name,mention_text,mention_key,matched_anchor,matched_anchor_key,matched_anchor_n_mentions,match_score,match_method
+53,chunk_000::cluster_000,Igraine,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+54,chunk_000::cluster_000,Igraine,Morgaine who was in later days called Morgan le Fay,morgaine who was in later days called morgan le fay,Morgaine,morgaine,57,0.1,token_subset
+63,chunk_000::cluster_000,Igraine,Gorlois's bride,gorlois bride,Gorlois,gorlois,115,0.5,token_subset
+304,chunk_000::cluster_001,priestess,priestess,priestess,the priests,priests,78,0.875,fuzzy
+313,chunk_000::cluster_006,their God,the priests of the White Christ,priests of the white christ,the priests,priests,78,0.2,token_subset
+540,chunk_000::cluster_056,priestess,priestess,priestess,the priests,priests,78,0.875,fuzzy
+718,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+723,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+731,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+733,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+741,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+745,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+746,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+756,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+760,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+761,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+762,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+770,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+773,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+815,chunk_000::cluster_132,Viviane,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+824,chunk_000::cluster_132,Viviane,Morgause,morgause,Morgause,morgause,183,1.0,exact
+870,chunk_000::cluster_158,Ettarr,Lady of Avalon,lady of avalon,Avalon,avalon,23,0.3333333333333333,token_subset
+1011,chunk_000::cluster_257,a priestess,a priestess,priestess,the priests,priests,78,0.875,fuzzy
+1027,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1031,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1046,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1058,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1061,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1064,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1073,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1074,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1075,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1078,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1084,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1092,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1100,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1101,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1103,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1107,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1109,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1114,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1115,chunk_001::cluster_000,Morgause,Lady of Avalon,lady of avalon,Avalon,avalon,23,0.3333333333333333,token_subset
+1123,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1124,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1127,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1130,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1131,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1133,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1134,chunk_001::cluster_000,Morgause,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1136,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1160,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1166,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1169,chunk_001::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+1195,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1318,chunk_001::cluster_003,Igraine,V iviane,v iviane,Viviane,viviane,117,0.9333333333333333,fuzzy
+1350,chunk_001::cluster_003,Igraine,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+1368,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1374,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1378,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1381,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1382,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1383,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1384,chunk_001::cluster_003,Igraine,The priestess,priestess,the priests,priests,78,0.875,fuzzy
+1387,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1393,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1404,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1410,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1417,chunk_001::cluster_003,Igraine,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+1430,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1433,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1438,chunk_001::cluster_003,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+1478,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1480,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1481,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1482,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1490,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1496,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1498,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1503,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1507,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1525,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1531,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1554,chunk_001::cluster_018,the Merlin,Father,father,his father,his father,24,0.5,token_subset
+1578,chunk_001::cluster_018,the Merlin,Gorlois,gorlois,Gorlois,gorlois,115,1.0,exact
+1726,chunk_001::cluster_111,a priestess,a priestess,priestess,the priests,priests,78,0.875,fuzzy
+1884,chunk_001::cluster_160,a priestess,a priestess,priestess,the priests,priests,78,0.875,fuzzy
+2093,chunk_002::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+2098,chunk_002::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+2101,chunk_002::cluster_000,Morgause,Morgaine,morgaine,Morgaine,morgaine,57,1.0,exact
+2107,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2113,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2116,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2117,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2118,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2119,chunk_002::cluster_001,Igraine,The priestess,priestess,the priests,priests,78,0.875,fuzzy
+2123,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2129,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2140,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2146,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2153,chunk_002::cluster_001,Igraine,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+2166,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2169,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2174,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2179,chunk_002::cluster_001,Igraine,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+2183,chunk_002::cluster_001,Igraine,Viviane,viviane,Viviane,viviane,117,1.0,exact
+2201,chunk_002::cluster_001,Igraine,the priestess,priestess,the priests,priests,78,0.875,fuzzy
+2280,chunk_002::cluster_025,the Merlin,Father,father,his father,his father,24,0.5,token_subset
+2460,chunk_002::cluster_051,a priestess,a priestess,priestess,the priests,priests,78,0.875,fuzzy

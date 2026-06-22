@@ -1,0 +1,52 @@
+{
+  "chunk_size": 6000,
+  "max_expanded_chunk_tokens": 6000,
+  "overlap_sentences": 60,
+  "specs": [
+    {
+      "chunk_id": "chunk_000",
+      "chunk_index": 0,
+      "core_end": 4385,
+      "core_start": 0,
+      "global_end": 5995,
+      "global_start": 0,
+      "left_overlap_end": 0,
+      "left_overlap_start": 0,
+      "n_tokens": 5995,
+      "right_overlap_end": 5995,
+      "right_overlap_start": 4385,
+      "sentence_end": 156,
+      "sentence_start": 0
+    },
+    {
+      "chunk_id": "chunk_001",
+      "chunk_index": 1,
+      "core_end": 7445,
+      "core_start": 4385,
+      "global_end": 8820,
+      "global_start": 2858,
+      "left_overlap_end": 4385,
+      "left_overlap_start": 2858,
+      "n_tokens": 5962,
+      "right_overlap_end": 8820,
+      "right_overlap_start": 7445,
+      "sentence_end": 279,
+      "sentence_start": 156
+    },
+    {
+      "chunk_id": "chunk_002",
+      "chunk_index": 2,
+      "core_end": 9180,
+      "core_start": 7445,
+      "global_end": 9180,
+      "global_start": 6064,
+      "left_overlap_end": 7445,
+      "left_overlap_start": 6064,
+      "n_tokens": 3116,
+      "right_overlap_end": 9180,
+      "right_overlap_start": 9180,
+      "sentence_end": 359,
+      "sentence_start": 279
+    }
+  ]
+}

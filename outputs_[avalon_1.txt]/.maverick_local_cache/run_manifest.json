@@ -1,0 +1,56 @@
+{
+  "artifact_type": "local_cluster_marathon_cache",
+  "chunking": {
+    "chunk_size": 6000,
+    "chunk_size_semantics": "expanded_chunk_tokens_including_overlap",
+    "chunk_unit": "sentence_aligned_spacy_tokens",
+    "max_expanded_chunk_tokens": 6000,
+    "n_chunks": 3,
+    "overlap_sentences": 60,
+    "sentence_aligned": true
+  },
+  "created_at": "2026-06-22T22:38:41.044680+00:00",
+  "document": {
+    "document_id": "avalon_1",
+    "sentence_count": 359,
+    "text_hash": "sha256:90813c4f714084250caa27a21810f621041dc8cb4e68ffcd4739df129a5f9e06",
+    "token_count": 9180
+  },
+  "fingerprints": {
+    "chunk_plan_fingerprint": "sha256:0161cbf81e61a78a42bfc73a3077b2e7f34dc9eb664754b1ffc0ec0180d1f5c5",
+    "maverick_config_fingerprint": "sha256:8924474381be4d7c1f649c9f335972d68fcdce893e34a8689a2af7a4bd44f833",
+    "run_fingerprint": "sha256:ed1cafadf7cbea4205d14e635c8b55fdf58d665b4e2568d488a7261f4bbe2d65"
+  },
+  "maverick": {
+    "chunk_size": 6000,
+    "chunk_size_semantics": "expanded_chunk_tokens_including_overlap",
+    "clean_mentions": true,
+    "device": "cuda:0",
+    "drop_cross_sentence_mentions": true,
+    "hf_name_or_path": "C:\\Users\\Bobby\\.cache\\huggingface\\hub\\models--sapienzanlp--maverick-mes-litbank\\snapshots\\2cd789680357a6c1cddd36c95e022c4fef7e867b",
+    "max_expanded_chunk_tokens": 6000,
+    "max_mention_tokens": 20,
+    "overlap_sentences": 60,
+    "runtime_profile": {
+      "cpu_load_first": true,
+      "cuda_available": true,
+      "default_chunk_size": 6000,
+      "default_overlap_sentences": 60,
+      "device": "cuda:0",
+      "env": "Local",
+      "gpu_count": 1,
+      "gpu_name": "NVIDIA RTX A2000 8GB Laptop GPU",
+      "kind": "local_cuda",
+      "p100_fallback_to_float32": false,
+      "precision_policy": "auto"
+    },
+    "singletons": true
+  },
+  "offsets": {
+    "global_span_convention": "half_open",
+    "includes_space_tokens": true,
+    "local_span_convention": "half_open",
+    "unit": "spacy_token_index"
+  },
+  "schema_version": "2.0.0"
+}

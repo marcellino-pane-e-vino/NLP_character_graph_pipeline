@@ -1,0 +1,9 @@
+{"timestamp": "2026-06-22T22:38:41.044680+00:00", "event": "cache_initialized", "cache_dir": "c:\\Users\\Bobby\\Documents\\GitHub\\NLP_character_graph_pipeline\\outputs_[avalon_1.txt]\\.maverick_local_cache"}
+{"timestamp": "2026-06-22T22:38:41.044680+00:00", "event": "chunk_started", "chunk_id": "chunk_000", "chunk_index": 0, "expanded_tokens": 5995}
+{"timestamp": "2026-06-22T22:40:36.866610+00:00", "event": "chunk_committed", "chunk_id": "chunk_000", "chunk_index": 0, "n_clusters": 258, "n_mentions": 1015}
+{"timestamp": "2026-06-22T22:40:37.306125+00:00", "event": "chunk_started", "chunk_id": "chunk_001", "chunk_index": 1, "expanded_tokens": 5962}
+{"timestamp": "2026-06-22T22:42:35.190846+00:00", "event": "chunk_committed", "chunk_id": "chunk_001", "chunk_index": 1, "n_clusters": 260, "n_mentions": 1067}
+{"timestamp": "2026-06-22T22:42:35.689794+00:00", "event": "chunk_started", "chunk_id": "chunk_002", "chunk_index": 2, "expanded_tokens": 3116}
+{"timestamp": "2026-06-22T22:42:37.965115+00:00", "event": "chunk_committed", "chunk_id": "chunk_002", "chunk_index": 2, "n_clusters": 183, "n_mentions": 596}
+{"timestamp": "2026-06-22T22:42:38.334798+00:00", "event": "finalization_started", "output_zip_path": "c:\\Users\\Bobby\\Documents\\GitHub\\NLP_character_graph_pipeline\\outputs_[avalon_1.txt]\\maverick_local_clusters.zip"}
+{"timestamp": "2026-06-22T22:42:38.445401+00:00", "event": "finalization_completed", "output_zip_path": "c:\\Users\\Bobby\\Documents\\GitHub\\NLP_character_graph_pipeline\\outputs_[avalon_1.txt]\\maverick_local_clusters.zip", "counts": {"chunks.csv": 3, "clusters.csv": 701, "mentions.csv": 2678, "n_overlap_mentions": 1055}}
