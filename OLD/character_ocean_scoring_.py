@@ -89,7 +89,7 @@ class ContextConfig:
 
 # Each trait has competing labels: high-side, low-side, no-evidence.
 # These can be edited without touching batching, caching, doc extraction, or aggregation.
-OCEAN_LABELS: OCEAN_LABELS_V2_NARRATIVE_INFERENCE
+OCEAN_LABELS: OCEAN_LABELS_V2_CONSERVATIVE
 
 
 
