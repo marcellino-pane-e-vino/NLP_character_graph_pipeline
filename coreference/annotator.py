@@ -64,7 +64,7 @@ def annotate_doc_with_global_coref(
     - clusters with zero final mentions are dropped.
     """
     register_spacy_coref_extension()
-    _require_booknlp_annotated_doc(doc)
+    _require_booknlp_coref_doc(doc)
     _require_no_existing_coref_layer(doc)
 
     clusters_df = pd.read_csv(clusters_csv)
@@ -124,7 +124,7 @@ def annotate_doc_with_global_coref(
     return doc
 
 
-def _require_booknlp_annotated_doc(doc: Doc) -> None:
+def _require_booknlp_coref_doc(doc: Doc) -> None:
     if not Doc.has_extension("booknlp_annotated") or not doc._.booknlp_annotated:
         raise CorefAnnotationError(
             "Doc is not BookNLP-annotated. global_start/global_end may not "

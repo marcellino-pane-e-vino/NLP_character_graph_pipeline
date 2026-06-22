@@ -401,7 +401,7 @@ def ensure_booknlp_extensions(*, force: bool = False) -> None:
 
 def iter_book_tokens(doc: Doc, *, include_space: bool = False) -> Iterator[Token]:
     """Yield tokens belonging to the compact BookNLP-style token view."""
-    _require_annotated_doc(doc)
+    _require_coref_doc(doc)
     for token in doc:
         if token.is_space and not include_space:
             continue
@@ -412,7 +412,7 @@ def iter_book_tokens(doc: Doc, *, include_space: bool = False) -> Iterator[Token
 
 def token_by_id(doc: Doc, token_id: int) -> Token:
     """Return the spaCy token with the given compact document-level token id."""
-    _require_annotated_doc(doc)
+    _require_coref_doc(doc)
     for token in doc:
         if token._.token_id == token_id:
             return token
@@ -427,7 +427,7 @@ def span_to_token_range(span: Span, *, inclusive: bool = False) -> tuple[int, in
     matching spaCy's own span convention. With inclusive=True, the second value
     is the last token id covered by the span, matching BookNLP's TSV convention.
     """
-    _require_annotated_doc(span.doc)
+    _require_coref_doc(span.doc)
     tokens = [token for token in span if not token.is_space]
     if not tokens:
         raise ValueError("Cannot get a token range for an empty/space-only span.")
@@ -589,7 +589,7 @@ def _ent_type(token: Token) -> str:
     return token.ent_type_ or ""
 
 
-def _require_annotated_doc(doc: Doc) -> None:
+def _require_coref_doc(doc: Doc) -> None:
     """Fail early when a raw spaCy Doc is passed where a Stage-1 Doc is needed."""
     if not Doc.has_extension("booknlp_annotated") or not doc._.booknlp_annotated:
         raise ValueError(
