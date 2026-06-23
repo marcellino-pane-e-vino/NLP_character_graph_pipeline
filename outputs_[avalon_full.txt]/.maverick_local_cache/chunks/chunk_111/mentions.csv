@@ -1,0 +1,1169 @@
+local_mention_uid,local_cluster_uid,chunk_id,chunk_index,local_cluster_id,local_mention_id,local_start,local_end,global_start,global_end,text,head_local_i,head_global_i,zone,overlap_exact_span_key
+chunk_111::cluster_000::mention_000,chunk_111::cluster_000,chunk_111,111,0,0,2,3,343104,343105,you,2,343104,left_overlap,343104:343105:you
+chunk_111::cluster_000::mention_001,chunk_111::cluster_000,chunk_111,111,0,1,8,9,343110,343111,yourselves-,8,343110,left_overlap,343110:343111:yourselves-
+chunk_111::cluster_001::mention_000,chunk_111::cluster_001,chunk_111,111,1,0,2,4,343104,343106,you women,2,343104,left_overlap,343104:343106:you women
+chunk_111::cluster_002::mention_000,chunk_111::cluster_002,chunk_111,111,2,0,10,11,343112,343113,He,10,343112,left_overlap,343112:343113:he
+chunk_111::cluster_002::mention_001,chunk_111::cluster_002,chunk_111,111,2,1,14,15,343116,343117,his,14,343116,left_overlap,343116:343117:his
+chunk_111::cluster_002::mention_002,chunk_111::cluster_002,chunk_111,111,2,2,19,20,343121,343122,he,19,343121,left_overlap,343121:343122:he
+chunk_111::cluster_002::mention_003,chunk_111::cluster_002,chunk_111,111,2,3,26,27,343128,343129,I,26,343128,left_overlap,343128:343129:i
+chunk_111::cluster_002::mention_004,chunk_111::cluster_002,chunk_111,111,2,4,39,40,343141,343142,me,39,343141,left_overlap,343141:343142:me
+chunk_111::cluster_002::mention_005,chunk_111::cluster_002,chunk_111,111,2,5,51,52,343153,343154,him,51,343153,left_overlap,343153:343154:him
+chunk_111::cluster_002::mention_006,chunk_111::cluster_002,chunk_111,111,2,6,54,55,343156,343157,him,54,343156,left_overlap,343156:343157:him
+chunk_111::cluster_002::mention_007,chunk_111::cluster_002,chunk_111,111,2,7,58,59,343160,343161,him,58,343160,left_overlap,343160:343161:him
+chunk_111::cluster_002::mention_008,chunk_111::cluster_002,chunk_111,111,2,8,82,83,343184,343185,he,82,343184,left_overlap,343184:343185:he
+chunk_111::cluster_002::mention_009,chunk_111::cluster_002,chunk_111,111,2,9,87,88,343189,343190,me,87,343189,left_overlap,343189:343190:me
+chunk_111::cluster_002::mention_010,chunk_111::cluster_002,chunk_111,111,2,10,136,137,343238,343239,He,136,343238,left_overlap,343238:343239:he
+chunk_111::cluster_002::mention_011,chunk_111::cluster_002,chunk_111,111,2,11,138,139,343240,343241,his,138,343240,left_overlap,343240:343241:his
+chunk_111::cluster_002::mention_012,chunk_111::cluster_002,chunk_111,111,2,12,146,147,343248,343249,he,146,343248,left_overlap,343248:343249:he
+chunk_111::cluster_002::mention_013,chunk_111::cluster_002,chunk_111,111,2,13,159,160,343261,343262,his,159,343261,left_overlap,343261:343262:his
+chunk_111::cluster_002::mention_014,chunk_111::cluster_002,chunk_111,111,2,14,163,164,343265,343266,he,163,343265,left_overlap,343265:343266:he
+chunk_111::cluster_002::mention_015,chunk_111::cluster_002,chunk_111,111,2,15,168,169,343270,343271,his,168,343270,left_overlap,343270:343271:his
+chunk_111::cluster_002::mention_016,chunk_111::cluster_002,chunk_111,111,2,16,177,178,343279,343280,him,177,343279,left_overlap,343279:343280:him
+chunk_111::cluster_002::mention_017,chunk_111::cluster_002,chunk_111,111,2,17,189,190,343291,343292,I,189,343291,left_overlap,343291:343292:i
+chunk_111::cluster_002::mention_018,chunk_111::cluster_002,chunk_111,111,2,18,212,213,343314,343315,he,212,343314,left_overlap,343314:343315:he
+chunk_111::cluster_002::mention_019,chunk_111::cluster_002,chunk_111,111,2,19,216,217,343318,343319,his,216,343318,left_overlap,343318:343319:his
+chunk_111::cluster_002::mention_020,chunk_111::cluster_002,chunk_111,111,2,20,219,220,343321,343322,he,219,343321,left_overlap,343321:343322:he
+chunk_111::cluster_002::mention_021,chunk_111::cluster_002,chunk_111,111,2,21,240,241,343342,343343,Arthur,240,343342,left_overlap,343342:343343:arthur
+chunk_111::cluster_002::mention_022,chunk_111::cluster_002,chunk_111,111,2,22,243,244,343345,343346,him,243,343345,left_overlap,343345:343346:him
+chunk_111::cluster_002::mention_023,chunk_111::cluster_002,chunk_111,111,2,23,244,245,343346,343347,he,244,343346,left_overlap,343346:343347:he
+chunk_111::cluster_002::mention_024,chunk_111::cluster_002,chunk_111,111,2,24,258,260,343360,343362,the King,259,343361,left_overlap,343360:343362:the king
+chunk_111::cluster_002::mention_025,chunk_111::cluster_002,chunk_111,111,2,25,292,293,343394,343395,Arthur,292,343394,left_overlap,343394:343395:arthur
+chunk_111::cluster_002::mention_026,chunk_111::cluster_002,chunk_111,111,2,26,304,305,343406,343407,Arthur,304,343406,left_overlap,343406:343407:arthur
+chunk_111::cluster_002::mention_027,chunk_111::cluster_002,chunk_111,111,2,27,310,311,343412,343413,his,310,343412,left_overlap,343412:343413:his
+chunk_111::cluster_002::mention_028,chunk_111::cluster_002,chunk_111,111,2,28,322,323,343424,343425,Arthur,322,343424,left_overlap,343424:343425:arthur
+chunk_111::cluster_002::mention_029,chunk_111::cluster_002,chunk_111,111,2,29,391,393,343493,343495,King Arthur,392,343494,left_overlap,343493:343495:king arthur
+chunk_111::cluster_002::mention_030,chunk_111::cluster_002,chunk_111,111,2,30,428,430,343530,343532,the King,429,343531,left_overlap,343530:343532:the king
+chunk_111::cluster_002::mention_031,chunk_111::cluster_002,chunk_111,111,2,31,433,435,343535,343537,the King,434,343536,left_overlap,343535:343537:the king
+chunk_111::cluster_002::mention_032,chunk_111::cluster_002,chunk_111,111,2,32,520,521,343622,343623,Lancelet,520,343622,left_overlap,343622:343623:lancelet
+chunk_111::cluster_002::mention_033,chunk_111::cluster_002,chunk_111,111,2,33,549,550,343651,343652,Arthur,549,343651,left_overlap,343651:343652:arthur
+chunk_111::cluster_002::mention_034,chunk_111::cluster_002,chunk_111,111,2,34,568,569,343670,343671,him,568,343670,left_overlap,343670:343671:him
+chunk_111::cluster_002::mention_035,chunk_111::cluster_002,chunk_111,111,2,35,574,575,343676,343677,he,574,343676,left_overlap,343676:343677:he
+chunk_111::cluster_002::mention_036,chunk_111::cluster_002,chunk_111,111,2,36,586,587,343688,343689,he,586,343688,left_overlap,343688:343689:he
+chunk_111::cluster_002::mention_037,chunk_111::cluster_002,chunk_111,111,2,37,598,599,343700,343701,his,598,343700,left_overlap,343700:343701:his
+chunk_111::cluster_002::mention_038,chunk_111::cluster_002,chunk_111,111,2,38,614,615,343716,343717,him,614,343716,left_overlap,343716:343717:him
+chunk_111::cluster_002::mention_039,chunk_111::cluster_002,chunk_111,111,2,39,621,622,343723,343724,his,621,343723,left_overlap,343723:343724:his
+chunk_111::cluster_002::mention_040,chunk_111::cluster_002,chunk_111,111,2,40,635,636,343737,343738,his,635,343737,left_overlap,343737:343738:his
+chunk_111::cluster_002::mention_041,chunk_111::cluster_002,chunk_111,111,2,41,638,639,343740,343741,his,638,343740,left_overlap,343740:343741:his
+chunk_111::cluster_002::mention_042,chunk_111::cluster_002,chunk_111,111,2,42,651,652,343753,343754,He,651,343753,left_overlap,343753:343754:he
+chunk_111::cluster_002::mention_043,chunk_111::cluster_002,chunk_111,111,2,43,655,656,343757,343758,his,655,343757,left_overlap,343757:343758:his
+chunk_111::cluster_002::mention_044,chunk_111::cluster_002,chunk_111,111,2,44,668,669,343770,343771,he,668,343770,left_overlap,343770:343771:he
+chunk_111::cluster_002::mention_045,chunk_111::cluster_002,chunk_111,111,2,45,673,674,343775,343776,he,673,343775,left_overlap,343775:343776:he
+chunk_111::cluster_002::mention_046,chunk_111::cluster_002,chunk_111,111,2,46,679,680,343781,343782,His,679,343781,left_overlap,343781:343782:his
+chunk_111::cluster_002::mention_047,chunk_111::cluster_002,chunk_111,111,2,47,690,691,343792,343793,him,690,343792,left_overlap,343792:343793:him
+chunk_111::cluster_002::mention_048,chunk_111::cluster_002,chunk_111,111,2,48,694,695,343796,343797,his,694,343796,left_overlap,343796:343797:his
+chunk_111::cluster_002::mention_049,chunk_111::cluster_002,chunk_111,111,2,49,704,705,343806,343807,he,704,343806,left_overlap,343806:343807:he
+chunk_111::cluster_002::mention_050,chunk_111::cluster_002,chunk_111,111,2,50,721,722,343823,343824,I,721,343823,left_overlap,343823:343824:i
+chunk_111::cluster_002::mention_051,chunk_111::cluster_002,chunk_111,111,2,51,732,733,343834,343835,he,732,343834,left_overlap,343834:343835:he
+chunk_111::cluster_002::mention_052,chunk_111::cluster_002,chunk_111,111,2,52,736,737,343838,343839,I,736,343838,left_overlap,343838:343839:i
+chunk_111::cluster_002::mention_053,chunk_111::cluster_002,chunk_111,111,2,53,740,741,343842,343843,me,740,343842,left_overlap,343842:343843:me
+chunk_111::cluster_002::mention_054,chunk_111::cluster_002,chunk_111,111,2,54,749,750,343851,343852,He,749,343851,left_overlap,343851:343852:he
+chunk_111::cluster_002::mention_055,chunk_111::cluster_002,chunk_111,111,2,55,753,754,343855,343856,his,753,343855,left_overlap,343855:343856:his
+chunk_111::cluster_002::mention_056,chunk_111::cluster_002,chunk_111,111,2,56,814,815,343916,343917,Arthur,814,343916,left_overlap,343916:343917:arthur
+chunk_111::cluster_002::mention_057,chunk_111::cluster_002,chunk_111,111,2,57,823,824,343925,343926,he,823,343925,left_overlap,343925:343926:he
+chunk_111::cluster_002::mention_058,chunk_111::cluster_002,chunk_111,111,2,58,827,828,343929,343930,his,827,343929,left_overlap,343929:343930:his
+chunk_111::cluster_002::mention_059,chunk_111::cluster_002,chunk_111,111,2,59,841,842,343943,343944,his,841,343943,left_overlap,343943:343944:his
+chunk_111::cluster_002::mention_060,chunk_111::cluster_002,chunk_111,111,2,60,853,854,343955,343956,you,853,343955,left_overlap,343955:343956:you
+chunk_111::cluster_002::mention_061,chunk_111::cluster_002,chunk_111,111,2,61,859,860,343961,343962,His,859,343961,left_overlap,343961:343962:his
+chunk_111::cluster_002::mention_062,chunk_111::cluster_002,chunk_111,111,2,62,873,874,343975,343976,I,873,343975,left_overlap,343975:343976:i
+chunk_111::cluster_002::mention_063,chunk_111::cluster_002,chunk_111,111,2,63,882,883,343984,343985,my,882,343984,left_overlap,343984:343985:my
+chunk_111::cluster_002::mention_064,chunk_111::cluster_002,chunk_111,111,2,64,902,903,344004,344005,He,902,344004,left_overlap,344004:344005:he
+chunk_111::cluster_002::mention_065,chunk_111::cluster_002,chunk_111,111,2,65,915,916,344017,344018,he,915,344017,left_overlap,344017:344018:he
+chunk_111::cluster_002::mention_066,chunk_111::cluster_002,chunk_111,111,2,66,926,927,344028,344029,my,926,344028,left_overlap,344028:344029:my
+chunk_111::cluster_002::mention_067,chunk_111::cluster_002,chunk_111,111,2,67,949,950,344051,344052,me,949,344051,left_overlap,344051:344052:me
+chunk_111::cluster_002::mention_068,chunk_111::cluster_002,chunk_111,111,2,68,953,954,344055,344056,He,953,344055,left_overlap,344055:344056:he
+chunk_111::cluster_002::mention_069,chunk_111::cluster_002,chunk_111,111,2,69,955,956,344057,344058,his,955,344057,left_overlap,344057:344058:his
+chunk_111::cluster_002::mention_070,chunk_111::cluster_002,chunk_111,111,2,70,962,963,344064,344065,I,962,344064,left_overlap,344064:344065:i
+chunk_111::cluster_002::mention_071,chunk_111::cluster_002,chunk_111,111,2,71,968,969,344070,344071,my,968,344070,left_overlap,344070:344071:my
+chunk_111::cluster_002::mention_072,chunk_111::cluster_002,chunk_111,111,2,72,972,973,344074,344075,my,972,344074,left_overlap,344074:344075:my
+chunk_111::cluster_002::mention_073,chunk_111::cluster_002,chunk_111,111,2,73,977,978,344079,344080,I,977,344079,left_overlap,344079:344080:i
+chunk_111::cluster_002::mention_074,chunk_111::cluster_002,chunk_111,111,2,74,984,985,344086,344087,I,984,344086,left_overlap,344086:344087:i
+chunk_111::cluster_002::mention_075,chunk_111::cluster_002,chunk_111,111,2,75,1000,1001,344102,344103,He,1000,344102,left_overlap,344102:344103:he
+chunk_111::cluster_002::mention_076,chunk_111::cluster_002,chunk_111,111,2,76,1003,1004,344105,344106,his,1003,344105,left_overlap,344105:344106:his
+chunk_111::cluster_002::mention_077,chunk_111::cluster_002,chunk_111,111,2,77,1014,1015,344116,344117,he,1014,344116,left_overlap,344116:344117:he
+chunk_111::cluster_002::mention_078,chunk_111::cluster_002,chunk_111,111,2,78,1060,1062,344162,344164,the King,1061,344163,left_overlap,344162:344164:the king
+chunk_111::cluster_002::mention_079,chunk_111::cluster_002,chunk_111,111,2,79,1065,1066,344167,344168,his,1065,344167,left_overlap,344167:344168:his
+chunk_111::cluster_002::mention_080,chunk_111::cluster_002,chunk_111,111,2,80,1091,1092,344193,344194,Arthur,1091,344193,left_overlap,344193:344194:arthur
+chunk_111::cluster_002::mention_081,chunk_111::cluster_002,chunk_111,111,2,81,1093,1094,344195,344196,his,1093,344195,left_overlap,344195:344196:his
+chunk_111::cluster_002::mention_082,chunk_111::cluster_002,chunk_111,111,2,82,1183,1185,344285,344287,the King,1184,344286,left_overlap,344285:344287:the king
+chunk_111::cluster_002::mention_083,chunk_111::cluster_002,chunk_111,111,2,83,1197,1198,344299,344300,Arthur,1197,344299,left_overlap,344299:344300:arthur
+chunk_111::cluster_002::mention_084,chunk_111::cluster_002,chunk_111,111,2,84,1237,1238,344339,344340,Lancelet,1237,344339,left_overlap,344339:344340:lancelet
+chunk_111::cluster_002::mention_085,chunk_111::cluster_002,chunk_111,111,2,85,1242,1243,344344,344345,Arthur,1242,344344,left_overlap,344344:344345:arthur
+chunk_111::cluster_002::mention_086,chunk_111::cluster_002,chunk_111,111,2,86,1245,1246,344347,344348,him,1245,344347,left_overlap,344347:344348:him
+chunk_111::cluster_002::mention_087,chunk_111::cluster_002,chunk_111,111,2,87,1339,1340,344441,344442,Arthur,1339,344441,core,
+chunk_111::cluster_002::mention_088,chunk_111::cluster_002,chunk_111,111,2,88,1345,1346,344447,344448,I,1345,344447,core,
+chunk_111::cluster_002::mention_089,chunk_111::cluster_002,chunk_111,111,2,89,1347,1348,344449,344450,I,1347,344449,core,
+chunk_111::cluster_002::mention_090,chunk_111::cluster_002,chunk_111,111,2,90,1359,1360,344461,344462,my,1359,344461,core,
+chunk_111::cluster_002::mention_091,chunk_111::cluster_002,chunk_111,111,2,91,1388,1389,344490,344491,I,1388,344490,core,
+chunk_111::cluster_002::mention_092,chunk_111::cluster_002,chunk_111,111,2,92,1408,1409,344510,344511,Lancelet,1408,344510,core,
+chunk_111::cluster_002::mention_093,chunk_111::cluster_002,chunk_111,111,2,93,1443,1444,344545,344546,I,1443,344545,core,
+chunk_111::cluster_002::mention_094,chunk_111::cluster_002,chunk_111,111,2,94,1453,1454,344555,344556,I,1453,344555,core,
+chunk_111::cluster_002::mention_095,chunk_111::cluster_002,chunk_111,111,2,95,1466,1467,344568,344569,He,1466,344568,core,
+chunk_111::cluster_002::mention_096,chunk_111::cluster_002,chunk_111,111,2,96,1471,1472,344573,344574,1,1471,344573,core,
+chunk_111::cluster_002::mention_097,chunk_111::cluster_002,chunk_111,111,2,97,1474,1475,344576,344577,I,1474,344576,core,
+chunk_111::cluster_002::mention_098,chunk_111::cluster_002,chunk_111,111,2,98,1484,1485,344586,344587,me,1484,344586,core,
+chunk_111::cluster_002::mention_099,chunk_111::cluster_002,chunk_111,111,2,99,1497,1498,344599,344600,I,1497,344599,core,
+chunk_111::cluster_002::mention_100,chunk_111::cluster_002,chunk_111,111,2,100,1503,1504,344605,344606,me,1503,344605,core,
+chunk_111::cluster_002::mention_101,chunk_111::cluster_002,chunk_111,111,2,101,1509,1510,344611,344612,I,1509,344611,core,
+chunk_111::cluster_002::mention_102,chunk_111::cluster_002,chunk_111,111,2,102,1515,1516,344617,344618,I,1515,344617,core,
+chunk_111::cluster_002::mention_103,chunk_111::cluster_002,chunk_111,111,2,103,1530,1531,344632,344633,I,1530,344632,core,
+chunk_111::cluster_002::mention_104,chunk_111::cluster_002,chunk_111,111,2,104,1547,1548,344649,344650,Arthur,1547,344649,core,
+chunk_111::cluster_002::mention_105,chunk_111::cluster_002,chunk_111,111,2,105,1552,1553,344654,344655,he,1552,344654,core,
+chunk_111::cluster_002::mention_106,chunk_111::cluster_002,chunk_111,111,2,106,1562,1563,344664,344665,he,1562,344664,core,
+chunk_111::cluster_002::mention_107,chunk_111::cluster_002,chunk_111,111,2,107,1582,1583,344684,344685,Galahad,1582,344684,core,
+chunk_111::cluster_002::mention_109,chunk_111::cluster_002,chunk_111,111,2,109,1586,1587,344688,344689,Lancelet,1586,344688,core,
+chunk_111::cluster_002::mention_110,chunk_111::cluster_002,chunk_111,111,2,110,1591,1592,344693,344694,his,1591,344693,core,
+chunk_111::cluster_002::mention_111,chunk_111::cluster_002,chunk_111,111,2,111,1597,1598,344699,344700,me,1597,344699,core,
+chunk_111::cluster_002::mention_112,chunk_111::cluster_002,chunk_111,111,2,112,1599,1600,344701,344702,I,1599,344701,core,
+chunk_111::cluster_002::mention_113,chunk_111::cluster_002,chunk_111,111,2,113,1606,1607,344708,344709,He,1606,344708,core,
+chunk_111::cluster_002::mention_114,chunk_111::cluster_002,chunk_111,111,2,114,1608,1609,344710,344711,his,1608,344710,core,
+chunk_111::cluster_002::mention_115,chunk_111::cluster_002,chunk_111,111,2,115,1611,1612,344713,344714,Arthur,1611,344713,core,
+chunk_111::cluster_002::mention_116,chunk_111::cluster_002,chunk_111,111,2,116,1620,1621,344722,344723,Arthur,1620,344722,core,
+chunk_111::cluster_002::mention_117,chunk_111::cluster_002,chunk_111,111,2,117,1623,1624,344725,344726,him,1623,344725,core,
+chunk_111::cluster_002::mention_118,chunk_111::cluster_002,chunk_111,111,2,118,1627,1628,344729,344730,Arthur,1627,344729,core,
+chunk_111::cluster_002::mention_119,chunk_111::cluster_002,chunk_111,111,2,119,1632,1633,344734,344735,his,1632,344734,core,
+chunk_111::cluster_002::mention_120,chunk_111::cluster_002,chunk_111,111,2,120,1636,1637,344738,344739,Lancelet,1636,344738,core,
+chunk_111::cluster_002::mention_121,chunk_111::cluster_002,chunk_111,111,2,121,1639,1640,344741,344742,him,1639,344741,core,
+chunk_111::cluster_002::mention_122,chunk_111::cluster_002,chunk_111,111,2,122,1644,1645,344746,344747,Arthur,1644,344746,core,
+chunk_111::cluster_002::mention_123,chunk_111::cluster_002,chunk_111,111,2,123,1648,1649,344750,344751,his,1648,344750,core,
+chunk_111::cluster_002::mention_124,chunk_111::cluster_002,chunk_111,111,2,124,1655,1656,344757,344758,Uriens,1655,344757,core,
+chunk_111::cluster_002::mention_125,chunk_111::cluster_002,chunk_111,111,2,125,1672,1674,344774,344776,their king,1673,344775,core,
+chunk_111::cluster_002::mention_126,chunk_111::cluster_002,chunk_111,111,2,126,1691,1692,344793,344794,Lance,1691,344793,core,
+chunk_111::cluster_002::mention_127,chunk_111::cluster_002,chunk_111,111,2,127,1703,1704,344805,344806,Lancelet,1703,344805,core,
+chunk_111::cluster_002::mention_128,chunk_111::cluster_002,chunk_111,111,2,128,1706,1707,344808,344809,he,1706,344808,core,
+chunk_111::cluster_002::mention_129,chunk_111::cluster_002,chunk_111,111,2,129,1719,1720,344821,344822,he,1719,344821,core,
+chunk_111::cluster_002::mention_130,chunk_111::cluster_002,chunk_111,111,2,130,1724,1725,344826,344827,Arthur,1724,344826,core,
+chunk_111::cluster_002::mention_131,chunk_111::cluster_002,chunk_111,111,2,131,1737,1738,344839,344840,he,1737,344839,core,
+chunk_111::cluster_002::mention_132,chunk_111::cluster_002,chunk_111,111,2,132,1754,1755,344856,344857,Arthur,1754,344856,core,
+chunk_111::cluster_002::mention_133,chunk_111::cluster_002,chunk_111,111,2,133,1761,1762,344863,344864,his,1761,344863,core,
+chunk_111::cluster_002::mention_134,chunk_111::cluster_002,chunk_111,111,2,134,1765,1766,344867,344868,Lancelet,1765,344867,core,
+chunk_111::cluster_002::mention_135,chunk_111::cluster_002,chunk_111,111,2,135,1769,1770,344871,344872,he,1769,344871,core,
+chunk_111::cluster_002::mention_136,chunk_111::cluster_002,chunk_111,111,2,136,1777,1778,344879,344880,I,1777,344879,core,
+chunk_111::cluster_002::mention_137,chunk_111::cluster_002,chunk_111,111,2,137,1780,1781,344882,344883,I,1780,344882,core,
+chunk_111::cluster_002::mention_138,chunk_111::cluster_002,chunk_111,111,2,138,1784,1785,344886,344887,he,1784,344886,core,
+chunk_111::cluster_002::mention_139,chunk_111::cluster_002,chunk_111,111,2,139,1787,1788,344889,344890,my,1787,344889,core,
+chunk_111::cluster_002::mention_140,chunk_111::cluster_002,chunk_111,111,2,140,1787,1789,344889,344891,my friend,1788,344890,core,
+chunk_111::cluster_002::mention_141,chunk_111::cluster_002,chunk_111,111,2,141,1790,1791,344892,344893,I,1790,344892,core,
+chunk_111::cluster_002::mention_142,chunk_111::cluster_002,chunk_111,111,2,142,1796,1797,344898,344899,I,1796,344898,core,
+chunk_111::cluster_002::mention_143,chunk_111::cluster_002,chunk_111,111,2,143,1802,1803,344904,344905,He,1802,344904,core,
+chunk_111::cluster_002::mention_144,chunk_111::cluster_002,chunk_111,111,2,144,1859,1860,344961,344962,his,1859,344961,core,
+chunk_111::cluster_002::mention_145,chunk_111::cluster_002,chunk_111,111,2,145,1864,1865,344966,344967,you,1864,344966,core,
+chunk_111::cluster_002::mention_146,chunk_111::cluster_002,chunk_111,111,2,146,1869,1870,344971,344972,Lancelet,1869,344971,core,
+chunk_111::cluster_002::mention_147,chunk_111::cluster_002,chunk_111,111,2,147,1904,1906,345006,345008,this man,1905,345007,core,
+chunk_111::cluster_002::mention_148,chunk_111::cluster_002,chunk_111,111,2,148,1908,1910,345010,345012,her lover,1909,345011,core,
+chunk_111::cluster_002::mention_149,chunk_111::cluster_002,chunk_111,111,2,149,1914,1915,345016,345017,he,1914,345016,core,
+chunk_111::cluster_002::mention_150,chunk_111::cluster_002,chunk_111,111,2,150,1923,1924,345025,345026,you,1923,345025,core,
+chunk_111::cluster_002::mention_151,chunk_111::cluster_002,chunk_111,111,2,151,1935,1936,345037,345038,His,1935,345037,core,
+chunk_111::cluster_002::mention_152,chunk_111::cluster_002,chunk_111,111,2,152,1945,1946,345047,345048,I,1945,345047,core,
+chunk_111::cluster_002::mention_153,chunk_111::cluster_002,chunk_111,111,2,153,1948,1949,345050,345051,my,1948,345050,core,
+chunk_111::cluster_002::mention_154,chunk_111::cluster_002,chunk_111,111,2,154,1951,1952,345053,345054,I,1951,345053,core,
+chunk_111::cluster_002::mention_155,chunk_111::cluster_002,chunk_111,111,2,155,1960,1961,345062,345063,I,1960,345062,core,
+chunk_111::cluster_002::mention_156,chunk_111::cluster_002,chunk_111,111,2,156,1965,1966,345067,345068,I,1965,345067,core,
+chunk_111::cluster_002::mention_157,chunk_111::cluster_002,chunk_111,111,2,157,1967,1968,345069,345070,Arthur,1967,345069,core,
+chunk_111::cluster_002::mention_158,chunk_111::cluster_002,chunk_111,111,2,158,1975,1976,345077,345078,I,1975,345077,core,
+chunk_111::cluster_002::mention_159,chunk_111::cluster_002,chunk_111,111,2,159,1981,1982,345083,345084,his,1981,345083,core,
+chunk_111::cluster_002::mention_160,chunk_111::cluster_002,chunk_111,111,2,160,1987,1988,345089,345090,His,1987,345089,core,
+chunk_111::cluster_002::mention_161,chunk_111::cluster_002,chunk_111,111,2,161,2011,2012,345113,345114,his,2011,345113,core,
+chunk_111::cluster_002::mention_162,chunk_111::cluster_002,chunk_111,111,2,162,2019,2020,345121,345122,you,2019,345121,core,
+chunk_111::cluster_002::mention_163,chunk_111::cluster_002,chunk_111,111,2,163,2027,2028,345129,345130,Lancelet,2027,345129,core,
+chunk_111::cluster_002::mention_164,chunk_111::cluster_002,chunk_111,111,2,164,2031,2032,345133,345134,He,2031,345133,core,
+chunk_111::cluster_002::mention_165,chunk_111::cluster_002,chunk_111,111,2,165,2055,2056,345157,345158,Lancelet,2055,345157,core,
+chunk_111::cluster_002::mention_166,chunk_111::cluster_002,chunk_111,111,2,166,2067,2068,345169,345170,1,2067,345169,core,
+chunk_111::cluster_002::mention_167,chunk_111::cluster_002,chunk_111,111,2,167,2073,2074,345175,345176,my,2073,345175,core,
+chunk_111::cluster_002::mention_168,chunk_111::cluster_002,chunk_111,111,2,168,2134,2135,345236,345237,Lancelet,2134,345236,core,
+chunk_111::cluster_002::mention_169,chunk_111::cluster_002,chunk_111,111,2,169,2150,2151,345252,345253,he,2150,345252,core,
+chunk_111::cluster_002::mention_170,chunk_111::cluster_002,chunk_111,111,2,170,2164,2165,345266,345267,my,2164,345266,core,
+chunk_111::cluster_002::mention_171,chunk_111::cluster_002,chunk_111,111,2,171,2182,2183,345284,345285,you,2182,345284,core,
+chunk_111::cluster_002::mention_172,chunk_111::cluster_002,chunk_111,111,2,172,2191,2192,345293,345294,I,2191,345293,core,
+chunk_111::cluster_002::mention_173,chunk_111::cluster_002,chunk_111,111,2,173,2236,2237,345338,345339,Arthur,2236,345338,core,
+chunk_111::cluster_002::mention_174,chunk_111::cluster_002,chunk_111,111,2,174,2254,2262,345356,345364,yonder knight with the serpents about his wrists,2254,345356,core,
+chunk_111::cluster_002::mention_175,chunk_111::cluster_002,chunk_111,111,2,175,2260,2261,345362,345363,his,2260,345362,core,
+chunk_111::cluster_002::mention_176,chunk_111::cluster_002,chunk_111,111,2,176,2272,2273,345374,345375,Lancelet,2272,345374,core,
+chunk_111::cluster_002::mention_177,chunk_111::cluster_002,chunk_111,111,2,177,2274,2275,345376,345377,he,2274,345376,core,
+chunk_111::cluster_002::mention_178,chunk_111::cluster_002,chunk_111,111,2,178,2287,2288,345389,345390,Arthur,2287,345389,core,
+chunk_111::cluster_002::mention_179,chunk_111::cluster_002,chunk_111,111,2,179,2298,2299,345400,345401,him,2298,345400,core,
+chunk_111::cluster_002::mention_180,chunk_111::cluster_002,chunk_111,111,2,180,2304,2305,345406,345407,him,2304,345406,core,
+chunk_111::cluster_002::mention_181,chunk_111::cluster_002,chunk_111,111,2,181,2314,2318,345416,345420,Uriens of North Wales,2314,345416,core,
+chunk_111::cluster_002::mention_182,chunk_111::cluster_002,chunk_111,111,2,182,2326,2327,345428,345429,he,2326,345428,core,
+chunk_111::cluster_002::mention_183,chunk_111::cluster_002,chunk_111,111,2,183,2330,2331,345432,345433,his,2330,345432,core,
+chunk_111::cluster_002::mention_184,chunk_111::cluster_002,chunk_111,111,2,184,2335,2336,345437,345438,he,2335,345437,core,
+chunk_111::cluster_002::mention_185,chunk_111::cluster_002,chunk_111,111,2,185,2337,2338,345439,345440,his,2337,345439,core,
+chunk_111::cluster_002::mention_186,chunk_111::cluster_002,chunk_111,111,2,186,2343,2344,345445,345446,he,2343,345445,core,
+chunk_111::cluster_002::mention_187,chunk_111::cluster_002,chunk_111,111,2,187,2347,2348,345449,345450,He,2347,345449,core,
+chunk_111::cluster_002::mention_188,chunk_111::cluster_002,chunk_111,111,2,188,2351,2352,345453,345454,I,2351,345453,core,
+chunk_111::cluster_002::mention_189,chunk_111::cluster_002,chunk_111,111,2,189,2356,2357,345458,345459,you,2356,345458,core,
+chunk_111::cluster_002::mention_190,chunk_111::cluster_002,chunk_111,111,2,190,2360,2361,345462,345463,Arthur,2360,345462,core,
+chunk_111::cluster_002::mention_191,chunk_111::cluster_002,chunk_111,111,2,191,2362,2363,345464,345465,I,2362,345464,core,
+chunk_111::cluster_002::mention_192,chunk_111::cluster_002,chunk_111,111,2,192,2369,2370,345471,345472,I,2369,345471,core,
+chunk_111::cluster_002::mention_193,chunk_111::cluster_002,chunk_111,111,2,193,2376,2377,345478,345479,your,2376,345478,core,
+chunk_111::cluster_002::mention_194,chunk_111::cluster_002,chunk_111,111,2,194,2379,2380,345481,345482,1,2379,345481,core,
+chunk_111::cluster_002::mention_195,chunk_111::cluster_002,chunk_111,111,2,195,2390,2391,345492,345493,I,2390,345492,core,
+chunk_111::cluster_002::mention_196,chunk_111::cluster_002,chunk_111,111,2,196,2392,2393,345494,345495,your,2392,345494,core,
+chunk_111::cluster_002::mention_197,chunk_111::cluster_002,chunk_111,111,2,197,2403,2404,345505,345506,Arthur,2403,345505,core,
+chunk_111::cluster_002::mention_198,chunk_111::cluster_002,chunk_111,111,2,198,2416,2417,345518,345519,my,2416,345518,core,
+chunk_111::cluster_002::mention_199,chunk_111::cluster_002,chunk_111,111,2,199,2416,2418,345518,345520,my friend,2417,345519,core,
+chunk_111::cluster_002::mention_200,chunk_111::cluster_002,chunk_111,111,2,200,2419,2420,345521,345522,you,2419,345521,core,
+chunk_111::cluster_002::mention_201,chunk_111::cluster_002,chunk_111,111,2,201,2462,2463,345564,345565,I,2462,345564,core,
+chunk_111::cluster_002::mention_202,chunk_111::cluster_002,chunk_111,111,2,202,2475,2476,345577,345578,my,2475,345577,core,
+chunk_111::cluster_002::mention_203,chunk_111::cluster_002,chunk_111,111,2,203,2496,2497,345598,345599,Arthur,2496,345598,core,
+chunk_111::cluster_002::mention_204,chunk_111::cluster_002,chunk_111,111,2,204,2497,2498,345599,345600,himself,2497,345599,core,
+chunk_111::cluster_002::mention_205,chunk_111::cluster_002,chunk_111,111,2,205,2520,2521,345622,345623,Arthur,2520,345622,core,
+chunk_111::cluster_002::mention_206,chunk_111::cluster_002,chunk_111,111,2,206,2532,2533,345634,345635,Arthur,2532,345634,core,
+chunk_111::cluster_002::mention_207,chunk_111::cluster_002,chunk_111,111,2,207,2534,2535,345636,345637,Uriens,2534,345636,core,
+chunk_111::cluster_002::mention_208,chunk_111::cluster_002,chunk_111,111,2,208,2540,2541,345642,345643,You,2540,345642,core,
+chunk_111::cluster_002::mention_209,chunk_111::cluster_002,chunk_111,111,2,209,2564,2565,345666,345667,you,2564,345666,core,
+chunk_111::cluster_002::mention_210,chunk_111::cluster_002,chunk_111,111,2,210,2572,2573,345674,345675,your,2572,345674,core,
+chunk_111::cluster_002::mention_211,chunk_111::cluster_002,chunk_111,111,2,211,2577,2578,345679,345680,He,2577,345679,core,
+chunk_111::cluster_002::mention_212,chunk_111::cluster_002,chunk_111,111,2,212,2585,2586,345687,345688,Uriens,2585,345687,core,
+chunk_111::cluster_002::mention_213,chunk_111::cluster_002,chunk_111,111,2,213,2597,2598,345699,345700,you,2597,345699,core,
+chunk_111::cluster_002::mention_214,chunk_111::cluster_002,chunk_111,111,2,214,2606,2607,345708,345709,he,2606,345708,core,
+chunk_111::cluster_002::mention_215,chunk_111::cluster_002,chunk_111,111,2,215,2613,2614,345715,345716,he,2613,345715,core,
+chunk_111::cluster_002::mention_216,chunk_111::cluster_002,chunk_111,111,2,216,2624,2625,345726,345727,him,2624,345726,core,
+chunk_111::cluster_002::mention_217,chunk_111::cluster_002,chunk_111,111,2,217,2636,2637,345738,345739,Arthur,2636,345738,core,
+chunk_111::cluster_002::mention_218,chunk_111::cluster_002,chunk_111,111,2,218,2650,2651,345752,345753,He,2650,345752,core,
+chunk_111::cluster_002::mention_219,chunk_111::cluster_002,chunk_111,111,2,219,2652,2653,345754,345755,his,2652,345754,core,
+chunk_111::cluster_002::mention_220,chunk_111::cluster_002,chunk_111,111,2,220,2655,2656,345757,345758,Uriens,2655,345757,core,
+chunk_111::cluster_002::mention_221,chunk_111::cluster_002,chunk_111,111,2,221,2660,2661,345762,345763,I,2660,345762,core,
+chunk_111::cluster_002::mention_222,chunk_111::cluster_002,chunk_111,111,2,222,2671,2672,345773,345774,my,2671,345773,core,
+chunk_111::cluster_002::mention_223,chunk_111::cluster_002,chunk_111,111,2,223,2685,2686,345787,345788,Uriens,2685,345787,core,
+chunk_111::cluster_002::mention_224,chunk_111::cluster_002,chunk_111,111,2,224,2689,2690,345791,345792,I,2689,345791,core,
+chunk_111::cluster_002::mention_225,chunk_111::cluster_002,chunk_111,111,2,225,2698,2699,345800,345801,my,2698,345800,core,
+chunk_111::cluster_002::mention_226,chunk_111::cluster_002,chunk_111,111,2,226,2698,2700,345800,345802,my king,2699,345801,core,
+chunk_111::cluster_002::mention_227,chunk_111::cluster_002,chunk_111,111,2,227,2703,2704,345805,345806,your,2703,345805,core,
+chunk_111::cluster_002::mention_228,chunk_111::cluster_002,chunk_111,111,2,228,2709,2710,345811,345812,my,2709,345811,core,
+chunk_111::cluster_002::mention_229,chunk_111::cluster_002,chunk_111,111,2,229,2714,2715,345816,345817,I,2714,345816,core,
+chunk_111::cluster_002::mention_230,chunk_111::cluster_002,chunk_111,111,2,230,2725,2726,345827,345828,Arthur,2725,345827,core,
+chunk_111::cluster_002::mention_231,chunk_111::cluster_002,chunk_111,111,2,231,2729,2730,345831,345832,I,2729,345831,core,
+chunk_111::cluster_002::mention_232,chunk_111::cluster_002,chunk_111,111,2,232,2735,2736,345837,345838,He,2735,345837,core,
+chunk_111::cluster_002::mention_233,chunk_111::cluster_002,chunk_111,111,2,233,2752,2753,345854,345855,me,2752,345854,core,
+chunk_111::cluster_002::mention_234,chunk_111::cluster_002,chunk_111,111,2,234,2761,2762,345863,345864,Uriens,2761,345863,core,
+chunk_111::cluster_002::mention_235,chunk_111::cluster_002,chunk_111,111,2,235,2786,2787,345888,345889,your,2786,345888,core,
+chunk_111::cluster_002::mention_236,chunk_111::cluster_002,chunk_111,111,2,236,2804,2805,345906,345907,Uriens,2804,345906,core,
+chunk_111::cluster_002::mention_237,chunk_111::cluster_002,chunk_111,111,2,237,2807,2808,345909,345910,his,2807,345909,core,
+chunk_111::cluster_002::mention_238,chunk_111::cluster_002,chunk_111,111,2,238,2810,2811,345912,345913,Arthur,2810,345912,core,
+chunk_111::cluster_002::mention_239,chunk_111::cluster_002,chunk_111,111,2,239,2858,2859,345960,345961,Uriens,2858,345960,core,
+chunk_111::cluster_002::mention_240,chunk_111::cluster_002,chunk_111,111,2,240,2869,2870,345971,345972,his,2869,345971,core,
+chunk_111::cluster_002::mention_241,chunk_111::cluster_002,chunk_111,111,2,241,2873,2874,345975,345976,I,2873,345975,core,
+chunk_111::cluster_002::mention_242,chunk_111::cluster_002,chunk_111,111,2,242,2879,2880,345981,345982,he,2879,345981,core,
+chunk_111::cluster_002::mention_243,chunk_111::cluster_002,chunk_111,111,2,243,2949,2950,346051,346052,Arthur,2949,346051,core,
+chunk_111::cluster_002::mention_244,chunk_111::cluster_002,chunk_111,111,2,244,2952,2953,346054,346055,I,2952,346054,core,
+chunk_111::cluster_002::mention_245,chunk_111::cluster_002,chunk_111,111,2,245,2965,2966,346067,346068,"morning""-he",2965,346067,core,
+chunk_111::cluster_002::mention_246,chunk_111::cluster_002,chunk_111,111,2,246,2967,2968,346069,346070,his,2967,346069,core,
+chunk_111::cluster_002::mention_247,chunk_111::cluster_002,chunk_111,111,2,247,2968,2969,346070,346071,"voice-""I",2968,346070,core,
+chunk_111::cluster_002::mention_248,chunk_111::cluster_002,chunk_111,111,2,248,2996,2997,346098,346099,brother,2996,346098,core,
+chunk_111::cluster_002::mention_249,chunk_111::cluster_002,chunk_111,111,2,249,3005,3006,346107,346108,Arthur,3005,346107,core,
+chunk_111::cluster_002::mention_250,chunk_111::cluster_002,chunk_111,111,2,250,3019,3020,346121,346122,1,3019,346121,core,
+chunk_111::cluster_002::mention_251,chunk_111::cluster_002,chunk_111,111,2,251,3063,3064,346165,346166,brother,3063,346165,core,
+chunk_111::cluster_002::mention_252,chunk_111::cluster_002,chunk_111,111,2,252,3067,3068,346169,346170,Arthur,3067,346169,core,
+chunk_111::cluster_002::mention_253,chunk_111::cluster_002,chunk_111,111,2,253,3073,3074,346175,346176,he,3073,346175,core,
+chunk_111::cluster_002::mention_254,chunk_111::cluster_002,chunk_111,111,2,254,3077,3078,346179,346180,me,3077,346179,core,
+chunk_111::cluster_002::mention_255,chunk_111::cluster_002,chunk_111,111,2,255,3078,3079,346180,346181,he,3078,346180,core,
+chunk_111::cluster_002::mention_256,chunk_111::cluster_002,chunk_111,111,2,256,3118,3119,346220,346221,him,3118,346220,core,
+chunk_111::cluster_002::mention_257,chunk_111::cluster_002,chunk_111,111,2,257,3131,3132,346233,346234,Arthur,3131,346233,core,
+chunk_111::cluster_002::mention_258,chunk_111::cluster_002,chunk_111,111,2,258,3158,3159,346260,346261,him,3158,346260,core,
+chunk_111::cluster_002::mention_259,chunk_111::cluster_002,chunk_111,111,2,259,3175,3176,346277,346278,Arthur,3175,346277,core,
+chunk_111::cluster_002::mention_260,chunk_111::cluster_002,chunk_111,111,2,260,3180,3181,346282,346283,Uriens,3180,346282,core,
+chunk_111::cluster_002::mention_261,chunk_111::cluster_002,chunk_111,111,2,261,3188,3189,346290,346291,My,3188,346290,core,
+chunk_111::cluster_002::mention_262,chunk_111::cluster_002,chunk_111,111,2,262,3192,3193,346294,346295,me,3192,346294,core,
+chunk_111::cluster_002::mention_263,chunk_111::cluster_002,chunk_111,111,2,263,3206,3207,346308,346309,my,3206,346308,core,
+chunk_111::cluster_002::mention_264,chunk_111::cluster_002,chunk_111,111,2,264,3209,3210,346311,346312,I,3209,346311,core,
+chunk_111::cluster_002::mention_265,chunk_111::cluster_002,chunk_111,111,2,265,3228,3229,346330,346331,He,3228,346330,core,
+chunk_111::cluster_002::mention_266,chunk_111::cluster_002,chunk_111,111,2,266,3230,3231,346332,346333,his,3230,346332,core,
+chunk_111::cluster_002::mention_267,chunk_111::cluster_002,chunk_111,111,2,267,3246,3247,346348,346349,my,3246,346348,core,
+chunk_111::cluster_002::mention_268,chunk_111::cluster_002,chunk_111,111,2,268,3258,3259,346360,346361,my,3258,346360,core,
+chunk_111::cluster_002::mention_269,chunk_111::cluster_002,chunk_111,111,2,269,3263,3264,346365,346366,my,3263,346365,core,
+chunk_111::cluster_002::mention_270,chunk_111::cluster_002,chunk_111,111,2,270,3263,3266,346365,346368,my good friend,3265,346367,core,
+chunk_111::cluster_002::mention_271,chunk_111::cluster_002,chunk_111,111,2,271,3266,3271,346368,346373,King Uriens of North Wales,3267,346369,core,
+chunk_111::cluster_002::mention_272,chunk_111::cluster_002,chunk_111,111,2,272,3318,3319,346420,346421,he,3318,346420,core,
+chunk_111::cluster_002::mention_273,chunk_111::cluster_002,chunk_111,111,2,273,3344,3345,346446,346447,Uriens,3344,346446,core,
+chunk_111::cluster_002::mention_274,chunk_111::cluster_002,chunk_111,111,2,274,3344,3349,346446,346451,Uriens' son-Accolon,3346,346448,core,
+chunk_111::cluster_002::mention_275,chunk_111::cluster_002,chunk_111,111,2,275,3363,3364,346465,346466,him,3363,346465,core,
+chunk_111::cluster_002::mention_276,chunk_111::cluster_002,chunk_111,111,2,276,3373,3374,346475,346476,he,3373,346475,core,
+chunk_111::cluster_002::mention_277,chunk_111::cluster_002,chunk_111,111,2,277,3432,3433,346534,346535,my,3432,346534,core,
+chunk_111::cluster_002::mention_278,chunk_111::cluster_002,chunk_111,111,2,278,3448,3449,346550,346551,your,3448,346550,core,
+chunk_111::cluster_002::mention_279,chunk_111::cluster_002,chunk_111,111,2,279,3553,3554,346655,346656,Arthur,3553,346655,core,
+chunk_111::cluster_002::mention_280,chunk_111::cluster_002,chunk_111,111,2,280,3601,3602,346703,346704,he,3601,346703,core,
+chunk_111::cluster_002::mention_281,chunk_111::cluster_002,chunk_111,111,2,281,3632,3633,346734,346735,Uriens,3632,346734,core,
+chunk_111::cluster_002::mention_282,chunk_111::cluster_002,chunk_111,111,2,282,3637,3638,346739,346740,his,3637,346739,core,
+chunk_111::cluster_002::mention_283,chunk_111::cluster_002,chunk_111,111,2,283,3813,3816,346915,346918,the old king,3815,346917,core,
+chunk_111::cluster_002::mention_284,chunk_111::cluster_002,chunk_111,111,2,284,3855,3856,346957,346958,his,3855,346957,core,
+chunk_111::cluster_002::mention_285,chunk_111::cluster_002,chunk_111,111,2,285,3855,3857,346957,346959,his father,3856,346958,core,
+chunk_111::cluster_002::mention_286,chunk_111::cluster_002,chunk_111,111,2,286,3969,3972,347071,347074,the old man,3971,347073,core,
+chunk_111::cluster_002::mention_287,chunk_111::cluster_002,chunk_111,111,2,287,3977,3978,347079,347080,his,3977,347079,core,
+chunk_111::cluster_002::mention_288,chunk_111::cluster_002,chunk_111,111,2,288,4030,4031,347132,347133,Uriens,4030,347132,core,
+chunk_111::cluster_002::mention_289,chunk_111::cluster_002,chunk_111,111,2,289,4048,4049,347150,347151,he,4048,347150,core,
+chunk_111::cluster_002::mention_290,chunk_111::cluster_002,chunk_111,111,2,290,4057,4058,347159,347160,he,4057,347159,core,
+chunk_111::cluster_002::mention_291,chunk_111::cluster_002,chunk_111,111,2,291,4064,4065,347166,347167,he,4064,347166,core,
+chunk_111::cluster_002::mention_292,chunk_111::cluster_002,chunk_111,111,2,292,4072,4073,347174,347175,him,4072,347174,core,
+chunk_111::cluster_002::mention_293,chunk_111::cluster_002,chunk_111,111,2,293,4079,4080,347181,347182,him,4079,347181,core,
+chunk_111::cluster_002::mention_294,chunk_111::cluster_002,chunk_111,111,2,294,4135,4136,347237,347238,Uriens,4135,347237,core,
+chunk_111::cluster_002::mention_295,chunk_111::cluster_002,chunk_111,111,2,295,4162,4163,347264,347265,He,4162,347264,core,
+chunk_111::cluster_002::mention_296,chunk_111::cluster_002,chunk_111,111,2,296,4247,4249,347349,347351,the God,4248,347350,core,
+chunk_111::cluster_002::mention_297,chunk_111::cluster_002,chunk_111,111,2,297,4260,4261,347362,347363,Uriens,4260,347362,core,
+chunk_111::cluster_002::mention_298,chunk_111::cluster_002,chunk_111,111,2,298,4266,4267,347368,347369,my,4266,347368,core,
+chunk_111::cluster_002::mention_299,chunk_111::cluster_002,chunk_111,111,2,299,4273,4274,347375,347376,I,4273,347375,core,
+chunk_111::cluster_002::mention_300,chunk_111::cluster_002,chunk_111,111,2,300,4376,4377,347478,347479,I,4376,347478,right_overlap,347478:347479:i
+chunk_111::cluster_002::mention_301,chunk_111::cluster_002,chunk_111,111,2,301,4385,4386,347487,347488,me,4385,347487,right_overlap,347487:347488:me
+chunk_111::cluster_002::mention_302,chunk_111::cluster_002,chunk_111,111,2,302,4387,4388,347489,347490,I,4387,347489,right_overlap,347489:347490:i
+chunk_111::cluster_002::mention_303,chunk_111::cluster_002,chunk_111,111,2,303,4405,4406,347507,347508,my,4405,347507,right_overlap,347507:347508:my
+chunk_111::cluster_002::mention_304,chunk_111::cluster_002,chunk_111,111,2,304,4410,4411,347512,347513,my,4410,347512,right_overlap,347512:347513:my
+chunk_111::cluster_002::mention_305,chunk_111::cluster_002,chunk_111,111,2,305,4418,4419,347520,347521,I,4418,347520,right_overlap,347520:347521:i
+chunk_111::cluster_002::mention_306,chunk_111::cluster_002,chunk_111,111,2,306,4423,4424,347525,347526,I,4423,347525,right_overlap,347525:347526:i
+chunk_111::cluster_002::mention_307,chunk_111::cluster_002,chunk_111,111,2,307,4425,4426,347527,347528,I,4425,347527,right_overlap,347527:347528:i
+chunk_111::cluster_002::mention_308,chunk_111::cluster_002,chunk_111,111,2,308,4487,4488,347589,347590,Uriens,4487,347589,right_overlap,347589:347590:uriens
+chunk_111::cluster_002::mention_309,chunk_111::cluster_002,chunk_111,111,2,309,4493,4494,347595,347596,you,4493,347595,right_overlap,347595:347596:you
+chunk_111::cluster_002::mention_310,chunk_111::cluster_002,chunk_111,111,2,310,4510,4511,347612,347613,I,4510,347612,right_overlap,347612:347613:i
+chunk_111::cluster_002::mention_311,chunk_111::cluster_002,chunk_111,111,2,311,4513,4514,347615,347616,I,4513,347615,right_overlap,347615:347616:i
+chunk_111::cluster_002::mention_312,chunk_111::cluster_002,chunk_111,111,2,312,4529,4530,347631,347632,You,4529,347631,right_overlap,347631:347632:you
+chunk_111::cluster_002::mention_313,chunk_111::cluster_002,chunk_111,111,2,313,4577,4578,347679,347680,He,4577,347679,right_overlap,347679:347680:he
+chunk_111::cluster_002::mention_314,chunk_111::cluster_002,chunk_111,111,2,314,4584,4585,347686,347687,he,4584,347686,right_overlap,347686:347687:he
+chunk_111::cluster_002::mention_315,chunk_111::cluster_002,chunk_111,111,2,315,4592,4593,347694,347695,I,4592,347694,right_overlap,347694:347695:i
+chunk_111::cluster_002::mention_316,chunk_111::cluster_002,chunk_111,111,2,316,4598,4599,347700,347701,he,4598,347700,right_overlap,347700:347701:he
+chunk_111::cluster_002::mention_317,chunk_111::cluster_002,chunk_111,111,2,317,4602,4603,347704,347705,I,4602,347704,right_overlap,347704:347705:i
+chunk_111::cluster_002::mention_318,chunk_111::cluster_002,chunk_111,111,2,318,4616,4617,347718,347719,I,4616,347718,right_overlap,347718:347719:i
+chunk_111::cluster_002::mention_319,chunk_111::cluster_002,chunk_111,111,2,319,4619,4620,347721,347722,my,4619,347721,right_overlap,347721:347722:my
+chunk_111::cluster_002::mention_320,chunk_111::cluster_002,chunk_111,111,2,320,4629,4630,347731,347732,He,4629,347731,right_overlap,347731:347732:he
+chunk_111::cluster_002::mention_321,chunk_111::cluster_002,chunk_111,111,2,321,4633,4634,347735,347736,he,4633,347735,right_overlap,347735:347736:he
+chunk_111::cluster_002::mention_322,chunk_111::cluster_002,chunk_111,111,2,322,4639,4640,347741,347742,he,4639,347741,right_overlap,347741:347742:he
+chunk_111::cluster_002::mention_323,chunk_111::cluster_002,chunk_111,111,2,323,4644,4645,347746,347747,he,4644,347746,right_overlap,347746:347747:he
+chunk_111::cluster_002::mention_324,chunk_111::cluster_002,chunk_111,111,2,324,4660,4661,347762,347763,him,4660,347762,right_overlap,347762:347763:him
+chunk_111::cluster_002::mention_325,chunk_111::cluster_002,chunk_111,111,2,325,4694,4695,347796,347797,my,4694,347796,right_overlap,347796:347797:my
+chunk_111::cluster_002::mention_326,chunk_111::cluster_002,chunk_111,111,2,326,4698,4699,347800,347801,I,4698,347800,right_overlap,347800:347801:i
+chunk_111::cluster_002::mention_327,chunk_111::cluster_002,chunk_111,111,2,327,4748,4749,347850,347851,You,4748,347850,right_overlap,347850:347851:you
+chunk_111::cluster_002::mention_328,chunk_111::cluster_002,chunk_111,111,2,328,4780,4781,347882,347883,me,4780,347882,right_overlap,347882:347883:me
+chunk_111::cluster_002::mention_329,chunk_111::cluster_002,chunk_111,111,2,329,4783,4784,347885,347886,he,4783,347885,right_overlap,347885:347886:he
+chunk_111::cluster_002::mention_330,chunk_111::cluster_002,chunk_111,111,2,330,4787,4788,347889,347890,I,4787,347889,right_overlap,347889:347890:i
+chunk_111::cluster_002::mention_331,chunk_111::cluster_002,chunk_111,111,2,331,4806,4807,347908,347909,I,4806,347908,right_overlap,347908:347909:i
+chunk_111::cluster_002::mention_332,chunk_111::cluster_002,chunk_111,111,2,332,4813,4814,347915,347916,my,4813,347915,right_overlap,347915:347916:my
+chunk_111::cluster_002::mention_334,chunk_111::cluster_002,chunk_111,111,2,334,4826,4827,347928,347929,your,4826,347928,right_overlap,347928:347929:your
+chunk_111::cluster_002::mention_335,chunk_111::cluster_002,chunk_111,111,2,335,4829,4830,347931,347932,sir,4829,347931,right_overlap,347931:347932:sir
+chunk_111::cluster_002::mention_336,chunk_111::cluster_002,chunk_111,111,2,336,4857,4862,347959,347964,an old fellow like me,4859,347961,right_overlap,347959:347964:an old fellow like me
+chunk_111::cluster_002::mention_337,chunk_111::cluster_002,chunk_111,111,2,337,4861,4862,347963,347964,me,4861,347963,right_overlap,347963:347964:me
+chunk_111::cluster_002::mention_338,chunk_111::cluster_002,chunk_111,111,2,338,4984,4985,348086,348087,sir,4984,348086,right_overlap,348086:348087:sir
+chunk_111::cluster_002::mention_339,chunk_111::cluster_002,chunk_111,111,2,339,5023,5024,348125,348126,he,5023,348125,right_overlap,348125:348126:he
+chunk_111::cluster_002::mention_340,chunk_111::cluster_002,chunk_111,111,2,340,5043,5044,348145,348146,him,5043,348145,right_overlap,348145:348146:him
+chunk_111::cluster_002::mention_341,chunk_111::cluster_002,chunk_111,111,2,341,5055,5056,348157,348158,him,5055,348157,right_overlap,348157:348158:him
+chunk_111::cluster_002::mention_342,chunk_111::cluster_002,chunk_111,111,2,342,5061,5062,348163,348164,he,5061,348163,right_overlap,348163:348164:he
+chunk_111::cluster_002::mention_343,chunk_111::cluster_002,chunk_111,111,2,343,5072,5073,348174,348175,I,5072,348174,right_overlap,348174:348175:i
+chunk_111::cluster_002::mention_344,chunk_111::cluster_002,chunk_111,111,2,344,5078,5079,348180,348181,my,5078,348180,right_overlap,348180:348181:my
+chunk_111::cluster_002::mention_345,chunk_111::cluster_002,chunk_111,111,2,345,5081,5082,348183,348184,I,5081,348183,right_overlap,348183:348184:i
+chunk_111::cluster_002::mention_346,chunk_111::cluster_002,chunk_111,111,2,346,5099,5100,348201,348202,I,5099,348201,right_overlap,348201:348202:i
+chunk_111::cluster_002::mention_347,chunk_111::cluster_002,chunk_111,111,2,347,5107,5112,348209,348214,an old fellow like me,5109,348211,right_overlap,348209:348214:an old fellow like me
+chunk_111::cluster_002::mention_348,chunk_111::cluster_002,chunk_111,111,2,348,5111,5112,348213,348214,me,5111,348213,right_overlap,348213:348214:me
+chunk_111::cluster_002::mention_349,chunk_111::cluster_002,chunk_111,111,2,349,5113,5114,348215,348216,My,5113,348215,right_overlap,348215:348216:my
+chunk_111::cluster_002::mention_350,chunk_111::cluster_002,chunk_111,111,2,350,5117,5118,348219,348220,me,5117,348219,right_overlap,348219:348220:me
+chunk_111::cluster_002::mention_351,chunk_111::cluster_002,chunk_111,111,2,351,5119,5120,348221,348222,I,5119,348221,right_overlap,348221:348222:i
+chunk_111::cluster_002::mention_352,chunk_111::cluster_002,chunk_111,111,2,352,5145,5146,348247,348248,I,5145,348247,right_overlap,348247:348248:i
+chunk_111::cluster_002::mention_353,chunk_111::cluster_002,chunk_111,111,2,353,5154,5155,348256,348257,my,5154,348256,right_overlap,348256:348257:my
+chunk_111::cluster_002::mention_354,chunk_111::cluster_002,chunk_111,111,2,354,5169,5170,348271,348272,I,5169,348271,right_overlap,348271:348272:i
+chunk_111::cluster_002::mention_355,chunk_111::cluster_002,chunk_111,111,2,355,5177,5179,348279,348281,your brother,5178,348280,right_overlap,348279:348281:your brother
+chunk_111::cluster_002::mention_356,chunk_111::cluster_002,chunk_111,111,2,356,5183,5184,348285,348286,I,5183,348285,right_overlap,348285:348286:i
+chunk_111::cluster_002::mention_357,chunk_111::cluster_002,chunk_111,111,2,357,5191,5192,348293,348294,me,5191,348293,right_overlap,348293:348294:me
+chunk_111::cluster_002::mention_358,chunk_111::cluster_002,chunk_111,111,2,358,5232,5233,348334,348335,I,5232,348334,right_overlap,348334:348335:i
+chunk_111::cluster_002::mention_359,chunk_111::cluster_002,chunk_111,111,2,359,5243,5244,348345,348346,I,5243,348345,right_overlap,348345:348346:i
+chunk_111::cluster_002::mention_360,chunk_111::cluster_002,chunk_111,111,2,360,5260,5261,348362,348363,he,5260,348362,right_overlap,348362:348363:he
+chunk_111::cluster_002::mention_361,chunk_111::cluster_002,chunk_111,111,2,361,5277,5278,348379,348380,him,5277,348379,right_overlap,348379:348380:him
+chunk_111::cluster_002::mention_362,chunk_111::cluster_002,chunk_111,111,2,362,5375,5376,348477,348478,Lancelet,5375,348477,right_overlap,348477:348478:lancelet
+chunk_111::cluster_002::mention_363,chunk_111::cluster_002,chunk_111,111,2,363,5391,5392,348493,348494,him,5391,348493,right_overlap,348493:348494:him
+chunk_111::cluster_002::mention_364,chunk_111::cluster_002,chunk_111,111,2,364,5395,5396,348497,348498,him,5395,348497,right_overlap,348497:348498:him
+chunk_111::cluster_002::mention_365,chunk_111::cluster_002,chunk_111,111,2,365,5404,5405,348506,348507,him,5404,348506,right_overlap,348506:348507:him
+chunk_111::cluster_002::mention_366,chunk_111::cluster_002,chunk_111,111,2,366,5416,5417,348518,348519,Arthur,5416,348518,right_overlap,348518:348519:arthur
+chunk_111::cluster_002::mention_367,chunk_111::cluster_002,chunk_111,111,2,367,5424,5425,348526,348527,he,5424,348526,right_overlap,348526:348527:he
+chunk_111::cluster_002::mention_368,chunk_111::cluster_002,chunk_111,111,2,368,5456,5457,348558,348559,him,5456,348558,right_overlap,348558:348559:him
+chunk_111::cluster_002::mention_369,chunk_111::cluster_002,chunk_111,111,2,369,5500,5501,348602,348603,Uriens,5500,348602,right_overlap,348602:348603:uriens
+chunk_111::cluster_002::mention_370,chunk_111::cluster_002,chunk_111,111,2,370,5512,5513,348614,348615,He,5512,348614,right_overlap,348614:348615:he
+chunk_111::cluster_002::mention_371,chunk_111::cluster_002,chunk_111,111,2,371,5564,5565,348666,348667,his,5564,348666,right_overlap,348666:348667:his
+chunk_111::cluster_002::mention_372,chunk_111::cluster_002,chunk_111,111,2,372,5567,5568,348669,348670,he,5567,348669,right_overlap,348669:348670:he
+chunk_111::cluster_002::mention_373,chunk_111::cluster_002,chunk_111,111,2,373,5580,5581,348682,348683,he,5580,348682,right_overlap,348682:348683:he
+chunk_111::cluster_002::mention_374,chunk_111::cluster_002,chunk_111,111,2,374,5588,5589,348690,348691,he,5588,348690,right_overlap,348690:348691:he
+chunk_111::cluster_002::mention_375,chunk_111::cluster_002,chunk_111,111,2,375,5593,5594,348695,348696,his,5593,348695,right_overlap,348695:348696:his
+chunk_111::cluster_002::mention_376,chunk_111::cluster_002,chunk_111,111,2,376,5601,5602,348703,348704,his,5601,348703,right_overlap,348703:348704:his
+chunk_111::cluster_002::mention_377,chunk_111::cluster_002,chunk_111,111,2,377,5657,5658,348759,348760,he,5657,348759,right_overlap,348759:348760:he
+chunk_111::cluster_002::mention_378,chunk_111::cluster_002,chunk_111,111,2,378,5705,5706,348807,348808,Uriens,5705,348807,right_overlap,348807:348808:uriens
+chunk_111::cluster_002::mention_379,chunk_111::cluster_002,chunk_111,111,2,379,5730,5731,348832,348833,Uriens,5730,348832,right_overlap,348832:348833:uriens
+chunk_111::cluster_002::mention_380,chunk_111::cluster_002,chunk_111,111,2,380,5733,5734,348835,348836,his,5733,348835,right_overlap,348835:348836:his
+chunk_111::cluster_002::mention_381,chunk_111::cluster_002,chunk_111,111,2,381,5742,5743,348844,348845,His,5742,348844,right_overlap,348844:348845:his
+chunk_111::cluster_002::mention_382,chunk_111::cluster_002,chunk_111,111,2,382,5761,5762,348863,348864,his,5761,348863,right_overlap,348863:348864:his
+chunk_111::cluster_002::mention_383,chunk_111::cluster_002,chunk_111,111,2,383,5864,5865,348966,348967,he,5864,348966,right_overlap,348966:348967:he
+chunk_111::cluster_002::mention_384,chunk_111::cluster_002,chunk_111,111,2,384,5864,5870,348966,348972,"he was, I loved him",5868,348970,right_overlap,"348966:348972:he was, i loved him"
+chunk_111::cluster_002::mention_385,chunk_111::cluster_002,chunk_111,111,2,385,5869,5870,348971,348972,him,5869,348971,right_overlap,348971:348972:him
+chunk_111::cluster_002::mention_386,chunk_111::cluster_002,chunk_111,111,2,386,5872,5873,348974,348975,he,5872,348974,right_overlap,348974:348975:he
+chunk_111::cluster_002::mention_387,chunk_111::cluster_002,chunk_111,111,2,387,5901,5902,349003,349004,he,5901,349003,right_overlap,349003:349004:he
+chunk_111::cluster_002::mention_388,chunk_111::cluster_002,chunk_111,111,2,388,5921,5922,349023,349024,Uriens'family,5921,349023,right_overlap,349023:349024:uriens'family
+chunk_111::cluster_002::mention_389,chunk_111::cluster_002,chunk_111,111,2,389,5921,5922,349023,349024,Uriens'family,5921,349023,right_overlap,349023:349024:uriens'family
+chunk_111::cluster_003::mention_000,chunk_111::cluster_003,chunk_111,111,3,0,30,32,343132,343134,the Archbishop,31,343133,left_overlap,343132:343134:the archbishop
+chunk_111::cluster_003::mention_001,chunk_111::cluster_003,chunk_111,111,3,1,33,34,343135,343136,He,33,343135,left_overlap,343135:343136:he
+chunk_111::cluster_003::mention_002,chunk_111::cluster_003,chunk_111,111,3,2,35,36,343137,343138,he,35,343137,left_overlap,343137:343138:he
+chunk_111::cluster_003::mention_003,chunk_111::cluster_003,chunk_111,111,3,3,230,232,343332,343334,the Archbishop,231,343333,left_overlap,343332:343334:the archbishop
+chunk_111::cluster_003::mention_004,chunk_111::cluster_003,chunk_111,111,3,4,236,237,343338,343339,his,236,343338,left_overlap,343338:343339:his
+chunk_111::cluster_003::mention_005,chunk_111::cluster_003,chunk_111,111,3,5,261,263,343363,343365,the Archbishop,262,343364,left_overlap,343363:343365:the archbishop
+chunk_111::cluster_003::mention_006,chunk_111::cluster_003,chunk_111,111,3,6,920,922,344022,344024,the bishop,921,344023,left_overlap,344022:344024:the bishop
+chunk_111::cluster_003::mention_007,chunk_111::cluster_003,chunk_111,111,3,7,932,933,344034,344035,he,932,344034,left_overlap,344034:344035:he
+chunk_111::cluster_003::mention_008,chunk_111::cluster_003,chunk_111,111,3,8,1556,1558,344658,344660,the bishop,1557,344659,core,
+chunk_111::cluster_004::mention_000,chunk_111::cluster_004,chunk_111,111,4,0,23,24,343125,343126,her,23,343125,left_overlap,343125:343126:her
+chunk_111::cluster_004::mention_001,chunk_111::cluster_004,chunk_111,111,4,1,46,47,343148,343149,She,46,343148,left_overlap,343148:343149:she
+chunk_111::cluster_004::mention_002,chunk_111::cluster_004,chunk_111,111,4,2,60,61,343162,343163,her,60,343162,left_overlap,343162:343163:her
+chunk_111::cluster_004::mention_003,chunk_111::cluster_004,chunk_111,111,4,3,89,90,343191,343192,Gwenhwyfar,89,343191,left_overlap,343191:343192:gwenhwyfar
+chunk_111::cluster_004::mention_004,chunk_111::cluster_004,chunk_111,111,4,4,92,93,343194,343195,you,92,343194,left_overlap,343194:343195:you
+chunk_111::cluster_004::mention_005,chunk_111::cluster_004,chunk_111,111,4,5,100,101,343202,343203,I,100,343202,left_overlap,343202:343203:i
+chunk_111::cluster_004::mention_006,chunk_111::cluster_004,chunk_111,111,4,6,113,114,343215,343216,she,113,343215,left_overlap,343215:343216:she
+chunk_111::cluster_004::mention_007,chunk_111::cluster_004,chunk_111,111,4,7,124,125,343226,343227,I,124,343226,left_overlap,343226:343227:i
+chunk_111::cluster_004::mention_008,chunk_111::cluster_004,chunk_111,111,4,8,128,129,343230,343231,I,128,343230,left_overlap,343230:343231:i
+chunk_111::cluster_004::mention_009,chunk_111::cluster_004,chunk_111,111,4,9,144,145,343246,343247,she,144,343246,left_overlap,343246:343247:she
+chunk_111::cluster_004::mention_010,chunk_111::cluster_004,chunk_111,111,4,10,149,150,343251,343252,her,149,343251,left_overlap,343251:343252:her
+chunk_111::cluster_004::mention_011,chunk_111::cluster_004,chunk_111,111,4,11,156,157,343258,343259,she,156,343258,left_overlap,343258:343259:she
+chunk_111::cluster_004::mention_012,chunk_111::cluster_004,chunk_111,111,4,12,171,172,343273,343274,She,171,343273,left_overlap,343273:343274:she
+chunk_111::cluster_004::mention_013,chunk_111::cluster_004,chunk_111,111,4,13,187,188,343289,343290,Gwen,187,343289,left_overlap,343289:343290:gwen
+chunk_111::cluster_004::mention_014,chunk_111::cluster_004,chunk_111,111,4,14,191,192,343293,343294,you,191,343293,left_overlap,343293:343294:you
+chunk_111::cluster_004::mention_015,chunk_111::cluster_004,chunk_111,111,4,15,226,227,343328,343329,her,226,343328,left_overlap,343328:343329:her
+chunk_111::cluster_004::mention_016,chunk_111::cluster_004,chunk_111,111,4,16,420,421,343522,343523,Gwenhwyfar,420,343522,left_overlap,343522:343523:gwenhwyfar
+chunk_111::cluster_004::mention_017,chunk_111::cluster_004,chunk_111,111,4,17,438,439,343540,343541,She,438,343540,left_overlap,343540:343541:she
+chunk_111::cluster_004::mention_018,chunk_111::cluster_004,chunk_111,111,4,18,473,474,343575,343576,She,473,343575,left_overlap,343575:343576:she
+chunk_111::cluster_004::mention_019,chunk_111::cluster_004,chunk_111,111,4,19,487,488,343589,343590,she,487,343589,left_overlap,343589:343590:she
+chunk_111::cluster_004::mention_020,chunk_111::cluster_004,chunk_111,111,4,20,505,506,343607,343608,she,505,343607,left_overlap,343607:343608:she
+chunk_111::cluster_004::mention_021,chunk_111::cluster_004,chunk_111,111,4,21,507,508,343609,343610,her,507,343609,left_overlap,343609:343610:her
+chunk_111::cluster_004::mention_022,chunk_111::cluster_004,chunk_111,111,4,22,517,518,343619,343620,she,517,343619,left_overlap,343619:343620:she
+chunk_111::cluster_004::mention_023,chunk_111::cluster_004,chunk_111,111,4,23,536,537,343638,343639,she,536,343638,left_overlap,343638:343639:she
+chunk_111::cluster_004::mention_024,chunk_111::cluster_004,chunk_111,111,4,24,544,545,343646,343647,her,544,343646,left_overlap,343646:343647:her
+chunk_111::cluster_004::mention_025,chunk_111::cluster_004,chunk_111,111,4,25,558,559,343660,343661,she,558,343660,left_overlap,343660:343661:she
+chunk_111::cluster_004::mention_026,chunk_111::cluster_004,chunk_111,111,4,26,564,565,343666,343667,she,564,343666,left_overlap,343666:343667:she
+chunk_111::cluster_004::mention_027,chunk_111::cluster_004,chunk_111,111,4,27,582,583,343684,343685,She,582,343684,left_overlap,343684:343685:she
+chunk_111::cluster_004::mention_028,chunk_111::cluster_004,chunk_111,111,4,28,593,594,343695,343696,she,593,343695,left_overlap,343695:343696:she
+chunk_111::cluster_004::mention_029,chunk_111::cluster_004,chunk_111,111,4,29,621,624,343723,343726,his devoted wife,623,343725,left_overlap,343723:343726:his devoted wife
+chunk_111::cluster_004::mention_030,chunk_111::cluster_004,chunk_111,111,4,30,626,627,343728,343729,she,626,343728,left_overlap,343728:343729:she
+chunk_111::cluster_004::mention_031,chunk_111::cluster_004,chunk_111,111,4,31,778,779,343880,343881,Gwenhwyfar,778,343880,left_overlap,343880:343881:gwenhwyfar
+chunk_111::cluster_004::mention_032,chunk_111::cluster_004,chunk_111,111,4,32,791,792,343893,343894,her,791,343893,left_overlap,343893:343894:her
+chunk_111::cluster_004::mention_033,chunk_111::cluster_004,chunk_111,111,4,33,795,796,343897,343898,she,795,343897,left_overlap,343897:343898:she
+chunk_111::cluster_004::mention_034,chunk_111::cluster_004,chunk_111,111,4,34,799,800,343901,343902,her,799,343901,left_overlap,343901:343902:her
+chunk_111::cluster_004::mention_035,chunk_111::cluster_004,chunk_111,111,4,35,805,806,343907,343908,she,805,343907,left_overlap,343907:343908:she
+chunk_111::cluster_004::mention_036,chunk_111::cluster_004,chunk_111,111,4,36,809,810,343911,343912,her,809,343911,left_overlap,343911:343912:her
+chunk_111::cluster_004::mention_037,chunk_111::cluster_004,chunk_111,111,4,37,848,849,343950,343951,She,848,343950,left_overlap,343950:343951:she
+chunk_111::cluster_004::mention_038,chunk_111::cluster_004,chunk_111,111,4,38,909,910,344011,344012,you,909,344011,left_overlap,344011:344012:you
+chunk_111::cluster_004::mention_039,chunk_111::cluster_004,chunk_111,111,4,39,946,947,344048,344049,you,946,344048,left_overlap,344048:344049:you
+chunk_111::cluster_004::mention_040,chunk_111::cluster_004,chunk_111,111,4,40,991,992,344093,344094,you,991,344093,left_overlap,344093:344094:you
+chunk_111::cluster_004::mention_041,chunk_111::cluster_004,chunk_111,111,4,41,994,995,344096,344097,your,994,344096,left_overlap,344096:344097:your
+chunk_111::cluster_004::mention_042,chunk_111::cluster_004,chunk_111,111,4,42,997,998,344099,344100,Gwenhwyfar,997,344099,left_overlap,344099:344100:gwenhwyfar
+chunk_111::cluster_004::mention_043,chunk_111::cluster_004,chunk_111,111,4,43,1012,1013,344114,344115,she,1012,344114,left_overlap,344114:344115:she
+chunk_111::cluster_004::mention_044,chunk_111::cluster_004,chunk_111,111,4,44,1018,1019,344120,344121,her,1018,344120,left_overlap,344120:344121:her
+chunk_111::cluster_004::mention_045,chunk_111::cluster_004,chunk_111,111,4,45,1025,1026,344127,344128,she,1025,344127,left_overlap,344127:344128:she
+chunk_111::cluster_004::mention_046,chunk_111::cluster_004,chunk_111,111,4,46,1034,1035,344136,344137,Gwenhwyfar,1034,344136,left_overlap,344136:344137:gwenhwyfar
+chunk_111::cluster_004::mention_047,chunk_111::cluster_004,chunk_111,111,4,47,1036,1037,344138,344139,her,1036,344138,left_overlap,344138:344139:her
+chunk_111::cluster_004::mention_048,chunk_111::cluster_004,chunk_111,111,4,48,1041,1042,344143,344144,she,1041,344143,left_overlap,344143:344144:she
+chunk_111::cluster_004::mention_049,chunk_111::cluster_004,chunk_111,111,4,49,1132,1133,344234,344235,she,1132,344234,left_overlap,344234:344235:she
+chunk_111::cluster_004::mention_050,chunk_111::cluster_004,chunk_111,111,4,50,1296,1297,344398,344399,Gwenhwyfar,1296,344398,core,
+chunk_111::cluster_004::mention_051,chunk_111::cluster_004,chunk_111,111,4,51,1604,1605,344706,344707,Gwydion-,1604,344706,core,
+chunk_111::cluster_004::mention_052,chunk_111::cluster_004,chunk_111,111,4,52,1618,1619,344720,344721,Gwenhwyfar,1618,344720,core,
+chunk_111::cluster_004::mention_053,chunk_111::cluster_004,chunk_111,111,4,53,1689,1690,344791,344792,Gwenhwyfar,1689,344791,core,
+chunk_111::cluster_004::mention_054,chunk_111::cluster_004,chunk_111,111,4,54,1715,1716,344817,344818,Gwenhwyfar,1715,344817,core,
+chunk_111::cluster_004::mention_055,chunk_111::cluster_004,chunk_111,111,4,55,1729,1730,344831,344832,Gwenhwyfar,1729,344831,core,
+chunk_111::cluster_004::mention_056,chunk_111::cluster_004,chunk_111,111,4,56,1731,1732,344833,344834,her,1731,344833,core,
+chunk_111::cluster_004::mention_057,chunk_111::cluster_004,chunk_111,111,4,57,1735,1736,344837,344838,I,1735,344837,core,
+chunk_111::cluster_004::mention_058,chunk_111::cluster_004,chunk_111,111,4,58,1799,1800,344901,344902,Gwen,1799,344901,core,
+chunk_111::cluster_004::mention_059,chunk_111::cluster_004,chunk_111,111,4,59,1805,1806,344907,344908,her,1805,344907,core,
+chunk_111::cluster_004::mention_060,chunk_111::cluster_004,chunk_111,111,4,60,1810,1811,344912,344913,Gwenhwyfar,1810,344912,core,
+chunk_111::cluster_004::mention_061,chunk_111::cluster_004,chunk_111,111,4,61,1816,1817,344918,344919,she,1816,344918,core,
+chunk_111::cluster_004::mention_062,chunk_111::cluster_004,chunk_111,111,4,62,1840,1841,344942,344943,She,1840,344942,core,
+chunk_111::cluster_004::mention_063,chunk_111::cluster_004,chunk_111,111,4,63,1849,1850,344951,344952,she,1849,344951,core,
+chunk_111::cluster_004::mention_064,chunk_111::cluster_004,chunk_111,111,4,64,1857,1858,344959,344960,She,1857,344959,core,
+chunk_111::cluster_004::mention_065,chunk_111::cluster_004,chunk_111,111,4,65,1882,1883,344984,344985,I,1882,344984,core,
+chunk_111::cluster_004::mention_066,chunk_111::cluster_004,chunk_111,111,4,66,1886,1887,344988,344989,1,1886,344988,core,
+chunk_111::cluster_004::mention_067,chunk_111::cluster_004,chunk_111,111,4,67,1891,1892,344993,344994,She,1891,344993,core,
+chunk_111::cluster_004::mention_068,chunk_111::cluster_004,chunk_111,111,4,68,1895,1896,344997,344998,her,1895,344997,core,
+chunk_111::cluster_004::mention_069,chunk_111::cluster_004,chunk_111,111,4,69,1901,1902,345003,345004,she,1901,345003,core,
+chunk_111::cluster_004::mention_070,chunk_111::cluster_004,chunk_111,111,4,70,1908,1909,345010,345011,her,1908,345010,core,
+chunk_111::cluster_004::mention_071,chunk_111::cluster_004,chunk_111,111,4,71,1917,1918,345019,345020,her,1917,345019,core,
+chunk_111::cluster_004::mention_072,chunk_111::cluster_004,chunk_111,111,4,72,1921,1922,345023,345024,I,1921,345023,core,
+chunk_111::cluster_004::mention_073,chunk_111::cluster_004,chunk_111,111,4,73,1930,1931,345032,345033,I,1930,345032,core,
+chunk_111::cluster_004::mention_074,chunk_111::cluster_004,chunk_111,111,4,74,1948,1950,345050,345052,my dear,1949,345051,core,
+chunk_111::cluster_004::mention_075,chunk_111::cluster_004,chunk_111,111,4,75,1962,1963,345064,345065,you,1962,345064,core,
+chunk_111::cluster_004::mention_076,chunk_111::cluster_004,chunk_111,111,4,76,2001,2002,345103,345104,She,2001,345103,core,
+chunk_111::cluster_004::mention_077,chunk_111::cluster_004,chunk_111,111,4,77,2008,2009,345110,345111,her,2008,345110,core,
+chunk_111::cluster_004::mention_078,chunk_111::cluster_004,chunk_111,111,4,78,2106,2107,345208,345209,Gwenhwyfar,2106,345208,core,
+chunk_111::cluster_004::mention_079,chunk_111::cluster_004,chunk_111,111,4,79,2143,2144,345245,345246,her,2143,345245,core,
+chunk_111::cluster_004::mention_080,chunk_111::cluster_004,chunk_111,111,4,80,2157,2158,345259,345260,you,2157,345259,core,
+chunk_111::cluster_004::mention_081,chunk_111::cluster_004,chunk_111,111,4,81,2164,2166,345266,345268,my Gwen,2165,345267,core,
+chunk_111::cluster_004::mention_082,chunk_111::cluster_004,chunk_111,111,4,82,2197,2198,345299,345300,you,2197,345299,core,
+chunk_111::cluster_004::mention_083,chunk_111::cluster_004,chunk_111,111,4,83,2204,2205,345306,345307,She,2204,345306,core,
+chunk_111::cluster_004::mention_084,chunk_111::cluster_004,chunk_111,111,4,84,2208,2209,345310,345311,I,2208,345310,core,
+chunk_111::cluster_004::mention_085,chunk_111::cluster_004,chunk_111,111,4,85,2212,2213,345314,345315,I,2212,345314,core,
+chunk_111::cluster_004::mention_086,chunk_111::cluster_004,chunk_111,111,4,86,2233,2234,345335,345336,my,2233,345335,core,
+chunk_111::cluster_004::mention_087,chunk_111::cluster_004,chunk_111,111,4,87,2482,2483,345584,345585,Gwenhwyfar,2482,345584,core,
+chunk_111::cluster_004::mention_088,chunk_111::cluster_004,chunk_111,111,4,88,2515,2516,345617,345618,She,2515,345617,core,
+chunk_111::cluster_004::mention_089,chunk_111::cluster_004,chunk_111,111,4,89,2524,2525,345626,345627,She,2524,345626,core,
+chunk_111::cluster_004::mention_090,chunk_111::cluster_004,chunk_111,111,4,90,2543,2544,345645,345646,me,2543,345645,core,
+chunk_111::cluster_004::mention_091,chunk_111::cluster_004,chunk_111,111,4,91,2580,2581,345682,345683,her,2580,345682,core,
+chunk_111::cluster_004::mention_092,chunk_111::cluster_004,chunk_111,111,4,92,2600,2601,345702,345703,she,2600,345702,core,
+chunk_111::cluster_004::mention_093,chunk_111::cluster_004,chunk_111,111,4,93,2671,2673,345773,345775,my sister,2672,345774,core,
+chunk_111::cluster_004::mention_094,chunk_111::cluster_004,chunk_111,111,4,94,2890,2891,345992,345993,I,2890,345992,core,
+chunk_111::cluster_004::mention_095,chunk_111::cluster_004,chunk_111,111,4,95,2902,2903,346004,346005,Gwenhwyfar,2902,346004,core,
+chunk_111::cluster_004::mention_096,chunk_111::cluster_004,chunk_111,111,4,96,2935,2936,346037,346038,Gwenhwyfar,2935,346037,core,
+chunk_111::cluster_004::mention_097,chunk_111::cluster_004,chunk_111,111,4,97,2945,2946,346047,346048,Sister,2945,346047,core,
+chunk_111::cluster_004::mention_098,chunk_111::cluster_004,chunk_111,111,4,98,2960,2961,346062,346063,you,2960,346062,core,
+chunk_111::cluster_004::mention_099,chunk_111::cluster_004,chunk_111,111,4,99,2972,2973,346074,346075,you,2972,346074,core,
+chunk_111::cluster_004::mention_100,chunk_111::cluster_004,chunk_111,111,4,100,2986,2987,346088,346089,I,2986,346088,core,
+chunk_111::cluster_004::mention_101,chunk_111::cluster_004,chunk_111,111,4,101,3011,3012,346113,346114,you,3011,346113,core,
+chunk_111::cluster_004::mention_102,chunk_111::cluster_004,chunk_111,111,4,102,3036,3037,346138,346139,Gwenhwyfar,3036,346138,core,
+chunk_111::cluster_004::mention_103,chunk_111::cluster_004,chunk_111,111,4,103,3049,3050,346151,346152,I,3049,346151,core,
+chunk_111::cluster_004::mention_104,chunk_111::cluster_004,chunk_111,111,4,104,3055,3056,346157,346158,I,3055,346157,core,
+chunk_111::cluster_004::mention_105,chunk_111::cluster_004,chunk_111,111,4,105,3082,3083,346184,346185,you,3082,346184,core,
+chunk_111::cluster_004::mention_106,chunk_111::cluster_004,chunk_111,111,4,106,3105,3106,346207,346208,Gwenhwyfar,3105,346207,core,
+chunk_111::cluster_004::mention_107,chunk_111::cluster_004,chunk_111,111,4,107,3115,3116,346217,346218,You,3115,346217,core,
+chunk_111::cluster_004::mention_108,chunk_111::cluster_004,chunk_111,111,4,108,3119,3120,346221,346222,I,3119,346221,core,
+chunk_111::cluster_004::mention_109,chunk_111::cluster_004,chunk_111,111,4,109,3143,3144,346245,346246,you,3143,346245,core,
+chunk_111::cluster_004::mention_110,chunk_111::cluster_004,chunk_111,111,4,110,3147,3148,346249,346250,Her,3147,346249,core,
+chunk_111::cluster_004::mention_111,chunk_111::cluster_004,chunk_111,111,4,111,3164,3165,346266,346267,me,3164,346266,core,
+chunk_111::cluster_004::mention_112,chunk_111::cluster_004,chunk_111,111,4,112,3188,3190,346290,346292,My sister,3189,346291,core,
+chunk_111::cluster_004::mention_113,chunk_111::cluster_004,chunk_111,111,4,113,3206,3208,346308,346310,my friend,3207,346309,core,
+chunk_111::cluster_004::mention_114,chunk_111::cluster_004,chunk_111,111,4,114,3258,3261,346360,346363,my dear sister,3260,346362,core,
+chunk_111::cluster_004::mention_115,chunk_111::cluster_004,chunk_111,111,4,115,3316,3317,346418,346419,she,3316,346418,core,
+chunk_111::cluster_004::mention_116,chunk_111::cluster_004,chunk_111,111,4,116,3324,3325,346426,346427,Gwenhwyfar,3324,346426,core,
+chunk_111::cluster_004::mention_117,chunk_111::cluster_004,chunk_111,111,4,117,3329,3330,346431,346432,she,3329,346431,core,
+chunk_111::cluster_004::mention_118,chunk_111::cluster_004,chunk_111,111,4,118,3358,3359,346460,346461,she,3358,346460,core,
+chunk_111::cluster_004::mention_119,chunk_111::cluster_004,chunk_111,111,4,119,3387,3388,346489,346490,Gwenhwyfar,3387,346489,core,
+chunk_111::cluster_004::mention_120,chunk_111::cluster_004,chunk_111,111,4,120,3424,3425,346526,346527,you,3424,346526,core,
+chunk_111::cluster_004::mention_121,chunk_111::cluster_004,chunk_111,111,4,121,3436,3437,346538,346539,she,3436,346538,core,
+chunk_111::cluster_004::mention_122,chunk_111::cluster_004,chunk_111,111,4,122,3445,3446,346547,346548,I,3445,346547,core,
+chunk_111::cluster_004::mention_123,chunk_111::cluster_004,chunk_111,111,4,123,3458,3459,346560,346561,her,3458,346560,core,
+chunk_111::cluster_004::mention_124,chunk_111::cluster_004,chunk_111,111,4,124,3464,3465,346566,346567,her,3464,346566,core,
+chunk_111::cluster_004::mention_125,chunk_111::cluster_004,chunk_111,111,4,125,3471,3472,346573,346574,Gwenhwyfar,3471,346573,core,
+chunk_111::cluster_004::mention_126,chunk_111::cluster_004,chunk_111,111,4,126,3474,3475,346576,346577,she,3474,346576,core,
+chunk_111::cluster_004::mention_127,chunk_111::cluster_004,chunk_111,111,4,127,3524,3525,346626,346627,I,3524,346626,core,
+chunk_111::cluster_004::mention_128,chunk_111::cluster_004,chunk_111,111,4,128,3527,3528,346629,346630,Gwenhwyfar,3527,346629,core,
+chunk_111::cluster_004::mention_129,chunk_111::cluster_004,chunk_111,111,4,129,3529,3530,346631,346632,me,3529,346631,core,
+chunk_111::cluster_004::mention_130,chunk_111::cluster_004,chunk_111,111,4,130,3536,3537,346638,346639,she,3536,346638,core,
+chunk_111::cluster_004::mention_131,chunk_111::cluster_004,chunk_111,111,4,131,3538,3539,346640,346641,me,3538,346640,core,
+chunk_111::cluster_004::mention_132,chunk_111::cluster_004,chunk_111,111,4,132,3540,3541,346642,346643,I,3540,346642,core,
+chunk_111::cluster_004::mention_133,chunk_111::cluster_004,chunk_111,111,4,133,3555,3556,346657,346658,me,3555,346657,core,
+chunk_111::cluster_004::mention_134,chunk_111::cluster_004,chunk_111,111,4,134,3563,3564,346665,346666,I,3563,346665,core,
+chunk_111::cluster_004::mention_135,chunk_111::cluster_004,chunk_111,111,4,135,3589,3590,346691,346692,I,3589,346691,core,
+chunk_111::cluster_004::mention_136,chunk_111::cluster_004,chunk_111,111,4,136,3603,3604,346705,346706,me,3603,346705,core,
+chunk_111::cluster_004::mention_137,chunk_111::cluster_004,chunk_111,111,4,137,3622,3623,346724,346725,I,3622,346724,core,
+chunk_111::cluster_004::mention_138,chunk_111::cluster_004,chunk_111,111,4,138,3628,3629,346730,346731,Gwenhwyfar,3628,346730,core,
+chunk_111::cluster_004::mention_139,chunk_111::cluster_004,chunk_111,111,4,139,3630,3631,346732,346733,me,3630,346732,core,
+chunk_111::cluster_004::mention_140,chunk_111::cluster_004,chunk_111,111,4,140,3647,3648,346749,346750,I,3647,346749,core,
+chunk_111::cluster_004::mention_141,chunk_111::cluster_004,chunk_111,111,4,141,3651,3652,346753,346754,her,3651,346753,core,
+chunk_111::cluster_004::mention_142,chunk_111::cluster_004,chunk_111,111,4,142,3653,3654,346755,346756,me,3653,346755,core,
+chunk_111::cluster_004::mention_143,chunk_111::cluster_004,chunk_111,111,4,143,3668,3669,346770,346771,I,3668,346770,core,
+chunk_111::cluster_004::mention_144,chunk_111::cluster_004,chunk_111,111,4,144,3674,3675,346776,346777,I,3674,346776,core,
+chunk_111::cluster_004::mention_145,chunk_111::cluster_004,chunk_111,111,4,145,3683,3684,346785,346786,I,3683,346785,core,
+chunk_111::cluster_004::mention_146,chunk_111::cluster_004,chunk_111,111,4,146,3692,3693,346794,346795,1,3692,346794,core,
+chunk_111::cluster_004::mention_147,chunk_111::cluster_004,chunk_111,111,4,147,3715,3716,346817,346818,I,3715,346817,core,
+chunk_111::cluster_004::mention_148,chunk_111::cluster_004,chunk_111,111,4,148,3722,3723,346824,346825,I,3722,346824,core,
+chunk_111::cluster_004::mention_149,chunk_111::cluster_004,chunk_111,111,4,149,3745,3746,346847,346848,I,3745,346847,core,
+chunk_111::cluster_004::mention_150,chunk_111::cluster_004,chunk_111,111,4,150,3747,3748,346849,346850,1,3747,346849,core,
+chunk_111::cluster_004::mention_151,chunk_111::cluster_004,chunk_111,111,4,151,3757,3758,346859,346860,I,3757,346859,core,
+chunk_111::cluster_004::mention_152,chunk_111::cluster_004,chunk_111,111,4,152,3767,3768,346869,346870,I,3767,346869,core,
+chunk_111::cluster_004::mention_153,chunk_111::cluster_004,chunk_111,111,4,153,3775,3776,346877,346878,my,3775,346877,core,
+chunk_111::cluster_004::mention_154,chunk_111::cluster_004,chunk_111,111,4,154,3788,3789,346890,346891,I,3788,346890,core,
+chunk_111::cluster_004::mention_155,chunk_111::cluster_004,chunk_111,111,4,155,3792,3793,346894,346895,my,3792,346894,core,
+chunk_111::cluster_004::mention_156,chunk_111::cluster_004,chunk_111,111,4,156,3798,3799,346900,346901,1,3798,346900,core,
+chunk_111::cluster_004::mention_157,chunk_111::cluster_004,chunk_111,111,4,157,3806,3807,346908,346909,I,3806,346908,core,
+chunk_111::cluster_004::mention_158,chunk_111::cluster_004,chunk_111,111,4,158,3817,3818,346919,346920,I,3817,346919,core,
+chunk_111::cluster_004::mention_159,chunk_111::cluster_004,chunk_111,111,4,159,3820,3821,346922,346923,Gwenhwyfar,3820,346922,core,
+chunk_111::cluster_004::mention_160,chunk_111::cluster_004,chunk_111,111,4,160,3826,3827,346928,346929,I,3826,346928,core,
+chunk_111::cluster_004::mention_161,chunk_111::cluster_004,chunk_111,111,4,161,3833,3834,346935,346936,me,3833,346935,core,
+chunk_111::cluster_004::mention_162,chunk_111::cluster_004,chunk_111,111,4,162,3835,3836,346937,346938,1,3835,346937,core,
+chunk_111::cluster_004::mention_163,chunk_111::cluster_004,chunk_111,111,4,163,3840,3841,346942,346943,myself,3840,346942,core,
+chunk_111::cluster_004::mention_164,chunk_111::cluster_004,chunk_111,111,4,164,3849,3850,346951,346952,I,3849,346951,core,
+chunk_111::cluster_004::mention_165,chunk_111::cluster_004,chunk_111,111,4,165,3858,3859,346960,346961,1,3858,346960,core,
+chunk_111::cluster_004::mention_166,chunk_111::cluster_004,chunk_111,111,4,166,3870,3871,346972,346973,I,3870,346972,core,
+chunk_111::cluster_004::mention_167,chunk_111::cluster_004,chunk_111,111,4,167,3881,3888,346983,346990,one of four-and-thirty,3881,346983,core,
+chunk_111::cluster_004::mention_168,chunk_111::cluster_004,chunk_111,111,4,168,3936,3937,347038,347039,my,3936,347038,core,
+chunk_111::cluster_004::mention_169,chunk_111::cluster_004,chunk_111,111,4,169,3949,3950,347051,347052,I,3949,347051,core,
+chunk_111::cluster_004::mention_170,chunk_111::cluster_004,chunk_111,111,4,170,3955,3956,347057,347058,I,3955,347057,core,
+chunk_111::cluster_004::mention_171,chunk_111::cluster_004,chunk_111,111,4,171,3959,3960,347061,347062,myself,3959,347061,core,
+chunk_111::cluster_004::mention_172,chunk_111::cluster_004,chunk_111,111,4,172,3983,3984,347085,347086,I,3983,347085,core,
+chunk_111::cluster_004::mention_173,chunk_111::cluster_004,chunk_111,111,4,173,3985,3986,347087,347088,myself,3985,347087,core,
+chunk_111::cluster_004::mention_174,chunk_111::cluster_004,chunk_111,111,4,174,3999,4000,347101,347102,I,3999,347101,core,
+chunk_111::cluster_004::mention_175,chunk_111::cluster_004,chunk_111,111,4,175,4024,4025,347126,347127,I,4024,347126,core,
+chunk_111::cluster_004::mention_176,chunk_111::cluster_004,chunk_111,111,4,176,4045,4046,347147,347148,I,4045,347147,core,
+chunk_111::cluster_004::mention_177,chunk_111::cluster_004,chunk_111,111,4,177,4077,4078,347179,347180,I,4077,347179,core,
+chunk_111::cluster_004::mention_178,chunk_111::cluster_004,chunk_111,111,4,178,4082,4083,347184,347185,me,4082,347184,core,
+chunk_111::cluster_004::mention_179,chunk_111::cluster_004,chunk_111,111,4,179,4088,4089,347190,347191,me,4088,347190,core,
+chunk_111::cluster_004::mention_180,chunk_111::cluster_004,chunk_111,111,4,180,4092,4093,347194,347195,I,4092,347194,core,
+chunk_111::cluster_004::mention_181,chunk_111::cluster_004,chunk_111,111,4,181,4106,4107,347208,347209,I,4106,347208,core,
+chunk_111::cluster_004::mention_182,chunk_111::cluster_004,chunk_111,111,4,182,4127,4128,347229,347230,I,4127,347229,core,
+chunk_111::cluster_004::mention_183,chunk_111::cluster_004,chunk_111,111,4,183,4138,4139,347240,347241,I,4138,347240,core,
+chunk_111::cluster_004::mention_184,chunk_111::cluster_004,chunk_111,111,4,184,4143,4144,347245,347246,1,4143,347245,core,
+chunk_111::cluster_004::mention_185,chunk_111::cluster_004,chunk_111,111,4,185,4149,4150,347251,347252,1,4149,347251,core,
+chunk_111::cluster_004::mention_186,chunk_111::cluster_004,chunk_111,111,4,186,4172,4173,347274,347275,my,4172,347274,core,
+chunk_111::cluster_004::mention_187,chunk_111::cluster_004,chunk_111,111,4,187,4180,4181,347282,347283,I,4180,347282,core,
+chunk_111::cluster_004::mention_188,chunk_111::cluster_004,chunk_111,111,4,188,4192,4193,347294,347295,Gwenhwyfar,4192,347294,core,
+chunk_111::cluster_004::mention_189,chunk_111::cluster_004,chunk_111,111,4,189,4204,4205,347306,347307,I,4204,347306,core,
+chunk_111::cluster_004::mention_190,chunk_111::cluster_004,chunk_111,111,4,190,4223,4224,347325,347326,You,4223,347325,core,
+chunk_111::cluster_004::mention_191,chunk_111::cluster_004,chunk_111,111,4,191,4241,4242,347343,347344,you,4241,347343,core,
+chunk_111::cluster_004::mention_192,chunk_111::cluster_004,chunk_111,111,4,192,4256,4257,347358,347359,I,4256,347358,core,
+chunk_111::cluster_004::mention_193,chunk_111::cluster_004,chunk_111,111,4,193,4429,4430,347531,347532,you,4429,347531,right_overlap,347531:347532:you
+chunk_111::cluster_004::mention_194,chunk_111::cluster_004,chunk_111,111,4,194,4441,4442,347543,347544,I,4441,347543,right_overlap,347543:347544:i
+chunk_111::cluster_004::mention_195,chunk_111::cluster_004,chunk_111,111,4,195,4452,4453,347554,347555,you,4452,347554,right_overlap,347554:347555:you
+chunk_111::cluster_004::mention_196,chunk_111::cluster_004,chunk_111,111,4,196,4455,4456,347557,347558,me,4455,347557,right_overlap,347557:347558:me
+chunk_111::cluster_004::mention_197,chunk_111::cluster_004,chunk_111,111,4,197,4457,4458,347559,347560,I,4457,347559,right_overlap,347559:347560:i
+chunk_111::cluster_004::mention_198,chunk_111::cluster_004,chunk_111,111,4,198,4484,4485,347586,347587,I,4484,347586,right_overlap,347586:347587:i
+chunk_111::cluster_004::mention_199,chunk_111::cluster_004,chunk_111,111,4,199,4497,4498,347599,347600,I,4497,347599,right_overlap,347599:347600:i
+chunk_111::cluster_004::mention_200,chunk_111::cluster_004,chunk_111,111,4,200,4517,4518,347619,347620,you,4517,347619,right_overlap,347619:347620:you
+chunk_111::cluster_004::mention_201,chunk_111::cluster_004,chunk_111,111,4,201,4539,4540,347641,347642,me,4539,347641,right_overlap,347641:347642:me
+chunk_111::cluster_004::mention_202,chunk_111::cluster_004,chunk_111,111,4,202,4546,4547,347648,347649,1,4546,347648,right_overlap,347648:347649:1
+chunk_111::cluster_004::mention_203,chunk_111::cluster_004,chunk_111,111,4,203,4557,4558,347659,347660,1,4557,347659,right_overlap,347659:347660:1
+chunk_111::cluster_004::mention_204,chunk_111::cluster_004,chunk_111,111,4,204,4579,4580,347681,347682,my,4579,347681,right_overlap,347681:347682:my
+chunk_111::cluster_004::mention_205,chunk_111::cluster_004,chunk_111,111,4,205,4582,4583,347684,347685,I,4582,347684,right_overlap,347684:347685:i
+chunk_111::cluster_004::mention_206,chunk_111::cluster_004,chunk_111,111,4,206,4589,4590,347691,347692,me,4589,347691,right_overlap,347691:347692:me
+chunk_111::cluster_004::mention_207,chunk_111::cluster_004,chunk_111,111,4,207,4626,4627,347728,347729,I,4626,347728,right_overlap,347728:347729:i
+chunk_111::cluster_004::mention_208,chunk_111::cluster_004,chunk_111,111,4,208,4652,4653,347754,347755,me,4652,347754,right_overlap,347754:347755:me
+chunk_111::cluster_004::mention_209,chunk_111::cluster_004,chunk_111,111,4,209,4654,4655,347756,347757,I,4654,347756,right_overlap,347756:347757:i
+chunk_111::cluster_004::mention_210,chunk_111::cluster_004,chunk_111,111,4,210,4664,4665,347766,347767,I,4664,347766,right_overlap,347766:347767:i
+chunk_111::cluster_004::mention_211,chunk_111::cluster_004,chunk_111,111,4,211,4672,4673,347774,347775,you,4672,347774,right_overlap,347774:347775:you
+chunk_111::cluster_004::mention_212,chunk_111::cluster_004,chunk_111,111,4,212,4678,4679,347780,347781,Morgaine,4678,347780,right_overlap,347780:347781:morgaine
+chunk_111::cluster_004::mention_213,chunk_111::cluster_004,chunk_111,111,4,213,4681,4682,347783,347784,you,4681,347783,right_overlap,347783:347784:you
+chunk_111::cluster_004::mention_214,chunk_111::cluster_004,chunk_111,111,4,214,4684,4685,347786,347787,you,4684,347786,right_overlap,347786:347787:you
+chunk_111::cluster_004::mention_215,chunk_111::cluster_004,chunk_111,111,4,215,4701,4702,347803,347804,you,4701,347803,right_overlap,347803:347804:you
+chunk_111::cluster_004::mention_216,chunk_111::cluster_004,chunk_111,111,4,216,4744,4745,347846,347847,my,4744,347846,right_overlap,347846:347847:my
+chunk_111::cluster_004::mention_217,chunk_111::cluster_004,chunk_111,111,4,217,4754,4755,347856,347857,I,4754,347856,right_overlap,347856:347857:i
+chunk_111::cluster_004::mention_218,chunk_111::cluster_004,chunk_111,111,4,218,4775,4776,347877,347878,you,4775,347877,right_overlap,347877:347878:you
+chunk_111::cluster_004::mention_219,chunk_111::cluster_004,chunk_111,111,4,219,4822,4823,347924,347925,I,4822,347924,right_overlap,347924:347925:i
+chunk_111::cluster_004::mention_220,chunk_111::cluster_004,chunk_111,111,4,220,4853,4854,347955,347956,you,4853,347955,right_overlap,347955:347956:you
+chunk_111::cluster_004::mention_221,chunk_111::cluster_004,chunk_111,111,4,221,4872,4873,347974,347975,you,4872,347974,right_overlap,347974:347975:you
+chunk_111::cluster_004::mention_222,chunk_111::cluster_004,chunk_111,111,4,222,4880,4881,347982,347983,I,4880,347982,right_overlap,347982:347983:i
+chunk_111::cluster_004::mention_223,chunk_111::cluster_004,chunk_111,111,4,223,4883,4884,347985,347986,I,4883,347985,right_overlap,347985:347986:i
+chunk_111::cluster_004::mention_224,chunk_111::cluster_004,chunk_111,111,4,224,4965,4966,348067,348068,I,4965,348067,right_overlap,348067:348068:i
+chunk_111::cluster_004::mention_225,chunk_111::cluster_004,chunk_111,111,4,225,4978,4979,348080,348081,I,4978,348080,right_overlap,348080:348081:i
+chunk_111::cluster_004::mention_226,chunk_111::cluster_004,chunk_111,111,4,226,4991,4992,348093,348094,my,4991,348093,right_overlap,348093:348094:my
+chunk_111::cluster_004::mention_227,chunk_111::cluster_004,chunk_111,111,4,227,5016,5017,348118,348119,I,5016,348118,right_overlap,348118:348119:i
+chunk_111::cluster_004::mention_228,chunk_111::cluster_004,chunk_111,111,4,228,5035,5036,348137,348138,I,5035,348137,right_overlap,348137:348138:i
+chunk_111::cluster_004::mention_229,chunk_111::cluster_004,chunk_111,111,4,229,5040,5041,348142,348143,I,5040,348142,right_overlap,348142:348143:i
+chunk_111::cluster_004::mention_230,chunk_111::cluster_004,chunk_111,111,4,230,5070,5071,348172,348173,you,5070,348172,right_overlap,348172:348173:you
+chunk_111::cluster_004::mention_231,chunk_111::cluster_004,chunk_111,111,4,231,5078,5080,348180,348182,my dear,5079,348181,right_overlap,348180:348182:my dear
+chunk_111::cluster_004::mention_232,chunk_111::cluster_004,chunk_111,111,4,232,5101,5102,348203,348204,you,5101,348203,right_overlap,348203:348204:you
+chunk_111::cluster_004::mention_233,chunk_111::cluster_004,chunk_111,111,4,233,5133,5135,348235,348237,lady Morgaine,5134,348236,right_overlap,348235:348237:lady morgaine
+chunk_111::cluster_004::mention_234,chunk_111::cluster_004,chunk_111,111,4,234,5177,5178,348279,348280,your,5177,348279,right_overlap,348279:348280:your
+chunk_111::cluster_004::mention_235,chunk_111::cluster_004,chunk_111,111,4,235,5193,5194,348295,348296,you,5193,348295,right_overlap,348295:348296:you
+chunk_111::cluster_004::mention_236,chunk_111::cluster_004,chunk_111,111,4,236,5205,5206,348307,348308,your,5205,348307,right_overlap,348307:348308:your
+chunk_111::cluster_004::mention_237,chunk_111::cluster_004,chunk_111,111,4,237,5208,5209,348310,348311,you,5208,348310,right_overlap,348310:348311:you
+chunk_111::cluster_004::mention_238,chunk_111::cluster_004,chunk_111,111,4,238,5234,5235,348336,348337,you,5234,348336,right_overlap,348336:348337:you
+chunk_111::cluster_004::mention_239,chunk_111::cluster_004,chunk_111,111,4,239,5245,5246,348347,348348,you,5245,348347,right_overlap,348347:348348:you
+chunk_111::cluster_004::mention_240,chunk_111::cluster_004,chunk_111,111,4,240,5257,5258,348359,348360,I,5257,348359,right_overlap,348359:348360:i
+chunk_111::cluster_004::mention_241,chunk_111::cluster_004,chunk_111,111,4,241,5264,5265,348366,348367,me,5264,348366,right_overlap,348366:348367:me
+chunk_111::cluster_004::mention_242,chunk_111::cluster_004,chunk_111,111,4,242,5279,5280,348381,348382,I,5279,348381,right_overlap,348381:348382:i
+chunk_111::cluster_004::mention_243,chunk_111::cluster_004,chunk_111,111,4,243,5289,5290,348391,348392,I,5289,348391,right_overlap,348391:348392:i
+chunk_111::cluster_004::mention_244,chunk_111::cluster_004,chunk_111,111,4,244,5296,5297,348398,348399,I,5296,348398,right_overlap,348398:348399:i
+chunk_111::cluster_004::mention_245,chunk_111::cluster_004,chunk_111,111,4,245,5302,5303,348404,348405,I,5302,348404,right_overlap,348404:348405:i
+chunk_111::cluster_004::mention_246,chunk_111::cluster_004,chunk_111,111,4,246,5307,5308,348409,348410,I,5307,348409,right_overlap,348409:348410:i
+chunk_111::cluster_004::mention_247,chunk_111::cluster_004,chunk_111,111,4,247,5320,5321,348422,348423,Gwenhwyfar,5320,348422,right_overlap,348422:348423:gwenhwyfar
+chunk_111::cluster_004::mention_248,chunk_111::cluster_004,chunk_111,111,4,248,5324,5325,348426,348427,I,5324,348426,right_overlap,348426:348427:i
+chunk_111::cluster_004::mention_249,chunk_111::cluster_004,chunk_111,111,4,249,5332,5333,348434,348435,her,5332,348434,right_overlap,348434:348435:her
+chunk_111::cluster_004::mention_250,chunk_111::cluster_004,chunk_111,111,4,250,5341,5342,348443,348444,me,5341,348443,right_overlap,348443:348444:me
+chunk_111::cluster_004::mention_251,chunk_111::cluster_004,chunk_111,111,4,251,5361,5362,348463,348464,I,5361,348463,right_overlap,348463:348464:i
+chunk_111::cluster_004::mention_252,chunk_111::cluster_004,chunk_111,111,4,252,5366,5367,348468,348469,I,5366,348468,right_overlap,348468:348469:i
+chunk_111::cluster_004::mention_253,chunk_111::cluster_004,chunk_111,111,4,253,5380,5381,348482,348483,I,5380,348482,right_overlap,348482:348483:i
+chunk_111::cluster_004::mention_254,chunk_111::cluster_004,chunk_111,111,4,254,5387,5388,348489,348490,I,5387,348489,right_overlap,348489:348490:i
+chunk_111::cluster_004::mention_255,chunk_111::cluster_004,chunk_111,111,4,255,5393,5394,348495,348496,I,5393,348495,right_overlap,348495:348496:i
+chunk_111::cluster_004::mention_256,chunk_111::cluster_004,chunk_111,111,4,256,5429,5430,348531,348532,Gwenhwyfar,5429,348531,right_overlap,348531:348532:gwenhwyfar
+chunk_111::cluster_004::mention_257,chunk_111::cluster_004,chunk_111,111,4,257,5453,5454,348555,348556,I,5453,348555,right_overlap,348555:348556:i
+chunk_111::cluster_004::mention_258,chunk_111::cluster_004,chunk_111,111,4,258,5458,5459,348560,348561,me,5458,348560,right_overlap,348560:348561:me
+chunk_111::cluster_004::mention_259,chunk_111::cluster_004,chunk_111,111,4,259,5475,5476,348577,348578,I,5475,348577,right_overlap,348577:348578:i
+chunk_111::cluster_004::mention_260,chunk_111::cluster_004,chunk_111,111,4,260,5486,5487,348588,348589,me,5486,348588,right_overlap,348588:348589:me
+chunk_111::cluster_004::mention_261,chunk_111::cluster_004,chunk_111,111,4,261,5492,5493,348594,348595,me,5492,348594,right_overlap,348594:348595:me
+chunk_111::cluster_004::mention_262,chunk_111::cluster_004,chunk_111,111,4,262,5509,5510,348611,348612,I,5509,348611,right_overlap,348611:348612:i
+chunk_111::cluster_004::mention_263,chunk_111::cluster_004,chunk_111,111,4,263,5514,5515,348616,348617,me,5514,348616,right_overlap,348616:348617:me
+chunk_111::cluster_004::mention_264,chunk_111::cluster_004,chunk_111,111,4,264,5521,5522,348623,348624,me,5521,348623,right_overlap,348623:348624:me
+chunk_111::cluster_004::mention_265,chunk_111::cluster_004,chunk_111,111,4,265,5540,5541,348642,348643,me,5540,348642,right_overlap,348642:348643:me
+chunk_111::cluster_004::mention_266,chunk_111::cluster_004,chunk_111,111,4,266,5549,5550,348651,348652,I,5549,348651,right_overlap,348651:348652:i
+chunk_111::cluster_004::mention_267,chunk_111::cluster_004,chunk_111,111,4,267,5570,5571,348672,348673,me,5570,348672,right_overlap,348672:348673:me
+chunk_111::cluster_004::mention_268,chunk_111::cluster_004,chunk_111,111,4,268,5583,5584,348685,348686,me,5583,348685,right_overlap,348685:348686:me
+chunk_111::cluster_004::mention_269,chunk_111::cluster_004,chunk_111,111,4,269,5591,5592,348693,348694,me,5591,348693,right_overlap,348693:348694:me
+chunk_111::cluster_004::mention_270,chunk_111::cluster_004,chunk_111,111,4,270,5599,5600,348701,348702,me,5599,348701,right_overlap,348701:348702:me
+chunk_111::cluster_004::mention_271,chunk_111::cluster_004,chunk_111,111,4,271,5620,5621,348722,348723,I,5620,348722,right_overlap,348722:348723:i
+chunk_111::cluster_004::mention_272,chunk_111::cluster_004,chunk_111,111,4,272,5652,5653,348754,348755,I,5652,348754,right_overlap,348754:348755:i
+chunk_111::cluster_004::mention_273,chunk_111::cluster_004,chunk_111,111,4,273,5661,5662,348763,348764,I,5661,348763,right_overlap,348763:348764:i
+chunk_111::cluster_004::mention_274,chunk_111::cluster_004,chunk_111,111,4,274,5690,5691,348792,348793,me,5690,348792,right_overlap,348792:348793:me
+chunk_111::cluster_004::mention_275,chunk_111::cluster_004,chunk_111,111,4,275,5755,5756,348857,348858,me,5755,348857,right_overlap,348857:348858:me
+chunk_111::cluster_004::mention_276,chunk_111::cluster_004,chunk_111,111,4,276,5768,5769,348870,348871,me,5768,348870,right_overlap,348870:348871:me
+chunk_111::cluster_004::mention_277,chunk_111::cluster_004,chunk_111,111,4,277,5773,5774,348875,348876,I,5773,348875,right_overlap,348875:348876:i
+chunk_111::cluster_004::mention_278,chunk_111::cluster_004,chunk_111,111,4,278,5867,5868,348969,348970,I,5867,348969,right_overlap,348969:348970:i
+chunk_111::cluster_004::mention_279,chunk_111::cluster_004,chunk_111,111,4,279,5875,5876,348977,348978,me,5875,348977,right_overlap,348977:348978:me
+chunk_111::cluster_004::mention_280,chunk_111::cluster_004,chunk_111,111,4,280,5887,5888,348989,348990,me,5887,348989,right_overlap,348989:348990:me
+chunk_111::cluster_004::mention_281,chunk_111::cluster_004,chunk_111,111,4,281,5889,5890,348991,348992,I,5889,348991,right_overlap,348991:348992:i
+chunk_111::cluster_004::mention_282,chunk_111::cluster_004,chunk_111,111,4,282,5938,5939,349040,349041,I,5938,349040,right_overlap,349040:349041:i
+chunk_111::cluster_004::mention_283,chunk_111::cluster_004,chunk_111,111,4,283,5945,5946,349047,349048,my,5945,349047,right_overlap,349047:349048:my
+chunk_111::cluster_005::mention_000,chunk_111::cluster_005,chunk_111,111,5,0,75,76,343177,343178,Morgaine,75,343177,left_overlap,343177:343178:morgaine
+chunk_111::cluster_005::mention_001,chunk_111::cluster_005,chunk_111,111,5,1,96,97,343198,343199,her-,96,343198,left_overlap,343198:343199:her-
+chunk_111::cluster_005::mention_002,chunk_111::cluster_005,chunk_111,111,5,2,106,107,343208,343209,her,106,343208,left_overlap,343208:343209:her
+chunk_111::cluster_005::mention_003,chunk_111::cluster_005,chunk_111,111,5,3,121,122,343223,343224,she,121,343223,left_overlap,343223:343224:she
+chunk_111::cluster_005::mention_004,chunk_111::cluster_005,chunk_111,111,5,4,130,131,343232,343233,she,130,343232,left_overlap,343232:343233:she
+chunk_111::cluster_005::mention_005,chunk_111::cluster_005,chunk_111,111,5,5,198,199,343300,343301,Morgaine,198,343300,left_overlap,343300:343301:morgaine
+chunk_111::cluster_005::mention_006,chunk_111::cluster_005,chunk_111,111,5,6,200,201,343302,343303,She,200,343302,left_overlap,343302:343303:she
+chunk_111::cluster_005::mention_007,chunk_111::cluster_005,chunk_111,111,5,7,475,476,343577,343578,Morgaine,475,343577,left_overlap,343577:343578:morgaine
+chunk_111::cluster_005::mention_008,chunk_111::cluster_005,chunk_111,111,5,8,528,529,343630,343631,Morgaine,528,343630,left_overlap,343630:343631:morgaine
+chunk_111::cluster_005::mention_009,chunk_111::cluster_005,chunk_111,111,5,9,609,610,343711,343712,Morgaine,609,343711,left_overlap,343711:343712:morgaine
+chunk_111::cluster_005::mention_010,chunk_111::cluster_005,chunk_111,111,5,10,1103,1104,344205,344206,Morgaine,1103,344205,left_overlap,344205:344206:morgaine
+chunk_111::cluster_005::mention_011,chunk_111::cluster_005,chunk_111,111,5,11,1108,1109,344210,344211,she,1108,344210,left_overlap,344210:344211:she
+chunk_111::cluster_005::mention_012,chunk_111::cluster_005,chunk_111,111,5,12,1117,1118,344219,344220,Morgaine,1117,344219,left_overlap,344219:344220:morgaine
+chunk_111::cluster_005::mention_013,chunk_111::cluster_005,chunk_111,111,5,13,1119,1120,344221,344222,Morgaine,1119,344221,left_overlap,344221:344222:morgaine
+chunk_111::cluster_005::mention_014,chunk_111::cluster_005,chunk_111,111,5,14,1122,1123,344224,344225,Morgaine,1122,344224,left_overlap,344224:344225:morgaine
+chunk_111::cluster_005::mention_015,chunk_111::cluster_005,chunk_111,111,5,15,1127,1128,344229,344230,she,1127,344229,left_overlap,344229:344230:she
+chunk_111::cluster_005::mention_016,chunk_111::cluster_005,chunk_111,111,5,16,1130,1131,344232,344233,Morgaine,1130,344232,left_overlap,344232:344233:morgaine
+chunk_111::cluster_005::mention_017,chunk_111::cluster_005,chunk_111,111,5,17,1141,1142,344243,344244,she,1141,344243,left_overlap,344243:344244:she
+chunk_111::cluster_005::mention_018,chunk_111::cluster_005,chunk_111,111,5,18,1157,1158,344259,344260,She,1157,344259,left_overlap,344259:344260:she
+chunk_111::cluster_005::mention_019,chunk_111::cluster_005,chunk_111,111,5,19,1169,1170,344271,344272,her,1169,344271,left_overlap,344271:344272:her
+chunk_111::cluster_005::mention_020,chunk_111::cluster_005,chunk_111,111,5,20,1173,1174,344275,344276,she,1173,344275,left_overlap,344275:344276:she
+chunk_111::cluster_005::mention_021,chunk_111::cluster_005,chunk_111,111,5,21,1209,1210,344311,344312,Morgaine,1209,344311,left_overlap,344311:344312:morgaine
+chunk_111::cluster_005::mention_022,chunk_111::cluster_005,chunk_111,111,5,22,1395,1396,344497,344498,Elaine,1395,344497,core,
+chunk_111::cluster_005::mention_023,chunk_111::cluster_005,chunk_111,111,5,23,1413,1414,344515,344516,Elaine,1413,344515,core,
+chunk_111::cluster_005::mention_024,chunk_111::cluster_005,chunk_111,111,5,24,1846,1847,344948,344949,Morgaine,1846,344948,core,
+chunk_111::cluster_005::mention_025,chunk_111::cluster_005,chunk_111,111,5,25,1867,1868,344969,344970,Elaine,1867,344969,core,
+chunk_111::cluster_005::mention_026,chunk_111::cluster_005,chunk_111,111,5,26,2045,2046,345147,345148,Morgaine,2045,345147,core,
+chunk_111::cluster_005::mention_027,chunk_111::cluster_005,chunk_111,111,5,27,2059,2060,345161,345162,Her,2059,345161,core,
+chunk_111::cluster_005::mention_028,chunk_111::cluster_005,chunk_111,111,5,28,2083,2084,345185,345186,Morgaine,2083,345185,core,
+chunk_111::cluster_005::mention_030,chunk_111::cluster_005,chunk_111,111,5,30,2097,2098,345199,345200,Morgaine,2097,345199,core,
+chunk_111::cluster_005::mention_031,chunk_111::cluster_005,chunk_111,111,5,31,2162,2163,345264,345265,Morgaine,2162,345264,core,
+chunk_111::cluster_005::mention_032,chunk_111::cluster_005,chunk_111,111,5,32,2226,2227,345328,345329,Morgaine,2226,345328,core,
+chunk_111::cluster_005::mention_033,chunk_111::cluster_005,chunk_111,111,5,33,2243,2244,345345,345346,her,2243,345345,core,
+chunk_111::cluster_005::mention_034,chunk_111::cluster_005,chunk_111,111,5,34,2246,2247,345348,345349,she,2246,345348,core,
+chunk_111::cluster_005::mention_035,chunk_111::cluster_005,chunk_111,111,5,35,2266,2267,345368,345369,her,2266,345368,core,
+chunk_111::cluster_005::mention_036,chunk_111::cluster_005,chunk_111,111,5,36,2279,2280,345381,345382,Elaine,2279,345381,core,
+chunk_111::cluster_005::mention_037,chunk_111::cluster_005,chunk_111,111,5,37,2283,2284,345385,345386,her,2283,345385,core,
+chunk_111::cluster_005::mention_038,chunk_111::cluster_005,chunk_111,111,5,38,2396,2398,345498,345500,his widow,2397,345499,core,
+chunk_111::cluster_005::mention_039,chunk_111::cluster_005,chunk_111,111,5,39,2399,2400,345501,345502,Morgause,2399,345501,core,
+chunk_111::cluster_005::mention_040,chunk_111::cluster_005,chunk_111,111,5,40,2441,2443,345543,345545,his mother,2442,345544,core,
+chunk_111::cluster_005::mention_041,chunk_111::cluster_005,chunk_111,111,5,41,2449,2451,345551,345553,the lady,2450,345552,core,
+chunk_111::cluster_005::mention_042,chunk_111::cluster_005,chunk_111,111,5,42,2459,2460,345561,345562,her,2459,345561,core,
+chunk_111::cluster_005::mention_043,chunk_111::cluster_005,chunk_111,111,5,43,2466,2467,345568,345569,her,2466,345568,core,
+chunk_111::cluster_005::mention_044,chunk_111::cluster_005,chunk_111,111,5,44,2508,2509,345610,345611,Morgaine,2508,345610,core,
+chunk_111::cluster_005::mention_045,chunk_111::cluster_005,chunk_111,111,5,45,2566,2574,345668,345676,a kinswoman whose marriage is in your keeping,2567,345669,core,
+chunk_111::cluster_005::mention_047,chunk_111::cluster_005,chunk_111,111,5,47,2593,2594,345695,345696,Morgaine,2593,345695,core,
+chunk_111::cluster_005::mention_048,chunk_111::cluster_005,chunk_111,111,5,48,2620,2621,345722,345723,Morgaine,2620,345722,core,
+chunk_111::cluster_005::mention_049,chunk_111::cluster_005,chunk_111,111,5,49,2655,2666,345757,345768,"Uriens and said, ""I cannot order lady Morgause",2656,345758,core,
+chunk_111::cluster_005::mention_050,chunk_111::cluster_005,chunk_111,111,5,50,2664,2666,345766,345768,lady Morgause,2665,345767,core,
+chunk_111::cluster_005::mention_051,chunk_111::cluster_005,chunk_111,111,5,51,2703,2705,345805,345807,your sister,2704,345806,core,
+chunk_111::cluster_005::mention_052,chunk_111::cluster_005,chunk_111,111,5,52,2732,2733,345834,345835,her,2732,345834,core,
+chunk_111::cluster_005::mention_053,chunk_111::cluster_005,chunk_111,111,5,53,2744,2747,345846,345849,the lady Morgaine,2746,345848,core,
+chunk_111::cluster_005::mention_054,chunk_111::cluster_005,chunk_111,111,5,54,2748,2749,345850,345851,she,2748,345850,core,
+chunk_111::cluster_005::mention_055,chunk_111::cluster_005,chunk_111,111,5,55,2754,2755,345856,345857,she,2754,345856,core,
+chunk_111::cluster_005::mention_056,chunk_111::cluster_005,chunk_111,111,5,56,2766,2767,345868,345869,Morgaine,2766,345868,core,
+chunk_111::cluster_005::mention_057,chunk_111::cluster_005,chunk_111,111,5,57,2768,2769,345870,345871,she,2768,345870,core,
+chunk_111::cluster_005::mention_058,chunk_111::cluster_005,chunk_111,111,5,58,2771,2772,345873,345874,her,2771,345873,core,
+chunk_111::cluster_005::mention_059,chunk_111::cluster_005,chunk_111,111,5,59,2777,2778,345879,345880,her,2777,345879,core,
+chunk_111::cluster_005::mention_060,chunk_111::cluster_005,chunk_111,111,5,60,2781,2782,345883,345884,She,2781,345883,core,
+chunk_111::cluster_005::mention_061,chunk_111::cluster_005,chunk_111,111,5,61,2786,2788,345888,345890,your sister,2787,345889,core,
+chunk_111::cluster_005::mention_062,chunk_111::cluster_005,chunk_111,111,5,62,2797,2800,345899,345902,such a wife,2799,345901,core,
+chunk_111::cluster_005::mention_063,chunk_111::cluster_005,chunk_111,111,5,63,2815,2816,345917,345918,Morgaine,2815,345917,core,
+chunk_111::cluster_005::mention_064,chunk_111::cluster_005,chunk_111,111,5,64,2821,2822,345923,345924,She,2821,345923,core,
+chunk_111::cluster_005::mention_065,chunk_111::cluster_005,chunk_111,111,5,65,2825,2826,345927,345928,she,2825,345927,core,
+chunk_111::cluster_005::mention_066,chunk_111::cluster_005,chunk_111,111,5,66,2832,2833,345934,345935,her,2832,345934,core,
+chunk_111::cluster_005::mention_067,chunk_111::cluster_005,chunk_111,111,5,67,2835,2836,345937,345938,she,2835,345937,core,
+chunk_111::cluster_005::mention_068,chunk_111::cluster_005,chunk_111,111,5,68,2848,2849,345950,345951,she,2848,345950,core,
+chunk_111::cluster_005::mention_069,chunk_111::cluster_005,chunk_111,111,5,69,2863,2864,345965,345966,she,2863,345965,core,
+chunk_111::cluster_005::mention_070,chunk_111::cluster_005,chunk_111,111,5,70,2892,2893,345994,345995,she,2892,345994,core,
+chunk_111::cluster_005::mention_071,chunk_111::cluster_005,chunk_111,111,5,71,2906,2907,346008,346009,She,2906,346008,core,
+chunk_111::cluster_005::mention_072,chunk_111::cluster_005,chunk_111,111,5,72,2916,2917,346018,346019,Morgaine,2916,346018,core,
+chunk_111::cluster_005::mention_073,chunk_111::cluster_005,chunk_111,111,5,73,2928,2929,346030,346031,she,2928,346030,core,
+chunk_111::cluster_005::mention_074,chunk_111::cluster_005,chunk_111,111,5,74,3040,3041,346142,346143,Morgaine,3040,346142,core,
+chunk_111::cluster_005::mention_076,chunk_111::cluster_005,chunk_111,111,5,76,3090,3091,346192,346193,Morgaine,3090,346192,core,
+chunk_111::cluster_005::mention_077,chunk_111::cluster_005,chunk_111,111,5,77,3098,3099,346200,346201,her,3098,346200,core,
+chunk_111::cluster_005::mention_078,chunk_111::cluster_005,chunk_111,111,5,78,3101,3102,346203,346204,She,3101,346203,core,
+chunk_111::cluster_005::mention_079,chunk_111::cluster_005,chunk_111,111,5,79,3111,3112,346213,346214,her,3111,346213,core,
+chunk_111::cluster_005::mention_080,chunk_111::cluster_005,chunk_111,111,5,80,3194,3195,346296,346297,she,3194,346296,core,
+chunk_111::cluster_005::mention_081,chunk_111::cluster_005,chunk_111,111,5,81,3252,3257,346354,346359,the lady Morgaine of Cornwall,3254,346356,core,
+chunk_111::cluster_005::mention_082,chunk_111::cluster_005,chunk_111,111,5,82,3302,3303,346404,346405,Morgaine,3302,346404,core,
+chunk_111::cluster_005::mention_083,chunk_111::cluster_005,chunk_111,111,5,83,3311,3312,346413,346414,she,3311,346413,core,
+chunk_111::cluster_005::mention_084,chunk_111::cluster_005,chunk_111,111,5,84,3322,3323,346424,346425,her,3322,346424,core,
+chunk_111::cluster_005::mention_085,chunk_111::cluster_005,chunk_111,111,5,85,3331,3340,346433,346442,the young man who had been flirting with Morgaine,3333,346435,core,
+chunk_111::cluster_005::mention_086,chunk_111::cluster_005,chunk_111,111,5,86,3339,3340,346441,346442,Morgaine,3339,346441,core,
+chunk_111::cluster_005::mention_087,chunk_111::cluster_005,chunk_111,111,5,87,3367,3368,346469,346470,her,3367,346469,core,
+chunk_111::cluster_005::mention_088,chunk_111::cluster_005,chunk_111,111,5,88,3369,3370,346471,346472,Morgaine,3369,346471,core,
+chunk_111::cluster_005::mention_089,chunk_111::cluster_005,chunk_111,111,5,89,3402,3403,346504,346505,Morgaine,3402,346504,core,
+chunk_111::cluster_005::mention_090,chunk_111::cluster_005,chunk_111,111,5,90,3416,3417,346518,346519,she,3416,346518,core,
+chunk_111::cluster_005::mention_091,chunk_111::cluster_005,chunk_111,111,5,91,3432,3434,346534,346536,my sister,3433,346535,core,
+chunk_111::cluster_005::mention_092,chunk_111::cluster_005,chunk_111,111,5,92,3440,3441,346542,346543,Morgaine,3440,346542,core,
+chunk_111::cluster_005::mention_093,chunk_111::cluster_005,chunk_111,111,5,93,3462,3463,346564,346565,Morgaine,3462,346564,core,
+chunk_111::cluster_005::mention_094,chunk_111::cluster_005,chunk_111,111,5,94,3505,3506,346607,346608,MORGAINE,3505,346607,core,
+chunk_111::cluster_005::mention_095,chunk_111::cluster_005,chunk_111,111,5,95,3597,3598,346699,346700,Igraine,3597,346699,core,
+chunk_111::cluster_005::mention_096,chunk_111::cluster_005,chunk_111,111,5,96,3607,3609,346709,346711,our mother,3608,346710,core,
+chunk_111::cluster_005::mention_097,chunk_111::cluster_005,chunk_111,111,5,97,3637,3639,346739,346741,his wife,3638,346740,core,
+chunk_111::cluster_005::mention_098,chunk_111::cluster_005,chunk_111,111,5,98,3671,3672,346773,346774,Igraine,3671,346773,core,
+chunk_111::cluster_005::mention_099,chunk_111::cluster_005,chunk_111,111,5,99,3688,3689,346790,346791,her,3688,346790,core,
+chunk_111::cluster_005::mention_100,chunk_111::cluster_005,chunk_111,111,5,100,3698,3699,346800,346801,she,3698,346800,core,
+chunk_111::cluster_005::mention_101,chunk_111::cluster_005,chunk_111,111,5,101,3771,3772,346873,346874,Morgause,3771,346873,core,
+chunk_111::cluster_005::mention_102,chunk_111::cluster_005,chunk_111,111,5,102,3775,3779,346877,346881,my only living kinswoman,3778,346880,core,
+chunk_111::cluster_005::mention_103,chunk_111::cluster_005,chunk_111,111,5,103,3990,3991,347092,347093,Viviane,3990,347092,core,
+chunk_111::cluster_005::mention_104,chunk_111::cluster_005,chunk_111,111,5,104,4006,4007,347108,347109,Viviane,4006,347108,core,
+chunk_111::cluster_005::mention_105,chunk_111::cluster_005,chunk_111,111,5,105,4011,4012,347113,347114,Viviane,4011,347113,core,
+chunk_111::cluster_005::mention_106,chunk_111::cluster_005,chunk_111,111,5,106,4011,4015,347113,347117,Viviane's own daughter,4014,347116,core,
+chunk_111::cluster_005::mention_107,chunk_111::cluster_005,chunk_111,111,5,107,4019,4020,347121,347122,Viviane,4019,347121,core,
+chunk_111::cluster_005::mention_108,chunk_111::cluster_005,chunk_111,111,5,108,4196,4197,347298,347299,Viviane,4196,347298,core,
+chunk_111::cluster_005::mention_109,chunk_111::cluster_005,chunk_111,111,5,109,4210,4211,347312,347313,she,4210,347312,core,
+chunk_111::cluster_005::mention_110,chunk_111::cluster_005,chunk_111,111,5,110,4431,4433,347533,347535,lady Morgaine,4432,347534,right_overlap,347533:347535:lady morgaine
+chunk_111::cluster_005::mention_111,chunk_111::cluster_005,chunk_111,111,5,111,4675,4676,347777,347778,your,4675,347777,right_overlap,347777:347778:your
+chunk_111::cluster_005::mention_112,chunk_111::cluster_005,chunk_111,111,5,112,4706,4707,347808,347809,you,4706,347808,right_overlap,347808:347809:you
+chunk_111::cluster_005::mention_113,chunk_111::cluster_005,chunk_111,111,5,113,4845,4847,347947,347949,His mother,4846,347948,right_overlap,347947:347949:his mother
+chunk_111::cluster_005::mention_114,chunk_111::cluster_005,chunk_111,111,5,114,5373,5374,348475,348476,her,5373,348475,right_overlap,348475:348476:her
+chunk_111::cluster_005::mention_115,chunk_111::cluster_005,chunk_111,111,5,115,5383,5384,348485,348486,her,5383,348485,right_overlap,348485:348486:her
+chunk_111::cluster_005::mention_116,chunk_111::cluster_005,chunk_111,111,5,116,5482,5483,348584,348585,Viviane,5482,348584,right_overlap,348584:348585:viviane
+chunk_111::cluster_006::mention_000,chunk_111::cluster_006,chunk_111,111,6,0,79,80,343181,343182,church,79,343181,left_overlap,343181:343182:church
+chunk_111::cluster_007::mention_000,chunk_111::cluster_007,chunk_111,111,7,0,236,238,343338,343340,his flock,237,343339,left_overlap,343338:343340:his flock
+chunk_111::cluster_008::mention_000,chunk_111::cluster_008,chunk_111,111,8,0,267,269,343369,343371,the crowds,268,343370,left_overlap,343369:343371:the crowds
+chunk_111::cluster_009::mention_000,chunk_111::cluster_009,chunk_111,111,9,0,272,274,343374,343376,the castle,273,343375,left_overlap,343374:343376:the castle
+chunk_111::cluster_009::mention_001,chunk_111::cluster_009,chunk_111,111,9,1,283,285,343385,343387,the hall,284,343386,left_overlap,343385:343387:the hall
+chunk_111::cluster_009::mention_002,chunk_111::cluster_009,chunk_111,111,9,2,408,410,343510,343512,the hall,409,343511,left_overlap,343510:343512:the hall
+chunk_111::cluster_009::mention_003,chunk_111::cluster_009,chunk_111,111,9,3,1086,1088,344188,344190,the hall,1087,344189,left_overlap,344188:344190:the hall
+chunk_111::cluster_009::mention_004,chunk_111::cluster_009,chunk_111,111,9,4,2994,2995,346096,346097,here,2994,346096,core,
+chunk_111::cluster_009::mention_005,chunk_111::cluster_009,chunk_111,111,9,5,5883,5884,348985,348986,hall,5883,348985,right_overlap,348985:348986:hall
+chunk_111::cluster_010::mention_000,chunk_111::cluster_010,chunk_111,111,10,0,288,299,343390,343401,men who had been Arthur's Companions in years gone by,288,343390,left_overlap,343390:343401:men who had been arthur's companions in years gone by
+chunk_111::cluster_011::mention_000,chunk_111::cluster_011,chunk_111,111,11,0,292,295,343394,343397,Arthur's Companions,294,343396,left_overlap,343394:343397:arthur's companions
+chunk_111::cluster_012::mention_000,chunk_111::cluster_012,chunk_111,111,12,0,302,303,343404,343405,them,302,343404,left_overlap,343404:343405:them
+chunk_111::cluster_013::mention_000,chunk_111::cluster_013,chunk_111,111,13,0,308,312,343410,343414,one of his councillors-,308,343410,left_overlap,343410:343414:one of his councillors-
+chunk_111::cluster_014::mention_000,chunk_111::cluster_014,chunk_111,111,14,0,310,312,343412,343414,his councillors-,311,343413,left_overlap,343412:343414:his councillors-
+chunk_111::cluster_015::mention_000,chunk_111::cluster_015,chunk_111,111,15,0,317,318,343419,343420,Patricius,317,343419,left_overlap,343419:343420:patricius
+chunk_111::cluster_016::mention_000,chunk_111::cluster_016,chunk_111,111,16,0,320,325,343422,343427,one of Arthur's advisers,320,343422,left_overlap,343422:343427:one of arthur's advisers
+chunk_111::cluster_017::mention_000,chunk_111::cluster_017,chunk_111,111,17,0,334,335,343436,343437,everyone,334,343436,left_overlap,343436:343437:everyone
+chunk_111::cluster_018::mention_000,chunk_111::cluster_018,chunk_111,111,18,0,339,341,343441,343443,old friends,340,343442,left_overlap,343441:343443:old friends
+chunk_111::cluster_019::mention_000,chunk_111::cluster_019,chunk_111,111,19,0,349,350,343451,343452,their,349,343451,left_overlap,343451:343452:their
+chunk_111::cluster_020::mention_000,chunk_111::cluster_020,chunk_111,111,20,0,349,351,343451,343453,their homes,350,343452,left_overlap,343451:343453:their homes
+chunk_111::cluster_021::mention_000,chunk_111::cluster_021,chunk_111,111,21,0,352,353,343454,343455,villages,352,343454,left_overlap,343454:343455:villages
+chunk_111::cluster_022::mention_000,chunk_111::cluster_022,chunk_111,111,22,0,361,362,343463,343464,daughters,361,343463,left_overlap,343463:343464:daughters
+chunk_111::cluster_023::mention_000,chunk_111::cluster_023,chunk_111,111,23,0,364,365,343466,343467,sons,364,343466,left_overlap,343466:343467:sons
+chunk_111::cluster_024::mention_000,chunk_111::cluster_024,chunk_111,111,24,0,371,372,343473,343474,babies,371,343473,left_overlap,343473:343474:babies
+chunk_111::cluster_025::mention_000,chunk_111::cluster_025,chunk_111,111,25,0,376,377,343478,343479,robbers,376,343478,left_overlap,343478:343479:robbers
+chunk_111::cluster_026::mention_000,chunk_111::cluster_026,chunk_111,111,26,0,379,380,343481,343482,roads,379,343481,left_overlap,343481:343482:roads
+chunk_111::cluster_027::mention_000,chunk_111::cluster_027,chunk_111,111,27,0,405,410,343507,343512,the people in the hall,406,343508,left_overlap,343507:343512:the people in the hall
+chunk_111::cluster_028::mention_000,chunk_111::cluster_028,chunk_111,111,28,0,424,425,343526,343527,you,424,343526,left_overlap,343526:343527:you
+chunk_111::cluster_029::mention_000,chunk_111::cluster_029,chunk_111,111,29,0,462,466,343564,343568,many of the guests,462,343564,left_overlap,343564:343568:many of the guests
+chunk_111::cluster_030::mention_000,chunk_111::cluster_030,chunk_111,111,30,0,464,466,343566,343568,the guests,465,343567,left_overlap,343566:343568:the guests
+chunk_111::cluster_031::mention_000,chunk_111::cluster_031,chunk_111,111,31,0,485,503,343587,343605,"a man she did not recognize, save that he had the serpents of Avalon around his wrist",492,343594,left_overlap,"343587:343605:a man she did not recognize, save that he had the serpents of avalon around his wrist"
+chunk_111::cluster_031::mention_001,chunk_111::cluster_031,chunk_111,111,31,1,494,495,343596,343597,he,494,343596,left_overlap,343596:343597:he
+chunk_111::cluster_031::mention_002,chunk_111::cluster_031,chunk_111,111,31,2,501,502,343603,343604,his,501,343603,left_overlap,343603:343604:his
+chunk_111::cluster_031::mention_003,chunk_111::cluster_031,chunk_111,111,31,3,513,514,343615,343616,him,513,343615,left_overlap,343615:343616:him
+chunk_111::cluster_031::mention_004,chunk_111::cluster_031,chunk_111,111,31,4,522,523,343624,343625,him,522,343624,left_overlap,343624:343625:him
+chunk_111::cluster_031::mention_005,chunk_111::cluster_031,chunk_111,111,31,5,1375,1376,344477,344478,Pellinore,1375,344477,core,
+chunk_111::cluster_031::mention_006,chunk_111::cluster_031,chunk_111,111,31,6,1377,1378,344479,344480,he,1377,344479,core,
+chunk_111::cluster_031::mention_007,chunk_111::cluster_031,chunk_111,111,31,7,1382,1383,344484,344485,he,1382,344484,core,
+chunk_111::cluster_031::mention_008,chunk_111::cluster_031,chunk_111,111,31,8,1403,1404,344505,344506,him,1403,344505,core,
+chunk_111::cluster_031::mention_009,chunk_111::cluster_031,chunk_111,111,31,9,1421,1422,344523,344524,he,1421,344523,core,
+chunk_111::cluster_031::mention_010,chunk_111::cluster_031,chunk_111,111,31,10,1451,1452,344553,344554,him,1451,344553,core,
+chunk_111::cluster_031::mention_011,chunk_111::cluster_031,chunk_111,111,31,11,1455,1456,344557,344558,Pellinore,1455,344557,core,
+chunk_111::cluster_031::mention_012,chunk_111::cluster_031,chunk_111,111,31,12,1458,1459,344560,344561,he,1458,344560,core,
+chunk_111::cluster_031::mention_013,chunk_111::cluster_031,chunk_111,111,31,13,2396,2397,345498,345499,his,2396,345498,core,
+chunk_111::cluster_031::mention_014,chunk_111::cluster_031,chunk_111,111,31,14,2424,2426,345526,345528,sir Gawaine,2425,345527,core,
+chunk_111::cluster_031::mention_015,chunk_111::cluster_031,chunk_111,111,31,15,2427,2428,345529,345530,Lothian,2427,345529,core,
+chunk_111::cluster_031::mention_016,chunk_111::cluster_031,chunk_111,111,31,16,2429,2430,345531,345532,his,2429,345531,core,
+chunk_111::cluster_031::mention_017,chunk_111::cluster_031,chunk_111,111,31,17,2435,2436,345537,345538,he,2435,345537,core,
+chunk_111::cluster_031::mention_018,chunk_111::cluster_031,chunk_111,111,31,18,2441,2442,345543,345544,his,2441,345543,core,
+chunk_111::cluster_031::mention_019,chunk_111::cluster_031,chunk_111,111,31,19,3344,3347,346446,346449,Uriens' son,3346,346448,core,
+chunk_111::cluster_031::mention_020,chunk_111::cluster_031,chunk_111,111,31,20,3348,3349,346450,346451,Accolon,3348,346450,core,
+chunk_111::cluster_031::mention_021,chunk_111::cluster_031,chunk_111,111,31,21,3350,3351,346452,346453,Accolon,3350,346452,core,
+chunk_111::cluster_031::mention_022,chunk_111::cluster_031,chunk_111,111,31,22,3380,3381,346482,346483,Accolon-,3380,346482,core,
+chunk_111::cluster_031::mention_023,chunk_111::cluster_031,chunk_111,111,31,23,3382,3383,346484,346485,she,3382,346484,core,
+chunk_111::cluster_031::mention_024,chunk_111::cluster_031,chunk_111,111,31,24,3808,3809,346910,346911,Accolon,3808,346910,core,
+chunk_111::cluster_031::mention_025,chunk_111::cluster_031,chunk_111,111,31,25,3829,3830,346931,346932,Accolon,3829,346931,core,
+chunk_111::cluster_031::mention_026,chunk_111::cluster_031,chunk_111,111,31,26,3842,3843,346944,346945,him,3842,346944,core,
+chunk_111::cluster_031::mention_027,chunk_111::cluster_031,chunk_111,111,31,27,3872,3873,346974,346975,Accolon,3872,346974,core,
+chunk_111::cluster_031::mention_028,chunk_111::cluster_031,chunk_111,111,31,28,3964,3965,347066,347067,Accolon,3964,347066,core,
+chunk_111::cluster_031::mention_029,chunk_111::cluster_031,chunk_111,111,31,29,3977,3979,347079,347081,his son,3978,347080,core,
+chunk_111::cluster_031::mention_030,chunk_111::cluster_031,chunk_111,111,31,30,4352,4353,347454,347455,Accolon,4352,347454,right_overlap,347454:347455:accolon
+chunk_111::cluster_031::mention_031,chunk_111::cluster_031,chunk_111,111,31,31,4466,4467,347568,347569,Accolon,4466,347568,right_overlap,347568:347569:accolon
+chunk_111::cluster_031::mention_032,chunk_111::cluster_031,chunk_111,111,31,32,4472,4473,347574,347575,Accolon,4472,347574,right_overlap,347574:347575:accolon
+chunk_111::cluster_031::mention_033,chunk_111::cluster_031,chunk_111,111,31,33,4541,4543,347643,347645,that child,4542,347644,right_overlap,347643:347645:that child
+chunk_111::cluster_031::mention_034,chunk_111::cluster_031,chunk_111,111,31,34,4571,4574,347673,347676,his younger son,4573,347675,right_overlap,347673:347676:his younger son
+chunk_111::cluster_031::mention_035,chunk_111::cluster_031,chunk_111,111,31,35,4675,4677,347777,347779,your son,4676,347778,right_overlap,347777:347779:your son
+chunk_111::cluster_031::mention_036,chunk_111::cluster_031,chunk_111,111,31,36,4688,4689,347790,347791,him,4688,347790,right_overlap,347790:347791:him
+chunk_111::cluster_031::mention_037,chunk_111::cluster_031,chunk_111,111,31,37,4691,4692,347793,347794,him,4691,347793,right_overlap,347793:347794:him
+chunk_111::cluster_031::mention_038,chunk_111::cluster_031,chunk_111,111,31,38,4704,4705,347806,347807,he,4704,347806,right_overlap,347806:347807:he
+chunk_111::cluster_031::mention_039,chunk_111::cluster_031,chunk_111,111,31,39,4716,4717,347818,347819,he,4716,347818,right_overlap,347818:347819:he
+chunk_111::cluster_031::mention_040,chunk_111::cluster_031,chunk_111,111,31,40,4759,4760,347861,347862,he,4759,347861,right_overlap,347861:347862:he
+chunk_111::cluster_031::mention_041,chunk_111::cluster_031,chunk_111,111,31,41,4763,4764,347865,347866,he,4763,347865,right_overlap,347865:347866:he
+chunk_111::cluster_031::mention_042,chunk_111::cluster_031,chunk_111,111,31,42,4810,4818,347912,347920,"a playmate to my youngest son, Uwaine",4811,347913,right_overlap,"347912:347920:a playmate to my youngest son, uwaine"
+chunk_111::cluster_031::mention_044,chunk_111::cluster_031,chunk_111,111,31,44,4817,4818,347919,347920,Uwaine,4817,347919,right_overlap,347919:347920:uwaine
+chunk_111::cluster_031::mention_046,chunk_111::cluster_031,chunk_111,111,31,46,4824,4825,347926,347927,Accolon,4824,347926,right_overlap,347926:347927:accolon
+chunk_111::cluster_031::mention_047,chunk_111::cluster_031,chunk_111,111,31,47,4838,4839,347940,347941,Uwaine,4838,347940,right_overlap,347940:347941:uwaine
+chunk_111::cluster_031::mention_048,chunk_111::cluster_031,chunk_111,111,31,48,4845,4846,347947,347948,His,4845,347947,right_overlap,347947:347948:his
+chunk_111::cluster_031::mention_049,chunk_111::cluster_031,chunk_111,111,31,49,4849,4850,347951,347952,he,4849,347951,right_overlap,347951:347952:he
+chunk_111::cluster_031::mention_050,chunk_111::cluster_031,chunk_111,111,31,50,4864,4870,347966,347972,a boy as young as nine,4865,347967,right_overlap,347966:347972:a boy as young as nine
+chunk_111::cluster_031::mention_051,chunk_111::cluster_031,chunk_111,111,31,51,5123,5124,348225,348226,Uwaine,5123,348225,right_overlap,348225:348226:uwaine
+chunk_111::cluster_031::mention_052,chunk_111::cluster_031,chunk_111,111,31,52,5699,5700,348801,348802,Lothian,5699,348801,right_overlap,348801:348802:lothian
+chunk_111::cluster_031::mention_053,chunk_111::cluster_031,chunk_111,111,31,53,5742,5744,348844,348846,His son,5743,348845,right_overlap,348844:348846:his son
+chunk_111::cluster_031::mention_054,chunk_111::cluster_031,chunk_111,111,31,54,5761,5764,348863,348866,his youngest son,5763,348865,right_overlap,348863:348866:his youngest son
+chunk_111::cluster_031::mention_055,chunk_111::cluster_031,chunk_111,111,31,55,5765,5766,348867,348868,Uwaine,5765,348867,right_overlap,348867:348868:uwaine
+chunk_111::cluster_031::mention_056,chunk_111::cluster_031,chunk_111,111,31,56,5784,5786,348886,348888,a son,5785,348887,right_overlap,348886:348888:a son
+chunk_111::cluster_031::mention_057,chunk_111::cluster_031,chunk_111,111,31,57,5799,5802,348901,348904,a growing child,5801,348903,right_overlap,348901:348904:a growing child
+chunk_111::cluster_031::mention_058,chunk_111::cluster_031,chunk_111,111,31,58,5810,5811,348912,348913,his,5810,348912,right_overlap,348912:348913:his
+chunk_111::cluster_031::mention_059,chunk_111::cluster_031,chunk_111,111,31,59,5822,5823,348924,348925,his,5822,348924,right_overlap,348924:348925:his
+chunk_111::cluster_031::mention_060,chunk_111::cluster_031,chunk_111,111,31,60,5833,5834,348935,348936,he,5833,348935,right_overlap,348935:348936:he
+chunk_111::cluster_031::mention_061,chunk_111::cluster_031,chunk_111,111,31,61,5838,5839,348940,348941,his,5838,348940,right_overlap,348940:348941:his
+chunk_111::cluster_031::mention_062,chunk_111::cluster_031,chunk_111,111,31,62,5845,5846,348947,348948,Uwaine,5845,348947,right_overlap,348947:348948:uwaine
+chunk_111::cluster_031::mention_063,chunk_111::cluster_031,chunk_111,111,31,63,5846,5847,348948,348949,his,5846,348948,right_overlap,348948:348949:his
+chunk_111::cluster_031::mention_064,chunk_111::cluster_031,chunk_111,111,31,64,5851,5852,348953,348954,he,5851,348953,right_overlap,348953:348954:he
+chunk_111::cluster_031::mention_065,chunk_111::cluster_031,chunk_111,111,31,65,5943,5944,349045,349046,Uwaine,5943,349045,right_overlap,349045:349046:uwaine
+chunk_111::cluster_031::mention_066,chunk_111::cluster_031,chunk_111,111,31,66,5945,5948,349047,349050,my own son,5947,349049,right_overlap,349047:349050:my own son
+chunk_111::cluster_031::mention_067,chunk_111::cluster_031,chunk_111,111,31,67,5952,5953,349054,349055,he,5952,349054,right_overlap,349054:349055:he
+chunk_111::cluster_031::mention_068,chunk_111::cluster_031,chunk_111,111,31,68,5956,5957,349058,349059,his,5956,349058,right_overlap,349058:349059:his
+chunk_111::cluster_031::mention_069,chunk_111::cluster_031,chunk_111,111,31,69,5956,5959,349058,349061,his own mother,5958,349060,right_overlap,349058:349061:his own mother
+chunk_111::cluster_032::mention_000,chunk_111::cluster_032,chunk_111,111,32,0,525,527,343627,343629,the Merlin,526,343628,left_overlap,343627:343629:the merlin
+chunk_111::cluster_033::mention_000,chunk_111::cluster_033,chunk_111,111,33,0,540,542,343642,343644,any man,541,343643,left_overlap,343642:343644:any man
+chunk_111::cluster_034::mention_000,chunk_111::cluster_034,chunk_111,111,34,0,688,689,343790,343791,they,688,343790,left_overlap,343790:343791:they
+chunk_111::cluster_035::mention_000,chunk_111::cluster_035,chunk_111,111,35,0,693,696,343795,343798,all his Companions,695,343797,left_overlap,343795:343798:all his companions
+chunk_111::cluster_036::mention_000,chunk_111::cluster_036,chunk_111,111,36,0,694,696,343796,343798,his Companions,695,343797,left_overlap,343796:343798:his companions
+chunk_111::cluster_037::mention_000,chunk_111::cluster_037,chunk_111,111,37,0,727,728,343829,343830,you,727,343829,left_overlap,343829:343830:you
+chunk_111::cluster_038::mention_000,chunk_111::cluster_038,chunk_111,111,38,0,738,739,343840,343841,you,738,343840,left_overlap,343840:343841:you
+chunk_111::cluster_038::mention_001,chunk_111::cluster_038,chunk_111,111,38,1,745,746,343847,343848,your,745,343847,left_overlap,343847:343848:your
+chunk_111::cluster_039::mention_000,chunk_111::cluster_039,chunk_111,111,39,0,758,760,343860,343862,The servants,759,343861,left_overlap,343860:343862:the servants
+chunk_111::cluster_040::mention_000,chunk_111::cluster_040,chunk_111,111,40,0,771,773,343873,343875,the carvers,772,343874,left_overlap,343873:343875:the carvers
+chunk_111::cluster_040::mention_001,chunk_111::cluster_040,chunk_111,111,40,1,775,776,343877,343878,their,775,343877,left_overlap,343877:343878:their
+chunk_111::cluster_040::mention_002,chunk_111::cluster_040,chunk_111,111,40,2,1668,1669,344770,344771,They,1668,344770,core,
+chunk_111::cluster_040::mention_003,chunk_111::cluster_040,chunk_111,111,40,3,1672,1673,344774,344775,their,1672,344774,core,
+chunk_111::cluster_040::mention_004,chunk_111::cluster_040,chunk_111,111,40,4,1683,1684,344785,344786,them,1683,344785,core,
+chunk_111::cluster_040::mention_005,chunk_111::cluster_040,chunk_111,111,40,5,2308,2309,345410,345411,their,2308,345410,core,
+chunk_111::cluster_040::mention_006,chunk_111::cluster_040,chunk_111,111,40,6,3760,3761,346862,346863,them,3760,346862,core,
+chunk_111::cluster_040::mention_007,chunk_111::cluster_040,chunk_111,111,40,7,3780,3781,346882,346883,they,3780,346882,core,
+chunk_111::cluster_040::mention_008,chunk_111::cluster_040,chunk_111,111,40,8,3786,3787,346888,346889,they,3786,346888,core,
+chunk_111::cluster_040::mention_009,chunk_111::cluster_040,chunk_111,111,40,9,4327,4328,347429,347430,them,4327,347429,core,
+chunk_111::cluster_040::mention_010,chunk_111::cluster_040,chunk_111,111,40,10,5489,5490,348591,348592,they,5489,348591,right_overlap,348591:348592:they
+chunk_111::cluster_041::mention_000,chunk_111::cluster_041,chunk_111,111,41,0,782,784,343884,343886,the butlers,783,343885,left_overlap,343884:343886:the butlers
+chunk_111::cluster_042::mention_000,chunk_111::cluster_042,chunk_111,111,42,0,1051,1052,344153,344154,them,1051,344153,left_overlap,344153:344154:them
+chunk_111::cluster_042::mention_001,chunk_111::cluster_042,chunk_111,111,42,1,1106,1107,344208,344209,us,1106,344208,left_overlap,344208:344209:us
+chunk_111::cluster_042::mention_002,chunk_111::cluster_042,chunk_111,111,42,2,1287,1288,344389,344390,They,1287,344389,core,
+chunk_111::cluster_042::mention_003,chunk_111::cluster_042,chunk_111,111,42,3,1310,1311,344412,344413,they,1310,344412,core,
+chunk_111::cluster_042::mention_004,chunk_111::cluster_042,chunk_111,111,42,4,1321,1322,344423,344424,them,1321,344423,core,
+chunk_111::cluster_042::mention_005,chunk_111::cluster_042,chunk_111,111,42,5,1463,1464,344565,344566,us,1463,344565,core,
+chunk_111::cluster_042::mention_006,chunk_111::cluster_042,chunk_111,111,42,6,1823,1824,344925,344926,them,1823,344925,core,
+chunk_111::cluster_042::mention_007,chunk_111::cluster_042,chunk_111,111,42,7,2021,2022,345123,345124,we,2021,345123,core,
+chunk_111::cluster_042::mention_008,chunk_111::cluster_042,chunk_111,111,42,8,2818,2819,345920,345921,them,2818,345920,core,
+chunk_111::cluster_042::mention_009,chunk_111::cluster_042,chunk_111,111,42,9,2921,2922,346023,346024,them,2921,346023,core,
+chunk_111::cluster_042::mention_010,chunk_111::cluster_042,chunk_111,111,42,10,3213,3214,346315,346316,we,3213,346315,core,
+chunk_111::cluster_042::mention_011,chunk_111::cluster_042,chunk_111,111,42,11,3485,3486,346587,346588,We,3485,346587,core,
+chunk_111::cluster_042::mention_012,chunk_111::cluster_042,chunk_111,111,42,12,3502,3503,346604,346605,us,3502,346604,core,
+chunk_111::cluster_042::mention_013,chunk_111::cluster_042,chunk_111,111,42,13,4041,4042,347143,347144,our,4041,347143,core,
+chunk_111::cluster_042::mention_014,chunk_111::cluster_042,chunk_111,111,42,14,5351,5352,348453,348454,we,5351,348453,right_overlap,348453:348454:we
+chunk_111::cluster_042::mention_015,chunk_111::cluster_042,chunk_111,111,42,15,5503,5504,348605,348606,Our,5503,348605,right_overlap,348605:348606:our
+chunk_111::cluster_043::mention_000,chunk_111::cluster_043,chunk_111,111,43,0,1112,1114,344214,344216,any minstrel,1113,344215,left_overlap,344214:344216:any minstrel
+chunk_111::cluster_044::mention_000,chunk_111::cluster_044,chunk_111,111,44,0,1153,1155,344255,344257,a nun,1154,344256,left_overlap,344255:344257:a nun
+chunk_111::cluster_045::mention_000,chunk_111::cluster_045,chunk_111,111,45,0,1163,1165,344265,344267,a harlot,1164,344266,left_overlap,344265:344267:a harlot
+chunk_111::cluster_046::mention_000,chunk_111::cluster_046,chunk_111,111,46,0,1240,1241,344342,344343,them,1240,344342,left_overlap,344342:344343:them
+chunk_111::cluster_046::mention_001,chunk_111::cluster_046,chunk_111,111,46,1,1249,1250,344351,344352,them,1249,344351,left_overlap,344351:344352:them
+chunk_111::cluster_047::mention_000,chunk_111::cluster_047,chunk_111,111,47,0,1314,1315,344416,344417,friends,1314,344416,core,
+chunk_111::cluster_048::mention_000,chunk_111::cluster_048,chunk_111,111,48,0,1353,1358,344455,344460,some of the older Companions,1353,344455,core,
+chunk_111::cluster_049::mention_000,chunk_111::cluster_049,chunk_111,111,49,0,1355,1358,344457,344460,the older Companions,1357,344459,core,
+chunk_111::cluster_050::mention_000,chunk_111::cluster_050,chunk_111,111,50,0,1365,1368,344467,344470,some of them,1365,344467,core,
+chunk_111::cluster_051::mention_000,chunk_111::cluster_051,chunk_111,111,51,0,1367,1368,344469,344470,them,1367,344469,core,
+chunk_111::cluster_052::mention_000,chunk_111::cluster_052,chunk_111,111,52,0,1430,1432,344532,344534,Such men,1431,344533,core,
+chunk_111::cluster_052::mention_001,chunk_111::cluster_052,chunk_111,111,52,1,1436,1437,344538,344539,they,1436,344538,core,
+chunk_111::cluster_052::mention_002,chunk_111::cluster_052,chunk_111,111,52,2,2552,2553,345654,345655,they,2552,345654,core,
+chunk_111::cluster_053::mention_000,chunk_111::cluster_053,chunk_111,111,53,0,1476,1478,344578,344580,a father,1477,344579,core,
+chunk_111::cluster_054::mention_000,chunk_111::cluster_054,chunk_111,111,54,0,1480,1481,344582,344583,Ban,1480,344582,core,
+chunk_111::cluster_054::mention_001,chunk_111::cluster_054,chunk_111,111,54,1,1486,1487,344588,344589,his,1486,344588,core,
+chunk_111::cluster_054::mention_002,chunk_111::cluster_054,chunk_111,111,54,2,1519,1520,344621,344622,Ban,1519,344621,core,
+chunk_111::cluster_054::mention_003,chunk_111::cluster_054,chunk_111,111,54,3,1540,1541,344642,344643,Balan,1540,344642,core,
+chunk_111::cluster_055::mention_000,chunk_111::cluster_055,chunk_111,111,55,0,1499,1507,344601,344609,a kinsman who treats me as a son,1500,344602,core,
+chunk_111::cluster_056::mention_000,chunk_111::cluster_056,chunk_111,111,56,0,1505,1507,344607,344609,a son,1506,344608,core,
+chunk_111::cluster_057::mention_000,chunk_111::cluster_057,chunk_111,111,57,0,1508,1509,344610,344611,Brothers,1508,344610,core,
+chunk_111::cluster_058::mention_000,chunk_111::cluster_058,chunk_111,111,58,0,1522,1523,344624,344625,Lionel,1522,344624,core,
+chunk_111::cluster_059::mention_000,chunk_111::cluster_059,chunk_111,111,59,0,1524,1525,344626,344627,Bors,1524,344626,core,
+chunk_111::cluster_060::mention_000,chunk_111::cluster_060,chunk_111,111,60,0,1536,1537,344638,344639,their,1536,344638,core,
+chunk_111::cluster_061::mention_000,chunk_111::cluster_061,chunk_111,111,61,0,1556,1560,344658,344662,the bishop's rooms,1559,344661,core,
+chunk_111::cluster_062::mention_000,chunk_111::cluster_062,chunk_111,111,62,0,1569,1571,344671,344673,a cousin,1570,344672,core,
+chunk_111::cluster_063::mention_000,chunk_111::cluster_063,chunk_111,111,63,0,1577,1579,344679,344681,a brother,1578,344680,core,
+chunk_111::cluster_064::mention_000,chunk_111::cluster_064,chunk_111,111,64,0,1658,1661,344760,344763,Marcus of Comwall,1658,344760,core,
+chunk_111::cluster_065::mention_000,chunk_111::cluster_065,chunk_111,111,65,0,1660,1661,344762,344763,Comwall,1660,344762,core,
+chunk_111::cluster_066::mention_000,chunk_111::cluster_066,chunk_111,111,66,0,1662,1663,344764,344765,he,1662,344764,core,
+chunk_111::cluster_067::mention_000,chunk_111::cluster_067,chunk_111,111,67,0,1771,1779,344873,344881,one of the most spotless men I know,1771,344873,core,
+chunk_111::cluster_068::mention_000,chunk_111::cluster_068,chunk_111,111,68,0,1820,1824,344922,344926,the two of them,1821,344923,core,
+chunk_111::cluster_069::mention_000,chunk_111::cluster_069,chunk_111,111,69,0,1829,1830,344931,344932,God,1829,344931,core,
+chunk_111::cluster_070::mention_000,chunk_111::cluster_070,chunk_111,111,70,0,1832,1834,344934,344936,a woman,1833,344935,core,
+chunk_111::cluster_071::mention_000,chunk_111::cluster_071,chunk_111,111,71,0,1836,1839,344938,344941,only one husband,1838,344940,core,
+chunk_111::cluster_072::mention_000,chunk_111::cluster_072,chunk_111,111,72,0,1876,1879,344978,344981,What man alive,1877,344979,core,
+chunk_111::cluster_073::mention_000,chunk_111::cluster_073,chunk_111,111,73,0,1917,1919,345019,345021,her friend,1918,345020,core,
+chunk_111::cluster_074::mention_000,chunk_111::cluster_074,chunk_111,111,74,0,1981,1985,345083,345087,his captain of horse,1982,345084,core,
+chunk_111::cluster_075::mention_000,chunk_111::cluster_075,chunk_111,111,75,0,1993,1998,345095,345100,the champion of the Queen,1994,345096,core,
+chunk_111::cluster_076::mention_000,chunk_111::cluster_076,chunk_111,111,76,0,1996,1998,345098,345100,the Queen,1997,345099,core,
+chunk_111::cluster_077::mention_000,chunk_111::cluster_077,chunk_111,111,77,0,2073,2075,345175,345177,my mother,2074,345176,core,
+chunk_111::cluster_077::mention_001,chunk_111::cluster_077,chunk_111,111,77,1,2077,2078,345179,345180,she,2077,345179,core,
+chunk_111::cluster_077::mention_002,chunk_111::cluster_077,chunk_111,111,77,2,2086,2087,345188,345189,she,2086,345188,core,
+chunk_111::cluster_077::mention_003,chunk_111::cluster_077,chunk_111,111,77,3,2475,2477,345577,345579,my mother,2476,345578,core,
+chunk_111::cluster_077::mention_004,chunk_111::cluster_077,chunk_111,111,77,4,3704,3705,346806,346807,her,3704,346806,core,
+chunk_111::cluster_077::mention_005,chunk_111::cluster_077,chunk_111,111,77,5,3990,3993,347092,347095,Viviane's mother,3992,347094,core,
+chunk_111::cluster_077::mention_006,chunk_111::cluster_077,chunk_111,111,77,6,4003,4004,347105,347106,she,4003,347105,core,
+chunk_111::cluster_078::mention_000,chunk_111::cluster_078,chunk_111,111,78,0,2115,2120,345217,345222,those of the old blood,2115,345217,core,
+chunk_111::cluster_078::mention_001,chunk_111::cluster_078,chunk_111,111,78,1,2121,2122,345223,345224,they,2121,345223,core,
+chunk_111::cluster_078::mention_002,chunk_111::cluster_078,chunk_111,111,78,2,2128,2129,345230,345231,they,2128,345230,core,
+chunk_111::cluster_079::mention_000,chunk_111::cluster_079,chunk_111,111,79,0,1527,1529,344629,344631,the court,1528,344630,core,
+chunk_111::cluster_079::mention_001,chunk_111::cluster_079,chunk_111,111,79,1,2506,2507,345608,345609,court,2506,345608,core,
+chunk_111::cluster_079::mention_002,chunk_111::cluster_079,chunk_111,111,79,2,2977,2978,346079,346080,court,2977,346079,core,
+chunk_111::cluster_079::mention_003,chunk_111::cluster_079,chunk_111,111,79,3,4694,4696,347796,347798,my court,4695,347797,right_overlap,347796:347798:my court
+chunk_111::cluster_080::mention_000,chunk_111::cluster_080,chunk_111,111,80,0,2292,2293,345394,345395,Companions,2292,345394,core,
+chunk_111::cluster_081::mention_000,chunk_111::cluster_081,chunk_111,111,81,0,2294,2296,345396,345398,old followers,2295,345397,core,
+chunk_111::cluster_082::mention_000,chunk_111::cluster_082,chunk_111,111,82,0,2316,2318,345418,345420,North Wales,2317,345419,core,
+chunk_111::cluster_082::mention_001,chunk_111::cluster_082,chunk_111,111,82,1,2709,2711,345811,345813,my country-,2710,345812,core,
+chunk_111::cluster_082::mention_002,chunk_111::cluster_082,chunk_111,111,82,2,3016,3018,346118,346120,North Wales,3017,346119,core,
+chunk_111::cluster_082::mention_003,chunk_111::cluster_082,chunk_111,111,82,3,3126,3128,346228,346230,North Wales,3127,346229,core,
+chunk_111::cluster_082::mention_004,chunk_111::cluster_082,chunk_111,111,82,4,3203,3205,346305,346307,North Wales,3204,346306,core,
+chunk_111::cluster_082::mention_005,chunk_111::cluster_082,chunk_111,111,82,5,3269,3271,346371,346373,North Wales,3270,346372,core,
+chunk_111::cluster_082::mention_006,chunk_111::cluster_082,chunk_111,111,82,6,3803,3805,346905,346907,North Wales,3804,346906,core,
+chunk_111::cluster_082::mention_007,chunk_111::cluster_082,chunk_111,111,82,7,4734,4736,347836,347838,North Wales,4735,347837,right_overlap,347836:347838:north wales
+chunk_111::cluster_082::mention_008,chunk_111::cluster_082,chunk_111,111,82,8,5677,5679,348779,348781,North Wales,5678,348780,right_overlap,348779:348781:north wales
+chunk_111::cluster_083::mention_000,chunk_111::cluster_083,chunk_111,111,83,0,2337,2339,345439,345441,his men,2338,345440,core,
+chunk_111::cluster_084::mention_000,chunk_111::cluster_084,chunk_111,111,84,0,2340,2342,345442,345444,the field,2341,345443,core,
+chunk_111::cluster_085::mention_000,chunk_111::cluster_085,chunk_111,111,85,0,2376,2378,345478,345480,your house,2377,345479,core,
+chunk_111::cluster_086::mention_000,chunk_111::cluster_086,chunk_111,111,86,0,2383,2386,345485,345488,Lot of Lothian,2383,345485,core,
+chunk_111::cluster_087::mention_000,chunk_111::cluster_087,chunk_111,111,87,0,2536,2539,345638,345641,a valuable ally,2538,345640,core,
+chunk_111::cluster_088::mention_000,chunk_111::cluster_088,chunk_111,111,88,0,2545,2549,345647,345651,the mines of Wales,2546,345648,core,
+chunk_111::cluster_089::mention_000,chunk_111::cluster_089,chunk_111,111,89,0,2548,2549,345650,345651,Wales,2548,345650,core,
+chunk_111::cluster_090::mention_000,chunk_111::cluster_090,chunk_111,111,90,0,2609,2610,345711,345712,sons,2609,345711,core,
+chunk_111::cluster_091::mention_000,chunk_111::cluster_091,chunk_111,111,91,0,2611,2612,345713,345714,grandsons,2611,345713,core,
+chunk_111::cluster_092::mention_000,chunk_111::cluster_092,chunk_111,111,92,0,2625,2626,345727,345728,children,2625,345727,core,
+chunk_111::cluster_093::mention_000,chunk_111::cluster_093,chunk_111,111,93,0,2674,2678,345776,345780,the Duchess of Cornwall,2675,345777,core,
+chunk_111::cluster_096::mention_000,chunk_111::cluster_096,chunk_111,111,96,0,2707,2711,345809,345813,queen in my country-,2707,345809,core,
+chunk_111::cluster_097::mention_000,chunk_111::cluster_097,chunk_111,111,97,0,2717,2719,345819,345821,no woman,2718,345820,core,
+chunk_111::cluster_098::mention_000,chunk_111::cluster_098,chunk_111,111,98,0,2789,2791,345891,345893,Any man,2790,345892,core,
+chunk_111::cluster_098::mention_001,chunk_111::cluster_098,chunk_111,111,98,1,2793,2794,345895,345896,himself,2793,345895,core,
+chunk_111::cluster_098::mention_002,chunk_111::cluster_098,chunk_111,111,98,2,4571,4572,347673,347674,his,4571,347673,right_overlap,347673:347674:his
+chunk_111::cluster_099::mention_000,chunk_111::cluster_099,chunk_111,111,99,0,499,500,343601,343602,Avalon,499,343601,left_overlap,343601:343602:avalon
+chunk_111::cluster_099::mention_001,chunk_111::cluster_099,chunk_111,111,99,1,3256,3257,346358,346359,Cornwall,3256,346358,core,
+chunk_111::cluster_099::mention_002,chunk_111::cluster_099,chunk_111,111,99,2,3581,3582,346683,346684,Avalon,3581,346683,core,
+chunk_111::cluster_099::mention_003,chunk_111::cluster_099,chunk_111,111,99,3,3726,3727,346828,346829,Avalon,3726,346828,core,
+chunk_111::cluster_099::mention_004,chunk_111::cluster_099,chunk_111,111,99,4,4207,4208,347309,347310,Avalon,4207,347309,core,
+chunk_111::cluster_099::mention_005,chunk_111::cluster_099,chunk_111,111,99,5,4227,4228,347329,347330,Avalon,4227,347329,core,
+chunk_111::cluster_099::mention_006,chunk_111::cluster_099,chunk_111,111,99,6,4767,4768,347869,347870,Avalon,4767,347869,right_overlap,347869:347870:avalon
+chunk_111::cluster_099::mention_007,chunk_111::cluster_099,chunk_111,111,99,7,4991,4993,348093,348095,my country,4992,348094,right_overlap,348093:348095:my country
+chunk_111::cluster_099::mention_008,chunk_111::cluster_099,chunk_111,111,99,8,5298,5299,348400,348401,Avalon,5298,348400,right_overlap,348400:348401:avalon
+chunk_111::cluster_100::mention_000,chunk_111::cluster_100,chunk_111,111,100,0,2829,2834,345931,345936,a home of her own,2830,345932,core,
+chunk_111::cluster_101::mention_000,chunk_111::cluster_101,chunk_111,111,101,0,2838,2839,345940,345941,mistress,2838,345940,core,
+chunk_111::cluster_102::mention_000,chunk_111::cluster_102,chunk_111,111,102,0,2843,2845,345945,345947,another woman,2844,345946,core,
+chunk_111::cluster_103::mention_000,chunk_111::cluster_103,chunk_111,111,103,0,2853,2856,345955,345958,many young men,2855,345957,core,
+chunk_111::cluster_104::mention_000,chunk_111::cluster_104,chunk_111,111,104,0,2869,2871,345971,345973,his home,2870,345972,core,
+chunk_111::cluster_105::mention_000,chunk_111::cluster_105,chunk_111,111,105,0,2897,2900,345999,346002,an older man,2899,346001,core,
+chunk_111::cluster_106::mention_000,chunk_111::cluster_106,chunk_111,111,106,0,2909,2913,346011,346015,a giddy young thing,2912,346014,core,
+chunk_111::cluster_107::mention_000,chunk_111::cluster_107,chunk_111,111,107,0,3024,3025,346126,346127,there,3024,346126,core,
+chunk_111::cluster_108::mention_000,chunk_111::cluster_108,chunk_111,111,108,0,3030,3031,346132,346133,Tintagel,3030,346132,core,
+chunk_111::cluster_109::mention_000,chunk_111::cluster_109,chunk_111,111,109,0,3043,3047,346145,346149,a girl of fifteen,3044,346146,core,
+chunk_111::cluster_110::mention_000,chunk_111::cluster_110,chunk_111,111,110,0,3084,3087,346186,346189,the sly fellow,3086,346188,core,
+chunk_111::cluster_111::mention_000,chunk_111::cluster_111,chunk_111,111,111,0,3201,3205,346303,346307,Queen of North Wales,3201,346303,core,
+chunk_111::cluster_112::mention_000,chunk_111::cluster_112,chunk_111,111,112,0,3236,3239,346338,346341,the assembled company,3238,346340,core,
+chunk_111::cluster_113::mention_000,chunk_111::cluster_113,chunk_111,111,113,0,3246,3248,346348,346350,my friends,3247,346349,core,
+chunk_111::cluster_114::mention_000,chunk_111::cluster_114,chunk_111,111,114,0,3414,3420,346516,346522,a man she does not love,3415,346517,core,
+chunk_111::cluster_115::mention_000,chunk_111::cluster_115,chunk_111,111,115,0,3427,3429,346529,346531,a queen,3428,346530,core,
+chunk_111::cluster_116::mention_000,chunk_111::cluster_116,chunk_111,111,116,0,3448,3452,346550,346554,your bride-woman,3451,346553,core,
+chunk_111::cluster_117::mention_000,chunk_111::cluster_117,chunk_111,111,117,0,3542,3546,346644,346648,six bride-women,3545,346647,core,
+chunk_111::cluster_118::mention_000,chunk_111::cluster_118,chunk_111,111,118,0,3547,3550,346649,346652,four of them,3547,346649,core,
+chunk_111::cluster_119::mention_000,chunk_111::cluster_119,chunk_111,111,119,0,3549,3550,346651,346652,them,3549,346651,core,
+chunk_111::cluster_120::mention_000,chunk_111::cluster_120,chunk_111,111,120,0,3551,3552,346653,346654,queens,3551,346653,core,
+chunk_111::cluster_121::mention_000,chunk_111::cluster_121,chunk_111,111,121,0,3607,3608,346709,346710,our,3607,346709,core,
+chunk_111::cluster_122::mention_000,chunk_111::cluster_122,chunk_111,111,122,0,3619,3621,346721,346723,the Saxons,3620,346722,core,
+chunk_111::cluster_123::mention_000,chunk_111::cluster_123,chunk_111,111,123,0,3643,3645,346745,346747,a queen,3644,346746,core,
+chunk_111::cluster_124::mention_000,chunk_111::cluster_124,chunk_111,111,124,0,3656,3658,346758,346760,a child,3657,346759,core,
+chunk_111::cluster_125::mention_000,chunk_111::cluster_125,chunk_111,111,125,0,3656,3660,346758,346762,a child's doll,3659,346761,core,
+chunk_111::cluster_126::mention_000,chunk_111::cluster_126,chunk_111,111,126,0,3700,3701,346802,346803,Gorlois,3700,346802,core,
+chunk_111::cluster_127::mention_000,chunk_111::cluster_127,chunk_111,111,127,0,3875,3879,346977,346981,a bride of fifteen,3876,346978,core,
+chunk_111::cluster_128::mention_000,chunk_111::cluster_128,chunk_111,111,128,0,3889,3893,346991,346995,A woman past thirty,3890,346992,core,
+chunk_111::cluster_128::mention_001,chunk_111::cluster_128,chunk_111,111,128,1,3901,3902,347003,347004,herself,3901,347003,core,
+chunk_111::cluster_128::mention_002,chunk_111::cluster_128,chunk_111,111,128,2,3912,3913,347014,347015,her,3912,347014,core,
+chunk_111::cluster_128::mention_003,chunk_111::cluster_128,chunk_111,111,128,3,3914,3915,347016,347017,her,3914,347016,core,
+chunk_111::cluster_128::mention_004,chunk_111::cluster_128,chunk_111,111,128,4,3920,3921,347022,347023,her,3920,347022,core,
+chunk_111::cluster_129::mention_000,chunk_111::cluster_129,chunk_111,111,129,0,3895,3896,346997,346998,women,3895,346997,core,
+chunk_111::cluster_130::mention_000,chunk_111::cluster_130,chunk_111,111,130,0,3928,3933,347030,347035,a mother for his children,3929,347031,core,
+chunk_111::cluster_131::mention_000,chunk_111::cluster_131,chunk_111,111,131,0,3931,3932,347033,347034,his,3931,347033,core,
+chunk_111::cluster_132::mention_000,chunk_111::cluster_132,chunk_111,111,132,0,3931,3933,347033,347035,his children,3932,347034,core,
+chunk_111::cluster_133::mention_000,chunk_111::cluster_133,chunk_111,111,133,0,3961,3974,347063,347076,a mother to Accolon and whatever other children the old man might have,3973,347075,core,
+chunk_111::cluster_134::mention_000,chunk_111::cluster_134,chunk_111,111,134,0,3966,3974,347068,347076,whatever other children the old man might have,3973,347075,core,
+chunk_111::cluster_135::mention_000,chunk_111::cluster_135,chunk_111,111,135,0,3975,3981,347077,347083,Grandmother to his son's children,3975,347077,core,
+chunk_111::cluster_136::mention_000,chunk_111::cluster_136,chunk_111,111,136,0,3977,3981,347079,347083,his son's children,3980,347082,core,
+chunk_111::cluster_137::mention_000,chunk_111::cluster_137,chunk_111,111,137,0,3995,3997,347097,347099,a grandmother,3996,347098,core,
+chunk_111::cluster_138::mention_000,chunk_111::cluster_138,chunk_111,111,138,0,4050,4053,347152,347155,a Christian king,4052,347154,core,
+chunk_111::cluster_139::mention_000,chunk_111::cluster_139,chunk_111,111,139,0,4066,4074,347168,347176,a young wife who could give him children,4068,347170,core,
+chunk_111::cluster_140::mention_000,chunk_111::cluster_140,chunk_111,111,140,0,4073,4074,347175,347176,children,4073,347175,core,
+chunk_111::cluster_141::mention_000,chunk_111::cluster_141,chunk_111,111,141,0,4098,4100,347200,347202,these Christians,4099,347201,core,
+chunk_111::cluster_141::mention_001,chunk_111::cluster_141,chunk_111,111,141,1,4108,4109,347210,347211,they,4108,347210,core,
+chunk_111::cluster_141::mention_002,chunk_111::cluster_141,chunk_111,111,141,2,4116,4117,347218,347219,their,4116,347218,core,
+chunk_111::cluster_141::mention_003,chunk_111::cluster_141,chunk_111,111,141,3,4309,4310,347411,347412,them,4309,347411,core,
+chunk_111::cluster_141::mention_004,chunk_111::cluster_141,chunk_111,111,141,4,4381,4382,347483,347484,them,4381,347483,right_overlap,347483:347484:them
+chunk_111::cluster_141::mention_005,chunk_111::cluster_141,chunk_111,111,141,5,5926,5927,349028,349029,themselves,5926,349028,right_overlap,349028:349029:themselves
+chunk_111::cluster_142::mention_000,chunk_111::cluster_142,chunk_111,111,142,0,2555,2557,345657,345659,the Romans,2556,345658,core,
+chunk_111::cluster_142::mention_001,chunk_111::cluster_142,chunk_111,111,142,1,4112,4114,347214,347216,the Romans,4113,347215,core,
+chunk_111::cluster_143::mention_000,chunk_111::cluster_143,chunk_111,111,143,0,133,134,343235,343236,hell,133,343235,left_overlap,343235:343236:hell
+chunk_111::cluster_143::mention_001,chunk_111::cluster_143,chunk_111,111,143,1,4312,4313,347414,347415,Hell,4312,347414,core,
+chunk_111::cluster_144::mention_000,chunk_111::cluster_144,chunk_111,111,144,0,4102,4105,347204,347207,an untouched wife,4104,347206,core,
+chunk_111::cluster_145::mention_000,chunk_111::cluster_145,chunk_111,111,145,0,4145,4147,347247,347249,no maiden,4146,347248,core,
+chunk_111::cluster_146::mention_000,chunk_111::cluster_146,chunk_111,111,146,0,4225,4228,347327,347330,priestess of Avalon,4225,347327,core,
+chunk_111::cluster_147::mention_000,chunk_111::cluster_147,chunk_111,111,147,0,4229,4239,347331,347341,one of the maidens of the Lady of the Lake,4229,347331,core,
+chunk_111::cluster_148::mention_000,chunk_111::cluster_148,chunk_111,111,148,0,4231,4239,347333,347341,the maidens of the Lady of the Lake,4232,347334,core,
+chunk_111::cluster_149::mention_000,chunk_111::cluster_149,chunk_111,111,149,0,4234,4239,347336,347341,the Lady of the Lake,4235,347337,core,
+chunk_111::cluster_150::mention_000,chunk_111::cluster_150,chunk_111,111,150,0,4244,4246,347346,347348,a maiden,4245,347347,core,
+chunk_111::cluster_151::mention_000,chunk_111::cluster_151,chunk_111,111,151,0,4264,4268,347366,347370,Some of my people,4264,347366,core,
+chunk_111::cluster_152::mention_000,chunk_111::cluster_152,chunk_111,111,152,0,4266,4268,347368,347370,my people,4267,347369,core,
+chunk_111::cluster_153::mention_000,chunk_111::cluster_153,chunk_111,111,153,0,4283,4285,347385,347387,The peasants,4284,347386,core,
+chunk_111::cluster_154::mention_000,chunk_111::cluster_154,chunk_111,111,154,0,4293,4294,347395,347396,kings,4293,347395,core,
+chunk_111::cluster_155::mention_000,chunk_111::cluster_155,chunk_111,111,155,0,4295,4297,347397,347399,great folk,4296,347398,core,
+chunk_111::cluster_156::mention_000,chunk_111::cluster_156,chunk_111,111,156,0,4295,4307,347397,347409,"great folk, who can afford to pay priests and the like",4296,347398,core,
+chunk_111::cluster_157::mention_000,chunk_111::cluster_157,chunk_111,111,157,0,4303,4304,347405,347406,priests,4303,347405,core,
+chunk_111::cluster_158::mention_000,chunk_111::cluster_158,chunk_111,111,158,0,4319,4320,347421,347422,Christ,4319,347421,core,
+chunk_111::cluster_159::mention_000,chunk_111::cluster_159,chunk_111,111,159,0,4329,4345,347431,347447,"the Old Ones, who had been worshipped in our hills since time out of mind",4331,347433,core,
+chunk_111::cluster_159::mention_001,chunk_111::cluster_159,chunk_111,111,159,1,4349,4350,347451,347452,their,4349,347451,core,
+chunk_111::cluster_160::mention_000,chunk_111::cluster_160,chunk_111,111,160,0,4338,4339,347440,347441,our,4338,347440,core,
+chunk_111::cluster_161::mention_000,chunk_111::cluster_161,chunk_111,111,161,0,4338,4340,347440,347442,our hills,4339,347441,core,
+chunk_111::cluster_162::mention_000,chunk_111::cluster_162,chunk_111,111,162,0,4370,4372,347472,347474,the priests,4371,347473,right_overlap,347472:347474:the priests
+chunk_111::cluster_163::mention_000,chunk_111::cluster_163,chunk_111,111,163,0,4391,4392,347493,347494,God,4391,347493,right_overlap,347493:347494:god
+chunk_111::cluster_163::mention_001,chunk_111::cluster_163,chunk_111,111,163,1,4401,4402,347503,347504,God,4401,347503,right_overlap,347503:347504:god
+chunk_111::cluster_164::mention_000,chunk_111::cluster_164,chunk_111,111,164,0,4397,4398,347499,347500,Heaven,4397,347499,right_overlap,347499:347500:heaven
+chunk_111::cluster_165::mention_000,chunk_111::cluster_165,chunk_111,111,165,0,4405,4407,347507,347509,my people,4406,347508,right_overlap,347507:347509:my people
+chunk_111::cluster_166::mention_000,chunk_111::cluster_166,chunk_111,111,166,0,4410,4412,347512,347514,my kingdom,4411,347513,right_overlap,347512:347514:my kingdom
+chunk_111::cluster_167::mention_000,chunk_111::cluster_167,chunk_111,111,167,0,4438,4440,347540,347542,Mother Goddess,4439,347541,right_overlap,347540:347542:mother goddess
+chunk_111::cluster_168::mention_000,chunk_111::cluster_168,chunk_111,111,168,0,4479,4482,347581,347584,a young wife,4481,347583,right_overlap,347581:347584:a young wife
+chunk_111::cluster_169::mention_000,chunk_111::cluster_169,chunk_111,111,169,0,4499,4501,347601,347603,a child,4500,347602,right_overlap,347601:347603:a child
+chunk_111::cluster_170::mention_000,chunk_111::cluster_170,chunk_111,111,170,0,4502,4505,347604,347607,the Homed One,4504,347606,right_overlap,347604:347607:the homed one
+chunk_111::cluster_171::mention_000,chunk_111::cluster_171,chunk_111,111,171,0,4554,4556,347656,347658,A king,4555,347657,right_overlap,347656:347658:a king
+chunk_111::cluster_172::mention_000,chunk_111::cluster_172,chunk_111,111,172,0,4560,4562,347662,347664,a king,4561,347663,right_overlap,347662:347664:a king
+chunk_111::cluster_173::mention_000,chunk_111::cluster_173,chunk_111,111,173,0,4564,4567,347666,347669,a fertile bride,4566,347668,right_overlap,347666:347669:a fertile bride
+chunk_111::cluster_174::mention_000,chunk_111::cluster_174,chunk_111,111,174,0,4594,4595,347696,347697,sons,4594,347696,right_overlap,347696:347697:sons
+chunk_111::cluster_175::mention_000,chunk_111::cluster_175,chunk_111,111,175,0,4609,4610,347711,347712,Children,4609,347711,right_overlap,347711:347712:children
+chunk_111::cluster_176::mention_000,chunk_111::cluster_176,chunk_111,111,176,0,4723,4730,347825,347832,the son of the Duchess of Cornwall,4724,347826,right_overlap,347825:347832:the son of the duchess of cornwall
+chunk_111::cluster_177::mention_000,chunk_111::cluster_177,chunk_111,111,177,0,4726,4730,347828,347832,the Duchess of Cornwall,4727,347829,right_overlap,347828:347832:the duchess of cornwall
+chunk_111::cluster_178::mention_000,chunk_111::cluster_178,chunk_111,111,178,0,4731,4736,347833,347838,the Queen of North Wales,4732,347834,right_overlap,347833:347838:the queen of north wales
+chunk_111::cluster_179::mention_000,chunk_111::cluster_179,chunk_111,111,179,0,4792,4794,347894,347896,another boy,4793,347895,right_overlap,347894:347896:another boy
+chunk_111::cluster_179::mention_001,chunk_111::cluster_179,chunk_111,111,179,1,4799,4800,347901,347902,he,4799,347901,right_overlap,347901:347902:he
+chunk_111::cluster_180::mention_000,chunk_111::cluster_180,chunk_111,111,180,0,4792,4797,347894,347899,another boy about the house,4794,347896,right_overlap,347894:347899:another boy about the house
+chunk_111::cluster_181::mention_000,chunk_111::cluster_181,chunk_111,111,181,0,4795,4797,347897,347899,the house,4796,347898,right_overlap,347897:347899:the house
+chunk_111::cluster_182::mention_000,chunk_111::cluster_182,chunk_111,111,182,0,4813,4816,347915,347918,my youngest son,4815,347917,right_overlap,347915:347918:my youngest son
+chunk_111::cluster_183::mention_000,chunk_111::cluster_183,chunk_111,111,183,0,4890,4891,347992,347993,men,4890,347992,right_overlap,347992:347993:men
+chunk_111::cluster_183::mention_001,chunk_111::cluster_183,chunk_111,111,183,1,4895,4896,347997,347998,their,4895,347997,right_overlap,347997:347998:their
+chunk_111::cluster_183::mention_002,chunk_111::cluster_183,chunk_111,111,183,2,4951,4952,348053,348054,men,4951,348053,right_overlap,348053:348054:men
+chunk_111::cluster_183::mention_003,chunk_111::cluster_183,chunk_111,111,183,3,4953,4954,348055,348056,their,4953,348055,right_overlap,348055:348056:their
+chunk_111::cluster_184::mention_000,chunk_111::cluster_184,chunk_111,111,184,0,4899,4900,348001,348002,sons,4899,348001,right_overlap,348001:348002:sons
+chunk_111::cluster_185::mention_000,chunk_111::cluster_185,chunk_111,111,185,0,4910,4912,348012,348014,any tomcat,4911,348013,right_overlap,348012:348014:any tomcat
+chunk_111::cluster_186::mention_000,chunk_111::cluster_186,chunk_111,111,186,0,4920,4922,348022,348024,a woman,4921,348023,right_overlap,348022:348024:a woman
+chunk_111::cluster_186::mention_001,chunk_111::cluster_186,chunk_111,111,186,1,4927,4928,348029,348030,her,4927,348029,right_overlap,348029:348030:her
+chunk_111::cluster_186::mention_002,chunk_111::cluster_186,chunk_111,111,186,2,4943,4944,348045,348046,she,4943,348045,right_overlap,348045:348046:she
+chunk_111::cluster_187::mention_000,chunk_111::cluster_187,chunk_111,111,187,0,4980,4983,348082,348085,a young girl,4982,348084,right_overlap,348082:348085:a young girl
+chunk_111::cluster_188::mention_000,chunk_111::cluster_188,chunk_111,111,188,0,4994,4998,348096,348100,a husband of forty,4995,348097,right_overlap,348096:348100:a husband of forty
+chunk_111::cluster_189::mention_000,chunk_111::cluster_189,chunk_111,111,189,0,5001,5003,348103,348105,a father,5002,348104,right_overlap,348103:348105:a father
+chunk_111::cluster_190::mention_000,chunk_111::cluster_190,chunk_111,111,190,0,5005,5009,348107,348111,a husband of sixty,5006,348108,right_overlap,348107:348111:a husband of sixty
+chunk_111::cluster_191::mention_000,chunk_111::cluster_191,chunk_111,111,191,0,5089,5098,348191,348200,young girls who don't know how to laugh,5090,348192,right_overlap,348191:348200:young girls who don't know how to laugh
+chunk_111::cluster_192::mention_000,chunk_111::cluster_192,chunk_111,111,192,0,5113,5115,348215,348217,My sons,5114,348216,right_overlap,348215:348217:my sons
+chunk_111::cluster_193::mention_000,chunk_111::cluster_193,chunk_111,111,193,0,5136,5138,348238,348240,a man,5137,348239,right_overlap,348238:348240:a man
+chunk_111::cluster_194::mention_000,chunk_111::cluster_194,chunk_111,111,194,0,5154,5157,348256,348259,my last wife,5156,348258,right_overlap,348256:348259:my last wife
+chunk_111::cluster_195::mention_000,chunk_111::cluster_195,chunk_111,111,195,0,5202,5207,348304,348309,the women of your age,5203,348305,right_overlap,348304:348309:the women of your age
+chunk_111::cluster_196::mention_000,chunk_111::cluster_196,chunk_111,111,196,0,5217,5219,348319,348321,a home,5218,348320,right_overlap,348319:348321:a home
+chunk_111::cluster_197::mention_000,chunk_111::cluster_197,chunk_111,111,197,0,5220,5222,348322,348324,a husband,5221,348323,right_overlap,348322:348324:a husband
+chunk_111::cluster_197::mention_001,chunk_111::cluster_197,chunk_111,111,197,1,5225,5226,348327,348328,he,5225,348327,right_overlap,348327:348328:he
+chunk_111::cluster_198::mention_000,chunk_111::cluster_198,chunk_111,111,198,0,5355,5356,348457,348458,friends,5355,348457,right_overlap,348457:348458:friends
+chunk_111::cluster_199::mention_000,chunk_111::cluster_199,chunk_111,111,199,0,5406,5407,348508,348509,husband,5406,348508,right_overlap,348508:348509:husband
+chunk_111::cluster_200::mention_000,chunk_111::cluster_200,chunk_111,111,200,0,5624,5629,348726,348731,the Romans of the South,5625,348727,right_overlap,348726:348731:the romans of the south
+chunk_111::cluster_201::mention_000,chunk_111::cluster_201,chunk_111,111,201,0,5627,5629,348729,348731,the South,5628,348730,right_overlap,348729:348731:the south
+chunk_111::cluster_202::mention_000,chunk_111::cluster_202,chunk_111,111,202,0,5630,5635,348732,348737,these men of the Tribes,5631,348733,right_overlap,348732:348737:these men of the tribes
+chunk_111::cluster_203::mention_000,chunk_111::cluster_203,chunk_111,111,203,0,5640,5642,348742,348744,a woman,5641,348743,right_overlap,348742:348744:a woman
+chunk_111::cluster_204::mention_000,chunk_111::cluster_204,chunk_111,111,204,0,5671,5673,348773,348775,a woman,5672,348774,right_overlap,348773:348775:a woman
+chunk_111::cluster_205::mention_000,chunk_111::cluster_205,chunk_111,111,205,0,5680,5683,348782,348785,a beautiful country,5682,348784,right_overlap,348782:348785:a beautiful country
+chunk_111::cluster_206::mention_000,chunk_111::cluster_206,chunk_111,111,206,0,5684,5688,348786,348790,great hills and mountains,5685,348787,right_overlap,348786:348790:great hills and mountains
+chunk_111::cluster_207::mention_000,chunk_111::cluster_207,chunk_111,111,207,0,5684,5696,348786,348798,great hills and mountains that reminded me of the country of Lothian,5685,348787,right_overlap,348786:348798:great hills and mountains that reminded me of the country of lothian
+chunk_111::cluster_208::mention_000,chunk_111::cluster_208,chunk_111,111,208,0,5692,5696,348794,348798,the country of Lothian,5693,348795,right_overlap,348794:348798:the country of lothian
+chunk_111::cluster_209::mention_000,chunk_111::cluster_209,chunk_111,111,209,0,5705,5708,348807,348810,Uriens' country,5707,348809,right_overlap,348807:348810:uriens' country
+chunk_111::cluster_210::mention_000,chunk_111::cluster_210,chunk_111,111,210,0,5733,5735,348835,348837,his castle,5734,348836,right_overlap,348835:348837:his castle
+chunk_111::cluster_211::mention_000,chunk_111::cluster_211,chunk_111,111,211,0,5736,5741,348838,348843,one of the finer valleys,5736,348838,right_overlap,348838:348843:one of the finer valleys
+chunk_111::cluster_212::mention_000,chunk_111::cluster_212,chunk_111,111,212,0,5744,5745,348846,348847,Avalloch,5744,348846,right_overlap,348846:348847:avalloch
+chunk_111::cluster_212::mention_001,chunk_111::cluster_212,chunk_111,111,212,1,5747,5748,348849,348850,Avalloch,5747,348849,right_overlap,348849:348850:avalloch
+chunk_111::cluster_213::mention_000,chunk_111::cluster_213,chunk_111,111,213,0,5747,5750,348849,348852,Avalloch's wife,5749,348851,right_overlap,348849:348852:avalloch's wife
+chunk_111::cluster_214::mention_000,chunk_111::cluster_214,chunk_111,111,214,0,5751,5752,348853,348854,children,5751,348853,right_overlap,348853:348854:children
+chunk_111::cluster_215::mention_000,chunk_111::cluster_215,chunk_111,111,215,0,5770,5771,348872,348873,Mother,5770,348872,right_overlap,348872:348873:mother
+chunk_111::cluster_216::mention_000,chunk_111::cluster_216,chunk_111,111,216,0,5822,5824,348924,348926,his tutors,5823,348925,right_overlap,348924:348926:his tutors
+chunk_111::cluster_217::mention_000,chunk_111::cluster_217,chunk_111,111,217,0,5841,5848,348943,348950,the priest who taught Uwaine his letters,5842,348944,right_overlap,348943:348950:the priest who taught uwaine his letters
+chunk_111::cluster_218::mention_000,chunk_111::cluster_218,chunk_111,111,218,0,5858,5861,348960,348963,the arms master,5860,348962,right_overlap,348960:348963:the arms master
+chunk_111::cluster_219::mention_000,chunk_111::cluster_219,chunk_111,111,219,0,5895,5901,348997,349003,all the folk of that country,5897,348999,right_overlap,348997:349003:all the folk of that country
+chunk_111::cluster_220::mention_000,chunk_111::cluster_220,chunk_111,111,220,0,5899,5901,349001,349003,that country,5900,349002,right_overlap,349001:349003:that country
+chunk_111::cluster_221::mention_000,chunk_111::cluster_221,chunk_111,111,221,0,5916,5920,349018,349022,all of that court,5916,349018,right_overlap,349018:349022:all of that court
+chunk_111::cluster_222::mention_000,chunk_111::cluster_222,chunk_111,111,222,0,5918,5920,349020,349022,that court,5919,349021,right_overlap,349020:349022:that court
+chunk_111::cluster_223::mention_000,chunk_111::cluster_223,chunk_111,111,223,0,5930,5932,349032,349034,paid minstrels,5931,349033,right_overlap,349032:349034:paid minstrels
