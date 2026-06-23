@@ -1,0 +1,394 @@
+@prefix : <http://www.semanticweb.org/roberto/ontologies/2026/fantasy-character-hybrid#> .
+@prefix fcho: <http://www.semanticweb.org/roberto/ontologies/2026/fantasy-character-hybrid#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/roberto/ontologies/2026/fantasy-character-hybrid>
+    rdf:type owl:Ontology ;
+    rdfs:label "Fantasy Character Hybrid Ontology"@en ;
+    rdfs:comment "Ontology 5: a hybrid skeleton ontology for fantasy narrative character modelling. It combines direct semantic relations among characters with a reified NLP extraction and provenance layer, plus optional agent-compilation artefacts for downstream VEsNA/Jason-style initialization packages."@en .
+
+#################################################################
+# Core semantic layer
+#################################################################
+
+fcho:Character rdf:type owl:Class ;
+    rdfs:label "Character"@en ;
+    rdfs:comment "A fictional individual appearing in a fantasy narrative."@en .
+
+fcho:Role rdf:type owl:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:comment "A narrative, social, functional, or archetypal role associated with a character."@en .
+
+fcho:Group rdf:type owl:Class ;
+    rdfs:label "Group"@en ;
+    rdfs:comment "A collective entity to which characters may belong, such as a faction, family, army, order, kingdom, or party."@en .
+
+fcho:TraitLabel rdf:type owl:Class ;
+    rdfs:label "Trait Label"@en ;
+    rdfs:comment "A lightweight interpretable personality or temperament label associated with a character."@en .
+
+fcho:RelationType rdf:type owl:Class ;
+    rdfs:label "Relation Type"@en ;
+    rdfs:comment "A controlled-vocabulary type used to classify extracted relationship mentions."@en .
+
+#################################################################
+# Role hierarchy
+#################################################################
+
+fcho:ProtagonistRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Protagonist Role"@en .
+fcho:AntagonistRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Antagonist Role"@en .
+fcho:MentorRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Mentor Role"@en .
+fcho:RulerRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Ruler Role"@en .
+fcho:WarriorRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Warrior Role"@en .
+fcho:MageRole rdf:type owl:Class ; rdfs:subClassOf fcho:Role ; rdfs:label "Mage Role"@en .
+
+#################################################################
+# Group hierarchy
+#################################################################
+
+fcho:Faction rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Faction"@en .
+fcho:Family rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Family"@en .
+fcho:Kingdom rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Kingdom"@en .
+fcho:Guild rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Guild"@en .
+fcho:Army rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Army"@en .
+fcho:Order rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Order"@en .
+fcho:Party rdf:type owl:Class ; rdfs:subClassOf fcho:Group ; rdfs:label "Party"@en .
+
+#################################################################
+# Trait hierarchy
+#################################################################
+
+fcho:PositiveTrait rdf:type owl:Class ; rdfs:subClassOf fcho:TraitLabel ; rdfs:label "Positive Trait"@en .
+fcho:NegativeTrait rdf:type owl:Class ; rdfs:subClassOf fcho:TraitLabel ; rdfs:label "Negative Trait"@en .
+fcho:NeutralTrait rdf:type owl:Class ; rdfs:subClassOf fcho:TraitLabel ; rdfs:label "Neutral Trait"@en .
+
+#################################################################
+# NLP extraction and provenance layer
+#################################################################
+
+fcho:ExtractionEvidence rdf:type owl:Class ;
+    rdfs:label "Extraction Evidence"@en ;
+    rdfs:comment "A textual evidence object supporting an extracted entity, relation, role, trait, or group-membership assertion."@en .
+
+fcho:EntityMention rdf:type owl:Class ;
+    rdfs:label "Entity Mention"@en ;
+    rdfs:comment "A mention of an entity detected in the source text."@en .
+
+fcho:RelationshipMention rdf:type owl:Class ;
+    rdfs:label "Relationship Mention"@en ;
+    rdfs:comment "A reified mention of a relationship between two characters extracted from text."@en .
+
+fcho:TraitMention rdf:type owl:Class ;
+    rdfs:label "Trait Mention"@en ;
+    rdfs:comment "A reified mention of a character trait extracted from text."@en .
+
+fcho:RoleMention rdf:type owl:Class ;
+    rdfs:label "Role Mention"@en ;
+    rdfs:comment "A reified mention of a character role extracted from text."@en .
+
+fcho:GroupMembershipMention rdf:type owl:Class ;
+    rdfs:label "Group Membership Mention"@en ;
+    rdfs:comment "A reified mention indicating that a character is affiliated with a group."@en .
+
+#################################################################
+# Agent-compilation layer
+#################################################################
+
+fcho:AgentProfileComponent rdf:type owl:Class ;
+    rdfs:label "Agent Profile Component"@en ;
+    rdfs:comment "A symbolic component derived from the KG and intended to contribute to an agent initialization package."@en .
+
+fcho:BeliefCandidate rdf:type owl:Class ;
+    rdfs:subClassOf fcho:AgentProfileComponent ;
+    rdfs:label "Belief Candidate"@en .
+
+fcho:GoalCandidate rdf:type owl:Class ;
+    rdfs:subClassOf fcho:AgentProfileComponent ;
+    rdfs:label "Goal Candidate"@en .
+
+fcho:TemperHint rdf:type owl:Class ;
+    rdfs:subClassOf fcho:AgentProfileComponent ;
+    rdfs:label "Temper Hint"@en .
+
+fcho:AgentInitializationPackage rdf:type owl:Class ;
+    rdfs:label "Agent Initialization Package"@en ;
+    rdfs:comment "An intermediate character-centered symbolic package for later conversion into a VEsNA-compatible or Jason-compatible configuration."@en .
+
+#################################################################
+# Clean semantic object properties
+#################################################################
+
+fcho:hasRole rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Role ;
+    rdfs:label "has role"@en .
+
+fcho:memberOf rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Group ;
+    rdfs:label "member of"@en .
+
+fcho:hasTraitLabel rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:TraitLabel ;
+    rdfs:label "has trait label"@en .
+
+fcho:alliesWith rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "allies with"@en .
+
+fcho:hostileTo rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "hostile to"@en .
+
+fcho:romanticallyInvolvedWith rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "romantically involved with"@en .
+
+fcho:relatedTo rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "related to"@en .
+
+fcho:protects rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "protects"@en .
+
+fcho:trusts rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "trusts"@en .
+
+fcho:distrusts rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:Character ;
+    rdfs:label "distrusts"@en .
+
+#################################################################
+# Reified extraction object properties
+#################################################################
+
+fcho:mentionsCharacter rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:EntityMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "mentions character"@en .
+
+fcho:mentionsSubject rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:RelationshipMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "mentions subject"@en .
+
+fcho:mentionsObject rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:RelationshipMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "mentions object"@en .
+
+fcho:mentionsRelationType rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:RelationshipMention ;
+    rdfs:range fcho:RelationType ;
+    rdfs:label "mentions relation type"@en .
+
+fcho:mentionsTrait rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:TraitMention ;
+    rdfs:range fcho:TraitLabel ;
+    rdfs:label "mentions trait"@en .
+
+fcho:traitOfCharacter rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:TraitMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "trait of character"@en .
+
+fcho:mentionsRole rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:RoleMention ;
+    rdfs:range fcho:Role ;
+    rdfs:label "mentions role"@en .
+
+fcho:roleOfCharacter rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:RoleMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "role of character"@en .
+
+fcho:membershipCharacter rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:GroupMembershipMention ;
+    rdfs:range fcho:Character ;
+    rdfs:label "membership character"@en .
+
+fcho:membershipGroup rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:GroupMembershipMention ;
+    rdfs:range fcho:Group ;
+    rdfs:label "membership group"@en .
+
+fcho:supportedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range fcho:ExtractionEvidence ;
+    rdfs:label "supported by"@en .
+
+#################################################################
+# Agent-compilation object properties
+#################################################################
+
+fcho:hasBeliefCandidate rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:BeliefCandidate ;
+    rdfs:label "has belief candidate"@en .
+
+fcho:hasGoalCandidate rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:GoalCandidate ;
+    rdfs:label "has goal candidate"@en .
+
+fcho:hasTemperHint rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:TemperHint ;
+    rdfs:label "has temper hint"@en .
+
+fcho:compiledInto rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range fcho:AgentInitializationPackage ;
+    rdfs:label "compiled into"@en .
+
+fcho:containsProfileComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain fcho:AgentInitializationPackage ;
+    rdfs:range fcho:AgentProfileComponent ;
+    rdfs:label "contains profile component"@en .
+
+#################################################################
+# Data properties
+#################################################################
+
+fcho:canonicalName rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range xsd:string ;
+    rdfs:label "canonical name"@en .
+
+fcho:alias rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:Character ;
+    rdfs:range xsd:string ;
+    rdfs:label "alias"@en .
+
+fcho:evidenceText rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:ExtractionEvidence ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence text"@en .
+
+fcho:sourceDocument rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:ExtractionEvidence ;
+    rdfs:range xsd:string ;
+    rdfs:label "source document"@en .
+
+fcho:chapterId rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:ExtractionEvidence ;
+    rdfs:range xsd:string ;
+    rdfs:label "chapter id"@en .
+
+fcho:sentenceId rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:ExtractionEvidence ;
+    rdfs:range xsd:string ;
+    rdfs:label "sentence id"@en .
+
+fcho:startOffset rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:integer ;
+    rdfs:label "start offset"@en .
+
+fcho:endOffset rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:integer ;
+    rdfs:label "end offset"@en .
+
+fcho:surfaceForm rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "surface form"@en .
+
+fcho:confidenceScore rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:float ;
+    rdfs:label "confidence score"@en .
+
+fcho:extractionBackend rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "extraction backend"@en .
+
+fcho:compiledPredicate rdf:type owl:DatatypeProperty ;
+    rdfs:domain fcho:AgentProfileComponent ;
+    rdfs:range xsd:string ;
+    rdfs:label "compiled predicate"@en .
+
+#################################################################
+# Controlled vocabulary: relation types
+#################################################################
+
+fcho:allianceRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "alliance relation"@en .
+fcho:hostilityRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "hostility relation"@en .
+fcho:romanceRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "romance relation"@en .
+fcho:kinshipRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "kinship relation"@en .
+fcho:protectionRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "protection relation"@en .
+fcho:trustRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "trust relation"@en .
+fcho:distrustRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "distrust relation"@en .
+fcho:genericRelatednessRelation rdf:type owl:NamedIndividual, fcho:RelationType ; rdfs:label "generic relatedness relation"@en .
+
+#################################################################
+# Controlled vocabulary: traits
+#################################################################
+
+fcho:brave rdf:type owl:NamedIndividual, fcho:PositiveTrait ; rdfs:label "brave"@en .
+fcho:loyal rdf:type owl:NamedIndividual, fcho:PositiveTrait ; rdfs:label "loyal"@en .
+fcho:wise rdf:type owl:NamedIndividual, fcho:PositiveTrait ; rdfs:label "wise"@en .
+fcho:kind rdf:type owl:NamedIndividual, fcho:PositiveTrait ; rdfs:label "kind"@en .
+
+fcho:cruel rdf:type owl:NamedIndividual, fcho:NegativeTrait ; rdfs:label "cruel"@en .
+fcho:treacherous rdf:type owl:NamedIndividual, fcho:NegativeTrait ; rdfs:label "treacherous"@en .
+fcho:cowardly rdf:type owl:NamedIndividual, fcho:NegativeTrait ; rdfs:label "cowardly"@en .
+
+fcho:reserved rdf:type owl:NamedIndividual, fcho:NeutralTrait ; rdfs:label "reserved"@en .
+fcho:ambitious rdf:type owl:NamedIndividual, fcho:NeutralTrait ; rdfs:label "ambitious"@en .
+fcho:impulsive rdf:type owl:NamedIndividual, fcho:NeutralTrait ; rdfs:label "impulsive"@en .
+fcho:mysterious rdf:type owl:NamedIndividual, fcho:NeutralTrait ; rdfs:label "mysterious"@en .
+
+#################################################################
+# Controlled vocabulary: roles
+#################################################################
+
+fcho:hero rdf:type owl:NamedIndividual, fcho:ProtagonistRole ; rdfs:label "hero"@en .
+fcho:villain rdf:type owl:NamedIndividual, fcho:AntagonistRole ; rdfs:label "villain"@en .
+fcho:mentor rdf:type owl:NamedIndividual, fcho:MentorRole ; rdfs:label "mentor"@en .
+fcho:ruler rdf:type owl:NamedIndividual, fcho:RulerRole ; rdfs:label "ruler"@en .
+fcho:warrior rdf:type owl:NamedIndividual, fcho:WarriorRole ; rdfs:label "warrior"@en .
+fcho:mage rdf:type owl:NamedIndividual, fcho:MageRole ; rdfs:label "mage"@en .
+
+#################################################################
+# Controlled vocabulary: example compilation components
+#################################################################
+
+fcho:protectAllyGoal rdf:type owl:NamedIndividual, fcho:GoalCandidate ;
+    rdfs:label "protect ally goal"@en ;
+    fcho:compiledPredicate "goal(protect_ally)" .
+
+fcho:defeatEnemyGoal rdf:type owl:NamedIndividual, fcho:GoalCandidate ;
+    rdfs:label "defeat enemy goal"@en ;
+    fcho:compiledPredicate "goal(defeat_enemy)" .
+
+fcho:preserveGroupGoal rdf:type owl:NamedIndividual, fcho:GoalCandidate ;
+    rdfs:label "preserve group goal"@en ;
+    fcho:compiledPredicate "goal(preserve_group)" .
+
+fcho:cooperativeTemperHint rdf:type owl:NamedIndividual, fcho:TemperHint ;
+    rdfs:label "cooperative temper hint"@en ;
+    fcho:compiledPredicate "temper(cooperative)" .
+
+fcho:aggressiveTemperHint rdf:type owl:NamedIndividual, fcho:TemperHint ;
+    rdfs:label "aggressive temper hint"@en ;
+    fcho:compiledPredicate "temper(aggressive)" .
+
+fcho:cautiousTemperHint rdf:type owl:NamedIndividual, fcho:TemperHint ;
+    rdfs:label "cautious temper hint"@en ;
+    fcho:compiledPredicate "temper(cautious)" .
