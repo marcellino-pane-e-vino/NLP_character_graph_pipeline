@@ -1,15 +1,3 @@
-"""Slim ontology typing layer stored at ``doc._.ontology_layer``.
-
-This module intentionally does not know how ontology evidence is produced.
-It only defines the final cluster-level annotations and the spaCy Doc extension.
-
-Design boundary:
-    - ``doc._.coref_layer`` remains the stable coreference identity layer.
-    - ``doc._.ontology_layer`` stores the external NetworkX ontology DAG and
-      final ``cluster_id -> ClusterOntologyAnnotation`` assignments.
-    - Mention-level traversal evidence remains in JSONL artifacts, not here.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field

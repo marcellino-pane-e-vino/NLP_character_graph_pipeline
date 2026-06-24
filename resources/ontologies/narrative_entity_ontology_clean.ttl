@@ -305,6 +305,46 @@ neo:objectUsedBy a owl:ObjectProperty ;
     rdfs:range neo:Character ;
     skos:definition "Connects an object to a character that uses, carries, wields, reads, consumes, or otherwise handles it."@en .
 
+neo:holdsAttitudeToward a owl:ObjectProperty ;
+    rdfs:label "holds attitude toward"@en ;
+    skos:prefLabel "holdsAttitudeToward"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity toward which the character expresses an emotional, evaluative, cognitive, or social attitude such as love, liking, trust, fear, worry, gratitude, agreement, suspicion, or longing."@en .
+
+neo:harms a owl:ObjectProperty ;
+    rdfs:label "harms"@en ;
+    skos:prefLabel "harms"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity that the character injures, kills, attacks, bites, strikes, hurts, threatens, beats, destroys, starves, melts, or otherwise damages."@en ;
+    skos:example "Dorothy kills the Wicked Witch; the Lion bites Toto; the Wicked Witch strikes Toto."@en .
+
+neo:accompanies a owl:ObjectProperty ;
+    rdfs:label "accompanies"@en ;
+    skos:prefLabel "accompanies"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:Character ;
+    skos:definition "Connects a character to another character with whom they travel, go, come, remain, stay, live, join, or move together as companions or temporary associates."@en ;
+    skos:example "The Scarecrow goes with Dorothy; the Lion goes with Dorothy; Toto trots behind Dorothy."@en .
+
+neo:movesToward a owl:ObjectProperty ;
+    rdfs:label "moves toward"@en ;
+    skos:prefLabel "movesToward"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity, place, destination, person, or goal that the character approaches, comes to, goes to, runs toward, follows, reaches, or moves toward."@en ;
+    skos:example "Dorothy comes to Oz; Dorothy runs toward Glinda; the Tin Woodman follows the Scarecrow."@en .
+
+neo:guides a owl:ObjectProperty ;
+    rdfs:label "guides"@en ;
+    skos:prefLabel "guides"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity that the character leads, guides, directs, escorts, brings, takes somewhere, sends onward, or helps navigate through a place or sequence of events."@en ;
+    skos:example "Boq leads Dorothy; the Scarecrow leads the travelers; Oz sends Dorothy."@en .
+
+
 #################################################################
 # Modeling notes
 #################################################################
