@@ -1,0 +1,567 @@
+global_cluster_uid,n_local_clusters,n_mentions,canonical_name,canonical_names,local_cluster_uids,chunk_min,chunk_max
+global_cluster_000000,1,1,the great Kansas prairies,the great kansas prairies,chunk_000::cluster_000,0,0
+global_cluster_000001,17,147,Kansas,home to kansas|kansas,chunk_000::cluster_064|chunk_001::cluster_070|chunk_002::cluster_006|chunk_003::cluster_044|chunk_004::cluster_063|chunk_005::cluster_027|chunk_006::cluster_049|chunk_007::cluster_067|chunk_008::cluster_091|chunk_009::cluster_042|chunk_010::cluster_091|chunk_011::cluster_044|chunk_012::cluster_042|chunk_013::cluster_014|chunk_013::cluster_015|chunk_014::cluster_056|chunk_015::cluster_047,0,15
+global_cluster_000002,8,55,Uncle Henry,the tin woodman|uncle henry,chunk_000::cluster_005|chunk_006::cluster_106|chunk_007::cluster_085|chunk_008::cluster_030|chunk_012::cluster_076|chunk_013::cluster_024|chunk_014::cluster_105|chunk_015::cluster_046,0,15
+global_cluster_000003,11,35,a farmer,a farmer|good farmers|the farmer,chunk_000::cluster_001|chunk_000::cluster_003|chunk_000::cluster_116|chunk_001::cluster_042|chunk_001::cluster_089|chunk_005::cluster_042|chunk_006::cluster_021|chunk_012::cluster_073|chunk_013::cluster_022|chunk_014::cluster_082|chunk_015::cluster_039,0,15
+global_cluster_000004,11,126,Aunt Em,aunt em|my aunt em,chunk_000::cluster_002|chunk_002::cluster_067|chunk_003::cluster_028|chunk_006::cluster_105|chunk_007::cluster_066|chunk_009::cluster_060|chunk_010::cluster_092|chunk_011::cluster_042|chunk_012::cluster_075|chunk_013::cluster_085|chunk_014::cluster_088,0,14
+global_cluster_000005,1,10,the people,the people,chunk_000::cluster_020,0,0
+global_cluster_000006,27,63,houses,a house|any house|fewer houses|houses|my house|no houses|several of these houses|the house|the new house|the next house|these houses|your house,chunk_000::cluster_004|chunk_001::cluster_043|chunk_001::cluster_057|chunk_001::cluster_085|chunk_001::cluster_111|chunk_002::cluster_003|chunk_002::cluster_038|chunk_002::cluster_056|chunk_003::cluster_015|chunk_003::cluster_052|chunk_004::cluster_009|chunk_005::cluster_043|chunk_005::cluster_044|chunk_005::cluster_053|chunk_005::cluster_054|chunk_006::cluster_022|chunk_006::cluster_023|chunk_006::cluster_031|chunk_006::cluster_102|chunk_007::cluster_062|chunk_007::cluster_112|chunk_008::cluster_053|chunk_011::cluster_100|chunk_013::cluster_065|chunk_014::cluster_011|chunk_014::cluster_076|chunk_015::cluster_031,0,15
+global_cluster_000007,20,75,the Throne Room,a room|a small chamber in the rear of the throne room|her room|his throne room|one room|rooms|the rear of the throne room|the room|the throne room|their rooms|these rooms,chunk_000::cluster_006|chunk_000::cluster_021|chunk_005::cluster_071|chunk_005::cluster_074|chunk_006::cluster_048|chunk_006::cluster_087|chunk_006::cluster_094|chunk_007::cluster_032|chunk_007::cluster_041|chunk_007::cluster_047|chunk_010::cluster_094|chunk_010::cluster_116|chunk_010::cluster_117|chunk_011::cluster_043|chunk_011::cluster_066|chunk_011::cluster_067|chunk_011::cluster_108|chunk_012::cluster_047|chunk_012::cluster_058|chunk_013::cluster_021,0,13
+global_cluster_000008,16,3184,Dorothy,dorothy,chunk_000::cluster_012|chunk_001::cluster_000|chunk_002::cluster_001|chunk_003::cluster_001|chunk_004::cluster_000|chunk_005::cluster_000|chunk_006::cluster_001|chunk_007::cluster_008|chunk_008::cluster_000|chunk_009::cluster_000|chunk_010::cluster_001|chunk_011::cluster_002|chunk_012::cluster_002|chunk_013::cluster_000|chunk_014::cluster_005|chunk_015::cluster_015,0,15
+global_cluster_000009,2,2,another corner,a corner|another corner,chunk_000::cluster_007|chunk_005::cluster_059,0,5
+global_cluster_000010,1,1,no garret,no garret,chunk_000::cluster_008,0,0
+global_cluster_000011,1,1,no garret at all,no garret at all,chunk_000::cluster_009,0,0
+global_cluster_000012,2,2,no cellar,no cellar|the cellar,chunk_000::cluster_010|chunk_000::cluster_023,0,0
+global_cluster_000013,1,4,a cyclone cellar,a cyclone cellar,chunk_000::cluster_011,0,0
+global_cluster_000014,1,1,the family,the family,chunk_000::cluster_013,0,0
+global_cluster_000015,1,1,any building,any building,chunk_000::cluster_014,0,0
+global_cluster_000016,1,2,the great gray prairie,the great gray prairie,chunk_000::cluster_015,0,0
+global_cluster_000017,23,51,their country,a civilized country|a dangerous country|a lovely country|a strange and beautiful country|any other country|flat country|her country|the civilized countries|the country|the south country|the strangers still traveling through her country|their country|this country|your country,chunk_000::cluster_016|chunk_000::cluster_067|chunk_000::cluster_068|chunk_001::cluster_088|chunk_002::cluster_072|chunk_003::cluster_036|chunk_003::cluster_037|chunk_003::cluster_062|chunk_004::cluster_026|chunk_005::cluster_012|chunk_007::cluster_065|chunk_007::cluster_120|chunk_008::cluster_059|chunk_008::cluster_061|chunk_008::cluster_072|chunk_009::cluster_026|chunk_011::cluster_078|chunk_012::cluster_005|chunk_012::cluster_019|chunk_013::cluster_046|chunk_014::cluster_032|chunk_014::cluster_089|chunk_015::cluster_048,0,15
+global_cluster_000018,15,17,a strange land,a strange land|an ordinary little girl who had come by the chance of a cyclone into a strange land|prisoners in a strange land|the land|the plowed land,chunk_000::cluster_017|chunk_000::cluster_114|chunk_000::cluster_137|chunk_000::cluster_138|chunk_001::cluster_056|chunk_001::cluster_065|chunk_001::cluster_108|chunk_002::cluster_032|chunk_003::cluster_072|chunk_004::cluster_036|chunk_004::cluster_053|chunk_009::cluster_048|chunk_009::cluster_049|chunk_010::cluster_006|chunk_010::cluster_007,0,10
+global_cluster_000019,1,1,"a young, pretty wife","a young, pretty wife",chunk_000::cluster_018,0,0
+global_cluster_000020,15,262,Toto,all her friends except toto|toto,chunk_000::cluster_019|chunk_001::cluster_032|chunk_003::cluster_030|chunk_004::cluster_004|chunk_005::cluster_015|chunk_006::cluster_014|chunk_006::cluster_080|chunk_007::cluster_038|chunk_007::cluster_040|chunk_008::cluster_038|chunk_009::cluster_034|chunk_011::cluster_064|chunk_013::cluster_009|chunk_014::cluster_003|chunk_015::cluster_038,0,15
+global_cluster_000021,19,25,they,they,chunk_000::cluster_022|chunk_001::cluster_004|chunk_003::cluster_045|chunk_003::cluster_046|chunk_006::cluster_064|chunk_006::cluster_084|chunk_007::cluster_018|chunk_007::cluster_044|chunk_008::cluster_086|chunk_009::cluster_038|chunk_009::cluster_051|chunk_009::cluster_081|chunk_010::cluster_009|chunk_010::cluster_015|chunk_010::cluster_047|chunk_013::cluster_105|chunk_014::cluster_008|chunk_014::cluster_055|chunk_015::cluster_010,0,15
+global_cluster_000022,39,52,you,each one of you|you,chunk_000::cluster_024|chunk_000::cluster_111|chunk_001::cluster_039|chunk_001::cluster_069|chunk_001::cluster_091|chunk_001::cluster_093|chunk_002::cluster_012|chunk_002::cluster_015|chunk_002::cluster_046|chunk_003::cluster_049|chunk_003::cluster_051|chunk_003::cluster_053|chunk_003::cluster_079|chunk_004::cluster_006|chunk_004::cluster_007|chunk_004::cluster_010|chunk_004::cluster_011|chunk_006::cluster_012|chunk_006::cluster_015|chunk_006::cluster_077|chunk_007::cluster_003|chunk_007::cluster_004|chunk_007::cluster_033|chunk_008::cluster_032|chunk_009::cluster_062|chunk_009::cluster_075|chunk_010::cluster_027|chunk_010::cluster_040|chunk_011::cluster_086|chunk_011::cluster_087|chunk_011::cluster_107|chunk_011::cluster_111|chunk_012::cluster_033|chunk_012::cluster_036|chunk_012::cluster_039|chunk_012::cluster_040|chunk_012::cluster_098|chunk_015::cluster_021|chunk_015::cluster_072,0,15
+global_cluster_000023,1,1,a baby in a cradle,a baby in a cradle,chunk_000::cluster_025,0,0
+global_cluster_000024,1,1,a country of marvelous beauty,a country of marvelous beauty,chunk_000::cluster_026,0,0
+global_cluster_000025,1,1,a small brook,a small brook,chunk_000::cluster_027,0,0
+global_cluster_000026,1,1,"the dry, gray prairies","the dry, gray prairies",chunk_000::cluster_028,0,0
+global_cluster_000027,1,13,the men,the men,chunk_000::cluster_029,0,0
+global_cluster_000028,2,2,a group of the queerest people she had ever seen,a group of the queerest people she had ever seen|the queerest people she had ever seen,chunk_000::cluster_030|chunk_000::cluster_032,0,0
+global_cluster_000029,1,6,these people,these people,chunk_000::cluster_031,0,0
+global_cluster_000030,1,1,the grown folk she had always been used to,the grown folk she had always been used to,chunk_000::cluster_033,0,0
+global_cluster_000031,1,1,Three,three,chunk_000::cluster_034,0,0
+global_cluster_000032,1,1,men,men,chunk_000::cluster_035,0,0
+global_cluster_000033,1,16,Boq,boq,chunk_000::cluster_083,0,0
+global_cluster_000034,1,1,a woman,a woman,chunk_000::cluster_036,0,0
+global_cluster_000035,18,113,the Munchkins,a munchkin|one of the munchkins|some munchkin|the houses of the munchkins|the land of the munchkins|the munchkins|the rich munchkin,chunk_000::cluster_037|chunk_000::cluster_043|chunk_000::cluster_047|chunk_000::cluster_077|chunk_000::cluster_080|chunk_000::cluster_110|chunk_000::cluster_119|chunk_000::cluster_146|chunk_001::cluster_001|chunk_001::cluster_046|chunk_001::cluster_059|chunk_001::cluster_077|chunk_001::cluster_099|chunk_002::cluster_023|chunk_005::cluster_048|chunk_006::cluster_026|chunk_014::cluster_079|chunk_015::cluster_035,0,15
+global_cluster_000036,17,66,we,we,chunk_000::cluster_038|chunk_000::cluster_042|chunk_000::cluster_105|chunk_001::cluster_087|chunk_002::cluster_011|chunk_003::cluster_058|chunk_004::cluster_017|chunk_006::cluster_000|chunk_006::cluster_011|chunk_007::cluster_005|chunk_008::cluster_023|chunk_010::cluster_050|chunk_010::cluster_053|chunk_012::cluster_065|chunk_013::cluster_012|chunk_013::cluster_090|chunk_014::cluster_036,0,14
+global_cluster_000037,1,2,the people,the people,chunk_000::cluster_044,0,0
+global_cluster_000038,3,3,a great sorceress,a great sorceress|a sorceress,chunk_000::cluster_039|chunk_000::cluster_131|chunk_001::cluster_060,0,1
+global_cluster_000039,17,21,home,"an innocent, harmless little girl, who had been carried by a cyclone many miles from home|her own home|home|my home|our homes|their homes",chunk_000::cluster_040|chunk_000::cluster_041|chunk_000::cluster_093|chunk_001::cluster_018|chunk_001::cluster_073|chunk_002::cluster_010|chunk_003::cluster_067|chunk_004::cluster_030|chunk_005::cluster_039|chunk_005::cluster_072|chunk_006::cluster_009|chunk_006::cluster_050|chunk_010::cluster_095|chunk_011::cluster_045|chunk_014::cluster_108|chunk_014::cluster_114|chunk_015::cluster_065,0,15
+global_cluster_000040,2,2,the people who live in this land of the East where the Wicked Witch ruled,the people who live in this land of the east where the wicked witch ruled|this land of the east where the wicked witch ruled,chunk_000::cluster_045|chunk_000::cluster_046,0,0
+global_cluster_000041,33,161,her friends,a friend|all her friends|anyone who is our friend|her friends|her two friends|his friends|my friends|our friend|our friends|their friend|their friends,chunk_000::cluster_048|chunk_000::cluster_129|chunk_000::cluster_143|chunk_001::cluster_058|chunk_002::cluster_066|chunk_003::cluster_027|chunk_004::cluster_047|chunk_004::cluster_059|chunk_004::cluster_065|chunk_004::cluster_066|chunk_005::cluster_014|chunk_005::cluster_023|chunk_005::cluster_034|chunk_005::cluster_035|chunk_006::cluster_079|chunk_006::cluster_081|chunk_006::cluster_111|chunk_007::cluster_028|chunk_007::cluster_037|chunk_007::cluster_039|chunk_007::cluster_071|chunk_008::cluster_011|chunk_009::cluster_023|chunk_009::cluster_029|chunk_009::cluster_070|chunk_010::cluster_013|chunk_010::cluster_014|chunk_010::cluster_036|chunk_011::cluster_001|chunk_012::cluster_052|chunk_012::cluster_066|chunk_013::cluster_013|chunk_015::cluster_074,0,15
+global_cluster_000042,12,14,the North,a person who has been kissed by the witch of the north|the good witch of the north|the land of the north|the north,chunk_000::cluster_049|chunk_000::cluster_058|chunk_000::cluster_091|chunk_000::cluster_102|chunk_001::cluster_017|chunk_001::cluster_030|chunk_006::cluster_103|chunk_006::cluster_104|chunk_007::cluster_063|chunk_007::cluster_064|chunk_010::cluster_066|chunk_011::cluster_009,0,11
+global_cluster_000043,1,1,a swift messenger,a swift messenger,chunk_000::cluster_050,0,0
+global_cluster_000044,1,1,a real witch,a real witch,chunk_000::cluster_051,0,0
+global_cluster_000045,3,3,a Good Witch,a good witch,chunk_000::cluster_052|chunk_012::cluster_085|chunk_013::cluster_037,0,13
+global_cluster_000046,11,18,witches,all the witches|all witches|good witches|the most powerful of all the witches|the witches|witches,chunk_000::cluster_053|chunk_000::cluster_060|chunk_000::cluster_073|chunk_000::cluster_132|chunk_001::cluster_061|chunk_011::cluster_093|chunk_012::cluster_018|chunk_012::cluster_080|chunk_012::cluster_081|chunk_013::cluster_032|chunk_013::cluster_033,0,13
+global_cluster_000047,1,1,only four witches,only four witches,chunk_000::cluster_054,0,0
+global_cluster_000048,29,1307,Oz,only four witches in all the land of oz|oz|the great oz|the land of oz|the same great desert that surrounds this land of oz|the wisest man in all the land of oz|this land of oz|this queer land of oz,chunk_000::cluster_055|chunk_000::cluster_075|chunk_000::cluster_094|chunk_001::cluster_019|chunk_001::cluster_023|chunk_001::cluster_072|chunk_002::cluster_008|chunk_002::cluster_041|chunk_003::cluster_004|chunk_004::cluster_028|chunk_005::cluster_030|chunk_005::cluster_050|chunk_006::cluster_005|chunk_006::cluster_028|chunk_006::cluster_118|chunk_007::cluster_002|chunk_007::cluster_079|chunk_008::cluster_010|chunk_008::cluster_093|chunk_009::cluster_022|chunk_009::cluster_045|chunk_009::cluster_072|chunk_010::cluster_038|chunk_011::cluster_000|chunk_012::cluster_003|chunk_014::cluster_093|chunk_014::cluster_098|chunk_015::cluster_057|chunk_015::cluster_069,0,15
+global_cluster_000049,26,31,them,them|two of them,chunk_000::cluster_056|chunk_001::cluster_103|chunk_002::cluster_016|chunk_002::cluster_026|chunk_004::cluster_024|chunk_006::cluster_089|chunk_007::cluster_024|chunk_007::cluster_049|chunk_007::cluster_119|chunk_008::cluster_063|chunk_009::cluster_001|chunk_009::cluster_007|chunk_009::cluster_009|chunk_009::cluster_058|chunk_009::cluster_083|chunk_009::cluster_089|chunk_010::cluster_023|chunk_010::cluster_049|chunk_010::cluster_057|chunk_012::cluster_077|chunk_013::cluster_025|chunk_013::cluster_094|chunk_014::cluster_042|chunk_014::cluster_087|chunk_015::cluster_009|chunk_015::cluster_045,0,15
+global_cluster_000050,11,26,the South,the land of the south|the north and south|the south|the witches of the north and south|those who live in the north and the south,chunk_000::cluster_057|chunk_000::cluster_059|chunk_000::cluster_085|chunk_001::cluster_009|chunk_011::cluster_096|chunk_011::cluster_098|chunk_012::cluster_021|chunk_012::cluster_084|chunk_013::cluster_036|chunk_013::cluster_048|chunk_015::cluster_042,0,15
+global_cluster_000051,20,41,the West,the country of the west|the country of the wicked witch of the west|the east and the west|the people who live in the north and south and east and west|the west|the wicked witch of the west|the witches of the east and west|this country of the west|those who dwelt in the east and the west,chunk_000::cluster_061|chunk_000::cluster_062|chunk_000::cluster_063|chunk_000::cluster_086|chunk_001::cluster_012|chunk_001::cluster_015|chunk_003::cluster_073|chunk_003::cluster_074|chunk_004::cluster_037|chunk_004::cluster_038|chunk_007::cluster_113|chunk_007::cluster_114|chunk_008::cluster_054|chunk_009::cluster_047|chunk_011::cluster_095|chunk_011::cluster_099|chunk_012::cluster_020|chunk_012::cluster_023|chunk_014::cluster_107|chunk_015::cluster_064,0,15
+global_cluster_000052,9,11,the East,east|the east|the wicked witch of the east|the witch of the east|this country of the east,chunk_000::cluster_078|chunk_000::cluster_121|chunk_001::cluster_033|chunk_001::cluster_034|chunk_001::cluster_048|chunk_011::cluster_097|chunk_012::cluster_022|chunk_012::cluster_024|chunk_012::cluster_025,0,12
+global_cluster_000053,1,1,wicked witches,wicked witches,chunk_000::cluster_065,0,0
+global_cluster_000054,1,1,"my aunt who lives in Kansas, where I came from","my aunt who lives in kansas, where i came from",chunk_000::cluster_066,0,0
+global_cluster_000055,1,1,no witches,no witches,chunk_000::cluster_069,0,0
+global_cluster_000056,18,19,a Great Wizard,"a great wizard|a strange people, who, seeing me come from the clouds, thought i was a great wizard|a wizard|the great wizard|the palace of oz, the great wizard|the wizards|wizards",chunk_000::cluster_070|chunk_000::cluster_074|chunk_000::cluster_076|chunk_005::cluster_065|chunk_006::cluster_042|chunk_006::cluster_075|chunk_006::cluster_108|chunk_010::cluster_104|chunk_010::cluster_105|chunk_011::cluster_053|chunk_011::cluster_054|chunk_011::cluster_080|chunk_011::cluster_081|chunk_012::cluster_007|chunk_012::cluster_008|chunk_012::cluster_060|chunk_012::cluster_068|chunk_013::cluster_018,0,13
+global_cluster_000057,2,3,sorceresses,sorceresses,chunk_000::cluster_128|chunk_001::cluster_062,0,1
+global_cluster_000058,3,3,a magician,a magician|magicians,chunk_000::cluster_071|chunk_011::cluster_110|chunk_012::cluster_034,0,12
+global_cluster_000059,14,44,the world,one of the most wonderful rooms in the world|the sweetest little room in the world|the world,chunk_000::cluster_072|chunk_001::cluster_022|chunk_002::cluster_007|chunk_003::cluster_024|chunk_005::cluster_055|chunk_006::cluster_033|chunk_006::cluster_086|chunk_006::cluster_093|chunk_007::cluster_046|chunk_007::cluster_053|chunk_012::cluster_070|chunk_013::cluster_019|chunk_014::cluster_038|chunk_015::cluster_068,0,15
+global_cluster_000060,22,273,the Emerald City,"a lovely, sunny country that seemed to beckon them on to the emerald city|the emerald city|the river|the ruler of the emerald city|the streets of the emerald city",chunk_000::cluster_092|chunk_001::cluster_021|chunk_002::cluster_034|chunk_003::cluster_070|chunk_004::cluster_027|chunk_004::cluster_034|chunk_005::cluster_003|chunk_006::cluster_017|chunk_006::cluster_058|chunk_007::cluster_009|chunk_008::cluster_039|chunk_008::cluster_040|chunk_009::cluster_071|chunk_010::cluster_037|chunk_011::cluster_026|chunk_011::cluster_039|chunk_012::cluster_010|chunk_012::cluster_067|chunk_013::cluster_005|chunk_013::cluster_017|chunk_014::cluster_099|chunk_015::cluster_058,0,15
+global_cluster_000061,1,1,the corner of the house where the Wicked Witch had been lying,the corner of the house where the wicked witch had been lying,chunk_000::cluster_079,0,0
+global_cluster_000062,12,16,here,here|the country here|the good witch who rules here,chunk_000::cluster_142|chunk_001::cluster_005|chunk_001::cluster_074|chunk_005::cluster_019|chunk_005::cluster_051|chunk_006::cluster_029|chunk_010::cluster_065|chunk_011::cluster_063|chunk_014::cluster_037|chunk_014::cluster_090|chunk_015::cluster_049|chunk_015::cluster_050,0,15
+global_cluster_000063,1,1,one,one,chunk_000::cluster_081,0,0
+global_cluster_000064,5,12,the little brook,a little brook|a little rippling brook|the little brook,chunk_000::cluster_082|chunk_001::cluster_006|chunk_002::cluster_005|chunk_003::cluster_055|chunk_004::cluster_013,0,4
+global_cluster_000065,2,2,none,none,chunk_000::cluster_084|chunk_001::cluster_007,0,1
+global_cluster_000066,8,24,the country of the Quadlings,the country of the quadlings|the quadlings,chunk_000::cluster_087|chunk_000::cluster_088|chunk_001::cluster_010|chunk_001::cluster_011|chunk_012::cluster_082|chunk_013::cluster_034|chunk_014::cluster_073|chunk_015::cluster_027,0,15
+global_cluster_000067,14,141,the Winkies,the country of the winkies|the land of the winkies|the winkies,chunk_000::cluster_089|chunk_001::cluster_014|chunk_007::cluster_094|chunk_007::cluster_103|chunk_007::cluster_104|chunk_008::cluster_046|chunk_008::cluster_065|chunk_008::cluster_067|chunk_009::cluster_015|chunk_010::cluster_010|chunk_011::cluster_037|chunk_014::cluster_103|chunk_015::cluster_033|chunk_015::cluster_062,0,15
+global_cluster_000068,18,38,her slaves,a dozen of her slaves|her slave|her slaves|my slave|slaves|your slaves,chunk_000::cluster_090|chunk_001::cluster_016|chunk_003::cluster_075|chunk_004::cluster_039|chunk_007::cluster_105|chunk_007::cluster_107|chunk_007::cluster_115|chunk_008::cluster_047|chunk_008::cluster_049|chunk_008::cluster_057|chunk_008::cluster_066|chunk_008::cluster_074|chunk_008::cluster_084|chunk_009::cluster_012|chunk_009::cluster_014|chunk_009::cluster_036|chunk_009::cluster_050|chunk_010::cluster_012,0,10
+global_cluster_000069,1,1,all these strange people,all these strange people,chunk_000::cluster_095,0,0
+global_cluster_000070,1,1,a good man,a good man,chunk_000::cluster_097,0,0
+global_cluster_000071,5,5,a good Wizard,a good wizard,chunk_000::cluster_098|chunk_001::cluster_026|chunk_005::cluster_077|chunk_006::cluster_055|chunk_007::cluster_006,0,7
+global_cluster_000072,1,1,a man,a man,chunk_000::cluster_099,0,0
+global_cluster_000073,2,2,a country that is sometimes pleasant and sometimes dark and terrible,a country that is sometimes pleasant and sometimes dark and terrible,chunk_000::cluster_100|chunk_001::cluster_028,0,1
+global_cluster_000074,1,1,no one,no one,chunk_000::cluster_101,0,0
+global_cluster_000075,5,7,the rest,a house rather larger than the rest|the rest,chunk_000::cluster_103|chunk_000::cluster_122|chunk_001::cluster_049|chunk_007::cluster_108|chunk_008::cluster_050,0,8
+global_cluster_000076,17,658,the Wicked Witch,"a witch|the slaves of the wicked witch|the wicked witch|the wicked witch of the west|the witch|the yellow winkies, who were the slaves of the wicked witch|witch",chunk_000::cluster_104|chunk_000::cluster_133|chunk_000::cluster_136|chunk_001::cluster_055|chunk_006::cluster_101|chunk_007::cluster_061|chunk_008::cluster_001|chunk_008::cluster_009|chunk_008::cluster_035|chunk_008::cluster_089|chunk_008::cluster_090|chunk_009::cluster_006|chunk_009::cluster_041|chunk_010::cluster_000|chunk_011::cluster_035|chunk_014::cluster_106|chunk_015::cluster_063,0,15
+global_cluster_000077,2,2,several roads nearby,several roads nearby,chunk_000::cluster_107|chunk_001::cluster_036,0,1
+global_cluster_000078,17,86,the road,no road|several roads|the road|the road of yellow brick|well-paved roads,chunk_000::cluster_106|chunk_000::cluster_109|chunk_001::cluster_035|chunk_001::cluster_038|chunk_002::cluster_028|chunk_003::cluster_026|chunk_004::cluster_002|chunk_005::cluster_009|chunk_006::cluster_016|chunk_007::cluster_101|chunk_008::cluster_044|chunk_009::cluster_076|chunk_010::cluster_041|chunk_012::cluster_089|chunk_013::cluster_041|chunk_014::cluster_074|chunk_015::cluster_029,0,15
+global_cluster_000079,2,2,the one paved with yellow bricks,the one paved with yellow bricks,chunk_000::cluster_108|chunk_001::cluster_037,0,1
+global_cluster_000080,1,1,her,her,chunk_000::cluster_113,0,0
+global_cluster_000081,2,2,fields of grain and vegetables in abundance,fields of grain and vegetables in abundance,chunk_000::cluster_115|chunk_001::cluster_041,0,1
+global_cluster_000082,1,1,the people,the people,chunk_000::cluster_117,0,0
+global_cluster_000083,18,20,everyone,everyone,chunk_000::cluster_118|chunk_001::cluster_045|chunk_006::cluster_074|chunk_006::cluster_110|chunk_007::cluster_030|chunk_007::cluster_070|chunk_010::cluster_069|chunk_010::cluster_113|chunk_011::cluster_013|chunk_011::cluster_061|chunk_012::cluster_062|chunk_012::cluster_063|chunk_012::cluster_086|chunk_012::cluster_100|chunk_013::cluster_007|chunk_013::cluster_010|chunk_013::cluster_038|chunk_013::cluster_054,0,13
+global_cluster_000084,2,2,odd-looking dwellings,odd-looking dwellings,chunk_000::cluster_120|chunk_001::cluster_047,0,1
+global_cluster_000085,5,5,it,it|the green lawn before it,chunk_000::cluster_123|chunk_001::cluster_050|chunk_001::cluster_109|chunk_002::cluster_036|chunk_005::cluster_038,0,5
+global_cluster_000086,1,1,many men,many men,chunk_000::cluster_124,0,0
+global_cluster_000087,1,1,women,women,chunk_000::cluster_125,0,0
+global_cluster_000088,2,2,Five little fiddlers,five little fiddlers,chunk_000::cluster_126|chunk_001::cluster_053,0,1
+global_cluster_000089,2,7,one of the richest Munchkins in the land,one of the richest munchkins in the land,chunk_000::cluster_127|chunk_001::cluster_054,0,1
+global_cluster_000090,1,1,their,their,chunk_000::cluster_130,0,0
+global_cluster_000091,2,2,a friendly witch,a friendly witch,chunk_000::cluster_134|chunk_001::cluster_063,0,1
+global_cluster_000092,1,1,all the people,all the people,chunk_000::cluster_135,0,0
+global_cluster_000093,2,4,a room with a pretty bed in it,a room with a pretty bed in it,chunk_000::cluster_139|chunk_001::cluster_066,0,1
+global_cluster_000094,1,2,all the people,all the people,chunk_000::cluster_140,0,0
+global_cluster_000095,1,2,people,people,chunk_000::cluster_141,0,0
+global_cluster_000096,13,15,the cornfield,a cornfield|a farmer's cornfield|a great cornfield|the cornfield|the farmer's cornfield,chunk_000::cluster_144|chunk_001::cluster_076|chunk_001::cluster_098|chunk_002::cluster_022|chunk_003::cluster_076|chunk_004::cluster_040|chunk_005::cluster_007|chunk_012::cluster_074|chunk_012::cluster_097|chunk_013::cluster_023|chunk_013::cluster_053|chunk_014::cluster_111|chunk_015::cluster_067,0,15
+global_cluster_000097,17,1156,the Scarecrow,a good scarecrow|a scarecrow|the scarecrow|the truck|the winged monkeys had tossed the scarecrow|the witch said to the scarecrow,chunk_000::cluster_145|chunk_001::cluster_101|chunk_002::cluster_000|chunk_002::cluster_025|chunk_003::cluster_000|chunk_005::cluster_002|chunk_006::cluster_006|chunk_006::cluster_007|chunk_007::cluster_001|chunk_009::cluster_002|chunk_010::cluster_026|chunk_010::cluster_031|chunk_013::cluster_001|chunk_013::cluster_096|chunk_014::cluster_044|chunk_014::cluster_095|chunk_015::cluster_054,0,15
+global_cluster_000098,1,1,every man,every man,chunk_000::cluster_147,0,0
+global_cluster_000099,1,1,a new man,a new man,chunk_000::cluster_148,0,0
+global_cluster_000100,1,1,anyone,anyone,chunk_000::cluster_149,0,0
+global_cluster_000101,1,1,my aunt,my aunt,chunk_001::cluster_002,1,1
+global_cluster_000102,3,3,your uncle,uncle|your uncle,chunk_001::cluster_003|chunk_006::cluster_112|chunk_007::cluster_072,1,7
+global_cluster_000103,1,9,the other,the other,chunk_001::cluster_008,1,1
+global_cluster_000104,1,1,"that country, where the Winkies live","that country, where the winkies live",chunk_001::cluster_013,1,1
+global_cluster_000105,1,1,all these strange people,all these strange people,chunk_001::cluster_020,1,1
+global_cluster_000106,1,1,the Great Wizard I told you of,the great wizard i told you of,chunk_001::cluster_024,1,1
+global_cluster_000107,1,1,a good man,a good man,chunk_001::cluster_025,1,1
+global_cluster_000108,1,1,a man,a man,chunk_001::cluster_027,1,1
+global_cluster_000109,1,1,no one,no one,chunk_001::cluster_029,1,1
+global_cluster_000110,1,2,The road to the City of Emeralds,the road to the city of emeralds,chunk_001::cluster_031,1,1
+global_cluster_000111,14,970,the travelers,every one of the travelers|the four travelers|the travelers|travelers,chunk_001::cluster_071|chunk_002::cluster_004|chunk_003::cluster_005|chunk_004::cluster_003|chunk_005::cluster_001|chunk_009::cluster_005|chunk_009::cluster_073|chunk_010::cluster_011|chunk_010::cluster_039|chunk_012::cluster_090|chunk_013::cluster_002|chunk_013::cluster_042|chunk_014::cluster_001|chunk_015::cluster_016,1,15
+global_cluster_000112,1,1,the people,the people,chunk_001::cluster_044,1,1
+global_cluster_000113,1,1,many men,many men,chunk_001::cluster_051,1,1
+global_cluster_000114,1,1,women,women,chunk_001::cluster_052,1,1
+global_cluster_000115,1,1,all the people,all the people,chunk_001::cluster_064,1,1
+global_cluster_000116,1,1,all the people,all the people,chunk_001::cluster_067,1,1
+global_cluster_000117,1,3,people,people,chunk_001::cluster_068,1,1
+global_cluster_000118,1,1,rough and dangerous places,rough and dangerous places,chunk_001::cluster_075,1,1
+global_cluster_000119,1,1,every man,every man,chunk_001::cluster_078,1,1
+global_cluster_000120,1,1,a new man,a new man,chunk_001::cluster_079,1,1
+global_cluster_000121,1,1,anyone,anyone,chunk_001::cluster_080,1,1
+global_cluster_000122,1,1,people,people,chunk_001::cluster_081,1,1
+global_cluster_000123,7,9,a fool,a fool,chunk_001::cluster_082|chunk_001::cluster_107|chunk_002::cluster_031|chunk_002::cluster_064|chunk_003::cluster_023|chunk_007::cluster_097|chunk_008::cluster_034,1,8
+global_cluster_000124,1,1,the path of yellow brick,the path of yellow brick,chunk_001::cluster_083,1,1
+global_cluster_000125,4,5,The farms,no farms|the farms,chunk_001::cluster_084|chunk_002::cluster_002|chunk_007::cluster_111|chunk_008::cluster_052,1,8
+global_cluster_000126,2,4,the roadside,the roadside,chunk_001::cluster_104|chunk_002::cluster_027,1,2
+global_cluster_000127,1,1,our,our,chunk_001::cluster_086,1,1
+global_cluster_000128,1,1,your,your,chunk_001::cluster_090,1,1
+global_cluster_000129,1,1,no people,no people,chunk_001::cluster_092,1,1
+global_cluster_000130,1,1,anyone,anyone,chunk_001::cluster_094,1,1
+global_cluster_000131,1,1,a man,a man,chunk_001::cluster_095,1,1
+global_cluster_000132,1,1,a man,a man,chunk_001::cluster_097,1,1
+global_cluster_000133,1,1,an important person,an important person,chunk_001::cluster_100,1,1
+global_cluster_000134,1,1,a man as any of them,a man as any of them,chunk_001::cluster_102,1,1
+global_cluster_000135,2,2,a better man than some of them,a better man than some of them,chunk_001::cluster_105|chunk_002::cluster_029,1,2
+global_cluster_000136,1,1,a man,a man,chunk_001::cluster_106,1,1
+global_cluster_000137,22,115,the forest,king of the forest|the beasts of the forest|the depths of the forest|the forest|the people who walked in the forest|the policemen of the forest|this part of the forest,chunk_001::cluster_114|chunk_002::cluster_033|chunk_003::cluster_006|chunk_003::cluster_032|chunk_003::cluster_060|chunk_004::cluster_008|chunk_004::cluster_020|chunk_005::cluster_031|chunk_006::cluster_019|chunk_007::cluster_054|chunk_010::cluster_059|chunk_010::cluster_064|chunk_011::cluster_004|chunk_011::cluster_008|chunk_013::cluster_061|chunk_013::cluster_062|chunk_014::cluster_004|chunk_014::cluster_006|chunk_014::cluster_065|chunk_015::cluster_003|chunk_015::cluster_012|chunk_015::cluster_014,1,15
+global_cluster_000138,1,1,Anyone,anyone,chunk_001::cluster_110,1,1
+global_cluster_000139,2,2,any place where we can pass the night,any place where we can pass the night,chunk_001::cluster_112|chunk_002::cluster_039,1,2
+global_cluster_000140,3,17,the cottage,my cottage|the cottage,chunk_001::cluster_113|chunk_002::cluster_040|chunk_003::cluster_019,1,3
+global_cluster_000141,2,2,a little spring of clear water,a little spring of clear water,chunk_001::cluster_115|chunk_002::cluster_042,1,2
+global_cluster_000142,1,1,no one,no one,chunk_001::cluster_116,1,1
+global_cluster_000143,2,2,a very polite creature,a very polite creature,chunk_001::cluster_117|chunk_002::cluster_045,1,2
+global_cluster_000144,1,1,our,our,chunk_002::cluster_009,2,2
+global_cluster_000145,1,1,no people,no people,chunk_002::cluster_013,2,2
+global_cluster_000146,1,15,the old woman,the old woman,chunk_002::cluster_014,2,2
+global_cluster_000147,1,1,anyone,anyone,chunk_002::cluster_017,2,2
+global_cluster_000148,1,1,a man,a man,chunk_002::cluster_018,2,2
+global_cluster_000149,1,1,a man,a man,chunk_002::cluster_021,2,2
+global_cluster_000150,1,1,an important person,an important person,chunk_002::cluster_024,2,2
+global_cluster_000151,1,1,a man,a man,chunk_002::cluster_030,2,2
+global_cluster_000152,1,1,Anyone,anyone,chunk_002::cluster_037,2,2
+global_cluster_000153,15,1254,the Lion,a cowardly lion|any other lions|the lion,chunk_002::cluster_035|chunk_003::cluster_003|chunk_004::cluster_001|chunk_007::cluster_021|chunk_007::cluster_088|chunk_008::cluster_018|chunk_008::cluster_024|chunk_009::cluster_008|chunk_010::cluster_004|chunk_011::cluster_016|chunk_012::cluster_035|chunk_014::cluster_000|chunk_014::cluster_060|chunk_015::cluster_000|chunk_015::cluster_007,2,15
+global_cluster_000154,3,3,some place,some place|the place,chunk_002::cluster_043|chunk_009::cluster_079|chunk_010::cluster_044,2,10
+global_cluster_000155,1,1,no one,no one,chunk_002::cluster_044,2,2
+global_cluster_000156,3,4,the hole,muddy holes|the hole,chunk_002::cluster_047|chunk_003::cluster_002|chunk_014::cluster_048,2,14
+global_cluster_000157,4,4,the son of a woodman who chopped down trees in the forest and sold the wood for a living,a woodman who chopped down trees in the forest and sold the wood for a living|the son of a woodman who chopped down trees in the forest and sold the wood for a living,chunk_002::cluster_048|chunk_002::cluster_049|chunk_003::cluster_007|chunk_003::cluster_008,2,3
+global_cluster_000158,4,4,a wood-chopper,a wood-chopper,chunk_002::cluster_050|chunk_002::cluster_058|chunk_003::cluster_009|chunk_003::cluster_017,2,3
+global_cluster_000159,1,3,my father,my father,chunk_002::cluster_065,2,2
+global_cluster_000160,4,6,my old mother,my old mother|their mothers,chunk_002::cluster_051|chunk_003::cluster_010|chunk_006::cluster_067|chunk_007::cluster_022,2,7
+global_cluster_000161,3,19,the Munchkin girls,the girl|the munchkin girls,chunk_002::cluster_052|chunk_002::cluster_053|chunk_003::cluster_012,2,3
+global_cluster_000162,2,2,a better house for her,a better house for her,chunk_002::cluster_054|chunk_003::cluster_013,2,3
+global_cluster_000163,1,1,anyone,anyone,chunk_002::cluster_055,2,2
+global_cluster_000164,1,1,a one-legged man,a one-legged man,chunk_002::cluster_057,2,2
+global_cluster_000165,8,34,tinsmiths,the tinsmith|the tinsmiths|tinsmiths|very good tinsmiths,chunk_002::cluster_059|chunk_003::cluster_018|chunk_009::cluster_055|chunk_009::cluster_057|chunk_009::cluster_059|chunk_010::cluster_020|chunk_010::cluster_022|chunk_010::cluster_024,2,10
+global_cluster_000166,4,4,those who wait upon him,"him|the great throne room of his palace, and even those who wait upon him|those who wait upon him",chunk_002::cluster_060|chunk_005::cluster_063|chunk_005::cluster_064|chunk_006::cluster_041,2,6
+global_cluster_000167,7,7,he,he,chunk_002::cluster_061|chunk_002::cluster_068|chunk_003::cluster_029|chunk_011::cluster_112|chunk_012::cluster_037|chunk_014::cluster_113|chunk_015::cluster_071,2,15
+global_cluster_000168,4,7,the happiest man on earth,earth|the happiest man on earth,chunk_002::cluster_062|chunk_003::cluster_020|chunk_003::cluster_021|chunk_011::cluster_094,2,11
+global_cluster_000169,1,1,no one,no one,chunk_002::cluster_063,2,2
+global_cluster_000170,2,2,the open country where there is plenty of sunshine,the open country where there is plenty of sunshine,chunk_002::cluster_069|chunk_003::cluster_033,2,3
+global_cluster_000171,1,1,"a boy, and he said it was a long journey through a dangerous country","a boy, and he said it was a long journey through a dangerous country",chunk_002::cluster_071,2,2
+global_cluster_000172,2,2,a boy,a boy,chunk_002::cluster_070|chunk_003::cluster_035,2,3
+global_cluster_000173,5,5,No one,no one,chunk_002::cluster_073|chunk_007::cluster_102|chunk_007::cluster_106|chunk_010::cluster_111|chunk_013::cluster_076,2,13
+global_cluster_000174,2,2,All the other animals in the forest,all the other animals in the forest,chunk_002::cluster_074|chunk_003::cluster_040,2,3
+global_cluster_000175,1,1,every living thing,every living thing,chunk_002::cluster_075,2,2
+global_cluster_000176,1,4,a man,a man,chunk_002::cluster_076,2,2
+global_cluster_000177,12,12,a coward,a coward|a great coward,chunk_002::cluster_077|chunk_003::cluster_047|chunk_004::cluster_064|chunk_005::cluster_033|chunk_005::cluster_056|chunk_006::cluster_034|chunk_007::cluster_093|chunk_007::cluster_096|chunk_008::cluster_028|chunk_008::cluster_033|chunk_014::cluster_112|chunk_015::cluster_070,2,15
+global_cluster_000178,1,32,the old woman,the old woman,chunk_003::cluster_011,3,3
+global_cluster_000179,1,1,anyone,anyone,chunk_003::cluster_014,3,3
+global_cluster_000180,1,1,a one-legged man,a one-legged man,chunk_003::cluster_016,3,3
+global_cluster_000181,5,9,the woods,the woods,chunk_003::cluster_025|chunk_004::cluster_019|chunk_012::cluster_092|chunk_013::cluster_043|chunk_013::cluster_050,3,13
+global_cluster_000182,1,1,no one,no one,chunk_003::cluster_022,3,3
+global_cluster_000183,8,8,her companions,her companions,chunk_003::cluster_031|chunk_006::cluster_053|chunk_007::cluster_121|chunk_008::cluster_062|chunk_010::cluster_046|chunk_013::cluster_016|chunk_014::cluster_094|chunk_015::cluster_053,3,15
+global_cluster_000184,7,48,the river,a scarecrow stuck on a pole in the middle of a river|the bottom of the river|the middle of the river|the river,chunk_003::cluster_034|chunk_003::cluster_077|chunk_004::cluster_025|chunk_004::cluster_041|chunk_005::cluster_004|chunk_010::cluster_082|chunk_011::cluster_027,3,11
+global_cluster_000185,1,1,a stuffed man,a stuffed man,chunk_003::cluster_038,3,3
+global_cluster_000186,5,5,No one,no one,chunk_003::cluster_039|chunk_008::cluster_045|chunk_008::cluster_048|chunk_011::cluster_060|chunk_014::cluster_023,3,14
+global_cluster_000187,2,2,the King of Beasts,the king of beasts,chunk_003::cluster_041|chunk_007::cluster_090,3,7
+global_cluster_000188,1,1,every living thing,every living thing,chunk_003::cluster_042,3,3
+global_cluster_000189,1,4,a man,a man,chunk_003::cluster_043,3,3
+global_cluster_000190,2,2,any living creature,any living creature,chunk_003::cluster_048|chunk_004::cluster_005,3,4
+global_cluster_000191,1,1,You people with hearts,you people with hearts,chunk_003::cluster_050,3,3
+global_cluster_000192,1,1,no one,no one,chunk_003::cluster_054,3,3
+global_cluster_000193,2,29,the gulf,the gulf,chunk_003::cluster_056|chunk_004::cluster_014,3,4
+global_cluster_000194,6,6,none of them,none of them,chunk_003::cluster_057|chunk_004::cluster_016|chunk_007::cluster_118|chunk_008::cluster_060|chunk_014::cluster_062|chunk_015::cluster_011,3,15
+global_cluster_000195,1,1,his,his,chunk_003::cluster_059,3,3
+global_cluster_000196,2,48,the Kalidahs,the kalidahs,chunk_003::cluster_061|chunk_004::cluster_021,3,4
+global_cluster_000197,2,2,another gulf across the road,another gulf across the road,chunk_003::cluster_063|chunk_004::cluster_022,3,4
+global_cluster_000198,4,4,this queer bridge,bridges|this queer bridge,chunk_003::cluster_064|chunk_004::cluster_023|chunk_014::cluster_077|chunk_015::cluster_032,3,15
+global_cluster_000199,2,2,green meadows dotted with bright flowers,green meadows dotted with bright flowers,chunk_003::cluster_065|chunk_004::cluster_029,3,4
+global_cluster_000200,3,4,the riverbank,the riverbank,chunk_003::cluster_066|chunk_004::cluster_043|chunk_005::cluster_011,3,5
+global_cluster_000201,4,101,the Princess,a princess|the princess,chunk_003::cluster_068|chunk_004::cluster_032|chunk_013::cluster_031|chunk_014::cluster_027,3,14
+global_cluster_000202,2,2,the dark forest they had passed safely through,the dark forest they had passed safely through,chunk_003::cluster_069|chunk_004::cluster_033,3,4
+global_cluster_000203,3,23,the raft,the raft,chunk_003::cluster_071|chunk_004::cluster_035|chunk_005::cluster_006,3,5
+global_cluster_000204,5,9,the shore,shore|the shore,chunk_003::cluster_078|chunk_004::cluster_042|chunk_005::cluster_008|chunk_010::cluster_083|chunk_011::cluster_028,3,11
+global_cluster_000205,1,1,no one,no one,chunk_004::cluster_012,4,4
+global_cluster_000206,1,1,a very wide ditch,a very wide ditch,chunk_004::cluster_015,4,4
+global_cluster_000207,1,1,his,his,chunk_004::cluster_018,4,4
+global_cluster_000208,1,1,Our,our,chunk_004::cluster_031,4,4
+global_cluster_000209,2,9,the bank,the bank,chunk_004::cluster_044|chunk_005::cluster_010,4,5
+global_cluster_000210,1,1,the road from which the river had carried them,the road from which the river had carried them,chunk_004::cluster_045,4,4
+global_cluster_000211,2,58,the Stork,the stork,chunk_004::cluster_046|chunk_005::cluster_013,4,5
+global_cluster_000212,2,2,anyone in trouble,anyone in trouble,chunk_004::cluster_048|chunk_005::cluster_016,4,5
+global_cluster_000213,3,3,A baby,a baby|my babies,chunk_004::cluster_049|chunk_011::cluster_106|chunk_012::cluster_032,4,12
+global_cluster_000214,2,2,a great meadow of poppies,a great meadow of poppies,chunk_004::cluster_050|chunk_005::cluster_017,4,5
+global_cluster_000215,1,1,anyone who breathes it,anyone who breathes it,chunk_004::cluster_051,4,4
+global_cluster_000216,2,4,the sleeper,the sleeper,chunk_004::cluster_052|chunk_005::cluster_018,4,5
+global_cluster_000217,2,2,beautiful green fields before them,beautiful green fields before them,chunk_004::cluster_056|chunk_005::cluster_021,4,5
+global_cluster_000218,9,10,the great fields,beautiful green fields|field|the field|the fields|the great fields|the green fields,chunk_004::cluster_055|chunk_005::cluster_029|chunk_006::cluster_010|chunk_006::cluster_013|chunk_009::cluster_078|chunk_010::cluster_043|chunk_014::cluster_085|chunk_015::cluster_028|chunk_015::cluster_043,4,15
+global_cluster_000219,2,2,a very good comrade,a very good comrade,chunk_004::cluster_057|chunk_005::cluster_022,4,5
+global_cluster_000220,1,1,one so cowardly,one so cowardly,chunk_004::cluster_058,4,4
+global_cluster_000221,4,52,a Queen,a queen|gayelette|the queen,chunk_004::cluster_060|chunk_005::cluster_024|chunk_009::cluster_082|chunk_010::cluster_048,4,10
+global_cluster_000222,4,60,the mice,the mice|the queen of all the field mice,chunk_004::cluster_061|chunk_004::cluster_062|chunk_005::cluster_025|chunk_005::cluster_026,4,5
+global_cluster_000223,2,2,all her people,all her people,chunk_004::cluster_067|chunk_006::cluster_002,4,6
+global_cluster_000224,1,1,her people,her people,chunk_004::cluster_068,4,4
+global_cluster_000225,2,2,the riverside,the riverside,chunk_004::cluster_069|chunk_006::cluster_004,4,6
+global_cluster_000226,9,304,the Tin Woodman,a woodman|some of the monkeys seized the tin woodman|the tin woodman,chunk_005::cluster_005|chunk_006::cluster_003|chunk_007::cluster_036|chunk_007::cluster_086|chunk_008::cluster_020|chunk_009::cluster_030|chunk_010::cluster_016|chunk_013::cluster_008|chunk_014::cluster_002,5,14
+global_cluster_000227,1,2,the poppy bed,the poppy bed,chunk_005::cluster_028,5,5
+global_cluster_000228,8,9,us,some of us|us,chunk_005::cluster_032|chunk_009::cluster_056|chunk_010::cluster_017|chunk_010::cluster_021|chunk_010::cluster_063|chunk_011::cluster_007|chunk_014::cluster_097|chunk_015::cluster_056,5,15
+global_cluster_000229,1,1,all her people,all her people,chunk_005::cluster_037,5,5
+global_cluster_000230,1,3,the people,the people,chunk_005::cluster_046,5,5
+global_cluster_000231,1,2,the people,the people,chunk_005::cluster_049,5,5
+global_cluster_000232,2,2,the country about,the country about,chunk_005::cluster_040|chunk_006::cluster_018,5,6
+global_cluster_000233,2,2,"a small house, in which a farmer evidently lived","a small house, in which a farmer evidently lived",chunk_005::cluster_041|chunk_006::cluster_020,5,6
+global_cluster_000234,1,2,people,people,chunk_005::cluster_045,5,5
+global_cluster_000235,1,1,no one,no one,chunk_005::cluster_047,5,5
+global_cluster_000236,4,4,the country of the Munchkins,the country of the munchkins,chunk_005::cluster_052|chunk_006::cluster_030|chunk_014::cluster_078|chunk_015::cluster_034,5,15
+global_cluster_000237,1,1,two children,two children,chunk_005::cluster_057,5,5
+global_cluster_000238,2,110,the man,the man,chunk_005::cluster_058|chunk_006::cluster_036,5,6
+global_cluster_000239,1,1,anyone,anyone,chunk_005::cluster_060,5,5
+global_cluster_000240,2,2,a beautiful and wonderful place,a beautiful and wonderful place,chunk_005::cluster_061|chunk_006::cluster_039,5,6
+global_cluster_000241,13,27,a very pleasant part of the Palace,a room at the front of the palace|a very pleasant part of the palace|her ruby palace|my palace|the back yard of the palace|the great throne room of his palace|the palace,chunk_005::cluster_062|chunk_006::cluster_085|chunk_006::cluster_091|chunk_007::cluster_011|chunk_007::cluster_045|chunk_007::cluster_051|chunk_007::cluster_098|chunk_008::cluster_036|chunk_008::cluster_037|chunk_010::cluster_073|chunk_011::cluster_017|chunk_011::cluster_084|chunk_012::cluster_011,5,12
+global_cluster_000242,4,4,some,some,chunk_005::cluster_066|chunk_005::cluster_067|chunk_006::cluster_043|chunk_006::cluster_044,5,6
+global_cluster_000243,2,2,a beautiful fairy,a beautiful fairy,chunk_005::cluster_068|chunk_006::cluster_045,5,6
+global_cluster_000244,2,2,a brownie,a brownie,chunk_005::cluster_069|chunk_006::cluster_046,5,6
+global_cluster_000245,1,1,no living person,no living person,chunk_005::cluster_070,5,5
+global_cluster_000246,1,1,anyone,anyone,chunk_005::cluster_073,5,5
+global_cluster_000247,2,2,"a high arched room, the walls of which glistened with countless emeralds","a high arched room, the walls of which glistened with countless emeralds",chunk_005::cluster_075|chunk_006::cluster_052,5,6
+global_cluster_000248,1,1,anyone,anyone,chunk_005::cluster_076,5,5
+global_cluster_000249,3,3,"those who are not honest, or who approach him from curiosity","those who are not honest, or who approach him from curiosity",chunk_005::cluster_078|chunk_006::cluster_056|chunk_007::cluster_007,5,7
+global_cluster_000250,2,2,those who live in the City,those who live in the city,chunk_005::cluster_079|chunk_006::cluster_057,5,6
+global_cluster_000251,1,2,the people,the people,chunk_006::cluster_027,6,6
+global_cluster_000252,1,99,the people,the people,chunk_006::cluster_008,6,6
+global_cluster_000253,1,2,people,people,chunk_006::cluster_024,6,6
+global_cluster_000254,1,1,no one,no one,chunk_006::cluster_025,6,6
+global_cluster_000255,3,7,a farmhouse,a farmhouse|a good-sized farmhouse,chunk_006::cluster_032|chunk_014::cluster_080|chunk_015::cluster_036,6,15
+global_cluster_000256,1,1,two children,two children,chunk_006::cluster_035,6,6
+global_cluster_000257,1,1,so strange a company,so strange a company,chunk_006::cluster_037,6,6
+global_cluster_000258,1,1,anyone,anyone,chunk_006::cluster_038,6,6
+global_cluster_000259,1,1,any living person who has seen him,any living person who has seen him,chunk_006::cluster_040,6,6
+global_cluster_000260,1,1,no living person,no living person,chunk_006::cluster_047,6,6
+global_cluster_000261,1,1,anyone,anyone,chunk_006::cluster_051,6,6
+global_cluster_000262,1,1,anyone,anyone,chunk_006::cluster_054,6,6
+global_cluster_000263,4,6,the street,the street|the streets,chunk_006::cluster_070|chunk_006::cluster_072|chunk_007::cluster_012|chunk_007::cluster_026,6,7
+global_cluster_000264,2,2,beautiful houses all built of green marble and studded everywhere with sparkling emeralds,beautiful houses all built of green marble and studded everywhere with sparkling emeralds,chunk_006::cluster_059|chunk_007::cluster_013,6,7
+global_cluster_000265,1,1,many people,many people,chunk_006::cluster_060,6,6
+global_cluster_000266,1,1,men,men,chunk_006::cluster_061,6,6
+global_cluster_000267,1,1,women,women,chunk_006::cluster_062,6,6
+global_cluster_000268,1,1,children,children,chunk_006::cluster_063,6,6
+global_cluster_000269,2,2,her strangely assorted company,her strangely assorted company,chunk_006::cluster_065|chunk_007::cluster_019,6,7
+global_cluster_000270,1,5,the children,the children,chunk_006::cluster_066,6,6
+global_cluster_000271,1,1,no one,no one,chunk_006::cluster_068,6,6
+global_cluster_000272,2,4,Many shops,many shops,chunk_006::cluster_069|chunk_007::cluster_025,6,7
+global_cluster_000273,1,3,the men,the men,chunk_006::cluster_071,6,6
+global_cluster_000274,2,2,little green carts,little green carts,chunk_006::cluster_073|chunk_007::cluster_029,6,7
+global_cluster_000275,1,1,a big room with a green carpet and lovely green furniture set with emeralds,a big room with a green carpet and lovely green furniture set with emeralds,chunk_006::cluster_076,6,6
+global_cluster_000276,2,2,rooms where you may rest in comfort after your journey,rooms where you may rest in comfort after your journey,chunk_006::cluster_078|chunk_007::cluster_034,6,7
+global_cluster_000277,2,2,seven passages,seven passages,chunk_006::cluster_082|chunk_007::cluster_042,6,7
+global_cluster_000278,2,2,three flights of stairs,three flights of stairs,chunk_006::cluster_083|chunk_007::cluster_043,6,7
+global_cluster_000279,3,3,each one of them,each one of them|one of them,chunk_006::cluster_088|chunk_007::cluster_048|chunk_009::cluster_088,6,9
+global_cluster_000280,2,2,himself,himself,chunk_006::cluster_090|chunk_007::cluster_050,6,7
+global_cluster_000281,2,2,a corner of the room,a corner of the room,chunk_006::cluster_092|chunk_007::cluster_052,6,7
+global_cluster_000282,2,2,"a great hall in which were many ladies and gentlemen of the court, all dressed in rich costumes","a great hall in which were many ladies and gentlemen of the court, all dressed in rich costumes",chunk_006::cluster_095|chunk_007::cluster_055,6,7
+global_cluster_000283,6,6,the court,gentlemen of the court|many ladies and gentlemen of the court|the court,chunk_006::cluster_096|chunk_006::cluster_097|chunk_006::cluster_098|chunk_007::cluster_056|chunk_007::cluster_057|chunk_007::cluster_058,6,7
+global_cluster_000284,1,1,people,people,chunk_006::cluster_099,6,6
+global_cluster_000285,2,2,the biggest giant,the biggest giant,chunk_006::cluster_100|chunk_007::cluster_060,6,7
+global_cluster_000286,1,1,your,your,chunk_006::cluster_107,6,6
+global_cluster_000287,2,2,a little girl,a little girl,chunk_006::cluster_109|chunk_007::cluster_069,6,7
+global_cluster_000288,1,1,a man,a man,chunk_006::cluster_113,6,6
+global_cluster_000289,6,6,any other in your dominions,a man as any other in your dominions|any other in your dominions|your dominions,chunk_006::cluster_114|chunk_006::cluster_115|chunk_006::cluster_116|chunk_007::cluster_075|chunk_007::cluster_076|chunk_008::cluster_006,6,8
+global_cluster_000290,3,3,no one else,no one else,chunk_006::cluster_117|chunk_007::cluster_078|chunk_008::cluster_008,6,8
+global_cluster_000291,1,1,anyone,anyone,chunk_007::cluster_000,7,7
+global_cluster_000292,1,66,those people,those people,chunk_007::cluster_010,7,7
+global_cluster_000293,1,1,many people,many people,chunk_007::cluster_014,7,7
+global_cluster_000294,1,1,men,men,chunk_007::cluster_015,7,7
+global_cluster_000295,1,1,women,women,chunk_007::cluster_016,7,7
+global_cluster_000296,1,1,children,children,chunk_007::cluster_017,7,7
+global_cluster_000297,1,5,the children,the children,chunk_007::cluster_020,7,7
+global_cluster_000298,1,1,no one,no one,chunk_007::cluster_023,7,7
+global_cluster_000299,1,1,a man,a man,chunk_007::cluster_027,7,7
+global_cluster_000300,1,1,a big building,a big building,chunk_007::cluster_031,7,7
+global_cluster_000301,1,16,the green girl,the green girl,chunk_007::cluster_035,7,7
+global_cluster_000302,1,1,people,people,chunk_007::cluster_059,7,7
+global_cluster_000303,1,1,your,your,chunk_007::cluster_068,7,7
+global_cluster_000304,2,2,"a Scarecrow, stuffed with straw","a scarecrow, stuffed with straw",chunk_007::cluster_073|chunk_008::cluster_003,7,8
+global_cluster_000305,1,1,a man,a man,chunk_007::cluster_074,7,7
+global_cluster_000306,9,10,a great Head,a great head|a head|the head,chunk_007::cluster_080|chunk_007::cluster_082|chunk_008::cluster_012|chunk_008::cluster_015|chunk_008::cluster_019|chunk_010::cluster_100|chunk_010::cluster_115|chunk_011::cluster_049|chunk_011::cluster_065,7,11
+global_cluster_000307,5,10,a lovely Lady,a lovely lady|the lovely lady,chunk_007::cluster_081|chunk_008::cluster_014|chunk_010::cluster_101|chunk_011::cluster_050|chunk_011::cluster_069,7,11
+global_cluster_000308,14,54,her castle,a room of the castle|her castle|many of the beautiful rooms in her castle|one of the big yellow rooms of the castle|the castle,chunk_007::cluster_117|chunk_008::cluster_017|chunk_008::cluster_085|chunk_009::cluster_028|chunk_009::cluster_037|chunk_009::cluster_064|chunk_010::cluster_005|chunk_010::cluster_029|chunk_012::cluster_083|chunk_013::cluster_035|chunk_014::cluster_083|chunk_014::cluster_091|chunk_015::cluster_040|chunk_015::cluster_051,7,15
+global_cluster_000309,2,4,all ladies,all ladies,chunk_007::cluster_083|chunk_008::cluster_016,7,8
+global_cluster_000310,4,7,a terrible Beast,a beast|a terrible beast|the beast,chunk_007::cluster_084|chunk_008::cluster_022|chunk_010::cluster_102|chunk_011::cluster_051,7,11
+global_cluster_000311,1,1,other men,other men,chunk_007::cluster_087,7,7
+global_cluster_000312,2,2,"a Cowardly Lion, afraid of everything","a cowardly lion, afraid of everything",chunk_007::cluster_089|chunk_008::cluster_025,7,8
+global_cluster_000313,1,1,men,men,chunk_007::cluster_091,7,7
+global_cluster_000314,2,2,all Wizards,all wizards,chunk_007::cluster_092|chunk_008::cluster_027,7,8
+global_cluster_000315,1,1,anybody,anybody,chunk_007::cluster_095,7,7
+global_cluster_000316,2,2,the room where the Guardian of the Gates lived,the room where the guardian of the gates lived,chunk_007::cluster_099|chunk_008::cluster_041,7,8
+global_cluster_000317,1,1,our,our,chunk_007::cluster_100,7,7
+global_cluster_000318,2,2,fields of soft grass dotted here and there with daisies and buttercups,fields of soft grass dotted here and there with daisies and buttercups,chunk_007::cluster_109|chunk_008::cluster_051,7,8
+global_cluster_000319,2,4,the ground,the ground,chunk_007::cluster_110|chunk_008::cluster_055,7,8
+global_cluster_000320,2,8,the leader of the wolves,the leader of the wolves,chunk_007::cluster_116|chunk_008::cluster_058,7,8
+global_cluster_000321,1,1,the great Head Dorothy had told him of,the great head dorothy had told him of,chunk_008::cluster_002,8,8
+global_cluster_000322,1,1,a man,a man,chunk_008::cluster_004,8,8
+global_cluster_000323,1,33,the soldier with the green whiskers,the soldier with the green whiskers,chunk_008::cluster_013,8,8
+global_cluster_000324,1,1,other men,other men,chunk_008::cluster_021,8,8
+global_cluster_000325,1,1,men,men,chunk_008::cluster_026,8,8
+global_cluster_000326,7,67,strangers,strangers|the strangers,chunk_008::cluster_029|chunk_009::cluster_004|chunk_012::cluster_093|chunk_013::cluster_045|chunk_013::cluster_063|chunk_013::cluster_089|chunk_014::cluster_007,8,14
+global_cluster_000327,1,1,anybody,anybody,chunk_008::cluster_031,8,8
+global_cluster_000328,1,1,the Guardian of the Gates,the guardian of the gates,chunk_008::cluster_042,8,8
+global_cluster_000329,1,1,our,our,chunk_008::cluster_043,8,8
+global_cluster_000330,1,6,those people,those people,chunk_008::cluster_056,8,8
+global_cluster_000331,1,1,no one,no one,chunk_008::cluster_064,8,8
+global_cluster_000332,1,1,a brave people,a brave people,chunk_008::cluster_068,8,8
+global_cluster_000333,2,2,a powerful Witch,a powerful witch,chunk_008::cluster_069|chunk_009::cluster_017,8,9
+global_cluster_000334,1,1,a wicked one,a wicked one,chunk_008::cluster_070,8,8
+global_cluster_000335,7,109,the Winged Monkeys,a winged monkey|the winged monkeys,chunk_008::cluster_071|chunk_009::cluster_019|chunk_010::cluster_088|chunk_011::cluster_029|chunk_011::cluster_036|chunk_014::cluster_072|chunk_015::cluster_026,8,15
+global_cluster_000336,1,1,no person,no person,chunk_008::cluster_073,8,8
+global_cluster_000337,1,2,a crowd of monkeys,a crowd of monkeys,chunk_008::cluster_075,8,8
+global_cluster_000338,1,1,his,his,chunk_008::cluster_076,8,8
+global_cluster_000339,2,4,the strangers who are within my land,the strangers who are within my land,chunk_008::cluster_077|chunk_009::cluster_027,8,9
+global_cluster_000340,1,1,the place where Dorothy and her friends were walking,the place where dorothy and her friends were walking,chunk_008::cluster_078,8,8
+global_cluster_000341,2,2,a country thickly covered with sharp rocks,a country thickly covered with sharp rocks,chunk_008::cluster_079|chunk_009::cluster_031,8,9
+global_cluster_000342,2,2,Others of the Monkeys,others of the monkeys,chunk_008::cluster_080|chunk_009::cluster_032,8,9
+global_cluster_000343,3,8,the courtyard,the courtyard,chunk_008::cluster_081|chunk_009::cluster_044|chunk_010::cluster_025,8,10
+global_cluster_000344,2,2,"a small yard with a high iron fence around it, so that he could not escape","a small yard with a high iron fence around it, so that he could not escape",chunk_008::cluster_082|chunk_009::cluster_035,8,9
+global_cluster_000345,4,6,this yard,this yard|your yard,chunk_008::cluster_083|chunk_008::cluster_088|chunk_009::cluster_033|chunk_009::cluster_040,8,9
+global_cluster_000346,3,8,kitchen,kitchen|the kitchen,chunk_008::cluster_092|chunk_009::cluster_043|chunk_010::cluster_003,8,10
+global_cluster_000347,2,2,her chariot,her chariot,chunk_008::cluster_087|chunk_009::cluster_039,8,9
+global_cluster_000348,3,3,a wicked creature,a wicked creature,chunk_008::cluster_094|chunk_009::cluster_046|chunk_010::cluster_002,8,10
+global_cluster_000349,1,2,a stuffed man,a stuffed man,chunk_009::cluster_003,9,9
+global_cluster_000350,1,1,no one,no one,chunk_009::cluster_010,9,9
+global_cluster_000351,1,1,no one but the Woodman,no one but the woodman,chunk_009::cluster_011,9,9
+global_cluster_000352,1,1,"a dozen of her slaves, who were the Winkies","a dozen of her slaves, who were the winkies",chunk_009::cluster_013,9,9
+global_cluster_000353,1,1,a brave people,a brave people,chunk_009::cluster_016,9,9
+global_cluster_000354,1,1,a wicked one,a wicked one,chunk_009::cluster_018,9,9
+global_cluster_000355,1,1,no person,no person,chunk_009::cluster_020,9,9
+global_cluster_000356,1,1,these strange creatures,these strange creatures,chunk_009::cluster_021,9,9
+global_cluster_000357,3,7,the Land of the West,the land of the west,chunk_009::cluster_061|chunk_010::cluster_079|chunk_011::cluster_041,9,11
+global_cluster_000358,1,2,his,his,chunk_009::cluster_024,9,9
+global_cluster_000359,1,32,the King,the king,chunk_009::cluster_025,9,9
+global_cluster_000360,2,2,"the rocky plain where the Tin Woodman lay, all battered and bent","the rocky plain where the tin woodman lay, all battered and bent",chunk_009::cluster_052|chunk_010::cluster_018,9,10
+global_cluster_000361,1,1,any of your people,any of your people,chunk_009::cluster_053,9,9
+global_cluster_000362,1,1,your people,your people,chunk_009::cluster_054,9,9
+global_cluster_000363,2,2,The tinsmiths looked the Woodman,the tinsmiths looked the woodman,chunk_009::cluster_063|chunk_010::cluster_028,9,10
+global_cluster_000364,1,1,a vain man,a vain man,chunk_009::cluster_065,9,9
+global_cluster_000365,1,1,no one,no one,chunk_009::cluster_066,9,9
+global_cluster_000366,2,2,another of the Winkies,another of the winkies,chunk_009::cluster_067|chunk_010::cluster_033,9,10
+global_cluster_000367,4,4,"another of the Winkies, who was a goldsmith","a goldsmith|another of the winkies, who was a goldsmith",chunk_009::cluster_068|chunk_009::cluster_069|chunk_010::cluster_034|chunk_010::cluster_035,9,10
+global_cluster_000368,1,1,their,their,chunk_009::cluster_074,9,9
+global_cluster_000369,2,2,the big fields of buttercups and yellow daisies,the big fields of buttercups and yellow daisies,chunk_009::cluster_077|chunk_010::cluster_042,9,10
+global_cluster_000370,2,2,the scarlet fields,the scarlet fields,chunk_009::cluster_080|chunk_010::cluster_045,9,10
+global_cluster_000371,4,10,two of the Monkeys,two of the biggest monkeys|two of the monkeys,chunk_009::cluster_084|chunk_009::cluster_087|chunk_010::cluster_052|chunk_010::cluster_056,9,10
+global_cluster_000372,2,2,one little Monkey,one little monkey,chunk_009::cluster_085|chunk_010::cluster_054,9,10
+global_cluster_000373,2,2,the pretty gardens,the pretty gardens,chunk_009::cluster_086|chunk_010::cluster_055,9,10
+global_cluster_000374,1,1,his prison,his prison,chunk_010::cluster_008,10,10
+global_cluster_000375,1,1,any of your people,any of your people,chunk_010::cluster_019,10,10
+global_cluster_000376,1,1,your people,your people,chunk_010::cluster_060,10,10
+global_cluster_000377,1,1,a vain man,a vain man,chunk_010::cluster_030,10,10
+global_cluster_000378,1,1,no one,no one,chunk_010::cluster_032,10,10
+global_cluster_000379,1,1,the wearer of the Cap,the wearer of the cap,chunk_010::cluster_051,10,10
+global_cluster_000380,1,1,a free people,a free people,chunk_010::cluster_058,10,10
+global_cluster_000381,1,1,anybody,anybody,chunk_010::cluster_061,10,10
+global_cluster_000382,3,3,master,a great master|master,chunk_010::cluster_062|chunk_011::cluster_006|chunk_011::cluster_072,10,11
+global_cluster_000383,2,2,a powerful sorceress,a powerful sorceress,chunk_010::cluster_067|chunk_011::cluster_010,10,11
+global_cluster_000384,2,2,anyone who was good,anyone who was good,chunk_010::cluster_068|chunk_011::cluster_012,10,11
+global_cluster_000385,1,1,no one,no one,chunk_010::cluster_070,10,10
+global_cluster_000386,1,1,all the men,all the men,chunk_010::cluster_071,10,10
+global_cluster_000387,1,39,Quelala,quelala,chunk_010::cluster_072,10,10
+global_cluster_000388,1,1,a man,a man,chunk_010::cluster_074,10,10
+global_cluster_000389,2,2,her husband,her husband,chunk_010::cluster_075|chunk_011::cluster_019,10,11
+global_cluster_000390,1,1,any woman,any woman,chunk_010::cluster_076,10,10
+global_cluster_000391,2,2,the best and wisest man in all the land,the best and wisest man in all the land,chunk_010::cluster_077|chunk_011::cluster_021,10,11
+global_cluster_000392,3,65,my grandfather,his band|my grandfather,chunk_010::cluster_078|chunk_011::cluster_022|chunk_011::cluster_025,10,11
+global_cluster_000393,4,4,the King of the Winged Monkeys which lived in the forest near Gayelette's palace,the forest near gayelette's palace|the king of the winged monkeys which lived in the forest near gayelette's palace|the winged monkeys which lived in the forest near gayelette's palace,chunk_010::cluster_080|chunk_010::cluster_081|chunk_011::cluster_023|chunk_011::cluster_024,10,11
+global_cluster_000394,2,2,all the other Monkeys,all the other monkeys,chunk_010::cluster_084|chunk_011::cluster_031,10,11
+global_cluster_000395,2,2,the slaves of the owner of the Golden Cap,the slaves of the owner of the golden cap,chunk_010::cluster_085|chunk_011::cluster_032,10,11
+global_cluster_000396,2,2,"the slaves of the owner of the Golden Cap, whosoever he may be","the slaves of the owner of the golden cap, whosoever he may be",chunk_010::cluster_086|chunk_011::cluster_033,10,11
+global_cluster_000397,2,2,the first owner of the Golden Cap,the first owner of the golden cap,chunk_010::cluster_087|chunk_011::cluster_034,10,11
+global_cluster_000398,1,1,his little room,his little room,chunk_010::cluster_089,10,10
+global_cluster_000399,1,2,the people,the people,chunk_010::cluster_090,10,10
+global_cluster_000400,1,1,their old rooms,their old rooms,chunk_010::cluster_093,10,10
+global_cluster_000401,1,1,no one,no one,chunk_010::cluster_096,10,10
+global_cluster_000402,1,1,no one,no one,chunk_010::cluster_097,10,10
+global_cluster_000403,2,2,common mortals,common mortals,chunk_010::cluster_098|chunk_011::cluster_048,10,11
+global_cluster_000404,1,1,Our,our,chunk_010::cluster_099,10,10
+global_cluster_000405,2,2,a Ball of Fire,a ball of fire,chunk_010::cluster_103|chunk_011::cluster_052,10,11
+global_cluster_000406,1,1,a common man,a common man,chunk_010::cluster_106,10,10
+global_cluster_000407,11,11,a humbug,a humbug,chunk_010::cluster_107|chunk_010::cluster_108|chunk_010::cluster_110|chunk_011::cluster_056|chunk_011::cluster_057|chunk_011::cluster_059|chunk_011::cluster_116|chunk_011::cluster_120|chunk_012::cluster_045|chunk_012::cluster_053|chunk_012::cluster_059,10,12
+global_cluster_000408,2,2,anyone else,anyone else,chunk_010::cluster_109|chunk_011::cluster_058,10,11
+global_cluster_000409,1,1,No one knows it but you four,no one knows it but you four,chunk_010::cluster_112,10,10
+global_cluster_000410,2,4,my subjects,my subjects,chunk_010::cluster_114|chunk_011::cluster_062,10,11
+global_cluster_000411,1,1,a free people,a free people,chunk_011::cluster_003,11,11
+global_cluster_000412,1,1,anybody,anybody,chunk_011::cluster_005,11,11
+global_cluster_000413,1,1,the people,the people,chunk_011::cluster_011,11,11
+global_cluster_000414,1,1,no one,no one,chunk_011::cluster_014,11,11
+global_cluster_000415,1,1,all the men,all the men,chunk_011::cluster_015,11,11
+global_cluster_000416,1,1,a man,a man,chunk_011::cluster_018,11,11
+global_cluster_000417,1,1,any woman,any woman,chunk_011::cluster_020,11,11
+global_cluster_000418,1,1,her kingdom,her kingdom,chunk_011::cluster_030,11,11
+global_cluster_000419,1,2,your,your,chunk_011::cluster_038,11,11
+global_cluster_000420,2,3,the back room,the back room,chunk_011::cluster_109|chunk_012::cluster_049,11,12
+global_cluster_000421,1,2,the people,the people,chunk_011::cluster_040,11,11
+global_cluster_000422,1,1,no one,no one,chunk_011::cluster_046,11,11
+global_cluster_000423,1,1,no one,no one,chunk_011::cluster_047,11,11
+global_cluster_000424,1,1,a common man,a common man,chunk_011::cluster_055,11,11
+global_cluster_000425,2,2,a ventriloquist,a ventriloquist,chunk_011::cluster_068|chunk_011::cluster_071,11,11
+global_cluster_000426,1,1,Omaha,omaha,chunk_011::cluster_070,11,11
+global_cluster_000427,1,1,a balloonist,a balloonist,chunk_011::cluster_073,11,11
+global_cluster_000428,1,2,a crowd of people,a crowd of people,chunk_011::cluster_075,11,11
+global_cluster_000429,5,39,the balloon,a balloon|the balloon,chunk_011::cluster_076|chunk_011::cluster_077|chunk_012::cluster_004|chunk_012::cluster_057|chunk_013::cluster_003,11,13
+global_cluster_000430,2,2,"a strange people, who, seeing me come from the clouds","a strange people, who, seeing me come from the clouds",chunk_011::cluster_079|chunk_012::cluster_006,11,12
+global_cluster_000431,1,11,my people,my people,chunk_011::cluster_082,11,11
+global_cluster_000432,1,1,the good people,the good people,chunk_011::cluster_083,11,11
+global_cluster_000433,1,2,all the people,all the people,chunk_011::cluster_085,11,11
+global_cluster_000434,1,1,a young man,a young man,chunk_011::cluster_088,11,11
+global_cluster_000435,1,1,a very old man,a very old man,chunk_011::cluster_089,11,11
+global_cluster_000436,2,2,most of them,most of them,chunk_011::cluster_090|chunk_012::cluster_016,11,12
+global_cluster_000437,1,1,the people,the people,chunk_011::cluster_092,11,11
+global_cluster_000438,1,1,a very bad man,a very bad man,chunk_011::cluster_102,11,11
+global_cluster_000439,1,1,a very good man,a very good man,chunk_011::cluster_103,11,11
+global_cluster_000440,5,5,a bad Wizard,a bad wizard|a very bad wizard,chunk_011::cluster_104|chunk_012::cluster_030|chunk_012::cluster_103|chunk_013::cluster_057|chunk_013::cluster_060,11,13
+global_cluster_000441,1,1,most people,most people,chunk_011::cluster_113,11,11
+global_cluster_000442,4,19,the desert,the desert,chunk_011::cluster_114|chunk_012::cluster_048|chunk_013::cluster_026|chunk_014::cluster_110,11,14
+global_cluster_000443,1,1,no one,no one,chunk_011::cluster_115,11,11
+global_cluster_000444,1,1,other men,other men,chunk_011::cluster_117,11,11
+global_cluster_000445,1,1,a great man,a great man,chunk_011::cluster_118,11,11
+global_cluster_000446,1,1,any man,any man,chunk_011::cluster_119,11,11
+global_cluster_000447,1,1,all these people,all these people,chunk_011::cluster_121,11,11
+global_cluster_000448,2,2,everybody,everybody,chunk_011::cluster_122|chunk_012::cluster_055,11,12
+global_cluster_000449,1,1,no one,no one,chunk_011::cluster_123,11,11
+global_cluster_000450,1,2,a crowd of people,a crowd of people,chunk_012::cluster_001,12,12
+global_cluster_000451,1,31,the people,the people,chunk_012::cluster_009,12,12
+global_cluster_000452,1,1,all the people,all the people,chunk_012::cluster_012,12,12
+global_cluster_000453,1,1,any other city,any other city,chunk_012::cluster_013,12,12
+global_cluster_000454,1,1,a young man,a young man,chunk_012::cluster_014,12,12
+global_cluster_000455,1,1,a very old man,a very old man,chunk_012::cluster_015,12,12
+global_cluster_000456,1,2,the other Witch,the other witch,chunk_012::cluster_026,12,12
+global_cluster_000457,1,1,a very bad man,a very bad man,chunk_012::cluster_028,12,12
+global_cluster_000458,1,1,a very good man,a very good man,chunk_012::cluster_029,12,12
+global_cluster_000459,1,1,most people,most people,chunk_012::cluster_038,12,12
+global_cluster_000460,1,61,the others,the others,chunk_012::cluster_041,12,12
+global_cluster_000461,1,1,my guests,my guests,chunk_012::cluster_043,12,12
+global_cluster_000462,1,1,no one,no one,chunk_012::cluster_044,12,12
+global_cluster_000463,1,1,other men,other men,chunk_012::cluster_046,12,12
+global_cluster_000464,1,1,a great man,a great man,chunk_012::cluster_050,12,12
+global_cluster_000465,1,1,any man,any man,chunk_012::cluster_051,12,12
+global_cluster_000466,1,1,all these people,all these people,chunk_012::cluster_054,12,12
+global_cluster_000467,1,1,no one,no one,chunk_012::cluster_056,12,12
+global_cluster_000468,2,2,a basket,a basket,chunk_012::cluster_061|chunk_013::cluster_004,12,13
+global_cluster_000469,2,45,the soldier,the soldier,chunk_012::cluster_071|chunk_013::cluster_027,12,13
+global_cluster_000470,3,8,there,there,chunk_012::cluster_064|chunk_013::cluster_011|chunk_015::cluster_066,12,15
+global_cluster_000471,1,1,not another city in all the world that is ruled by a stuffed man,not another city in all the world that is ruled by a stuffed man,chunk_012::cluster_069,12,12
+global_cluster_000472,1,1,a stuffed man,a stuffed man,chunk_012::cluster_072,12,12
+global_cluster_000473,1,1,nobody,nobody,chunk_012::cluster_078,12,12
+global_cluster_000474,1,1,no one,no one,chunk_012::cluster_079,12,12
+global_cluster_000475,2,2,"a beautiful woman, who knows how to keep young in spite of the many years she has lived","a beautiful woman, who knows how to keep young in spite of the many years she has lived",chunk_012::cluster_087|chunk_013::cluster_039,12,13
+global_cluster_000476,1,2,their,their,chunk_012::cluster_091,12,12
+global_cluster_000477,2,2,none of the Quadlings,none of the quadlings,chunk_012::cluster_094|chunk_013::cluster_047,12,13
+global_cluster_000478,2,2,a wild beast,a wild beast,chunk_012::cluster_095|chunk_013::cluster_051,12,13
+global_cluster_000479,1,1,someone,someone,chunk_012::cluster_096,12,12
+global_cluster_000480,2,2,our ruler,its ruler|our ruler,chunk_012::cluster_099|chunk_014::cluster_100,12,14
+global_cluster_000481,1,1,our,our,chunk_012::cluster_101,12,12
+global_cluster_000482,2,2,a mass of towers and steeples behind the green walls,a mass of towers and steeples behind the green walls,chunk_012::cluster_102|chunk_013::cluster_056,12,13
+global_cluster_000483,1,35,the people,the people,chunk_013::cluster_006,13,13
+global_cluster_000484,1,1,a stuffed man,a stuffed man,chunk_013::cluster_020,13,13
+global_cluster_000485,2,2,his band,his band,chunk_013::cluster_028|chunk_014::cluster_109,13,14
+global_cluster_000486,1,1,nobody,nobody,chunk_013::cluster_029,13,13
+global_cluster_000487,1,1,no one,no one,chunk_013::cluster_030,13,13
+global_cluster_000488,1,2,their,their,chunk_013::cluster_044,13,13
+global_cluster_000489,1,1,your,your,chunk_013::cluster_049,13,13
+global_cluster_000490,1,1,someone,someone,chunk_013::cluster_052,13,13
+global_cluster_000491,1,1,our,our,chunk_013::cluster_055,13,13
+global_cluster_000492,1,1,a brave man,a brave man,chunk_013::cluster_058,13,13
+global_cluster_000493,1,1,a good man,a good man,chunk_013::cluster_059,13,13
+global_cluster_000494,1,2,their,their,chunk_013::cluster_070,13,13
+global_cluster_000495,2,2,the biggest of them,the biggest of them,chunk_013::cluster_066|chunk_014::cluster_012,13,14
+global_cluster_000496,4,6,pretty little barns,pretty little barns|the barn,chunk_013::cluster_067|chunk_014::cluster_013|chunk_014::cluster_118|chunk_015::cluster_078,13,15
+global_cluster_000497,2,8,these people,these people,chunk_013::cluster_075|chunk_014::cluster_021,13,14
+global_cluster_000498,2,2,milkmaids,milkmaids,chunk_013::cluster_068|chunk_014::cluster_014,13,14
+global_cluster_000499,1,2,their,their,chunk_013::cluster_069,13,13
+global_cluster_000500,2,3,shepherdesses,shepherdesses,chunk_013::cluster_071|chunk_014::cluster_015,13,14
+global_cluster_000501,2,2,princesses with most gorgeous frocks of silver and gold and purple,princesses with most gorgeous frocks of silver and gold and purple,chunk_013::cluster_072|chunk_014::cluster_017,13,14
+global_cluster_000502,1,3,their,their,chunk_013::cluster_074,13,13
+global_cluster_000503,2,2,this strange place,this strange place,chunk_013::cluster_077|chunk_014::cluster_024,13,14
+global_cluster_000504,1,1,the country of the china people,the country of the china people,chunk_013::cluster_078,13,13
+global_cluster_000505,1,1,the china people,the china people,chunk_013::cluster_079,13,13
+global_cluster_000506,1,1,a china milkmaid milking a china cow,a china milkmaid milking a china cow,chunk_013::cluster_080,13,13
+global_cluster_000507,2,2,the mender,the mender,chunk_013::cluster_081|chunk_014::cluster_028,13,14
+global_cluster_000508,2,2,the mender's shop,the mender's shop,chunk_013::cluster_082|chunk_014::cluster_029,13,14
+global_cluster_000509,2,10,these little people,these little people,chunk_013::cluster_083|chunk_014::cluster_030,13,14
+global_cluster_000510,5,35,our clowns,one of our clowns|our clowns|the clown,chunk_013::cluster_084|chunk_013::cluster_086|chunk_013::cluster_088|chunk_014::cluster_033|chunk_014::cluster_035,13,14
+global_cluster_000511,1,1,our,our,chunk_013::cluster_087,13,13
+global_cluster_000512,1,1,our,our,chunk_013::cluster_091,13,13
+global_cluster_000513,2,2,drawing-room,drawing-room,chunk_013::cluster_092|chunk_014::cluster_039,13,14
+global_cluster_000514,1,1,all the people,all the people,chunk_013::cluster_093,13,13
+global_cluster_000515,2,3,a church,a church,chunk_013::cluster_095|chunk_014::cluster_043,13,14
+global_cluster_000516,2,2,"a disagreeable country, full of bogs and marshes and covered with tall, rank grass","a disagreeable country, full of bogs and marshes and covered with tall, rank grass",chunk_013::cluster_097|chunk_014::cluster_045,13,14
+global_cluster_000517,2,2,bogs,bogs,chunk_013::cluster_098|chunk_014::cluster_046,13,14
+global_cluster_000518,3,3,marshes,bogs and marshes|marshes,chunk_013::cluster_099|chunk_013::cluster_100|chunk_014::cluster_047,13,14
+global_cluster_000519,1,1,"another forest, where the trees were bigger and older than any they had ever seen","another forest, where the trees were bigger and older than any they had ever seen",chunk_013::cluster_101,13,13
+global_cluster_000520,1,1,none of the others,none of the others,chunk_013::cluster_102,13,13
+global_cluster_000521,2,2,"none of the others was frightened, and they kept along the well-trodden path","none of the others was frightened, and they kept along the well-trodden path",chunk_013::cluster_103|chunk_014::cluster_050,13,14
+global_cluster_000522,2,2,"an opening in the wood, in which were gathered hundreds of beasts of every variety","an opening in the wood, in which were gathered hundreds of beasts of every variety",chunk_013::cluster_104|chunk_014::cluster_051,13,14
+global_cluster_000523,3,3,all the animals of the forest,all the animals of the forest,chunk_013::cluster_106|chunk_014::cluster_057|chunk_015::cluster_002,13,15
+global_cluster_000524,3,3,a fierce enemy which has lately come into this forest,a fierce enemy which has lately come into this forest,chunk_013::cluster_107|chunk_014::cluster_058|chunk_015::cluster_004,13,15
+global_cluster_000525,1,2,the others,the others,chunk_014::cluster_054,14,14
+global_cluster_000526,1,1,many houses made entirely of china and painted in the brightest colors,many houses made entirely of china and painted in the brightest colors,chunk_014::cluster_010,14,14
+global_cluster_000527,1,1,"shepherdesses, with brightly colored bodices and golden spots all over their gowns","shepherdesses, with brightly colored bodices and golden spots all over their gowns",chunk_014::cluster_016,14,14
+global_cluster_000528,1,1,their,their,chunk_014::cluster_019,14,14
+global_cluster_000529,1,3,their,their,chunk_014::cluster_020,14,14
+global_cluster_000530,1,1,the tallest of them,the tallest of them,chunk_014::cluster_022,14,14
+global_cluster_000531,1,1,the country of the china people,the country of the china people,chunk_014::cluster_025,14,14
+global_cluster_000532,1,1,the china people,the china people,chunk_014::cluster_026,14,14
+global_cluster_000533,3,83,the monster,the man|the monster,chunk_014::cluster_031|chunk_015::cluster_005|chunk_015::cluster_019,14,15
+global_cluster_000534,1,1,our,our,chunk_014::cluster_034,14,14
+global_cluster_000535,1,1,The little animals,the little animals,chunk_014::cluster_040,14,14
+global_cluster_000536,1,1,all the people,all the people,chunk_014::cluster_041,14,14
+global_cluster_000537,1,1,none of the others,none of the others,chunk_014::cluster_049,14,14
+global_cluster_000538,1,1,the great assemblage,the great assemblage,chunk_014::cluster_052,14,14
+global_cluster_000539,1,6,the tiger,the tiger,chunk_014::cluster_053,14,14
+global_cluster_000540,3,143,Glinda,glinda|the farmer's wife,chunk_014::cluster_081|chunk_015::cluster_001|chunk_015::cluster_037,14,15
+global_cluster_000541,2,2,Not one of us,not one of us,chunk_014::cluster_059|chunk_015::cluster_006,14,15
+global_cluster_000542,2,2,any other lions in this forest,any other lions in this forest,chunk_014::cluster_061|chunk_015::cluster_008,14,15
+global_cluster_000543,2,5,all the other beasts,all the other beasts,chunk_014::cluster_104|chunk_015::cluster_020,14,15
+global_cluster_000544,1,1,the opening where the beasts of the forest were waiting for him,the opening where the beasts of the forest were waiting for him,chunk_014::cluster_064,14,14
+global_cluster_000545,2,34,the hill,the hill,chunk_014::cluster_066|chunk_015::cluster_017,14,15
+global_cluster_000546,1,1,anyone,anyone,chunk_014::cluster_067,14,14
+global_cluster_000547,2,2,hundreds of the armless Hammer-Heads,hundreds of the armless hammer-heads,chunk_014::cluster_068|chunk_015::cluster_022,14,15
+global_cluster_000548,2,2,hundreds of the armless Hammer-Heads upon the hillside,hundreds of the armless hammer-heads upon the hillside,chunk_014::cluster_069|chunk_015::cluster_023,14,15
+global_cluster_000549,2,3,people with shooting heads,people with shooting heads,chunk_014::cluster_070|chunk_015::cluster_024,14,15
+global_cluster_000550,1,1,no one,no one,chunk_014::cluster_071,14,14
+global_cluster_000551,2,4,pretty rippling brooks with strong bridges across them,pretty rippling brooks with strong bridges across them,chunk_014::cluster_075|chunk_015::cluster_030,14,15
+global_cluster_000552,2,2,the road to the South,the road to the south,chunk_014::cluster_084|chunk_015::cluster_041,14,15
+global_cluster_000553,2,2,the pretty bridges,the pretty bridges,chunk_014::cluster_086|chunk_015::cluster_044,14,15
+global_cluster_000554,2,2,a big room where the Witch Glinda sat upon a throne of rubies,a big room where the witch glinda sat upon a throne of rubies,chunk_014::cluster_092|chunk_015::cluster_052,14,15
+global_cluster_000555,1,1,the people,the people,chunk_014::cluster_101,14,14
+global_cluster_000556,1,1,the people,the people,chunk_014::cluster_102,14,14
+global_cluster_000557,2,2,the broad Kansas prairie,the broad kansas prairie,chunk_014::cluster_115|chunk_015::cluster_075,14,15
+global_cluster_000558,1,1,the old one,the old one,chunk_014::cluster_116,14,14
+global_cluster_000559,2,2,the barnyard,the barnyard,chunk_014::cluster_117|chunk_015::cluster_077,14,15
+global_cluster_000560,1,1,anyone,anyone,chunk_015::cluster_018,15,15
+global_cluster_000561,1,1,no one,no one,chunk_015::cluster_025,15,15
+global_cluster_000562,1,1,the people,the people,chunk_015::cluster_059,15,15
+global_cluster_000563,1,1,the people,the people,chunk_015::cluster_060,15,15
+global_cluster_000564,1,1,her loving comrades,her loving comrades,chunk_015::cluster_073,15,15
+global_cluster_000565,1,1,the old one,the old one,chunk_015::cluster_076,15,15

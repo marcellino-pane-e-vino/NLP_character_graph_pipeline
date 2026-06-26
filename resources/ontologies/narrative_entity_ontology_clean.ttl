@@ -1,0 +1,347 @@
+@prefix neo:     <https://example.org/nlp-sdai/narrative-entity-ontology#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology metadata
+#################################################################
+
+neo: a owl:Ontology ;
+    dcterms:title "Narrative Entity Ontology"@en ;
+    dcterms:description "A compact, book-agnostic ontology for classifying entities in fantasy and narrative fiction into stable narrative entity classes."@en ;
+    dcterms:creator "NLP+SDAI project"@en ;
+    owl:versionInfo "0.2.1" ;
+    rdfs:comment "This ontology defines semantic classes for narrative entities. It intentionally excludes implementation-specific metadata such as mention identifiers, coreference cluster identifiers, token offsets, classifier confidence values, and textual evidence records."@en ;
+    rdfs:comment "Parent classes such as Character, Group, Place, Object, Event, or Concept may be used directly when the available evidence does not justify a more specific subclass."@en ;
+    rdfs:comment "The ontology does not include an Unknown, Ambiguous, or Unresolved class. Uncertainty should be handled by the consuming application rather than represented as a semantic entity type."@en .
+
+#################################################################
+# Top-level class
+#################################################################
+
+neo:NarrativeEntity a owl:Class ;
+    rdfs:label "Narrative entity"@en ;
+    skos:prefLabel "NarrativeEntity"@en ;
+    skos:definition "Any entity, participant, place, object, event, or concept referred to within a narrative text."@en ;
+    rdfs:comment "Root class for entities represented in narrative fiction."@en .
+
+#################################################################
+# Core entity classes
+#################################################################
+
+neo:Character a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Character"@en ;
+    skos:prefLabel "Character"@en ;
+    skos:definition "An individual narrative participant treated as an agent, quasi-agent, speaker, experiencer, or intentional being in the storyworld."@en ;
+    skos:example "Dorothy, Gandalf, the witch, the dragon, the ghost, the talking wolf."@en ;
+    rdfs:comment "Use this class for individual beings, including non-human, magical, dead, artificial, divine, or monstrous beings, when the narrative treats them as individual participants."@en .
+
+neo:Group a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Group"@en ;
+    skos:prefLabel "Group"@en ;
+    skos:definition "A plural or collective entity composed of multiple members, participants, or social units."@en ;
+    skos:example "the villagers, the army, the council, the elves, the guards, the crowd."@en ;
+    rdfs:comment "Use this class for collective entities. A group may act as a collective agent in a narrative, but it remains a group rather than an individual character."@en .
+
+neo:Place a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Place"@en ;
+    skos:prefLabel "Place"@en ;
+    skos:definition "A spatial entity, location, setting, region, settlement, building, room, landmark, or other place in or referenced by the narrative."@en ;
+    skos:example "Oz, Mordor, the castle, the forest, the village, the throne room, the underworld."@en ;
+    rdfs:comment "Use Place for both fictional and real-world locations mentioned in the narrative."@en .
+
+neo:Object a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Object"@en ;
+    skos:prefLabel "Object"@en ;
+    skos:definition "A material, quasi-material, portable, physical, magical, written, or substance-like entity in the storyworld."@en ;
+    skos:example "the sword, the ring, the wand, the crown, the potion, the letter, the book."@en ;
+    rdfs:comment "Use Object for concrete things and in-world documents. Magical importance or symbolic value does not by itself require a separate class."@en .
+
+neo:Event a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Event"@en ;
+    skos:prefLabel "Event"@en ;
+    skos:definition "A temporally situated happening, process, action, episode, incident, or change of state in the narrative."@en ;
+    skos:example "the battle, the coronation, the journey, the murder, the ritual, the storm, the fall of the city."@en ;
+    rdfs:comment "Use Event for things that happen or unfold over time, whether intentionally caused by agents or not."@en .
+
+neo:Concept a owl:Class ;
+    rdfs:subClassOf neo:NarrativeEntity ;
+    rdfs:label "Concept"@en ;
+    skos:prefLabel "Concept"@en ;
+    skos:definition "An abstract, non-material, non-place, non-object, and non-event entity referred to in the narrative."@en ;
+    skos:example "magic, fate, honor, the old law, the pact, the prophecy, the curse, the royal bloodline."@en ;
+    rdfs:comment "Use Concept for abstract or intensional referents such as powers, abilities, rules, beliefs, values, metaphysical forces, laws, doctrines, and ideals."@en .
+
+#################################################################
+# Character subclasses
+#################################################################
+
+neo:HumanCharacter a owl:Class ;
+    rdfs:subClassOf neo:Character ;
+    rdfs:label "Human character"@en ;
+    skos:prefLabel "HumanCharacter"@en ;
+    skos:definition "A character represented as human within the relevant storyworld context."@en ;
+    skos:example "the girl, the king, the soldier, the old woman."@en ;
+    rdfs:comment "Use only when the narrative provides enough evidence that the character is human. Otherwise, use Character."@en .
+
+neo:NonHumanCharacter a owl:Class ;
+    rdfs:subClassOf neo:Character ;
+    rdfs:label "Non-human character"@en ;
+    skos:prefLabel "NonHumanCharacter"@en ;
+    skos:definition "A character represented as non-human, partially non-human, supernatural, animal, monstrous, artificial, divine, undead, or otherwise not simply human within the storyworld."@en ;
+    skos:example "the dragon, the ghost, the talking wolf, the demon, the spirit, the golem."@en ;
+    rdfs:comment "Use for individual non-human beings treated as narrative participants. Avoid creating book-specific subclasses such as ElfCharacter or DragonCharacter in the core ontology."@en .
+
+#################################################################
+# Group subclasses
+#################################################################
+
+neo:Organization a owl:Class ;
+    rdfs:subClassOf neo:Group ;
+    rdfs:label "Organization"@en ;
+    skos:prefLabel "Organization"@en ;
+    skos:definition "A structured group with some degree of institutional identity, role structure, authority, function, or continuity."@en ;
+    skos:example "the council, the army, the guild, the order, the guard, the court."@en .
+
+neo:PeopleOrSpecies a owl:Class ;
+    rdfs:subClassOf neo:Group ;
+    rdfs:label "People or species"@en ;
+    skos:prefLabel "PeopleOrSpecies"@en ;
+    skos:definition "A group identified by peoplehood, species, race, ancestry, origin, or shared biological or mythic kind in the storyworld."@en ;
+    skos:example "the elves, the dwarves, the humans, the Munchkins, the dragons, the old race."@en ;
+    rdfs:comment "This class is intentionally broad because fantasy novels often use species, peoples, races, tribes, and lineages in overlapping ways."@en .
+
+neo:InformalGroup a owl:Class ;
+    rdfs:subClassOf neo:Group ;
+    rdfs:label "Informal group"@en ;
+    skos:prefLabel "InformalGroup"@en ;
+    skos:definition "A loosely structured or temporary group without a stable institutional identity."@en ;
+    skos:example "the crowd, the villagers, the companions, the travelers, the children."@en .
+
+#################################################################
+# Place subclasses
+#################################################################
+
+neo:Region a owl:Class ;
+    rdfs:subClassOf neo:Place ;
+    rdfs:label "Region"@en ;
+    skos:prefLabel "Region"@en ;
+    skos:definition "A broad geographical or political area, territory, realm, land, kingdom, domain, or world-region."@en ;
+    skos:example "the North, Oz, the kingdom, the empire, the western lands, the underworld."@en .
+
+neo:Settlement a owl:Class ;
+    rdfs:subClassOf neo:Place ;
+    rdfs:label "Settlement"@en ;
+    skos:prefLabel "Settlement"@en ;
+    skos:definition "A city, town, village, camp, colony, or other inhabited settlement."@en ;
+    skos:example "the city, the village, the capital, the camp, the port town."@en .
+
+neo:Site a owl:Class ;
+    rdfs:subClassOf neo:Place ;
+    rdfs:label "Site"@en ;
+    skos:prefLabel "Site"@en ;
+    skos:definition "A localized place, building, room, landmark, natural location, or constructed site."@en ;
+    skos:example "the castle, the tower, the bridge, the forest, the cave, the throne room, the temple, the ruins."@en ;
+    rdfs:comment "Site is intentionally broad to avoid excessive book-specific place subclasses."@en .
+
+#################################################################
+# Object subclasses
+#################################################################
+
+neo:Item a owl:Class ;
+    rdfs:subClassOf neo:Object ;
+    rdfs:label "Item"@en ;
+    skos:prefLabel "Item"@en ;
+    skos:definition "A discrete object, tool, weapon, container, ornament, artifact, vehicle, or portable thing."@en ;
+    skos:example "the sword, the ring, the crown, the key, the ship, the lamp, the wand."@en .
+
+neo:Substance a owl:Class ;
+    rdfs:subClassOf neo:Object ;
+    rdfs:label "Substance"@en ;
+    skos:prefLabel "Substance"@en ;
+    skos:definition "A material, fluid, powder, gas, food, poison, medicine, bodily material, or other substance-like entity."@en ;
+    skos:example "the poison, the blood, the ashes, the water, the smoke, the potion, the dust."@en .
+
+neo:Document a owl:Class ;
+    rdfs:subClassOf neo:Object ;
+    rdfs:label "Document"@en ;
+    skos:prefLabel "Document"@en ;
+    skos:definition "A written, inscribed, recorded, or text-bearing object within or referenced by the narrative."@en ;
+    skos:example "the letter, the book, the scroll, the map, the treaty, the inscription, the prophecy tablet."@en ;
+    rdfs:comment "Use Document for the object-like carrier of text. The content expressed by a document may separately be a Concept."@en .
+
+#################################################################
+# Event subclasses
+#################################################################
+
+neo:Action a owl:Class ;
+    rdfs:subClassOf neo:Event ;
+    rdfs:label "Action"@en ;
+    skos:prefLabel "Action"@en ;
+    skos:definition "An event intentionally performed, initiated, or substantially caused by one or more narrative agents."@en ;
+    skos:example "the murder, the betrayal, the rescue, the coronation, the ritual, the battle, the journey."@en .
+
+neo:Occurrence a owl:Class ;
+    rdfs:subClassOf neo:Event ;
+    rdfs:label "Occurrence"@en ;
+    skos:prefLabel "Occurrence"@en ;
+    skos:definition "An event, process, or change that happens, unfolds, or befalls the storyworld without being primarily classified as an intentional action."@en ;
+    skos:example "the storm, the earthquake, the plague, the fall of the city, the eclipse, the transformation."@en .
+
+#################################################################
+# Concept subclasses
+#################################################################
+
+neo:PowerOrAbility a owl:Class ;
+    rdfs:subClassOf neo:Concept ;
+    rdfs:label "Power or ability"@en ;
+    skos:prefLabel "PowerOrAbility"@en ;
+    skos:definition "An ability, capacity, magical force, supernatural power, skill, curse-power, or metaphysical capability referred to by the narrative."@en ;
+    skos:example "magic, the Force, prophecy, telepathy, immortality, invisibility, healing power."@en .
+
+neo:RuleOrLaw a owl:Class ;
+    rdfs:subClassOf neo:Concept ;
+    rdfs:label "Rule or law"@en ;
+    skos:prefLabel "RuleOrLaw"@en ;
+    skos:definition "A norm, rule, law, pact, oath, contract, taboo, commandment, institutional rule, or metaphysical constraint in the storyworld."@en ;
+    skos:example "the old law, the pact, the oath, the treaty, the taboo, the king's decree."@en .
+
+neo:BeliefOrValue a owl:Class ;
+    rdfs:subClassOf neo:Concept ;
+    rdfs:label "Belief or value"@en ;
+    skos:prefLabel "BeliefOrValue"@en ;
+    skos:definition "A belief, value, doctrine, ideology, religion, moral principle, worldview, destiny-claim, or abstract evaluative idea in the narrative."@en ;
+    skos:example "honor, fate, loyalty, the old religion, the gods' will, the prophecy as a belief, justice."@en .
+
+#################################################################
+# Semantic object properties
+#################################################################
+
+neo:hasParticipant a owl:ObjectProperty ;
+    rdfs:label "has participant"@en ;
+    skos:prefLabel "hasParticipant"@en ;
+    rdfs:domain neo:Event ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects an event to a narrative entity that participates in it."@en .
+
+neo:participatesIn a owl:ObjectProperty ;
+    owl:inverseOf neo:hasParticipant ;
+    rdfs:label "participates in"@en ;
+    skos:prefLabel "participatesIn"@en ;
+    rdfs:domain neo:NarrativeEntity ;
+    rdfs:range neo:Event ;
+    skos:definition "Connects a narrative entity to an event in which it participates."@en .
+
+neo:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member"@en ;
+    skos:prefLabel "hasMember"@en ;
+    rdfs:domain neo:Group ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a group to one of its members."@en .
+
+neo:memberOf a owl:ObjectProperty ;
+    owl:inverseOf neo:hasMember ;
+    rdfs:label "member of"@en ;
+    skos:prefLabel "memberOf"@en ;
+    rdfs:domain neo:NarrativeEntity ;
+    rdfs:range neo:Group ;
+    skos:definition "Connects a narrative entity to a group of which it is a member."@en .
+
+neo:occursAt a owl:ObjectProperty ;
+    rdfs:label "occurs at"@en ;
+    skos:prefLabel "occursAt"@en ;
+    rdfs:domain neo:Event ;
+    rdfs:range neo:Place ;
+    skos:definition "Connects an event to the place where it occurs."@en .
+
+neo:hostsEvent a owl:ObjectProperty ;
+    owl:inverseOf neo:occursAt ;
+    rdfs:label "hosts event"@en ;
+    skos:prefLabel "hostsEvent"@en ;
+    rdfs:domain neo:Place ;
+    rdfs:range neo:Event ;
+    skos:definition "Connects a place to an event that occurs there."@en .
+
+neo:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
+    skos:prefLabel "locatedIn"@en ;
+    rdfs:domain neo:NarrativeEntity ;
+    rdfs:range neo:Place ;
+    skos:definition "Connects a narrative entity to a place where it is located or situated."@en .
+
+neo:containsPlace a owl:ObjectProperty ;
+    rdfs:label "contains place"@en ;
+    skos:prefLabel "containsPlace"@en ;
+    rdfs:domain neo:Place ;
+    rdfs:range neo:Place ;
+    skos:definition "Connects a place to a smaller place contained within it."@en .
+
+neo:containedInPlace a owl:ObjectProperty ;
+    owl:inverseOf neo:containsPlace ;
+    rdfs:label "contained in place"@en ;
+    skos:prefLabel "containedInPlace"@en ;
+    rdfs:domain neo:Place ;
+    rdfs:range neo:Place ;
+    skos:definition "Connects a place to a larger place that contains it."@en .
+
+neo:usesObject a owl:ObjectProperty ;
+    rdfs:label "uses object"@en ;
+    skos:prefLabel "usesObject"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:Object ;
+    skos:definition "Connects a character to an object used, carried, wielded, read, consumed, or otherwise handled by that character."@en .
+
+neo:objectUsedBy a owl:ObjectProperty ;
+    owl:inverseOf neo:usesObject ;
+    rdfs:label "object used by"@en ;
+    skos:prefLabel "objectUsedBy"@en ;
+    rdfs:domain neo:Object ;
+    rdfs:range neo:Character ;
+    skos:definition "Connects an object to a character that uses, carries, wields, reads, consumes, or otherwise handles it."@en .
+
+neo:holdsAttitudeToward a owl:ObjectProperty ;
+    rdfs:label "holds attitude toward"@en ;
+    skos:prefLabel "holdsAttitudeToward"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity toward which the character expresses an emotional, evaluative, cognitive, or social attitude such as love, liking, trust, fear, worry, gratitude, agreement, suspicion, or longing."@en .
+
+neo:harms a owl:ObjectProperty ;
+    rdfs:label "harms"@en ;
+    skos:prefLabel "harms"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity that the character injures, kills, attacks, bites, strikes, hurts, threatens, beats, destroys, starves, melts, or otherwise damages."@en ;
+    skos:example "Dorothy kills the Wicked Witch; the Lion bites Toto; the Wicked Witch strikes Toto."@en .
+
+neo:accompanies a owl:ObjectProperty ;
+    rdfs:label "accompanies"@en ;
+    skos:prefLabel "accompanies"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:Character ;
+    skos:definition "Connects a character to another character with whom they travel, go, come, remain, stay, live, join, or move together as companions or temporary associates."@en ;
+    skos:example "The Scarecrow goes with Dorothy; the Lion goes with Dorothy; Toto trots behind Dorothy."@en .
+
+neo:movesToward a owl:ObjectProperty ;
+    rdfs:label "moves toward"@en ;
+    skos:prefLabel "movesToward"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity, place, destination, person, or goal that the character approaches, comes to, goes to, runs toward, follows, reaches, or moves toward."@en ;
+    skos:example "Dorothy comes to Oz; Dorothy runs toward Glinda; the Tin Woodman follows the Scarecrow."@en .
+
+neo:guides a owl:ObjectProperty ;
+    rdfs:label "guides"@en ;
+    skos:prefLabel "guides"@en ;
+    rdfs:domain neo:Character ;
+    rdfs:range neo:NarrativeEntity ;
+    skos:definition "Connects a character to an entity that the character leads, guides, directs, escorts, brings, takes somewhere, sends onward, or helps navigate through a place or sequence of events."@en ;
+    skos:example "Boq leads Dorothy; the Scarecrow leads the travelers; Oz sends Dorothy."@en .

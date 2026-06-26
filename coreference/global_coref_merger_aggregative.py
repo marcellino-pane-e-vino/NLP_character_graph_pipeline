@@ -13,6 +13,19 @@ MentionKey = tuple[int, int, str]
 
 
 # ---------------------------------------------------------------------------
+# Final global cluster salience filter config
+# ---------------------------------------------------------------------------
+
+# Intentionally local to this module: callers keep using the same public
+# merge_local_coreference_clusters(...) contract, while this merger exports
+# filtered global artifacts plus an audit CSV for rejected clusters.
+GLOBAL_CLUSTER_SALIENCE_FILTER_ENABLED = True
+GLOBAL_CLUSTER_SALIENCE_PERCENTILE = 0.95
+MIN_GLOBAL_CLUSTER_MENTIONS: int | None = None
+REJECTED_GLOBAL_CLUSTERS_FILENAME = "rejected_global_clusters.csv"
+
+
+# ---------------------------------------------------------------------------
 # Data structures
 # ---------------------------------------------------------------------------
 
@@ -1566,6 +1579,58 @@ def choose_representative_canonical_name(component: MergeComponent) -> str:
     return component.original_canonical_name_counts.most_common(1)[0][0]
 
 
+def split_components_by_mention_percentile(
+    components: dict[str, MergeComponent],
+    *,
+    percentile: float,
+    min_mentions: int | None = None,
+) -> tuple[dict[str, MergeComponent], dict[str, MergeComponent], int]:
+    """Split components into kept/rejected by final mention-count salience.
+
+    Policy:
+        - compute the requested quantile over final global component sizes;
+        - use ceil(quantile) as the cutoff to avoid accepting components below
+          a fractional percentile boundary;
+        - keep components with len(component.mentions) >= cutoff;
+        - reject components with len(component.mentions) < cutoff.
+
+    Returns:
+        kept_components,
+        rejected_components,
+        cutoff
+    """
+
+    if not 0 <= percentile <= 1:
+        raise ValueError(f"percentile must be between 0 and 1, got {percentile}")
+
+    if not components:
+        return {}, {}, 0
+
+    mention_counts = pd.Series(
+        [len(component.mentions) for component in components.values()],
+        dtype="float64",
+    )
+
+    cutoff = int(math.ceil(float(mention_counts.quantile(percentile))))
+
+    if min_mentions is not None:
+        cutoff = max(cutoff, int(min_mentions))
+
+    kept_components = {
+        component_uid: component
+        for component_uid, component in components.items()
+        if len(component.mentions) >= cutoff
+    }
+
+    rejected_components = {
+        component_uid: component
+        for component_uid, component in components.items()
+        if len(component.mentions) < cutoff
+    }
+
+    return kept_components, rejected_components, cutoff
+
+
 def export_global_clusters_csv(
     *,
     components: dict[str, MergeComponent],
@@ -1638,6 +1703,76 @@ def export_global_mentions_csv(
     ).to_csv(output_path, index=False)
 
 
+
+def export_rejected_global_clusters_csv(
+    *,
+    rejected_components: dict[str, MergeComponent],
+    pre_filter_global_cluster_uid_by_component_uid: dict[str, str],
+    output_path: Path,
+    salience_percentile: float,
+    salience_cutoff: int,
+) -> None:
+    """Write rejected_global_clusters.csv as an audit artifact.
+
+    This file is deliberately not consumed by annotator.py. It preserves enough
+    information to inspect which final merge components were removed by the
+    salience filter while keeping global_clusters.csv/global_mentions.csv fully
+    compatible with the existing downstream contract.
+    """
+
+    columns = [
+        "rejected_global_cluster_uid",
+        "would_be_global_cluster_uid",
+        "merge_component_uid",
+        "rejection_reason",
+        "salience_percentile",
+        "salience_cutoff",
+        "n_local_clusters",
+        "n_mentions",
+        "canonical_name",
+        "canonical_names",
+        "local_cluster_uids",
+        "chunk_min",
+        "chunk_max",
+    ]
+
+    rows = []
+
+    ordered_rejected = sorted(
+        rejected_components.items(),
+        key=lambda item: component_document_order_key(item[1]),
+    )
+
+    for rejected_index, (component_uid, component) in enumerate(ordered_rejected):
+        chunk_min = min(component.chunk_indices) if component.chunk_indices else None
+        chunk_max = max(component.chunk_indices) if component.chunk_indices else None
+
+        rows.append(
+            {
+                "rejected_global_cluster_uid": f"rejected_global_cluster_{rejected_index:06d}",
+                "would_be_global_cluster_uid": pre_filter_global_cluster_uid_by_component_uid[
+                    component_uid
+                ],
+                "merge_component_uid": component_uid,
+                "rejection_reason": "below_global_cluster_salience_percentile",
+                "salience_percentile": salience_percentile,
+                "salience_cutoff": salience_cutoff,
+                "n_local_clusters": len(component.local_cluster_uids),
+                "n_mentions": len(component.mentions),
+                "canonical_name": choose_representative_canonical_name(component),
+                "canonical_names": "|".join(sorted(component.canonical_names)),
+                "local_cluster_uids": "|".join(sorted(component.local_cluster_uids)),
+                "chunk_min": chunk_min,
+                "chunk_max": chunk_max,
+            }
+        )
+
+    pd.DataFrame(rows, columns=columns).sort_values(
+        ["n_mentions", "would_be_global_cluster_uid"],
+        ascending=[False, True],
+    ).to_csv(output_path, index=False)
+
+
 # ---------------------------------------------------------------------------
 # Public entry point
 # ---------------------------------------------------------------------------
@@ -1688,6 +1823,30 @@ def merge_local_coreference_clusters(
             enable_global_merge_veto=enable_global_merge_veto,
         )
 
+    pre_filter_global_cluster_uid_by_component_uid = assign_global_cluster_uids(components)
+
+    rejected_components: dict[str, MergeComponent] = {}
+    salience_cutoff = 0
+
+    if GLOBAL_CLUSTER_SALIENCE_FILTER_ENABLED:
+        components, rejected_components, salience_cutoff = split_components_by_mention_percentile(
+            components,
+            percentile=GLOBAL_CLUSTER_SALIENCE_PERCENTILE,
+            min_mentions=MIN_GLOBAL_CLUSTER_MENTIONS,
+        )
+
+        if verbose:
+            print(
+                "[global-coref][salience-filter] "
+                f"percentile={GLOBAL_CLUSTER_SALIENCE_PERCENTILE:.2f}; "
+                f"cutoff={salience_cutoff}; "
+                f"kept={len(components)}; "
+                f"rejected={len(rejected_components)}"
+            )
+
+    # Assign exported global IDs after filtering to preserve the existing
+    # downstream expectation that global_clusters.csv contains compact,
+    # document-order global_cluster_XXXXXX identifiers.
     global_cluster_uid_by_component_uid = assign_global_cluster_uids(components)
 
     export_global_clusters_csv(
@@ -1702,9 +1861,20 @@ def merge_local_coreference_clusters(
         output_path=output_path / "global_mentions.csv",
     )
 
+    export_rejected_global_clusters_csv(
+        rejected_components=rejected_components,
+        pre_filter_global_cluster_uid_by_component_uid=pre_filter_global_cluster_uid_by_component_uid,
+        output_path=output_path / REJECTED_GLOBAL_CLUSTERS_FILENAME,
+        salience_percentile=GLOBAL_CLUSTER_SALIENCE_PERCENTILE
+        if GLOBAL_CLUSTER_SALIENCE_FILTER_ENABLED
+        else 0.0,
+        salience_cutoff=salience_cutoff,
+    )
+
     if verbose:
         print(f"[global-coref] exported {output_path / 'global_clusters.csv'}")
         print(f"[global-coref] exported {output_path / 'global_mentions.csv'}")
+        print(f"[global-coref] exported {output_path / REJECTED_GLOBAL_CLUSTERS_FILENAME}")
         print(f"[global-coref] final global clusters: {len(components)}")
 
     return GlobalCorefMergeResult(
