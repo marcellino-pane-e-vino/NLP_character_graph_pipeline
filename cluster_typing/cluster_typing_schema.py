@@ -1,9 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
-
-import networkx as nx
 
 try:
     from spacy.tokens import Doc
@@ -12,11 +9,7 @@ except ImportError as exc:  # pragma: no cover - depends on runtime environment
         "cluster_typing_schema.py requires spaCy. Install it with: pip install spacy"
     ) from exc
 
-from .graph_contract import (
-    ontology_descendants,
-    resolve_class_label,
-    validate_ontology_graph,
-)
+from ontology.class_graph import OntologyClassGraph, OntologyClassRef
 
 
 __all__ = [
@@ -27,30 +20,31 @@ __all__ = [
 ]
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class ClusterTypingAnnotation:
-    """Final cluster type annotation for one coreference cluster.
+    """Final ontology class selected for one coreference cluster.
 
-    The final annotation is intentionally slim: no confidence, no path, no edge
-    scores, and no mention-level evidence.
+    The contract is intentionally minimal. ``class_iri`` is the only canonical
+    class identity stored on the annotation. Labels, local names, and prompt
+    labels are derived through ``ClusterTypingLayer`` / ``OntologyClassGraph``.
     """
 
     cluster_id: int
-    class_id: Any
-    class_label: str
-    class_human_readable_label: str
+    class_iri: str
 
 
-@dataclass
+@dataclass(slots=True)
 class ClusterTypingLayer:
     """Independent cluster typing layer stored at ``doc._.cluster_typing_layer``."""
 
-    graph: nx.DiGraph
+    class_graph: OntologyClassGraph
     clusters: dict[int, ClusterTypingAnnotation] = field(default_factory=dict)
     source_folder: str | None = None
 
     def __post_init__(self) -> None:
-        validate_ontology_graph(self.graph)
+        # Triggers graph validation and makes the invariant explicit at layer
+        # construction time.
+        self.class_graph.roots()
 
     def cluster(self, cluster_id: int) -> ClusterTypingAnnotation:
         return self.clusters[int(cluster_id)]
@@ -61,50 +55,51 @@ class ClusterTypingLayer:
     def typed_cluster_ids(self) -> list[int]:
         return sorted(self.clusters)
 
-    def class_id(self, cluster_id: int) -> Any:
-        return self.cluster(cluster_id).class_id
+    def class_iri(self, cluster_id: int) -> str:
+        return self.cluster(cluster_id).class_iri
+
+    def class_ref(self, cluster_id: int) -> OntologyClassRef:
+        return self.class_graph.ref(self.class_iri(cluster_id))
 
     def class_label(self, cluster_id: int) -> str:
-        return self.cluster(cluster_id).class_label
+        return self.class_ref(cluster_id).label
 
     def class_human_readable_label(self, cluster_id: int) -> str:
-        return self.cluster(cluster_id).class_human_readable_label
+        return self.class_ref(cluster_id).human_readable_label
+
+    def class_local_name(self, cluster_id: int) -> str:
+        return self.class_ref(cluster_id).local_name
 
     def cluster_ids_exactly(self, class_label: str) -> list[int]:
         """Return clusters whose final class has exactly this ontology label.
 
         Lookup is case-insensitive but searches only the graph node ``label``
-        attribute, not node IDs or human-readable labels.
+        attribute. The stored contract remains ``class_iri``.
         """
 
-        class_id = resolve_class_label(self.graph, class_label)
+        class_iri = self.class_graph.resolve_label(class_label)
         return [
             cluster_id
             for cluster_id, annotation in self.clusters.items()
-            if annotation.class_id == class_id
+            if annotation.class_iri == class_iri
         ]
 
     def cluster_ids_under(self, class_label: str) -> list[int]:
-        """Return clusters whose final class is under ``class_label``.
+        """Return clusters whose final class is under ``class_label``."""
 
-        The lookup of ``class_label`` is label-only and case-insensitive.
-        """
-
-        valid_class_ids = ontology_descendants(
-            self.graph,
-            class_label,
-            include_self=True,
-        )
+        root_iri = self.class_graph.resolve_label(class_label)
+        valid_class_iris = self.class_graph.descendants(root_iri, include_self=True)
         return [
             cluster_id
             for cluster_id, annotation in self.clusters.items()
-            if annotation.class_id in valid_class_ids
+            if annotation.class_iri in valid_class_iris
         ]
 
     def clusters_by_class_label(self) -> dict[str, list[int]]:
         out: dict[str, list[int]] = {}
         for cluster_id, annotation in self.clusters.items():
-            out.setdefault(annotation.class_label, []).append(cluster_id)
+            label = self.class_graph.label(annotation.class_iri)
+            out.setdefault(label, []).append(cluster_id)
         return {
             label: sorted(cluster_ids)
             for label, cluster_ids in sorted(out.items())
@@ -114,7 +109,7 @@ class ClusterTypingLayer:
         return {
             "n_typed_clusters": len(self.clusters),
             "n_classes_used": len(
-                {annotation.class_id for annotation in self.clusters.values()}
+                {annotation.class_iri for annotation in self.clusters.values()}
             ),
         }
 

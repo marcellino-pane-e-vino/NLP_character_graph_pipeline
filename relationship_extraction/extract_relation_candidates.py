@@ -11,7 +11,7 @@ import pandas as pd
 from coreference.coref_schema import require_coref_layer
 from relationship_extraction.relation_schema import make_relation_mention_id
 
-try:  # project-local dependency, optional for tests that pass cluster_type_layer explicitly
+try:  # project-local dependency
     from cluster_typing.cluster_typing_schema import require_cluster_typing_layer
 except ImportError:  # pragma: no cover
     require_cluster_typing_layer = None
@@ -68,7 +68,6 @@ class SyntaxRelationCandidate:
 
     source_cluster_id: int
     source_canonical_name: str
-    source_cluster_type: str
     source_class_iri: str
 
     predicate: str
@@ -79,7 +78,6 @@ class SyntaxRelationCandidate:
 
     target_cluster_id: int
     target_canonical_name: str
-    target_cluster_type: str
     target_class_iri: str
 
     sentence_index: int
@@ -153,14 +151,14 @@ def _ensure_dependency_parse(doc: Any) -> None:
         )
 
 
-def _require_cluster_type_layer(doc: Any, cluster_type_layer: Any | None) -> Any:
-    if cluster_type_layer is not None:
-        return cluster_type_layer
+def _require_cluster_typing_layer(doc: Any, cluster_typing_layer: Any | None) -> Any:
+    if cluster_typing_layer is not None:
+        return cluster_typing_layer
 
     if require_cluster_typing_layer is None:
         raise ValueError(
-            "cluster_type_layer was not provided and cluster_typing.cluster_typing schema"
-            "could not be imported. Pass cluster_type_layer explicitly."
+            "cluster_typing_layer was not provided and "
+            "cluster_typing.cluster_typing_schema could not be imported."
         )
 
     return require_cluster_typing_layer(doc)
@@ -295,36 +293,15 @@ def _prepositional_objects_of(predicate: Any) -> list[tuple[Any, str, Any]]:
     return objects
 
 
-def _cluster_annotation(cluster_type_layer: Any, cluster_id: int) -> Any:
-    if hasattr(cluster_type_layer, "cluster"):
-        return cluster_type_layer.cluster(cluster_id)
+def _cluster_class_iri(cluster_typing_layer: Any, cluster_id: int) -> str:
+    if not hasattr(cluster_typing_layer, "class_iri"):
+        raise TypeError("cluster_typing_layer must expose .class_iri(cluster_id).")
 
-    if isinstance(cluster_type_layer, dict):
-        return cluster_type_layer[cluster_id]
+    value = cluster_typing_layer.class_iri(cluster_id)
+    if value is None or not str(value).strip():
+        raise ValueError(f"Empty class_iri for cluster_id={cluster_id}.")
 
-    raise TypeError(
-        "cluster_type_layer must expose .cluster(cluster_id) or be a dict keyed by cluster_id."
-    )
-
-
-def _cluster_class_iri(cluster_type_layer: Any, cluster_id: int) -> str:
-    annotation = _cluster_annotation(cluster_type_layer, cluster_id)
-
-    for attr_name in ("class_iri", "class_label", "ontology_class_iri"):
-        value = getattr(annotation, attr_name, None)
-        if value is not None and str(value).strip():
-            return str(value).strip()
-
-    if isinstance(annotation, str):
-        return annotation.strip()
-
-    if isinstance(annotation, dict):
-        for key in ("class_iri", "class_label", "ontology_class_iri"):
-            value = annotation.get(key)
-            if value is not None and str(value).strip():
-                return str(value).strip()
-
-    raise ValueError(f"Could not determine ontology class IRI/label for cluster_id={cluster_id}.")
+    return str(value).strip()
 
 
 def _candidate_property_to_dict(spec: Any) -> dict[str, Any]:
@@ -480,14 +457,14 @@ def _print_no_relationship_discard(
 def iter_syntax_relation_candidates(
     doc: Any,
     *,
-    cluster_type_layer: Any | None = None,
+    cluster_typing_layer: Any | None = None,
 ) -> Iterable[SyntaxRelationCandidate]:
     """Yield dependency/coref relation candidates before ontology routing."""
 
     _ensure_dependency_parse(doc)
 
     coref = require_coref_layer(doc)
-    cluster_type_layer = _require_cluster_type_layer(doc, cluster_type_layer)
+    cluster_typing_layer = _require_cluster_typing_layer(doc, cluster_typing_layer)
 
     for sentence_index, sent in enumerate(doc.sents):
         for predicate in sent:
@@ -533,8 +510,8 @@ def iter_syntax_relation_candidates(
                         source_cluster = coref.clusters[source_cluster_id]
                         target_cluster = coref.clusters[target_cluster_id]
 
-                        source_class_iri = _cluster_class_iri(cluster_type_layer, source_cluster_id)
-                        target_class_iri = _cluster_class_iri(cluster_type_layer, target_cluster_id)
+                        source_class_iri = _cluster_class_iri(cluster_typing_layer, source_cluster_id)
+                        target_class_iri = _cluster_class_iri(cluster_typing_layer, target_cluster_id)
 
                         relation_mention_id = make_relation_mention_id(
                             predicate_token_i=predicate.i,
@@ -546,7 +523,6 @@ def iter_syntax_relation_candidates(
                             relation_mention_id=relation_mention_id,
                             source_cluster_id=source_cluster_id,
                             source_canonical_name=source_cluster.canonical_name,
-                            source_cluster_type=source_class_iri,
                             source_class_iri=source_class_iri,
                             predicate=predicate_label,
                             predicate_surface=predicate_surface,
@@ -555,7 +531,6 @@ def iter_syntax_relation_candidates(
                             predicate_end=predicate_end,
                             target_cluster_id=target_cluster_id,
                             target_canonical_name=target_cluster.canonical_name,
-                            target_cluster_type=target_class_iri,
                             target_class_iri=target_class_iri,
                             sentence_index=sentence_index,
                             sentence_start=sent.start,
@@ -575,11 +550,11 @@ def iter_syntax_relation_candidates(
 def extract_relation_candidates(
     doc: Any,
     *,
-    cluster_type_layer: Any | None = None,
+    cluster_typing_layer: Any | None = None,
 ) -> pd.DataFrame:
     """Compatibility helper returning raw syntax/coref candidates as DataFrame."""
 
-    rows = [asdict(row) for row in iter_syntax_relation_candidates(doc, cluster_type_layer=cluster_type_layer)]
+    rows = [asdict(row) for row in iter_syntax_relation_candidates(doc, cluster_typing_layer=cluster_typing_layer)]
     columns = list(SyntaxRelationCandidate.__dataclass_fields__)
     return pd.DataFrame(rows, columns=columns)
 
@@ -589,7 +564,7 @@ def export_routed_relation_candidates_jsonl(
     doc: Any,
     relation_router: Any,
     output_path: str | Path,
-    cluster_type_layer: Any | None = None,
+    cluster_typing_layer: Any | None = None,
     print_discards: bool = True,
     overwrite: bool = False,
 ) -> Path:
@@ -607,7 +582,7 @@ def export_routed_relation_candidates_jsonl(
 
     n_written = 0
     with output_path.open("w", encoding="utf-8") as f:
-        for candidate in iter_syntax_relation_candidates(doc, cluster_type_layer=cluster_type_layer):
+        for candidate in iter_syntax_relation_candidates(doc, cluster_typing_layer=cluster_typing_layer):
             source_class_iri = candidate.source_class_iri
             target_class_iri = candidate.target_class_iri
 

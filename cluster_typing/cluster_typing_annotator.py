@@ -1,10 +1,12 @@
 """Cluster-typing JSONL annotator.
 
-This module reads compact JSONL artifacts produced by
-``cluster_typing_probability_scoring`` and creates a fresh ``doc._.cluster_typing_layer``.
+This module reads compact schema-v2 JSONL artifacts produced by
+``cluster_typing_probability_scoring`` and creates a fresh
+``doc._.cluster_typing_layer``.
 
-It does not decide which clusters should have been scored and does not know how
-the ontology graph was created. The caller provides a valid ``networkx.DiGraph``.
+The final document layer stores only the canonical ontology class IRI selected
+for each cluster. Labels and other display forms are derived through
+``OntologyClassGraph``.
 """
 
 from __future__ import annotations
@@ -14,18 +16,12 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import networkx as nx
-
 from coreference.coref_schema import require_coref_layer
+from ontology.class_graph import OntologyClassGraph
 
 from .graph_contract import (
     STAY,
     VIRTUAL_ROOT,
-    class_human_readable_label,
-    class_label,
-    ontology_children,
-    ontology_roots,
-    validate_ontology_graph,
     validate_selected_path_edge,
 )
 from .cluster_typing_artifacts import read_jsonl
@@ -42,6 +38,9 @@ __all__ = [
     "collapse_mention_weight",
     "annotate_doc_with_cluster_typing_folder",
 ]
+
+
+SCHEMA_VERSION = 2
 
 
 class ClusterTypingAnnotationError(ValueError):
@@ -79,6 +78,28 @@ def _require_single_cluster_id(records: list[dict[str, Any]], *, jsonl_path: Pat
     return int(cluster_ids[0])
 
 
+def _validate_schema_version(
+    *,
+    record: dict[str, Any],
+    jsonl_path: Path,
+    row_index: int,
+) -> None:
+    raw_version = record.get("schema_version")
+    try:
+        version = int(raw_version)
+    except (TypeError, ValueError) as exc:
+        raise ClusterTypingAnnotationError(
+            f"Cluster-typing JSONL record must have integer schema_version={SCHEMA_VERSION}. "
+            f"Got {raw_version!r}. JSONL: {jsonl_path}, row={row_index}"
+        ) from exc
+
+    if version != SCHEMA_VERSION:
+        raise ClusterTypingAnnotationError(
+            f"Cluster-typing JSONL record must have schema_version={SCHEMA_VERSION}. "
+            f"Got {raw_version!r}. JSONL: {jsonl_path}, row={row_index}"
+        )
+
+
 def _validate_record_alignment(
     *,
     record: dict[str, Any],
@@ -86,6 +107,8 @@ def _validate_record_alignment(
     jsonl_path: Path,
     row_index: int,
 ) -> tuple[int, int]:
+    _validate_schema_version(record=record, jsonl_path=jsonl_path, row_index=row_index)
+
     try:
         cluster_id = int(record["cluster_id"])
         mention_id = int(record["mention_id"])
@@ -139,7 +162,7 @@ def _validate_record_alignment(
 
 def _validate_selected_path(
     *,
-    graph: nx.DiGraph,
+    class_graph: OntologyClassGraph,
     record: dict[str, Any],
     jsonl_path: Path,
     row_index: int,
@@ -159,9 +182,10 @@ def _validate_selected_path(
             )
 
         try:
-            parent_id = edge["parent_id"]
+            parent_class_iri = str(edge["parent_class_iri"])
             edge_kind = str(edge["edge_kind"])
-            child_id = edge.get("child_id")
+            child_raw = edge.get("child_class_iri")
+            child_class_iri = None if child_raw is None else str(child_raw)
             edge_weight = float(edge["edge_weight"])
         except KeyError as exc:
             raise ClusterTypingAnnotationError(
@@ -177,9 +201,9 @@ def _validate_selected_path(
 
         try:
             validate_selected_path_edge(
-                graph,
-                parent_id=parent_id,
-                child_id=child_id,
+                class_graph.graph,
+                parent_class_iri=parent_class_iri,
+                child_class_iri=child_class_iri,
                 edge_kind=edge_kind,
             )
         except Exception as exc:
@@ -222,9 +246,9 @@ def _mention_weight_from_record(
         ) from exc
 
 
-def _aggregate_cluster_class_id(
+def _aggregate_cluster_class_iri(
     *,
-    graph: nx.DiGraph,
+    class_graph: OntologyClassGraph,
     records: list[dict[str, Any]],
     config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
@@ -236,7 +260,7 @@ def _aggregate_cluster_class_id(
 
     for row_index, record in enumerate(records, start=0):
         selected_path = _validate_selected_path(
-            graph=graph,
+            class_graph=class_graph,
             record=record,
             jsonl_path=jsonl_path,
             row_index=row_index,
@@ -249,72 +273,70 @@ def _aggregate_cluster_class_id(
         )
 
         for edge in selected_path:
-            parent_id = str(edge["parent_id"])
+            parent_class_iri = str(edge["parent_class_iri"])
             edge_kind = str(edge["edge_kind"])
             edge_weight = float(edge["edge_weight"])
             contribution = mention_weight * edge_weight
 
             if edge_kind == "stay":
-                edge_scores[(parent_id, STAY)] += contribution
+                edge_scores[(parent_class_iri, STAY)] += contribution
             else:
-                child_id = str(edge["child_id"])
-                edge_scores[(parent_id, child_id)] += contribution
+                child_class_iri = str(edge["child_class_iri"])
+                edge_scores[(parent_class_iri, child_class_iri)] += contribution
 
-    roots = ontology_roots(graph)
+    roots = list(class_graph.roots())
     if not roots:
         raise ClusterTypingAnnotationError("Ontology graph has no roots.")
 
     if len(roots) > 1:
-        current_id = VIRTUAL_ROOT
-        options = roots
+        current_class_iri = VIRTUAL_ROOT
     else:
-        current_id = roots[0]
-        options = ontology_children(graph, current_id)
+        current_class_iri = roots[0]
 
-    if current_id == VIRTUAL_ROOT:
+    if current_class_iri == VIRTUAL_ROOT:
         root_scores = {
-            root_id: edge_scores.get((VIRTUAL_ROOT, root_id), 0.0)
-            for root_id in roots
+            root_iri: edge_scores.get((VIRTUAL_ROOT, root_iri), 0.0)
+            for root_iri in roots
         }
         best_root, best_score = max(root_scores.items(), key=lambda item: item[1])
         if best_score <= 0.0:
             raise ClusterTypingAnnotationError(
                 "Could not choose a root class from selected path evidence."
             )
-        current_id = best_root
+        current_class_iri = best_root
 
     while True:
-        children = ontology_children(graph, current_id)
+        children = list(class_graph.children(current_class_iri))
 
         if not children:
-            return current_id
+            return current_class_iri
 
         child_scores = {
-            child_id: edge_scores.get((current_id, child_id), 0.0)
-            for child_id in children
+            child_iri: edge_scores.get((current_class_iri, child_iri), 0.0)
+            for child_iri in children
         }
         best_child, best_child_score = max(child_scores.items(), key=lambda item: item[1])
-        stay_score = edge_scores.get((current_id, STAY), 0.0)
+        stay_score = edge_scores.get((current_class_iri, STAY), 0.0)
 
         if stay_score >= best_child_score and stay_score > 0.0:
-            return current_id
+            return current_class_iri
 
         if best_child_score <= 0.0:
-            return current_id
+            return current_class_iri
 
-        current_id = best_child
+        current_class_iri = best_child
 
 
 def _cluster_annotation_from_records(
     *,
-    graph: nx.DiGraph,
+    class_graph: OntologyClassGraph,
     cluster_id: int,
     records: list[dict[str, Any]],
     config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
 ) -> ClusterTypingAnnotation:
-    final_class_id = _aggregate_cluster_class_id(
-        graph=graph,
+    final_class_iri = _aggregate_cluster_class_iri(
+        class_graph=class_graph,
         records=records,
         config=config,
         jsonl_path=jsonl_path,
@@ -322,15 +344,13 @@ def _cluster_annotation_from_records(
 
     return ClusterTypingAnnotation(
         cluster_id=int(cluster_id),
-        class_id=final_class_id,
-        class_label=class_label(graph, final_class_id),
-        class_human_readable_label=class_human_readable_label(graph, final_class_id),
+        class_iri=final_class_iri,
     )
 
 
 def annotate_doc_with_cluster_typing_folder(
     doc: Any,
-    graph: nx.DiGraph,
+    class_graph: OntologyClassGraph,
     folder_path: str | Path,
     *,
     config: ClusterTypingAnnotationConfig | None = None,
@@ -338,11 +358,10 @@ def annotate_doc_with_cluster_typing_folder(
 ) -> Any:
     """Annotate ``doc`` with a fresh ``doc._.cluster_typing_layer`` from JSONL files.
 
-    The annotator processes every matching JSONL in the folder. It does not
-    decide whether those JSONLs should exist and does not inspect semantic types.
+    The annotator processes every matching schema-v2 JSONL in the folder. It
+    does not decide whether those JSONLs should exist and does not inspect
+    semantic types beyond validating class IRIs against ``class_graph``.
     """
-
-    validate_ontology_graph(graph)
 
     config = config or ClusterTypingAnnotationConfig()
     folder = Path(folder_path)
@@ -360,7 +379,7 @@ def annotate_doc_with_cluster_typing_folder(
     coref_layer = require_coref_layer(doc)
     register_spacy_cluster_typing_extension()
 
-    cluster_typing_layer = ClusterTypingLayer(graph=graph, source_folder=str(folder))
+    cluster_typing_layer = ClusterTypingLayer(class_graph=class_graph, source_folder=str(folder))
     seen_cluster_ids: set[int] = set()
     seen_mention_ids: set[int] = set()
 
@@ -392,7 +411,7 @@ def annotate_doc_with_cluster_typing_folder(
             seen_mention_ids.add(mention_id)
 
         cluster_typing_layer.clusters[cluster_id] = _cluster_annotation_from_records(
-            graph=graph,
+            class_graph=class_graph,
             cluster_id=cluster_id,
             records=records,
             config=config,

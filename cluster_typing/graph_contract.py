@@ -24,10 +24,11 @@ def normalize_label(label: Any) -> str:
 
 
 def validate_ontology_graph(graph: nx.DiGraph) -> None:
-    """Validate the minimal ontology graph contract.
+    """Validate the minimal ontology class DAG contract.
 
-    The function does not care how the graph was built. It only enforces the
-    contract required by cluster typing.
+    The graph must use ontology class IRI strings as node IDs. Edges are
+    parent -> child subclass edges. Labels are required only as derived display
+    and notebook-query metadata; they are not the canonical class identity.
     """
 
     if not isinstance(graph, nx.DiGraph):
@@ -41,35 +42,33 @@ def validate_ontology_graph(graph: nx.DiGraph) -> None:
     non_string_nodes = [node_id for node_id in graph.nodes if not isinstance(node_id, str)]
     if non_string_nodes:
         raise OntologyGraphContractError(
-            "Ontology graph node IDs must be strings because selected-path "
-            f"JSONL artifacts persist node IDs. Non-string nodes: {non_string_nodes[:20]}"
+            "Ontology graph node IDs must be class IRI strings because selected-path "
+            f"JSONL artifacts persist class IRIs. Non-string nodes: {non_string_nodes[:20]}"
         )
 
     if not nx.is_directed_acyclic_graph(graph):
         raise OntologyGraphContractError("Ontology graph must be a DAG.")
 
     missing_labels = [
-        node_id
-        for node_id, attrs in graph.nodes(data=True)
+        class_iri
+        for class_iri, attrs in graph.nodes(data=True)
         if not str(attrs.get("label", "")).strip()
     ]
     if missing_labels:
         raise OntologyGraphContractError(
-            "Every ontology node must have a non-empty 'label' attribute. "
-            f"Missing for nodes: {missing_labels[:20]}"
+            "Every ontology class node must have a non-empty 'label' attribute. "
+            f"Missing for class IRIs: {missing_labels[:20]}"
         )
 
-    # Because public resolution is label-only, labels must be unique after
-    # normalization.
-    labels_by_key: dict[str, list[Any]] = {}
-    for node_id, attrs in graph.nodes(data=True):
+    labels_by_key: dict[str, list[str]] = {}
+    for class_iri, attrs in graph.nodes(data=True):
         key = normalize_label(attrs["label"])
-        labels_by_key.setdefault(key, []).append(node_id)
+        labels_by_key.setdefault(key, []).append(str(class_iri))
 
     duplicates = {
-        key: node_ids
-        for key, node_ids in labels_by_key.items()
-        if len(node_ids) > 1
+        key: class_iris
+        for key, class_iris in labels_by_key.items()
+        if len(class_iris) > 1
     }
     if duplicates:
         raise AmbiguousOntologyLabelError(
@@ -78,17 +77,17 @@ def validate_ontology_graph(graph: nx.DiGraph) -> None:
         )
 
 
-def resolve_class_label(graph: nx.DiGraph, class_label: str) -> Any:
+def resolve_class_label(graph: nx.DiGraph, class_label: str) -> str:
     """Resolve an ontology class by actual node ``label`` only.
 
-    Matching is case-insensitive and whitespace-normalized. Node IDs are not
-    searched. ``human_readable_label`` is not searched.
+    Matching is case-insensitive and whitespace-normalized. Class IRIs, local
+    names, and human-readable labels are intentionally not searched here.
     """
 
     key = normalize_label(class_label)
     matches = [
-        node_id
-        for node_id, attrs in graph.nodes(data=True)
+        str(class_iri)
+        for class_iri, attrs in graph.nodes(data=True)
         if normalize_label(attrs.get("label", "")) == key
     ]
 
@@ -98,50 +97,50 @@ def resolve_class_label(graph: nx.DiGraph, class_label: str) -> Any:
     if len(matches) > 1:
         raise AmbiguousOntologyLabelError(
             f"Ambiguous ontology class label {class_label!r}; "
-            f"matching node IDs: {matches}"
+            f"matching class IRIs: {matches}"
         )
 
     return matches[0]
 
 
-def class_label(graph: nx.DiGraph, class_id: Any) -> str:
-    """Return the compact ontology label for a graph node."""
+def class_label(graph: nx.DiGraph, class_iri: str) -> str:
+    """Return the compact ontology label for ``class_iri``."""
 
-    if class_id not in graph:
-        raise KeyError(f"Unknown ontology class node: {class_id!r}")
-    label = str(graph.nodes[class_id].get("label", "")).strip()
+    if class_iri not in graph:
+        raise KeyError(f"Unknown ontology class IRI: {class_iri!r}")
+    label = str(graph.nodes[class_iri].get("label", "")).strip()
     if not label:
         raise OntologyGraphContractError(
-            f"Ontology node {class_id!r} has no non-empty 'label'."
+            f"Ontology class {class_iri!r} has no non-empty 'label'."
         )
     return label
 
 
-def class_human_readable_label(graph: nx.DiGraph, class_id: Any) -> str:
-    """Return the human-readable label, falling back to ``label``."""
+def class_human_readable_label(graph: nx.DiGraph, class_iri: str) -> str:
+    """Return the human-readable label for ``class_iri``, falling back to label."""
 
-    if class_id not in graph:
-        raise KeyError(f"Unknown ontology class node: {class_id!r}")
-    value = str(graph.nodes[class_id].get("human_readable_label", "")).strip()
-    return value or class_label(graph, class_id)
+    if class_iri not in graph:
+        raise KeyError(f"Unknown ontology class IRI: {class_iri!r}")
+    value = str(graph.nodes[class_iri].get("human_readable_label", "")).strip()
+    return value or class_label(graph, class_iri)
 
 
-def ontology_roots(graph: nx.DiGraph) -> list[Any]:
-    """Return ontology root nodes sorted by class label."""
+def ontology_roots(graph: nx.DiGraph) -> list[str]:
+    """Return ontology root class IRIs sorted by class label."""
 
     validate_ontology_graph(graph)
-    roots = [node_id for node_id, indegree in graph.in_degree() if indegree == 0]
-    return sorted(roots, key=lambda node_id: class_label(graph, node_id).casefold())
+    roots = [str(class_iri) for class_iri, indegree in graph.in_degree() if indegree == 0]
+    return sorted(roots, key=lambda class_iri: class_label(graph, class_iri).casefold())
 
 
-def ontology_children(graph: nx.DiGraph, class_id: Any) -> list[Any]:
-    """Return child classes of ``class_id`` sorted by class label."""
+def ontology_children(graph: nx.DiGraph, class_iri: str) -> list[str]:
+    """Return child class IRIs of ``class_iri`` sorted by class label."""
 
-    if class_id not in graph:
-        raise KeyError(f"Unknown ontology class node: {class_id!r}")
+    if class_iri not in graph:
+        raise KeyError(f"Unknown ontology class IRI: {class_iri!r}")
     return sorted(
-        list(graph.successors(class_id)),
-        key=lambda node_id: class_label(graph, node_id).casefold(),
+        [str(child_iri) for child_iri in graph.successors(class_iri)],
+        key=lambda child_iri: class_label(graph, child_iri).casefold(),
     )
 
 
@@ -150,79 +149,76 @@ def ontology_descendants(
     class_label_ref: str,
     *,
     include_self: bool = False,
-) -> set[Any]:
-    """Return descendants of the class whose actual label matches ``class_label_ref``."""
+) -> set[str]:
+    """Return descendant class IRIs of the class whose label matches ``class_label_ref``."""
 
-    class_id = resolve_class_label(graph, class_label_ref)
-    descendants = set(nx.descendants(graph, class_id))
+    class_iri = resolve_class_label(graph, class_label_ref)
+    descendants = {str(descendant) for descendant in nx.descendants(graph, class_iri)}
     if include_self:
-        descendants.add(class_id)
+        descendants.add(class_iri)
     return descendants
 
 
-def is_ontology_leaf(graph: nx.DiGraph, class_id: Any) -> bool:
-    """Return True when ``class_id`` has no outgoing child edges."""
+def is_ontology_leaf(graph: nx.DiGraph, class_iri: str) -> bool:
+    """Return True when ``class_iri`` has no outgoing child edges."""
 
-    if class_id not in graph:
-        raise KeyError(f"Unknown ontology class node: {class_id!r}")
-    return graph.out_degree(class_id) == 0
+    if class_iri not in graph:
+        raise KeyError(f"Unknown ontology class IRI: {class_iri!r}")
+    return graph.out_degree(class_iri) == 0
 
 
-def class_prompt_label(graph: nx.DiGraph, class_id: Any) -> str:
-    """Return the label text used in zero-shot hypotheses.
+def class_prompt_label(graph: nx.DiGraph, class_iri: str) -> str:
+    """Return the label text used in zero-shot hypotheses."""
 
-    The model-facing label is human-readable when available; otherwise it falls
-    back to the compact ontology label.
-    """
-
-    return class_human_readable_label(graph, class_id)
+    return class_human_readable_label(graph, class_iri)
 
 
 def validate_selected_path_edge(
     graph: nx.DiGraph,
     *,
-    parent_id: Any,
-    child_id: Any | None,
+    parent_class_iri: str,
+    child_class_iri: str | None,
     edge_kind: str,
 ) -> None:
-    """Validate one selected-path edge from a JSONL evidence record."""
+    """Validate one selected-path edge from a schema-v2 JSONL evidence record."""
 
     if edge_kind == "root":
         roots = set(ontology_roots(graph))
-        if parent_id != VIRTUAL_ROOT:
+        if parent_class_iri != VIRTUAL_ROOT:
             raise OntologyGraphContractError(
-                f"Root edge must have parent_id={VIRTUAL_ROOT!r}, got {parent_id!r}."
+                f"Root edge must have parent_class_iri={VIRTUAL_ROOT!r}, "
+                f"got {parent_class_iri!r}."
             )
-        if child_id not in roots:
+        if child_class_iri not in roots:
             raise OntologyGraphContractError(
-                f"Root edge child_id={child_id!r} is not an ontology root."
+                f"Root edge child_class_iri={child_class_iri!r} is not an ontology root."
             )
         return
 
     if edge_kind == "stay":
-        if child_id is not None:
+        if child_class_iri is not None:
             raise OntologyGraphContractError(
-                f"Stay edge must have child_id=None, got {child_id!r}."
+                f"Stay edge must have child_class_iri=None, got {child_class_iri!r}."
             )
-        if parent_id not in graph:
+        if parent_class_iri not in graph:
             raise OntologyGraphContractError(
-                f"Stay edge references unknown parent_id={parent_id!r}."
+                f"Stay edge references unknown parent_class_iri={parent_class_iri!r}."
             )
         return
 
     if edge_kind == "child":
-        if parent_id not in graph:
+        if parent_class_iri not in graph:
             raise OntologyGraphContractError(
-                f"Child edge references unknown parent_id={parent_id!r}."
+                f"Child edge references unknown parent_class_iri={parent_class_iri!r}."
             )
-        if child_id not in graph:
+        if child_class_iri not in graph:
             raise OntologyGraphContractError(
-                f"Child edge references unknown child_id={child_id!r}."
+                f"Child edge references unknown child_class_iri={child_class_iri!r}."
             )
-        if not graph.has_edge(parent_id, child_id):
+        if not graph.has_edge(parent_class_iri, child_class_iri):
             raise OntologyGraphContractError(
-                f"Selected child edge is not present in ontology graph: "
-                f"{parent_id!r} -> {child_id!r}."
+                "Selected child edge is not present in ontology graph: "
+                f"{parent_class_iri!r} -> {child_class_iri!r}."
             )
         return
 

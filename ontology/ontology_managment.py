@@ -149,6 +149,7 @@ def class_dag(onto: SyncOntology, ontology_path: str | Path | None = None) -> nx
 
         graph.add_node(
             iri,
+            iri=iri,
             label=label,
             human_readable_label=human_label(label),
             description=desc or "",

@@ -24,7 +24,6 @@ from ocean.ocean_probability_scoring import (
 
 from .graph_contract import (
     VIRTUAL_ROOT,
-    class_label,
     class_prompt_label,
     is_ontology_leaf,
     ontology_children,
@@ -52,7 +51,7 @@ __all__ = [
 
 
 DEFAULT_MODEL_NAME = "MoritzLaurer/deberta-v3-large-zeroshot-v2.0"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 CLUSTER_TYPING_MENTION_WEIGHT_LABELS: dict[str, str] = {
@@ -143,7 +142,7 @@ class ClusterTypingEvidenceExportConfig:
 
 @dataclass(frozen=True)
 class _Candidate:
-    class_id: str | None
+    class_iri: str | None
     edge_kind: str
     hypothesis: str
 
@@ -184,12 +183,12 @@ def _score_grouped_probabilities(
 def _candidate_hypothesis(
     *,
     graph: nx.DiGraph,
-    candidate_class_id: str,
+    candidate_class_iri: str,
     edge_kind: str,
     subject: str | None,
     scoring_config: ClusterTypingScoringConfig,
 ) -> str:
-    label = class_prompt_label(graph, candidate_class_id)
+    label = class_prompt_label(graph, candidate_class_iri)
 
     if edge_kind == "stay":
         template = (
@@ -255,14 +254,14 @@ def _selected_path_for_mention(
     selected_path: list[dict[str, Any]] = []
 
     if len(roots) > 1:
-        parent_id: str = VIRTUAL_ROOT
+        parent_class_iri: str = VIRTUAL_ROOT
         candidates = [
             _Candidate(
-                class_id=root,
+                class_iri=root,
                 edge_kind="root",
                 hypothesis=_candidate_hypothesis(
                     graph=graph,
-                    candidate_class_id=root,
+                    candidate_class_iri=root,
                     edge_kind="root",
                     subject=subject,
                     scoring_config=scoring_config,
@@ -278,50 +277,50 @@ def _selected_path_for_mention(
         )
         best_i = max(range(len(candidates)), key=lambda i: probabilities[i])
         chosen = candidates[best_i]
-        current_id = str(chosen.class_id)
+        current_class_iri = str(chosen.class_iri)
         selected_path.append(
             {
-                "parent_id": parent_id,
-                "child_id": current_id,
+                "parent_class_iri": parent_class_iri,
+                "child_class_iri": current_class_iri,
                 "edge_kind": "root",
                 "edge_weight": float(probabilities[best_i]),
             }
         )
     else:
-        current_id = str(roots[0])
+        current_class_iri = str(roots[0])
 
     depth = 0
     while True:
         if traversal_config.max_depth is not None and depth >= traversal_config.max_depth:
             break
 
-        if is_ontology_leaf(graph, current_id):
+        if is_ontology_leaf(graph, current_class_iri):
             break
 
-        child_ids = ontology_children(graph, current_id)
+        child_class_iris = ontology_children(graph, current_class_iri)
         candidates: list[_Candidate] = [
             _Candidate(
-                class_id=child_id,
+                class_iri=child_class_iri,
                 edge_kind="child",
                 hypothesis=_candidate_hypothesis(
                     graph=graph,
-                    candidate_class_id=child_id,
+                    candidate_class_iri=child_class_iri,
                     edge_kind="child",
                     subject=subject,
                     scoring_config=scoring_config,
                 ),
             )
-            for child_id in child_ids
+            for child_class_iri in child_class_iris
         ]
 
         if traversal_config.include_stay_option and not traversal_config.force_leaf:
             candidates.append(
                 _Candidate(
-                    class_id=current_id,
+                    class_iri=current_class_iri,
                     edge_kind="stay",
                     hypothesis=_candidate_hypothesis(
                         graph=graph,
-                        candidate_class_id=current_id,
+                        candidate_class_iri=current_class_iri,
                         edge_kind="stay",
                         subject=subject,
                         scoring_config=scoring_config,
@@ -345,24 +344,24 @@ def _selected_path_for_mention(
         if chosen.edge_kind == "stay":
             selected_path.append(
                 {
-                    "parent_id": current_id,
-                    "child_id": None,
+                    "parent_class_iri": current_class_iri,
+                    "child_class_iri": None,
                     "edge_kind": "stay",
                     "edge_weight": chosen_probability,
                 }
             )
             break
 
-        child_id = str(chosen.class_id)
+        child_class_iri = str(chosen.class_iri)
         selected_path.append(
             {
-                "parent_id": current_id,
-                "child_id": child_id,
+                "parent_class_iri": current_class_iri,
+                "child_class_iri": child_class_iri,
                 "edge_kind": "child",
                 "edge_weight": chosen_probability,
             }
         )
-        current_id = child_id
+        current_class_iri = child_class_iri
         depth += 1
 
     return selected_path
