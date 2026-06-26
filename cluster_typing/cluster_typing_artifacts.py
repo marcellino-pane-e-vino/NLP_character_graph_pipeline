@@ -1,4 +1,4 @@
-"""JSONL artifact helpers for cluster ontology typing."""
+"""JSONL artifact helpers for cluster typing."""
 
 from __future__ import annotations
 
@@ -13,8 +13,8 @@ __all__ = [
     "write_jsonl",
     "append_jsonl",
     "completed_mention_ids_from_jsonl",
-    "ontology_typing_output_dir",
-    "default_cluster_jsonl_path",
+    "cluster_typing_output_dir",
+    "default_cluster_typing_jsonl_path",
     "safe_filename_component",
 ]
 
@@ -27,16 +27,16 @@ def safe_filename_component(value: Any, *, default: str = "unknown") -> str:
     return text or default
 
 
-def ontology_typing_output_dir(
+def cluster_typing_output_dir(
     *,
     output_root: str | Path,
     n_mentions_per_cluster: int | None,
 ) -> Path:
     n_part = "all" if n_mentions_per_cluster is None else str(n_mentions_per_cluster)
-    return Path(output_root) / "ontology_typing" / n_part
+    return Path(output_root) / "cluster_typing" / n_part
 
 
-def default_cluster_jsonl_path(
+def default_cluster_typing_jsonl_path(
     output_dir: str | Path,
     *,
     cluster_id: int,
@@ -47,7 +47,7 @@ def default_cluster_jsonl_path(
     n_part = "all" if n_mentions is None else str(n_mentions)
     return (
         Path(output_dir)
-        / f"ontology_evidence_cluster_{int(cluster_id)}_{subject_part}_{n_part}.jsonl"
+        / f"cluster_typing_evidence_cluster_{int(cluster_id)}_{subject_part}_{n_part}.jsonl"
     )
 
 

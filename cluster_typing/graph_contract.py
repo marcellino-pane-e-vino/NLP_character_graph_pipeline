@@ -1,20 +1,3 @@
-"""Graph contract helpers for cluster ontology typing.
-
-The cluster-typing subsystem intentionally does not build ontology graphs.
-It only consumes an already-built ``networkx.DiGraph`` whose nodes represent
-ontology classes and whose edges are oriented parent -> child.
-
-Required node attribute:
-    label: compact ontology class label, e.g. "HumanCharacter"
-
-Optional node attribute:
-    human_readable_label: prompt/display label, e.g. "Human Character"
-
-Class lookup is intentionally case-insensitive and label-only:
-    resolve_class_label(graph, "humancharacter") searches node["label"] only.
-It does not search node IDs, IRIs, local names, or human_readable_label.
-"""
-
 from __future__ import annotations
 
 from typing import Any

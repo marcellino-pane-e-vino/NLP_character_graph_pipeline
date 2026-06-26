@@ -57,12 +57,6 @@ class RelationMention:
 
 @dataclass(frozen=True, slots=True)
 class RelationAssignment:
-    """Neural ontology-property assignment for one RelationMention.
-
-    The logits are primary. Softmax scores, chosen property, confidence, margin,
-    and entropy are derived by RelationLayer helper methods.
-    """
-
     relation_mention: RelationMention
     object_property_logits: dict[str, float]
     selection_method: str

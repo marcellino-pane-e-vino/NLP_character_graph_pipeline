@@ -1,7 +1,7 @@
-"""Ontology JSONL annotator.
+"""Cluster-typing JSONL annotator.
 
 This module reads compact JSONL artifacts produced by
-``ontology_probability_scoring`` and creates a fresh ``doc._.ontology_layer``.
+``cluster_typing_probability_scoring`` and creates a fresh ``doc._.cluster_typing_layer``.
 
 It does not decide which clusters should have been scored and does not know how
 the ontology graph was created. The caller provides a valid ``networkx.DiGraph``.
@@ -28,29 +28,29 @@ from .graph_contract import (
     validate_ontology_graph,
     validate_selected_path_edge,
 )
-from .ontology_artifacts import read_jsonl
-from .ontology_schema import (
-    ClusterOntologyAnnotation,
-    OntologyLayer,
-    register_spacy_ontology_extension,
+from .cluster_typing_artifacts import read_jsonl
+from .cluster_typing_schema import (
+    ClusterTypingAnnotation,
+    ClusterTypingLayer,
+    register_spacy_cluster_typing_extension,
 )
 
 
 __all__ = [
-    "OntologyAnnotationConfig",
-    "OntologyAnnotationError",
+    "ClusterTypingAnnotationConfig",
+    "ClusterTypingAnnotationError",
     "collapse_mention_weight",
-    "annotate_doc_with_ontology_folder",
+    "annotate_doc_with_cluster_typing_folder",
 ]
 
 
-class OntologyAnnotationError(ValueError):
-    """Raised when ontology JSONL artifacts cannot annotate the given Doc."""
+class ClusterTypingAnnotationError(ValueError):
+    """Raised when cluster-typing JSONL artifacts cannot annotate the given Doc."""
 
 
 @dataclass(frozen=True)
-class OntologyAnnotationConfig:
-    """Configuration for rebuilding ``doc._.ontology_layer`` from JSONL artifacts."""
+class ClusterTypingAnnotationConfig:
+    """Configuration for rebuilding ``doc._.cluster_typing_layer`` from JSONL artifacts."""
 
     use_mention_weight: bool = True
     aggregation_method: str = "top_down_weighted_edge"
@@ -72,8 +72,8 @@ def collapse_mention_weight(
 def _require_single_cluster_id(records: list[dict[str, Any]], *, jsonl_path: Path) -> int:
     cluster_ids = sorted({int(record["cluster_id"]) for record in records})
     if len(cluster_ids) != 1:
-        raise OntologyAnnotationError(
-            f"Each ontology JSONL must contain exactly one cluster_id. "
+        raise ClusterTypingAnnotationError(
+            f"Each cluster-typing JSONL must contain exactly one cluster_id. "
             f"Found {cluster_ids} in {jsonl_path}"
         )
     return int(cluster_ids[0])
@@ -93,19 +93,19 @@ def _validate_record_alignment(
         mention_end = int(record["mention_end"])
         mention_text = str(record["mention_text"])
     except KeyError as exc:
-        raise OntologyAnnotationError(
-            f"Ontology JSONL record missing required identity field {exc.args[0]!r}. "
+        raise ClusterTypingAnnotationError(
+            f"Cluster-typing JSONL record missing required identity field {exc.args[0]!r}. "
             f"JSONL: {jsonl_path}, row={row_index}"
         ) from exc
 
     if cluster_id not in coref_layer.clusters:
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL references unknown cluster_id={cluster_id}. "
             f"JSONL: {jsonl_path}, row={row_index}"
         )
 
     if mention_id not in coref_layer.mentions:
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL references unknown mention_id={mention_id}. "
             f"JSONL: {jsonl_path}, row={row_index}"
         )
@@ -113,14 +113,14 @@ def _validate_record_alignment(
     mention = coref_layer.mentions[mention_id]
 
     if int(mention.cluster_id) != cluster_id:
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL/coref cluster mismatch for mention_id={mention_id}: "
             f"JSONL cluster_id={cluster_id}, coref cluster_id={mention.cluster_id}. "
             f"JSONL: {jsonl_path}, row={row_index}"
         )
 
     if mention_start != int(mention.start) or mention_end != int(mention.end):
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL/coref span mismatch for mention_id={mention_id}: "
             f"JSONL span=({mention_start}, {mention_end}), "
             f"coref span=({mention.start}, {mention.end}). "
@@ -128,7 +128,7 @@ def _validate_record_alignment(
         )
 
     if mention_text != str(mention.text):
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL/coref text mismatch for mention_id={mention_id}: "
             f"JSONL text={mention_text!r}, coref text={str(mention.text)!r}. "
             f"JSONL: {jsonl_path}, row={row_index}"
@@ -146,14 +146,14 @@ def _validate_selected_path(
 ) -> list[dict[str, Any]]:
     selected_path = record.get("selected_path")
     if not isinstance(selected_path, list):
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL record must contain selected_path as a list. "
             f"JSONL: {jsonl_path}, row={row_index}"
         )
 
     for edge_index, edge in enumerate(selected_path):
         if not isinstance(edge, dict):
-            raise OntologyAnnotationError(
+            raise ClusterTypingAnnotationError(
                 f"selected_path[{edge_index}] must be an object. "
                 f"JSONL: {jsonl_path}, row={row_index}"
             )
@@ -164,13 +164,13 @@ def _validate_selected_path(
             child_id = edge.get("child_id")
             edge_weight = float(edge["edge_weight"])
         except KeyError as exc:
-            raise OntologyAnnotationError(
+            raise ClusterTypingAnnotationError(
                 f"selected_path[{edge_index}] missing required field {exc.args[0]!r}. "
                 f"JSONL: {jsonl_path}, row={row_index}"
             ) from exc
 
         if not 0.0 <= edge_weight <= 1.0:
-            raise OntologyAnnotationError(
+            raise ClusterTypingAnnotationError(
                 f"selected_path[{edge_index}].edge_weight must be in [0, 1], "
                 f"got {edge_weight}. JSONL: {jsonl_path}, row={row_index}"
             )
@@ -183,7 +183,7 @@ def _validate_selected_path(
                 edge_kind=edge_kind,
             )
         except Exception as exc:
-            raise OntologyAnnotationError(
+            raise ClusterTypingAnnotationError(
                 f"Invalid selected_path edge at index {edge_index}. "
                 f"JSONL: {jsonl_path}, row={row_index}: {exc}"
             ) from exc
@@ -194,7 +194,7 @@ def _validate_selected_path(
 def _mention_weight_from_record(
     record: dict[str, Any],
     *,
-    config: OntologyAnnotationConfig,
+    config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
     row_index: int,
 ) -> float:
@@ -203,7 +203,7 @@ def _mention_weight_from_record(
 
     raw = record.get("mention_weight_raw")
     if not isinstance(raw, dict):
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"JSONL record must contain mention_weight_raw object when "
             f"use_mention_weight=True. JSONL: {jsonl_path}, row={row_index}"
         )
@@ -216,7 +216,7 @@ def _mention_weight_from_record(
             rounding_digits=config.rounding_digits,
         )
     except KeyError as exc:
-        raise OntologyAnnotationError(
+        raise ClusterTypingAnnotationError(
             f"mention_weight_raw missing field {exc.args[0]!r}. "
             f"JSONL: {jsonl_path}, row={row_index}"
         ) from exc
@@ -226,11 +226,11 @@ def _aggregate_cluster_class_id(
     *,
     graph: nx.DiGraph,
     records: list[dict[str, Any]],
-    config: OntologyAnnotationConfig,
+    config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
 ) -> str:
     if not records:
-        raise OntologyAnnotationError(f"Cannot aggregate empty JSONL: {jsonl_path}")
+        raise ClusterTypingAnnotationError(f"Cannot aggregate empty JSONL: {jsonl_path}")
 
     edge_scores: dict[tuple[str, str], float] = defaultdict(float)
 
@@ -262,7 +262,7 @@ def _aggregate_cluster_class_id(
 
     roots = ontology_roots(graph)
     if not roots:
-        raise OntologyAnnotationError("Ontology graph has no roots.")
+        raise ClusterTypingAnnotationError("Ontology graph has no roots.")
 
     if len(roots) > 1:
         current_id = VIRTUAL_ROOT
@@ -278,7 +278,7 @@ def _aggregate_cluster_class_id(
         }
         best_root, best_score = max(root_scores.items(), key=lambda item: item[1])
         if best_score <= 0.0:
-            raise OntologyAnnotationError(
+            raise ClusterTypingAnnotationError(
                 "Could not choose a root class from selected path evidence."
             )
         current_id = best_root
@@ -310,9 +310,9 @@ def _cluster_annotation_from_records(
     graph: nx.DiGraph,
     cluster_id: int,
     records: list[dict[str, Any]],
-    config: OntologyAnnotationConfig,
+    config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
-) -> ClusterOntologyAnnotation:
+) -> ClusterTypingAnnotation:
     final_class_id = _aggregate_cluster_class_id(
         graph=graph,
         records=records,
@@ -320,7 +320,7 @@ def _cluster_annotation_from_records(
         jsonl_path=jsonl_path,
     )
 
-    return ClusterOntologyAnnotation(
+    return ClusterTypingAnnotation(
         cluster_id=int(cluster_id),
         class_id=final_class_id,
         class_label=class_label(graph, final_class_id),
@@ -328,15 +328,15 @@ def _cluster_annotation_from_records(
     )
 
 
-def annotate_doc_with_ontology_folder(
+def annotate_doc_with_cluster_typing_folder(
     doc: Any,
     graph: nx.DiGraph,
     folder_path: str | Path,
     *,
-    config: OntologyAnnotationConfig | None = None,
-    pattern: str = "ontology_evidence_cluster_*.jsonl",
+    config: ClusterTypingAnnotationConfig | None = None,
+    pattern: str = "cluster_typing_evidence_cluster_*.jsonl",
 ) -> Any:
-    """Annotate ``doc`` with a fresh ``doc._.ontology_layer`` from JSONL files.
+    """Annotate ``doc`` with a fresh ``doc._.cluster_typing_layer`` from JSONL files.
 
     The annotator processes every matching JSONL in the folder. It does not
     decide whether those JSONLs should exist and does not inspect semantic types.
@@ -344,35 +344,35 @@ def annotate_doc_with_ontology_folder(
 
     validate_ontology_graph(graph)
 
-    config = config or OntologyAnnotationConfig()
+    config = config or ClusterTypingAnnotationConfig()
     folder = Path(folder_path)
     if not folder.exists() or not folder.is_dir():
-        raise OntologyAnnotationError(
-            f"Ontology evidence folder does not exist or is not a directory: {folder}"
+        raise ClusterTypingAnnotationError(
+            f"Cluster-typing evidence folder does not exist or is not a directory: {folder}"
         )
 
     jsonl_paths = sorted(folder.glob(pattern))
     if not jsonl_paths:
-        raise OntologyAnnotationError(
-            f"No ontology JSONL files found in {folder} with pattern {pattern!r}"
+        raise ClusterTypingAnnotationError(
+            f"No cluster-typing JSONL files found in {folder} with pattern {pattern!r}"
         )
 
     coref_layer = require_coref_layer(doc)
-    register_spacy_ontology_extension()
+    register_spacy_cluster_typing_extension()
 
-    ontology_layer = OntologyLayer(graph=graph, source_folder=str(folder))
+    cluster_typing_layer = ClusterTypingLayer(graph=graph, source_folder=str(folder))
     seen_cluster_ids: set[int] = set()
     seen_mention_ids: set[int] = set()
 
     for jsonl_path in jsonl_paths:
         records = list(read_jsonl(jsonl_path))
         if not records:
-            raise OntologyAnnotationError(f"Ontology JSONL is empty: {jsonl_path}")
+            raise ClusterTypingAnnotationError(f"Cluster-typing JSONL is empty: {jsonl_path}")
 
         cluster_id = _require_single_cluster_id(records, jsonl_path=jsonl_path)
         if cluster_id in seen_cluster_ids:
-            raise OntologyAnnotationError(
-                f"Duplicate ontology JSONLs for cluster_id={cluster_id}. "
+            raise ClusterTypingAnnotationError(
+                f"Duplicate cluster-typing JSONLs for cluster_id={cluster_id}. "
                 f"Ambiguous cluster annotation in folder {folder}"
             )
         seen_cluster_ids.add(cluster_id)
@@ -386,12 +386,12 @@ def annotate_doc_with_ontology_folder(
             )
 
             if mention_id in seen_mention_ids:
-                raise OntologyAnnotationError(
-                    f"Duplicate mention_id={mention_id} across ontology JSONLs in {folder}."
+                raise ClusterTypingAnnotationError(
+                    f"Duplicate mention_id={mention_id} across cluster-typing JSONLs in {folder}."
                 )
             seen_mention_ids.add(mention_id)
 
-        ontology_layer.clusters[cluster_id] = _cluster_annotation_from_records(
+        cluster_typing_layer.clusters[cluster_id] = _cluster_annotation_from_records(
             graph=graph,
             cluster_id=cluster_id,
             records=records,
@@ -399,5 +399,5 @@ def annotate_doc_with_ontology_folder(
             jsonl_path=jsonl_path,
         )
 
-    doc._.ontology_layer = ontology_layer
+    doc._.cluster_typing_layer = cluster_typing_layer
     return doc

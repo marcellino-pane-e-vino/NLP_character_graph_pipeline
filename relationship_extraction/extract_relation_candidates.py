@@ -12,9 +12,9 @@ from coreference.coref_schema import require_coref_layer
 from relationship_extraction.relation_schema import make_relation_mention_id
 
 try:  # project-local dependency, optional for tests that pass cluster_type_layer explicitly
-    from cluster_typing.ontology_schema import require_ontology_layer
+    from cluster_typing.cluster_typing_schema import require_cluster_typing_layer
 except ImportError:  # pragma: no cover
-    require_ontology_layer = None
+    require_cluster_typing_layer = None
 
 
 SUBJECT_DEPS = {
@@ -157,13 +157,13 @@ def _require_cluster_type_layer(doc: Any, cluster_type_layer: Any | None) -> Any
     if cluster_type_layer is not None:
         return cluster_type_layer
 
-    if require_ontology_layer is None:
+    if require_cluster_typing_layer is None:
         raise ValueError(
-            "cluster_type_layer was not provided and cluster_typing.ontology_schema "
+            "cluster_type_layer was not provided and cluster_typing.cluster_typing schema"
             "could not be imported. Pass cluster_type_layer explicitly."
         )
 
-    return require_ontology_layer(doc)
+    return require_cluster_typing_layer(doc)
 
 
 def _token_mentions(coref: Any, token: Any) -> list[Any]:

@@ -1,24 +1,3 @@
-"""JSONL-first ontology cluster typing evidence export.
-
-This module is the model-inference/export stage of the ontology typing pipeline.
-It consumes ``doc._.coref_layer`` and an external ``networkx.DiGraph`` ontology
-DAG. Multi-cluster export intentionally labels every cluster present in
-``doc._.coref_layer``.
-
-It does not build the ontology graph, does not filter or semantically select
-clusters, does not annotate the Doc, and never mutates ``doc._.coref_layer``.
-
-Output contract:
-    ``./outputs/ontology_typing/{n_mentions}/ontology_evidence_cluster_*.jsonl``
-
-Each JSONL record stores only:
-    - stable mention identity fields
-    - the selected ontology path as weighted edges
-    - raw high/medium/low mention-weight probabilities
-
-No candidate distributions are stored.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -52,23 +31,23 @@ from .graph_contract import (
     ontology_roots,
     validate_ontology_graph,
 )
-from .ontology_artifacts import (
+from .cluster_typing_artifacts import (
     append_jsonl,
     completed_mention_ids_from_jsonl,
-    default_cluster_jsonl_path,
-    ontology_typing_output_dir,
+    default_cluster_typing_jsonl_path,
+    cluster_typing_output_dir,
 )
 
 
 __all__ = [
     "DEFAULT_MODEL_NAME",
-    "ONTOLOGY_MENTION_WEIGHT_LABELS",
-    "OntologyTraversalConfig",
-    "OntologyScoringConfig",
-    "OntologyMentionWeightConfig",
-    "OntologyEvidenceExportConfig",
-    "export_ontology_evidence_jsonl_for_cluster",
-    "export_ontology_evidence_jsonls",
+    "CLUSTER_TYPING_MENTION_WEIGHT_LABELS",
+    "ClusterTypingTraversalConfig",
+    "ClusterTypingScoringConfig",
+    "ClusterTypingMentionWeightConfig",
+    "ClusterTypingEvidenceExportConfig",
+    "export_cluster_typing_evidence_jsonl_for_cluster",
+    "export_cluster_typing_evidence_jsonls",
 ]
 
 
@@ -76,26 +55,26 @@ DEFAULT_MODEL_NAME = "MoritzLaurer/deberta-v3-large-zeroshot-v2.0"
 SCHEMA_VERSION = 1
 
 
-ONTOLOGY_MENTION_WEIGHT_LABELS: dict[str, str] = {
+CLUSTER_TYPING_MENTION_WEIGHT_LABELS: dict[str, str] = {
     "high": (
-        "strong ontology typing evidence: the entity is named, described, "
+        "strong cluster typing evidence: the entity is named, described, "
         "or used in a way that clearly helps decide what kind of narrative "
         "entity it is"
     ),
     "medium": (
-        "weak or ambiguous ontology typing evidence: the entity has some "
+        "weak or ambiguous cluster typing evidence: the entity has some "
         "contextual clues about its entity type, but the evidence is indirect "
         "or incomplete"
     ),
     "low": (
-        "no useful ontology typing evidence: the entity is mentioned in a "
-        "context that does not help decide its ontology class"
+        "no useful cluster typing evidence: the entity is mentioned in a "
+        "context that does not help decide its cluster type"
     ),
 }
 
 
 @dataclass(frozen=True)
-class OntologyTraversalConfig:
+class ClusterTypingTraversalConfig:
     """Controls greedy mention-level ontology traversal."""
 
     skip_single_root: bool = True
@@ -105,8 +84,8 @@ class OntologyTraversalConfig:
 
 
 @dataclass(frozen=True)
-class OntologyScoringConfig:
-    """Runtime configuration for direct-NLI ontology edge scoring."""
+class ClusterTypingScoringConfig:
+    """Runtime configuration for direct-NLI cluster typing edge scoring."""
 
     model_name: str = DEFAULT_MODEL_NAME
 
@@ -124,20 +103,20 @@ class OntologyScoringConfig:
 
 
 @dataclass(frozen=True)
-class OntologyMentionWeightConfig:
-    """Configuration for raw ontology mention-weight probability scoring."""
+class ClusterTypingMentionWeightConfig:
+    """Configuration for raw cluster typing mention-weight probability scoring."""
 
     generic_hypothesis_template: str = "In this text, the entity provides {label}."
     subject_hypothesis_template: str = "In this text, {subject} provides {label}."
 
 
 @dataclass(frozen=True)
-class OntologyEvidenceExportConfig:
-    """Configuration for all-cluster ontology evidence export.
+class ClusterTypingEvidenceExportConfig:
+    """Configuration for all-cluster cluster-typing evidence export.
 
     Cluster selection is deliberately not configurable here: multi-cluster
     export always processes every cluster in ``doc._.coref_layer``. Keep
-    ``export_ontology_evidence_jsonl_for_cluster`` for focused debugging or
+    ``export_cluster_typing_evidence_jsonl_for_cluster`` for focused debugging or
     one-off experiments on a single cluster.
     """
 
@@ -154,9 +133,9 @@ class OntologyEvidenceExportConfig:
 
     context_config: ContextConfig = field(default_factory=ContextConfig)
     rendering_config: MentionRenderingConfig = field(default_factory=MentionRenderingConfig)
-    traversal_config: OntologyTraversalConfig = field(default_factory=OntologyTraversalConfig)
-    scoring_config: OntologyScoringConfig = field(default_factory=OntologyScoringConfig)
-    mention_weight_config: OntologyMentionWeightConfig = field(default_factory=OntologyMentionWeightConfig)
+    traversal_config: ClusterTypingTraversalConfig = field(default_factory=ClusterTypingTraversalConfig)
+    scoring_config: ClusterTypingScoringConfig = field(default_factory=ClusterTypingScoringConfig)
+    mention_weight_config: ClusterTypingMentionWeightConfig = field(default_factory=ClusterTypingMentionWeightConfig)
     nli_config: DirectNLIConfig = field(default_factory=DirectNLIConfig)
 
     print_progress: bool = True
@@ -208,7 +187,7 @@ def _candidate_hypothesis(
     candidate_class_id: str,
     edge_kind: str,
     subject: str | None,
-    scoring_config: OntologyScoringConfig,
+    scoring_config: ClusterTypingScoringConfig,
 ) -> str:
     label = class_prompt_label(graph, candidate_class_id)
 
@@ -232,8 +211,8 @@ def _score_mention_weight_raw(
     *,
     context_text: str,
     subject: str | None,
-    scoring_config: OntologyScoringConfig,
-    mention_weight_config: OntologyMentionWeightConfig,
+    scoring_config: ClusterTypingScoringConfig,
+    mention_weight_config: ClusterTypingMentionWeightConfig,
     nli_config: DirectNLIConfig,
 ) -> dict[str, float]:
     template = (
@@ -246,7 +225,7 @@ def _score_mention_weight_raw(
     hypotheses = [
         _format_template(
             template,
-            label=ONTOLOGY_MENTION_WEIGHT_LABELS[key],
+            label=CLUSTER_TYPING_MENTION_WEIGHT_LABELS[key],
             subject=subject,
         )
         for key in ordered_keys
@@ -265,8 +244,8 @@ def _selected_path_for_mention(
     graph: nx.DiGraph,
     context_text: str,
     subject: str | None,
-    traversal_config: OntologyTraversalConfig,
-    scoring_config: OntologyScoringConfig,
+    traversal_config: ClusterTypingTraversalConfig,
+    scoring_config: ClusterTypingScoringConfig,
     nli_config: DirectNLIConfig,
 ) -> list[dict[str, Any]]:
     roots = ontology_roots(graph)
@@ -393,9 +372,9 @@ def _evidence_record_for_mention(
     *,
     graph: nx.DiGraph,
     record: Any,
-    traversal_config: OntologyTraversalConfig,
-    scoring_config: OntologyScoringConfig,
-    mention_weight_config: OntologyMentionWeightConfig,
+    traversal_config: ClusterTypingTraversalConfig,
+    scoring_config: ClusterTypingScoringConfig,
+    mention_weight_config: ClusterTypingMentionWeightConfig,
     nli_config: DirectNLIConfig,
 ) -> dict[str, Any]:
     selected_path = _selected_path_for_mention(
@@ -435,7 +414,7 @@ def _evidence_record_for_mention(
     }
 
 
-def export_ontology_evidence_jsonl_for_cluster(
+def export_cluster_typing_evidence_jsonl_for_cluster(
     *,
     doc: Any,
     graph: nx.DiGraph,
@@ -446,9 +425,9 @@ def export_ontology_evidence_jsonl_for_cluster(
     sort_sample_by_cluster_order: bool = True,
     context_config: ContextConfig | None = None,
     rendering_config: MentionRenderingConfig | None = None,
-    traversal_config: OntologyTraversalConfig | None = None,
-    scoring_config: OntologyScoringConfig | None = None,
-    mention_weight_config: OntologyMentionWeightConfig | None = None,
+    traversal_config: ClusterTypingTraversalConfig | None = None,
+    scoring_config: ClusterTypingScoringConfig | None = None,
+    mention_weight_config: ClusterTypingMentionWeightConfig | None = None,
     nli_config: DirectNLIConfig | None = None,
     chunk_size: int = 16,
     overwrite_jsonl: bool = False,
@@ -475,9 +454,9 @@ def export_ontology_evidence_jsonl_for_cluster(
 
     context_config = context_config or ContextConfig(deduplicate=False)
     rendering_config = rendering_config or MentionRenderingConfig()
-    traversal_config = traversal_config or OntologyTraversalConfig()
-    scoring_config = scoring_config or OntologyScoringConfig()
-    mention_weight_config = mention_weight_config or OntologyMentionWeightConfig()
+    traversal_config = traversal_config or ClusterTypingTraversalConfig()
+    scoring_config = scoring_config or ClusterTypingScoringConfig()
+    mention_weight_config = mention_weight_config or ClusterTypingMentionWeightConfig()
     nli_config = nli_config or DirectNLIConfig()
 
     subject = canonical_name_for_cluster(doc, cluster_id)
@@ -485,7 +464,7 @@ def export_ontology_evidence_jsonl_for_cluster(
 
     if print_progress:
         print("=" * 100)
-        print("Ontology evidence JSONL export")
+        print("Cluster-typing evidence JSONL export")
         print(f"cluster_id: {cluster_id}")
         print(f"subject: {subject!r}")
         print(f"requested mentions: {n_mentions}")
@@ -578,21 +557,21 @@ def _all_cluster_ids_from_doc(doc: Any) -> list[int]:
     coref_layer = require_coref_layer(doc)
     cluster_ids = sorted(int(cluster_id) for cluster_id in coref_layer.clusters)
     if not cluster_ids:
-        raise ValueError("doc._.coref_layer has no clusters to ontology-type.")
+        raise ValueError("doc._.coref_layer has no clusters to cluster-type.")
     return cluster_ids
 
 
-def export_ontology_evidence_jsonls(
+def export_cluster_typing_evidence_jsonls(
     doc: Any,
     graph: nx.DiGraph,
-    config: OntologyEvidenceExportConfig,
+    config: ClusterTypingEvidenceExportConfig,
 ) -> dict[int, Path]:
-    """Export ontology evidence JSONLs for every cluster in ``doc._.coref_layer``."""
+    """Export cluster-typing evidence JSONLs for every cluster in ``doc._.coref_layer``."""
 
     validate_ontology_graph(graph)
     cluster_ids = _all_cluster_ids_from_doc(doc)
 
-    output_dir = ontology_typing_output_dir(
+    output_dir = cluster_typing_output_dir(
         output_root=config.output_root,
         n_mentions_per_cluster=config.n_mentions_per_cluster,
     )
@@ -600,7 +579,7 @@ def export_ontology_evidence_jsonls(
 
     if config.print_progress:
         print("=" * 100)
-        print("All-cluster ontology evidence export")
+        print("All-cluster cluster-typing evidence export")
         print(f"cluster source: doc._.coref_layer.clusters")
         print(f"n_clusters: {len(cluster_ids)}")
         print(f"cluster_ids: {cluster_ids}")
@@ -612,7 +591,7 @@ def export_ontology_evidence_jsonls(
 
     for cluster_position, cluster_id in enumerate(cluster_ids, start=1):
         subject = canonical_name_for_cluster(doc, cluster_id)
-        jsonl_path = default_cluster_jsonl_path(
+        jsonl_path = default_cluster_typing_jsonl_path(
             output_dir,
             cluster_id=cluster_id,
             subject=subject,
@@ -630,7 +609,7 @@ def export_ontology_evidence_jsonls(
             print(f"per_cluster_seed: {per_cluster_seed}")
             print("-" * 100)
 
-        export_ontology_evidence_jsonl_for_cluster(
+        export_cluster_typing_evidence_jsonl_for_cluster(
             doc=doc,
             graph=graph,
             cluster_id=cluster_id,

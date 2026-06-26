@@ -646,7 +646,7 @@ so the function becomes conceptually:
 ```python
 def load_doc(path):
     ensure_booknlp_extensions()
-    register_spacy_ontology_extension()
+    register_spacy_cluster_typing_extension()
     register_spacy_ocean_extension()
     register_spacy_relation_extension()
     ...
@@ -712,7 +712,7 @@ Replace the notebook-local prototype code with calls to the module.
 ```python
 relation_candidates_df = extract_relation_candidates(
     doc,
-    cluster_type_layer=doc._.ontology_layer,
+    cluster_type_layer=doc._.cluster_typing_layer,
 )
 
 relation_candidates_df[
@@ -736,7 +736,7 @@ relation_candidates_df[
 ```python
 export_routed_relation_candidates_jsonl(
     doc=doc,
-    cluster_type_layer=doc._.ontology_layer,
+    cluster_type_layer=doc._.cluster_typing_layer,
     relation_router=relation_router,
     output_path=ROUTED_RELATION_CANDIDATES_PATH,
     print_discards=True,

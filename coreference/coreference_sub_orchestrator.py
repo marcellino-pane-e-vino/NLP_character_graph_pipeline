@@ -12,7 +12,8 @@ from coreference.annotator import annotate_doc_with_global_coref
 from artifact_io import LocalClusterMarathonStore, load_local_clusters_artifact
 from coreference.coref_schema import register_spacy_coref_extension, require_coref_layer
 from coreference.coreference_cluster_extractor import create_coreference_cluster_extractor
-from coreference.global_coref_merger_aggregative import merge_local_coreference_clusters
+# from coreference.global_coref_merger_aggregative import merge_local_coreference_clusters
+from coreference.global_coref_merger_connected_components import merge_local_coreference_clusters
 from coreference.local_clusters import (
     create_local_clusters_metadata,
     extracted_chunk_to_rows,

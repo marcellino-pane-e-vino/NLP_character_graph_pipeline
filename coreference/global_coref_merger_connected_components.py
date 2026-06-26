@@ -1323,12 +1323,12 @@ def should_veto_global_merge(
 
 
 # ---------------------------------------------------------------------------
-# Aggregative merging
+# Connected-components merging
 # ---------------------------------------------------------------------------
 
 
 def component_document_order_key(component: MergeComponent) -> tuple[int, int, str]:
-    """Stable deterministic component order used for tie-breaking."""
+    """Stable deterministic component order used for tie-breaking and export IDs."""
     chunk_min = min(component.chunk_indices) if component.chunk_indices else 10**12
     mention_start_min = (
         min(mention.global_start for mention in component.mentions)
@@ -1338,66 +1338,11 @@ def component_document_order_key(component: MergeComponent) -> tuple[int, int, s
     return (chunk_min, mention_start_min, component.merge_component_uid)
 
 
-def merge_edge_strength(edge: AcceptedMergeEdge) -> tuple[float, float, float, float]:
-    """Return a deterministic strength tuple for ranking accepted merge edges.
-
-    Higher values are better. The score only decides which accepted edge is
-    aggregated first when multiple accepted edges are available.
-    """
-    if edge.sieve_name == "exactMention_stitching":
-        return (
-            _metric_as_float(edge.metrics, "shared_overlap_mention_count"),
-            _metric_as_float(edge.metrics, "shared_canonical_count"),
-            0.0,
-            0.0,
-        )
-
-    if edge.sieve_name == "adjacent_overlap_exact_mention_without_canonical_equality":
-        return (
-            _metric_as_float(edge.metrics, "overlap_coefficient"),
-            _metric_as_float(edge.metrics, "shared_overlap_relevant_mentions"),
-            min(
-                _metric_as_float(edge.metrics, "left_overlap_relevant_mentions"),
-                _metric_as_float(edge.metrics, "right_overlap_relevant_mentions"),
-            ),
-            0.0,
-        )
-
-    if edge.sieve_name == "exact_mention_overlap_coefficient":
-        return (
-            _metric_as_float(edge.metrics, "overlap_coefficient"),
-            _metric_as_float(edge.metrics, "shared_relevant_mentions"),
-            min(
-                _metric_as_float(edge.metrics, "left_relevant_mentions"),
-                _metric_as_float(edge.metrics, "right_relevant_mentions"),
-            ),
-            0.0,
-        )
-
-    if edge.sieve_name == "same_clean_proper_name_anchor":
-        return (1.0, 0.0, 0.0, 0.0)
-
-    if edge.sieve_name == "canonical_head_alias_match":
-        return (
-            _metric_as_float(edge.metrics, "token_jaccard"),
-            0.0,
-            0.0,
-            0.0,
-        )
-
-    return (0.0, 0.0, 0.0, 0.0)
-
-
-def accepted_merge_edge_sort_key(
+def accepted_merge_edge_document_order_key(
     edge: AcceptedMergeEdge,
     components: dict[str, MergeComponent],
 ) -> tuple:
-    """Sort accepted edges by evidence strength, then by document order.
-
-    Lower sort keys are preferred, so strength values are negated.
-    """
-    strength = merge_edge_strength(edge)
-
+    """Deterministic edge ordering used only for logging/debug stability."""
     left = components[edge.left_component_uid]
     right = components[edge.right_component_uid]
 
@@ -1408,95 +1353,177 @@ def accepted_merge_edge_sort_key(
         left_key, right_key = right_key, left_key
 
     return (
-        -strength[0],
-        -strength[1],
-        -strength[2],
-        -strength[3],
         left_key,
         right_key,
+        edge.sieve_name,
         edge.left_component_uid,
         edge.right_component_uid,
     )
 
 
-def choose_best_non_vetoed_accepted_merge_edge(
+def non_vetoed_accepted_edges(
     *,
     components: dict[str, MergeComponent],
     accepted_edges: list[AcceptedMergeEdge],
     enable_global_merge_veto: bool,
-) -> Optional[AcceptedMergeEdge]:
-    """Choose the strongest currently valid accepted edge not blocked by veto."""
-    valid_edges = [
-        edge
-        for edge in accepted_edges
-        if edge.left_component_uid in components
-        and edge.right_component_uid in components
-        and edge.left_component_uid != edge.right_component_uid
-    ]
+) -> list[AcceptedMergeEdge]:
+    """Return currently valid accepted edges after applying the global veto layer."""
+    kept_edges: list[AcceptedMergeEdge] = []
 
-    valid_edges = sorted(
-        valid_edges,
-        key=lambda edge: accepted_merge_edge_sort_key(edge, components),
-    )
-
-    for edge in valid_edges:
-        if not enable_global_merge_veto:
-            return edge
-
-        left = components[edge.left_component_uid]
-        right = components[edge.right_component_uid]
-        if should_veto_global_merge(left=left, right=right, edge=edge):
+    for edge in accepted_edges:
+        if edge.left_component_uid not in components:
+            continue
+        if edge.right_component_uid not in components:
+            continue
+        if edge.left_component_uid == edge.right_component_uid:
             continue
 
-        return edge
+        if enable_global_merge_veto:
+            left = components[edge.left_component_uid]
+            right = components[edge.right_component_uid]
+            if should_veto_global_merge(left=left, right=right, edge=edge):
+                continue
 
-    return None
+        kept_edges.append(edge)
+
+    return sorted(
+        kept_edges,
+        key=lambda edge: accepted_merge_edge_document_order_key(edge, components),
+    )
 
 
-def merge_two_components(
+def connected_component_uid_groups_from_edges(
+    edges: list[AcceptedMergeEdge],
+) -> list[tuple[str, ...]]:
+    """Compute connected component groups from accepted merge edges.
+
+    Isolated nodes are intentionally omitted, because they do not require a merge.
+    """
+    adjacency: dict[str, set[str]] = defaultdict(set)
+
+    for edge in edges:
+        left_uid = edge.left_component_uid
+        right_uid = edge.right_component_uid
+        adjacency[left_uid].add(right_uid)
+        adjacency[right_uid].add(left_uid)
+
+    groups: list[tuple[str, ...]] = []
+    visited: set[str] = set()
+
+    for start_uid in sorted(adjacency):
+        if start_uid in visited:
+            continue
+
+        stack = [start_uid]
+        component_group: set[str] = set()
+
+        while stack:
+            uid = stack.pop()
+            if uid in visited:
+                continue
+
+            visited.add(uid)
+            component_group.add(uid)
+
+            for neighbor_uid in sorted(adjacency.get(uid, ())):
+                if neighbor_uid not in visited:
+                    stack.append(neighbor_uid)
+
+        if len(component_group) > 1:
+            groups.append(tuple(sorted(component_group)))
+
+    return groups
+
+
+def merge_component_uid_group(
     *,
     components: dict[str, MergeComponent],
-    left_uid: str,
-    right_uid: str,
+    component_uids: tuple[str, ...],
     next_component_index: int,
-) -> tuple[dict[str, MergeComponent], int, str]:
-    """Merge exactly two active components into one new aggregate component."""
-    if left_uid == right_uid:
-        raise ValueError("Cannot merge a component with itself.")
+) -> tuple[MergeComponent, int]:
+    """Merge one connected-component group into a new MergeComponent."""
+    if len(component_uids) < 2:
+        raise ValueError("A connected component merge group must contain at least two components.")
 
-    if left_uid not in components:
-        raise KeyError(f"Unknown left component uid: {left_uid}")
+    missing = [uid for uid in component_uids if uid not in components]
+    if missing:
+        raise KeyError(f"Unknown component uid(s): {missing[:10]}")
 
-    if right_uid not in components:
-        raise KeyError(f"Unknown right component uid: {right_uid}")
-
-    left = components[left_uid]
-    right = components[right_uid]
+    ordered_members = sorted(
+        (components[uid] for uid in component_uids),
+        key=component_document_order_key,
+    )
 
     new_uid = f"merge_component_{next_component_index:06d}"
     next_component_index += 1
 
+    local_cluster_uids: set[str] = set()
+    mentions: list[LocalMention] = []
+    canonical_name_counts: Counter[str] = Counter()
+    original_canonical_name_counts: Counter[str] = Counter()
+
+    for member in ordered_members:
+        local_cluster_uids.update(member.local_cluster_uids)
+        mentions.extend(member.mentions)
+        canonical_name_counts.update(member.canonical_name_counts)
+        original_canonical_name_counts.update(member.original_canonical_name_counts)
+
     merged = MergeComponent(
         merge_component_uid=new_uid,
-        local_cluster_uids=set(left.local_cluster_uids) | set(right.local_cluster_uids),
-        mentions=list(left.mentions) + list(right.mentions),
-        canonical_name_counts=left.canonical_name_counts + right.canonical_name_counts,
-        original_canonical_name_counts=(
-            left.original_canonical_name_counts
-            + right.original_canonical_name_counts
-        ),
+        local_cluster_uids=local_cluster_uids,
+        mentions=mentions,
+        canonical_name_counts=canonical_name_counts,
+        original_canonical_name_counts=original_canonical_name_counts,
     )
     merged.recompute()
 
+    return merged, next_component_index
+
+
+def merge_connected_component_groups(
+    *,
+    components: dict[str, MergeComponent],
+    component_uid_groups: list[tuple[str, ...]],
+    next_component_index: int,
+) -> tuple[dict[str, MergeComponent], int, list[str]]:
+    """Merge all connected-component groups produced by one sieve iteration."""
+    if not component_uid_groups:
+        return components, next_component_index, []
+
+    consumed_uids: set[str] = set()
     new_components = dict(components)
-    del new_components[left_uid]
-    del new_components[right_uid]
-    new_components[new_uid] = merged
+    new_component_uids: list[str] = []
 
-    return new_components, next_component_index, new_uid
+    ordered_groups = sorted(
+        component_uid_groups,
+        key=lambda group: min(component_document_order_key(components[uid]) for uid in group),
+    )
+
+    for group in ordered_groups:
+        overlap = consumed_uids & set(group)
+        if overlap:
+            raise ValueError(
+                "Connected component groups must be disjoint, but overlap was found: "
+                f"{sorted(overlap)[:10]}"
+            )
+
+        merged, next_component_index = merge_component_uid_group(
+            components=components,
+            component_uids=group,
+            next_component_index=next_component_index,
+        )
+
+        for uid in group:
+            del new_components[uid]
+            consumed_uids.add(uid)
+
+        new_components[merged.merge_component_uid] = merged
+        new_component_uids.append(merged.merge_component_uid)
+
+    return new_components, next_component_index, new_component_uids
 
 
-def run_sieve_aggregative_until_stability(
+def run_sieve_connected_components_until_stability(
     *,
     components: dict[str, MergeComponent],
     sieve_fn: Callable[..., SieveEvaluation],
@@ -1504,7 +1531,14 @@ def run_sieve_aggregative_until_stability(
     verbose: bool,
     enable_global_merge_veto: bool = True,
 ) -> tuple[dict[str, MergeComponent], int]:
-    """Run one positive sieve greedily until no more pair merge is valid."""
+    """Run one positive sieve using graph connected components until stable.
+
+    This replaces the previous greedy aggregative strategy. Each iteration:
+      1. evaluates the sieve on the current components;
+      2. applies the same global veto layer to pairwise edges;
+      3. builds an undirected graph from the surviving accepted edges;
+      4. merges every non-trivial connected component in one deterministic pass.
+    """
     merge_step = 0
 
     while True:
@@ -1513,26 +1547,28 @@ def run_sieve_aggregative_until_stability(
         indexes = build_current_component_indexes(components)
         evaluation = sieve_fn(components=components, indexes=indexes)
 
-        best_edge = choose_best_non_vetoed_accepted_merge_edge(
+        accepted_edges = non_vetoed_accepted_edges(
             components=components,
             accepted_edges=evaluation.accepted_edges,
             enable_global_merge_veto=enable_global_merge_veto,
         )
 
-        if best_edge is None:
+        component_uid_groups = connected_component_uid_groups_from_edges(accepted_edges)
+
+        if not component_uid_groups:
             if verbose:
                 print(
                     f"[global-coref][{evaluation.sieve_name}] "
-                    f"stable after {merge_step} aggregative merge steps; "
+                    f"stable after {merge_step} connected-component merge steps; "
                     f"candidate_pairs={evaluation.candidate_pairs}; "
-                    f"accepted_edges={len(evaluation.accepted_edges)}"
+                    f"accepted_edges={len(evaluation.accepted_edges)}; "
+                    f"non_vetoed_edges={len(accepted_edges)}"
                 )
             break
 
-        components, next_component_index, new_uid = merge_two_components(
+        components, next_component_index, new_component_uids = merge_connected_component_groups(
             components=components,
-            left_uid=best_edge.left_component_uid,
-            right_uid=best_edge.right_component_uid,
+            component_uid_groups=component_uid_groups,
             next_component_index=next_component_index,
         )
 
@@ -1540,19 +1576,24 @@ def run_sieve_aggregative_until_stability(
         components_after = len(components)
 
         if verbose:
+            group_sizes = sorted((len(group) for group in component_uid_groups), reverse=True)
             print(
-                f"[global-coref][{evaluation.sieve_name}][step {merge_step}] "
+                f"[global-coref][{evaluation.sieve_name}][cc-step {merge_step}] "
                 f"components {components_before} -> {components_after}; "
                 f"candidate_pairs={evaluation.candidate_pairs}; "
                 f"accepted_edges={len(evaluation.accepted_edges)}; "
-                f"chosen_edge=({best_edge.left_component_uid}, "
-                f"{best_edge.right_component_uid}); "
-                f"new_component={new_uid}; "
-                f"reason={best_edge.reason}; "
-                f"metrics={best_edge.metrics}"
+                f"non_vetoed_edges={len(accepted_edges)}; "
+                f"connected_components={len(component_uid_groups)}; "
+                f"group_sizes={group_sizes[:20]}; "
+                f"new_components={new_component_uids[:20]}"
             )
 
     return components, next_component_index
+
+
+# Backwards-compatible internal alias. No external caller should rely on this,
+# but keeping the name prevents breakage in ad-hoc notebooks that imported it.
+run_sieve_aggregative_until_stability = run_sieve_connected_components_until_stability
 
 
 # ---------------------------------------------------------------------------
@@ -1815,7 +1856,7 @@ def merge_local_coreference_clusters(
     ]
 
     for sieve_fn in sieve_functions:
-        components, next_component_index = run_sieve_aggregative_until_stability(
+        components, next_component_index = run_sieve_connected_components_until_stability(
             components=components,
             sieve_fn=sieve_fn,
             next_component_index=next_component_index,
