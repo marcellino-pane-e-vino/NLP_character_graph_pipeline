@@ -6,7 +6,7 @@ This module reads compact schema-v2 JSONL artifacts produced by
 
 The final document layer stores only the canonical ontology class IRI selected
 for each cluster. Labels and other display forms are derived through
-``OntologyClassGraph``.
+the raw ontology class graph.
 """
 
 from __future__ import annotations
@@ -17,11 +17,13 @@ from pathlib import Path
 from typing import Any
 
 from coreference.coref_schema import require_coref_layer
-from ontology.class_graph import OntologyClassGraph
+import networkx as nx
 
 from .graph_contract import (
     STAY,
     VIRTUAL_ROOT,
+    ontology_children,
+    ontology_roots,
     validate_selected_path_edge,
 )
 from .cluster_typing_artifacts import read_jsonl
@@ -162,7 +164,7 @@ def _validate_record_alignment(
 
 def _validate_selected_path(
     *,
-    class_graph: OntologyClassGraph,
+    class_graph: nx.DiGraph,
     record: dict[str, Any],
     jsonl_path: Path,
     row_index: int,
@@ -201,7 +203,7 @@ def _validate_selected_path(
 
         try:
             validate_selected_path_edge(
-                class_graph.graph,
+                class_graph,
                 parent_class_iri=parent_class_iri,
                 child_class_iri=child_class_iri,
                 edge_kind=edge_kind,
@@ -248,7 +250,7 @@ def _mention_weight_from_record(
 
 def _aggregate_cluster_class_iri(
     *,
-    class_graph: OntologyClassGraph,
+    class_graph: nx.DiGraph,
     records: list[dict[str, Any]],
     config: ClusterTypingAnnotationConfig,
     jsonl_path: Path,
@@ -284,7 +286,7 @@ def _aggregate_cluster_class_iri(
                 child_class_iri = str(edge["child_class_iri"])
                 edge_scores[(parent_class_iri, child_class_iri)] += contribution
 
-    roots = list(class_graph.roots())
+    roots = list(ontology_roots(class_graph))
     if not roots:
         raise ClusterTypingAnnotationError("Ontology graph has no roots.")
 
@@ -306,7 +308,7 @@ def _aggregate_cluster_class_iri(
         current_class_iri = best_root
 
     while True:
-        children = list(class_graph.children(current_class_iri))
+        children = list(ontology_children(class_graph, current_class_iri))
 
         if not children:
             return current_class_iri
@@ -329,7 +331,7 @@ def _aggregate_cluster_class_iri(
 
 def _cluster_annotation_from_records(
     *,
-    class_graph: OntologyClassGraph,
+    class_graph: nx.DiGraph,
     cluster_id: int,
     records: list[dict[str, Any]],
     config: ClusterTypingAnnotationConfig,
@@ -350,7 +352,7 @@ def _cluster_annotation_from_records(
 
 def annotate_doc_with_cluster_typing_folder(
     doc: Any,
-    class_graph: OntologyClassGraph,
+    class_graph: nx.DiGraph,
     folder_path: str | Path,
     *,
     config: ClusterTypingAnnotationConfig | None = None,
