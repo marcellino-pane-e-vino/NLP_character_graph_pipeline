@@ -174,9 +174,9 @@ def _existing_assignment_ids(path: Path) -> set[str]:
     with path.open("r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         return {
-            str(row["relation_mention_id"])
+            str(row["relation_id"])
             for row in reader
-            if row.get("relation_mention_id")
+            if row.get("relation_id")
         }
 
 
@@ -193,7 +193,7 @@ def export_relation_assignments_csv(
     """Score routed candidates and export flat assignment rows.
 
     Output rows contain only primary data needed to reconstruct RelationAssignment
-    and RelationMention inside annotate_relation_layer.py.
+    and RelationInstance inside annotate_relation_layer.py.
     """
 
     config = config or RelationNLIConfig()
@@ -213,7 +213,7 @@ def export_relation_assignments_csv(
     write_header = not output_path.exists()
 
     fieldnames = [
-        "relation_mention_id",
+        "relation_id",
         "source_mention_id",
         "predicate_token_i",
         "predicate_start",
@@ -234,15 +234,15 @@ def export_relation_assignments_csv(
             writer.writeheader()
 
         for row in _read_jsonl(input_path):
-            relation_mention_id = str(row["relation_mention_id"])
-            if relation_mention_id in existing_ids:
+            relation_id = str(row["relation_id"])
+            if relation_id in existing_ids:
                 n_skipped += 1
                 continue
 
             candidate_properties = list(row.get("candidate_properties") or [])
             if not candidate_properties:
                 raise ValueError(
-                    f"Routed candidate {relation_mention_id!r} has no candidate_properties."
+                    f"Routed candidate {relation_id!r} has no candidate_properties."
                 )
 
             logits = _score_candidate_properties(
@@ -260,7 +260,7 @@ def export_relation_assignments_csv(
 
             writer.writerow(
                 {
-                    "relation_mention_id": relation_mention_id,
+                    "relation_id": relation_id,
                     "source_mention_id": int(row["source_mention_id"]),
                     "predicate_token_i": int(row["predicate_token_i"]),
                     "predicate_start": int(row["predicate_start"]),

@@ -8,13 +8,8 @@ from typing import Any, Iterable
 
 import pandas as pd
 
-from coreference.coref_schema import require_coref_layer
-from relationship_extraction.relation_schema import make_relation_mention_id
-
-try:  # project-local dependency
-    from cluster_typing.cluster_typing_schema import require_cluster_typing_layer
-except ImportError:  # pragma: no cover
-    require_cluster_typing_layer = None
+from annotation_layer.relations import make_relation_id
+from annotation_layer.spacy_extension import require_entities
 
 
 SUBJECT_DEPS = {
@@ -62,9 +57,9 @@ PARTICLE_DEPS = {
 
 @dataclass(frozen=True, slots=True)
 class SyntaxRelationCandidate:
-    """Raw dependency/coref relation candidate before ontology routing."""
+    """Raw dependency/entity relation candidate before ontology routing."""
 
-    relation_mention_id: str
+    relation_id: str
 
     source_cluster_id: int
     source_canonical_name: str
@@ -102,7 +97,7 @@ class SyntaxRelationCandidate:
 class RoutedRelationCandidate:
     """Stage-1 row serialized to routed_relation_candidates.jsonl."""
 
-    relation_mention_id: str
+    relation_id: str
 
     source_mention_id: int
     predicate_token_i: int
@@ -151,40 +146,27 @@ def _ensure_dependency_parse(doc: Any) -> None:
         )
 
 
-def _require_cluster_typing_layer(doc: Any, cluster_typing_layer: Any | None) -> Any:
-    if cluster_typing_layer is not None:
-        return cluster_typing_layer
-
-    if require_cluster_typing_layer is None:
-        raise ValueError(
-            "cluster_typing_layer was not provided and "
-            "cluster_typing.cluster_typing_schema could not be imported."
-        )
-
-    return require_cluster_typing_layer(doc)
-
-
-def _token_mentions(coref: Any, token: Any) -> list[Any]:
-    """Resolve a syntactic token to coreference mentions.
+def _token_mentions(entities: Any, token: Any) -> list[Any]:
+    """Resolve a syntactic token to entity mentions.
 
     Prefer exact syntactic-head match when available. Fall back to mentions
     covering the token.
     """
 
-    head_mentions = coref.mentions_from_head_token(token.i)
+    head_mentions = entities.mentions_from_head_token(token.i)
     if head_mentions:
         return head_mentions
 
-    return coref.mentions_from_token(token.i)
+    return entities.mentions_from_token(token.i)
 
 
-def _cluster_records_for_token(coref: Any, token: Any) -> list[tuple[int, int]]:
+def _cluster_records_for_token(entities: Any, token: Any) -> list[tuple[int, int]]:
     """Return deterministic (mention_id, cluster_id) pairs for a token."""
 
     pairs: list[tuple[int, int]] = []
 
-    for mention in _token_mentions(coref, token):
-        if mention.cluster_id not in coref.clusters:
+    for mention in _token_mentions(entities, token):
+        if mention.cluster_id not in entities.clusters:
             continue
         pairs.append((int(mention.mention_id), int(mention.cluster_id)))
 
@@ -293,15 +275,12 @@ def _prepositional_objects_of(predicate: Any) -> list[tuple[Any, str, Any]]:
     return objects
 
 
-def _cluster_class_iri(cluster_typing_layer: Any, cluster_id: int) -> str:
-    if not hasattr(cluster_typing_layer, "class_iri"):
-        raise TypeError("cluster_typing_layer must expose .class_iri(cluster_id).")
-
-    value = cluster_typing_layer.class_iri(cluster_id)
-    if value is None or not str(value).strip():
+def _cluster_class_iri(entities: Any, cluster_id: int) -> str:
+    cluster = entities.cluster(cluster_id)
+    typing = getattr(cluster, "typing", None)
+    if typing is None or not str(typing.class_iri).strip():
         raise ValueError(f"Empty class_iri for cluster_id={cluster_id}.")
-
-    return str(value).strip()
+    return str(typing.class_iri).strip()
 
 
 def _candidate_property_to_dict(spec: Any) -> dict[str, Any]:
@@ -456,15 +435,12 @@ def _print_no_relationship_discard(
 
 def iter_syntax_relation_candidates(
     doc: Any,
-    *,
-    cluster_typing_layer: Any | None = None,
 ) -> Iterable[SyntaxRelationCandidate]:
-    """Yield dependency/coref relation candidates before ontology routing."""
+    """Yield dependency/entity relation candidates before ontology routing."""
 
     _ensure_dependency_parse(doc)
 
-    coref = require_coref_layer(doc)
-    cluster_typing_layer = _require_cluster_typing_layer(doc, cluster_typing_layer)
+    entities = require_entities(doc)
 
     for sentence_index, sent in enumerate(doc.sents):
         for predicate in sent:
@@ -484,12 +460,12 @@ def iter_syntax_relation_candidates(
             negated = _is_negated(predicate)
 
             for subject_token in subjects:
-                source_pairs = _cluster_records_for_token(coref, subject_token)
+                source_pairs = _cluster_records_for_token(entities, subject_token)
                 if not source_pairs:
                     continue
 
                 for object_token, object_dep, prep_token in objects:
-                    target_pairs = _cluster_records_for_token(coref, object_token)
+                    target_pairs = _cluster_records_for_token(entities, object_token)
                     if not target_pairs:
                         continue
 
@@ -507,20 +483,20 @@ def iter_syntax_relation_candidates(
                         if source_cluster_id == target_cluster_id:
                             continue
 
-                        source_cluster = coref.clusters[source_cluster_id]
-                        target_cluster = coref.clusters[target_cluster_id]
+                        source_cluster = entities.clusters[source_cluster_id]
+                        target_cluster = entities.clusters[target_cluster_id]
 
-                        source_class_iri = _cluster_class_iri(cluster_typing_layer, source_cluster_id)
-                        target_class_iri = _cluster_class_iri(cluster_typing_layer, target_cluster_id)
+                        source_class_iri = _cluster_class_iri(entities, source_cluster_id)
+                        target_class_iri = _cluster_class_iri(entities, target_cluster_id)
 
-                        relation_mention_id = make_relation_mention_id(
-                            predicate_token_i=predicate.i,
+                        relation_id = make_relation_id(
                             source_mention_id=source_mention_id,
+                            predicate_token_i=predicate.i,
                             target_mention_id=target_mention_id,
                         )
 
                         yield SyntaxRelationCandidate(
-                            relation_mention_id=relation_mention_id,
+                            relation_id=relation_id,
                             source_cluster_id=source_cluster_id,
                             source_canonical_name=source_cluster.canonical_name,
                             source_class_iri=source_class_iri,
@@ -549,12 +525,10 @@ def iter_syntax_relation_candidates(
 
 def extract_relation_candidates(
     doc: Any,
-    *,
-    cluster_typing_layer: Any | None = None,
 ) -> pd.DataFrame:
-    """Compatibility helper returning raw syntax/coref candidates as DataFrame."""
+    """Compatibility helper returning raw syntax/entity candidates as DataFrame."""
 
-    rows = [asdict(row) for row in iter_syntax_relation_candidates(doc, cluster_typing_layer=cluster_typing_layer)]
+    rows = [asdict(row) for row in iter_syntax_relation_candidates(doc)]
     columns = list(SyntaxRelationCandidate.__dataclass_fields__)
     return pd.DataFrame(rows, columns=columns)
 
@@ -564,7 +538,6 @@ def export_routed_relation_candidates_jsonl(
     doc: Any,
     relation_router: Any,
     output_path: str | Path,
-    cluster_typing_layer: Any | None = None,
     print_discards: bool = True,
     overwrite: bool = False,
 ) -> Path:
@@ -582,7 +555,7 @@ def export_routed_relation_candidates_jsonl(
 
     n_written = 0
     with output_path.open("w", encoding="utf-8") as f:
-        for candidate in iter_syntax_relation_candidates(doc, cluster_typing_layer=cluster_typing_layer):
+        for candidate in iter_syntax_relation_candidates(doc):
             source_class_iri = candidate.source_class_iri
             target_class_iri = candidate.target_class_iri
 
@@ -626,7 +599,7 @@ def export_routed_relation_candidates_jsonl(
                 continue
 
             routed = RoutedRelationCandidate(
-                relation_mention_id=candidate.relation_mention_id,
+                relation_id=candidate.relation_id,
                 source_mention_id=candidate.source_mention_id,
                 predicate_token_i=candidate.predicate_token_i,
                 predicate_start=candidate.predicate_start,

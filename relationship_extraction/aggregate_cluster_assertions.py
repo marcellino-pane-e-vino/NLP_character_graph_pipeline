@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from relationship_extraction.relation_schema import make_cluster_assertion_id, softmax_dict
+from annotation_layer.relations import make_relation_assertion_id, softmax_dict
 
 
 @dataclass(frozen=True, slots=True)
@@ -63,7 +63,7 @@ def export_cluster_assertions_csv(
         "source_cluster_id",
         "object_property_iri",
         "target_cluster_id",
-        "support_assignment_ids_json",
+        "support_relation_ids_json",
         "aggregation_method",
         "aggregated_score",
     ]
@@ -78,11 +78,11 @@ def export_cluster_assertions_csv(
                 continue
 
             property_scores: dict[str, float] = {}
-            support_assignment_ids: list[str] = []
+            support_relation_ids: list[str] = []
 
             for row in support_rows:
-                assignment_id = str(row["relation_mention_id"])
-                support_assignment_ids.append(assignment_id)
+                relation_id = str(row["relation_id"])
+                support_relation_ids.append(relation_id)
 
                 for object_property_iri, score in _assignment_scores(row).items():
                     property_scores[object_property_iri] = (
@@ -98,7 +98,7 @@ def export_cluster_assertions_csv(
             if best_score < config.min_score:
                 continue
 
-            assertion_id = make_cluster_assertion_id(
+            assertion_id = make_relation_assertion_id(
                 source_cluster_id=source_cluster_id,
                 object_property_iri=best_property_iri,
                 target_cluster_id=target_cluster_id,
@@ -110,7 +110,7 @@ def export_cluster_assertions_csv(
                     "source_cluster_id": source_cluster_id,
                     "object_property_iri": best_property_iri,
                     "target_cluster_id": target_cluster_id,
-                    "support_assignment_ids_json": json.dumps(tuple(support_assignment_ids), ensure_ascii=False),
+                    "support_relation_ids_json": json.dumps(tuple(support_relation_ids), ensure_ascii=False),
                     "aggregation_method": config.aggregation_method,
                     "aggregated_score": best_score,
                 }
