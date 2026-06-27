@@ -55,10 +55,13 @@ def _assignment_and_instance_from_record(
         target_mention_id=target_mention_id,
     )
 
-    logits = json.loads(record["object_property_logits_json"])
+    probabilities = json.loads(record["object_property_probabilities_json"])
     assignment = RelationAssignmentRecord(
         relation_id=relation_id,
-        object_property_logits={str(k): float(v) for k, v in logits.items()},
+        object_property_probabilities={
+            str(k): float(v)
+            for k, v in probabilities.items()
+        },
         selection_method=str(record["selection_method"]),
     )
 

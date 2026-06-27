@@ -13,23 +13,38 @@ scores are intentionally computed later by ``ocean_annotator.py``.
 """
 
 from __future__ import annotations
-
 from dataclasses import asdict, dataclass, field, is_dataclass
-from functools import lru_cache
 import csv
-import gc
 import hashlib
 import json
 from pathlib import Path
-import random
-import re
 import sqlite3
 import time
+import re
 from typing import Any, Iterable, Optional
 
-import torch
 
 from annotation_layer.entity_annotations import OCEAN_TRAITS
+from annotation_layer.spacy_extension import require_entities
+
+from neural_runtime.mentions import (
+    ContextConfig as OceanContextConfig,
+    MentionRenderingConfig as OceanMentionRenderingConfig,
+    MentionRecord,
+    canonical_name_for_cluster,
+    cluster_random_seed,
+    mention_ids_for_cluster,
+    mention_records_for_cluster,
+    normalize_context_for_dedup,
+)
+from neural_runtime.nli import (
+    DirectNLIConfig as OceanDirectNLIConfig,
+    device_name,
+    direct_entailment_logits_for_pairs,
+    release_chunk_memory,
+    softmax_values,
+    sync_cuda_if_available,
+)
 
 
 __all__ = [
@@ -38,11 +53,11 @@ __all__ = [
     "DEFAULT_SUBJECT_HYPOTHESIS_TEMPLATE",
     "OCEAN_LABELS",
     "OCEAN_WEIGHT_LABELS",
-    "ContextConfig",
-    "MentionRenderingConfig",
+    "OceanContextConfig",
+    "OceanMentionRenderingConfig",
+    "OceanDirectNLIConfig",
     "OceanScoringConfig",
     "OceanWeightConfig",
-    "DirectNLIConfig",
     "OceanProbabilityExportConfig",
     "MentionRecord",
     "normalize_context_for_dedup",
@@ -78,23 +93,6 @@ class OceanScoringConfig:
     multi_label: bool = False  # retained for config readability; direct scorer uses grouped softmax
 
 
-@dataclass(frozen=True)
-class ContextConfig:
-    """Controls context extraction around a mention."""
-
-    n_sentences_before: int = 0
-    n_sentences_after: int = 0
-    mark_mention: bool = True
-    deduplicate: bool = False
-
-
-@dataclass(frozen=True)
-class MentionRenderingConfig:
-    """Simple rules for rendering the target mention before model scoring."""
-
-    canonicalize_simple_mentions: bool = True
-    keep_first_second_person: bool = True
-
 
 @dataclass(frozen=True)
 class OceanWeightConfig:
@@ -108,14 +106,6 @@ class OceanWeightConfig:
         "In this text, {subject}'s behavior or inner state provides {}."
     )
 
-
-@dataclass(frozen=True)
-class DirectNLIConfig:
-    """Configuration for lower-level NLI pair scoring."""
-
-    pair_batch_size: int = 16
-    truncation: bool = True
-    max_length: Optional[int] = None
 
 
 @dataclass(frozen=True)
@@ -140,11 +130,11 @@ class OceanProbabilityExportConfig:
 
     chunk_size: int = 16
 
-    context_config: ContextConfig = field(default_factory=ContextConfig)
-    rendering_config: MentionRenderingConfig = field(default_factory=MentionRenderingConfig)
+    context_config: OceanContextConfig = field(default_factory=OceanContextConfig)
+    rendering_config: OceanMentionRenderingConfig = field(default_factory=OceanMentionRenderingConfig)
     scoring_config: OceanScoringConfig = field(default_factory=OceanScoringConfig)
     weight_config: OceanWeightConfig = field(default_factory=OceanWeightConfig)
-    nli_config: DirectNLIConfig = field(default_factory=DirectNLIConfig)
+    nli_config: OceanDirectNLIConfig = field(default_factory=OceanDirectNLIConfig)
     return_dataframes: bool = False
     print_progress: bool = True
 
@@ -220,393 +210,6 @@ OCEAN_WEIGHT_LABELS: dict[str, str] = {
 }
 
 
-FIRST_SECOND_PERSON_PRONOUNS: set[str] = {
-    "i", "me", "my", "mine", "myself", "we", "us", "our", "ours", "ourselves",
-    "you", "your", "yours", "yourself", "yourselves",
-}
-THIRD_PERSON_SUBJECT_PRONOUNS: set[str] = {"he", "she", "they", "it"}
-THIRD_PERSON_OBJECT_PRONOUNS: set[str] = {"him", "her", "them"}
-THIRD_PERSON_POSSESSIVE_PRONOUNS: set[str] = {"his", "hers", "their", "theirs", "its"}
-THIRD_PERSON_REFLEXIVE_PRONOUNS: set[str] = {
-    "himself", "herself", "itself", "themself", "themselves",
-}
-AMBIGUOUS_OR_RELATIONAL_NOMINALS: set[str] = {
-    "my dear", "your dear", "my friend", "your friend", "our friend",
-    "this fellow", "that fellow", "the poor fellow", "the stranger", "the creature",
-}
-
-
-# =============================================================================
-# Text normalization and entity helpers
-# =============================================================================
-
-
-def validate_text(text: str, *, field_name: str = "text") -> str:
-    if not isinstance(text, str):
-        raise TypeError(f"{field_name} must be str, got {type(text)!r}")
-    text = text.strip()
-    if not text:
-        raise ValueError(f"{field_name} cannot be empty")
-    return text
-
-
-def normalize_context_for_dedup(text: str) -> str:
-    text = validate_text(text)
-    text = " ".join(text.split())
-    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
-    text = re.sub(
-        r"\s+('s|'re|'ve|'ll|'d|'m|n't)\b",
-        r"\1",
-        text,
-        flags=re.IGNORECASE,
-    )
-    text = re.sub(r"\s*—\s*", "—", text)
-    return text.strip()
-
-
-def _require_entities(doc: Any) -> Any:
-    from annotation_layer.spacy_extension import require_entities
-
-    return require_entities(doc)
-
-
-def mention_ids_for_cluster(doc: Any, cluster_id: int) -> list[int]:
-    entities = _require_entities(doc)
-    if cluster_id not in entities.clusters:
-        raise KeyError(f"Unknown cluster_id: {cluster_id}")
-    return list(entities.clusters[cluster_id].mention_ids)
-
-
-def canonical_name_for_cluster(doc: Any, cluster_id: int) -> str:
-    entities = _require_entities(doc)
-    if cluster_id not in entities.clusters:
-        raise KeyError(f"Unknown cluster_id: {cluster_id}")
-    canonical_name = str(entities.clusters[cluster_id].canonical_name).strip()
-    if not canonical_name:
-        raise ValueError(f"cluster_id={cluster_id} has an empty canonical_name")
-    return canonical_name
-
-
-def find_mention_by_id(doc: Any, mention_id: int) -> Any:
-    entities = _require_entities(doc)
-    if hasattr(entities, "mentions") and mention_id in entities.mentions:
-        return entities.mentions[mention_id]
-    raise KeyError(f"mention_id={mention_id} not found in doc._.annotation_layer.entities")
-
-
-def _sentences(doc: Any) -> list[Any]:
-    try:
-        sentences = list(doc.sents)
-    except ValueError as exc:
-        raise ValueError(
-            "This doc has no sentence boundaries. Run a parser, sentencizer, "
-            "or sentence-boundary component before using mention contexts."
-        ) from exc
-    if not sentences:
-        raise ValueError("doc.sents is empty")
-    return sentences
-
-
-def sentence_index_for_mention(doc: Any, mention_id: int) -> int:
-    mention = find_mention_by_id(doc, mention_id)
-    for i, sent in enumerate(_sentences(doc)):
-        if sent.start <= mention.start and mention.end <= sent.end:
-            return i
-    raise ValueError(
-        f"Could not find sentence containing mention_id={mention_id} "
-        f"with token span [{mention.start}:{mention.end}]."
-    )
-
-
-def mention_context_text(
-    doc: Any,
-    mention_id: int,
-    *,
-    config: ContextConfig | None = None,
-) -> str:
-    config = config or ContextConfig()
-    mention = find_mention_by_id(doc, mention_id)
-    sentences = _sentences(doc)
-    center_i = sentence_index_for_mention(doc, mention_id)
-    start_i = max(0, center_i - config.n_sentences_before)
-    end_i = min(len(sentences), center_i + config.n_sentences_after + 1)
-
-    parts: list[str] = []
-    for sent_i in range(start_i, end_i):
-        sent = sentences[sent_i]
-        if sent_i != center_i or not config.mark_mention:
-            parts.append(sent.text)
-            continue
-        before = doc[sent.start: mention.start].text
-        target = doc[mention.start: mention.end].text
-        after = doc[mention.end: sent.end].text
-        parts.append(f"{before} [[{target}]] {after}".strip())
-    return normalize_context_for_dedup(" ".join(parts))
-
-
-# =============================================================================
-# Mention rendering
-# =============================================================================
-
-
-def canonical_possessive(subject: str | None) -> str:
-    subject = (subject or "the character").strip() or "the character"
-    if subject.endswith("'"):
-        return subject
-    if subject.endswith("s"):
-        return f"{subject}'"
-    return f"{subject}'s"
-
-
-def _single_token_for_mention(doc: Any, mention: Any) -> Any | None:
-    start = int(getattr(mention, "start"))
-    end = int(getattr(mention, "end"))
-    if end - start != 1:
-        return None
-    try:
-        return doc[start]
-    except Exception:
-        return None
-
-
-def _token_is_possessive_pronoun(token: Any | None) -> bool:
-    if token is None:
-        return False
-    tag = str(getattr(token, "tag_", "") or "")
-    morph = str(getattr(token, "morph", "") or "")
-    return tag == "PRP$" or "Poss=Yes" in morph
-
-
-def _looks_like_possessive_her_without_tags(doc: Any, mention: Any) -> bool:
-    end = int(getattr(mention, "end"))
-    if end >= len(doc):
-        return False
-    next_token = doc[end]
-    next_text = str(getattr(next_token, "text", "") or "").lower()
-    if next_text in {",", ".", ";", ":", "!", "?", "and", "or", "but", "to", "of", "in", "on", "at", "by", "with", "from", "for", "as"}:
-        return False
-    pos = str(getattr(next_token, "pos_", "") or "")
-    if pos in {"NOUN", "PROPN", "ADJ"}:
-        return True
-    return bool(re.match(r"^[a-zA-Z][a-zA-Z'-]*$", next_text))
-
-
-def _is_simple_nominal_mention(mention_text: str) -> bool:
-    text = normalize_context_for_dedup(mention_text).lower()
-    if text in AMBIGUOUS_OR_RELATIONAL_NOMINALS:
-        return False
-    if not text.startswith("the "):
-        return False
-    return len(text.split()) <= 4
-
-
-def _is_proper_name_like_mention(mention_text: str, subject: str | None) -> bool:
-    text = normalize_context_for_dedup(mention_text)
-    subject_text = normalize_context_for_dedup(subject or "") if subject else ""
-    if subject_text and text.lower() == subject_text.lower():
-        return True
-    tokens = [token for token in re.split(r"\s+", text) if token]
-    return any(token[:1].isupper() and token.lower() != "i" for token in tokens)
-
-
-def mention_replacement_for_rendering(
-    doc: Any,
-    mention_id: int,
-    *,
-    subject: str | None,
-    rendering_config: MentionRenderingConfig | None = None,
-) -> tuple[str, str]:
-    rendering_config = rendering_config or MentionRenderingConfig()
-    mention = find_mention_by_id(doc, mention_id)
-    mention_text = str(getattr(mention, "text", "") or doc[mention.start: mention.end].text)
-    mention_clean = normalize_context_for_dedup(mention_text)
-    mention_lower = mention_clean.lower()
-    subject_text = (subject or "the character").strip() or "the character"
-
-    if not rendering_config.canonicalize_simple_mentions:
-        return mention_clean, "canonicalization_disabled_keep_original"
-    if rendering_config.keep_first_second_person and mention_lower in FIRST_SECOND_PERSON_PRONOUNS:
-        return mention_clean, "first_second_person_keep_original"
-    if _is_proper_name_like_mention(mention_clean, subject_text):
-        return subject_text, "proper_name_to_canonical"
-
-    token = _single_token_for_mention(doc, mention)
-
-    if mention_lower in THIRD_PERSON_SUBJECT_PRONOUNS:
-        return subject_text, "third_person_subject_pronoun_to_canonical"
-    if mention_lower == "her":
-        if _token_is_possessive_pronoun(token) or _looks_like_possessive_her_without_tags(doc, mention):
-            return canonical_possessive(subject_text), "third_person_possessive_pronoun_to_canonical_possessive"
-        return subject_text, "third_person_object_pronoun_to_canonical"
-    if mention_lower in THIRD_PERSON_OBJECT_PRONOUNS:
-        return subject_text, "third_person_object_pronoun_to_canonical"
-    if mention_lower in THIRD_PERSON_POSSESSIVE_PRONOUNS:
-        return canonical_possessive(subject_text), "third_person_possessive_pronoun_to_canonical_possessive"
-    if mention_lower in THIRD_PERSON_REFLEXIVE_PRONOUNS:
-        return mention_clean, "third_person_reflexive_keep_original"
-    if _is_simple_nominal_mention(mention_clean):
-        return subject_text, "simple_nominal_to_canonical"
-    return mention_clean, "ambiguous_or_unsupported_keep_original"
-
-
-def rendered_mention_context_text(
-    doc: Any,
-    mention_id: int,
-    *,
-    subject: str | None,
-    context_config: ContextConfig | None = None,
-    rendering_config: MentionRenderingConfig | None = None,
-) -> tuple[str, str, bool]:
-    context_config = context_config or ContextConfig()
-    rendering_config = rendering_config or MentionRenderingConfig()
-    mention = find_mention_by_id(doc, mention_id)
-    sentences = _sentences(doc)
-    center_i = sentence_index_for_mention(doc, mention_id)
-    start_i = max(0, center_i - context_config.n_sentences_before)
-    end_i = min(len(sentences), center_i + context_config.n_sentences_after + 1)
-
-    replacement, render_rule = mention_replacement_for_rendering(
-        doc,
-        mention_id,
-        subject=subject,
-        rendering_config=rendering_config,
-    )
-    target_original = doc[mention.start: mention.end].text
-    was_changed = normalize_context_for_dedup(target_original) != normalize_context_for_dedup(replacement)
-
-    parts: list[str] = []
-    for sent_i in range(start_i, end_i):
-        sent = sentences[sent_i]
-        if sent_i != center_i:
-            parts.append(sent.text)
-            continue
-        before = doc[sent.start: mention.start].text
-        after = doc[mention.end: sent.end].text
-        parts.append(f"{before} {replacement} {after}".strip())
-    return normalize_context_for_dedup(" ".join(parts)), render_rule, was_changed
-
-
-# =============================================================================
-# Mention records and sampling
-# =============================================================================
-
-
-@dataclass(frozen=True)
-class MentionRecord:
-    cluster_id: int
-    subject: str | None
-    mention_index_in_cluster: int
-    mention_id: int
-    mention_text: str
-    mention_start: int
-    mention_end: int
-    sentence_index: int
-    context_text: str
-    normalized_context_text: str
-    original_context_text: str = ""
-    rendered_context_text: str = ""
-    mention_render_rule: str = "legacy_context"
-    mention_render_was_changed: bool = False
-
-
-def _cluster_random_seed(base_seed: int | None, cluster_id: int) -> int | None:
-    if base_seed is None:
-        return None
-    digest = hashlib.sha256(f"{int(base_seed)}:{int(cluster_id)}".encode("utf-8")).hexdigest()
-    return int(digest[:16], 16)
-
-
-def sampled_mention_pairs_for_cluster(
-    doc: Any,
-    cluster_id: int,
-    *,
-    n_mentions: int | None = None,
-    random_seed: int | None = None,
-    sort_sample_by_cluster_order: bool = True,
-) -> list[tuple[int, int]]:
-    if n_mentions is not None and n_mentions < 0:
-        raise ValueError(f"n_mentions must be >= 0 or None, got {n_mentions}")
-
-    all_mention_ids = mention_ids_for_cluster(doc, cluster_id)
-    total_mentions = len(all_mention_ids)
-
-    if n_mentions is None:
-        selected_indexes = list(range(total_mentions))
-    else:
-        if n_mentions > total_mentions:
-            raise ValueError(
-                f"cluster_id={cluster_id} contains only {total_mentions} mentions, "
-                f"but n_mentions={n_mentions} was requested."
-            )
-        rng = random.Random(random_seed)
-        selected_indexes = rng.sample(range(total_mentions), n_mentions)
-        if sort_sample_by_cluster_order:
-            selected_indexes.sort()
-
-    return [(index, int(all_mention_ids[index])) for index in selected_indexes]
-
-
-def mention_records_for_cluster(
-    doc: Any,
-    cluster_id: int,
-    *,
-    subject: str | None = None,
-    n_mentions: int | None = None,
-    random_seed: int | None = None,
-    sort_sample_by_cluster_order: bool = True,
-    context_config: ContextConfig | None = None,
-    rendering_config: MentionRenderingConfig | None = None,
-) -> list[MentionRecord]:
-    context_config = context_config or ContextConfig(deduplicate=False)
-    rendering_config = rendering_config or MentionRenderingConfig()
-    subject = subject or canonical_name_for_cluster(doc, cluster_id)
-
-    selected_pairs = sampled_mention_pairs_for_cluster(
-        doc,
-        cluster_id,
-        n_mentions=n_mentions,
-        random_seed=random_seed,
-        sort_sample_by_cluster_order=sort_sample_by_cluster_order,
-    )
-
-    records: list[MentionRecord] = []
-    for mention_index, mention_id in selected_pairs:
-        mention = find_mention_by_id(doc, mention_id)
-        sentence_index = sentence_index_for_mention(doc, mention_id)
-        original_context_text = mention_context_text(doc, mention_id, config=context_config)
-        rendered_context, render_rule, render_was_changed = rendered_mention_context_text(
-            doc,
-            mention_id,
-            subject=subject,
-            context_config=context_config,
-            rendering_config=rendering_config,
-        )
-        records.append(
-            MentionRecord(
-                cluster_id=int(cluster_id),
-                subject=subject,
-                mention_index_in_cluster=int(mention_index),
-                mention_id=int(mention_id),
-                mention_text=str(getattr(mention, "text", "")),
-                mention_start=int(getattr(mention, "start")),
-                mention_end=int(getattr(mention, "end")),
-                sentence_index=int(sentence_index),
-                context_text=rendered_context,
-                normalized_context_text=normalize_context_for_dedup(rendered_context),
-                original_context_text=original_context_text,
-                rendered_context_text=rendered_context,
-                mention_render_rule=render_rule,
-                mention_render_was_changed=bool(render_was_changed),
-            )
-        )
-    return records
-
-
-# =============================================================================
-# Direct NLI model backend
-# =============================================================================
-
-
 def _hypothesis_template(config: OceanScoringConfig, subject: str | None) -> str:
     if config.subject_aware and subject:
         return config.subject_hypothesis_template.replace("{subject}", subject)
@@ -672,93 +275,6 @@ def _weight_probability_task(*, subject: str | None, weight_config: OceanWeightC
     )
 
 
-@lru_cache(maxsize=4)
-def _load_direct_nli_components(model_name: str) -> tuple[Any, Any, torch.device, int]:
-    from transformers import AutoModelForSequenceClassification, AutoTokenizer
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSequenceClassification.from_pretrained(model_name)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-    model.eval()
-    entailment_id = _find_entailment_id(model)
-    return tokenizer, model, device, entailment_id
-
-
-def _find_entailment_id(model: Any) -> int:
-    label2id = getattr(model.config, "label2id", {}) or {}
-    for label, idx in label2id.items():
-        if "entail" in str(label).lower():
-            return int(idx)
-    id2label = getattr(model.config, "id2label", {}) or {}
-    for idx, label in id2label.items():
-        if "entail" in str(label).lower():
-            return int(idx)
-    num_labels = int(getattr(model.config, "num_labels", 3))
-    if num_labels >= 3:
-        return 2
-    raise ValueError("Could not identify entailment label id from model config.")
-
-
-def _release_chunk_memory() -> None:
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
-
-
-def _sync_cuda_if_available() -> None:
-    if torch.cuda.is_available():
-        torch.cuda.synchronize()
-
-
-def _device_name() -> str:
-    if torch.cuda.is_available():
-        return f"cuda: {torch.cuda.get_device_name(0)}"
-    return "cpu"
-
-
-def _direct_entailment_logits_for_pairs(
-    pairs: list[tuple[str, str]],
-    *,
-    model_name: str,
-    nli_config: DirectNLIConfig,
-) -> list[float]:
-    if nli_config.pair_batch_size <= 0:
-        raise ValueError(f"pair_batch_size must be > 0, got {nli_config.pair_batch_size}")
-    if not pairs:
-        return []
-
-    tokenizer, model, device, entailment_id = _load_direct_nli_components(model_name)
-    logits: list[float] = []
-
-    for start in range(0, len(pairs), nli_config.pair_batch_size):
-        batch = pairs[start: start + nli_config.pair_batch_size]
-        premises = [premise for premise, _ in batch]
-        hypotheses = [hypothesis for _, hypothesis in batch]
-        tokenizer_kwargs: dict[str, Any] = {
-            "text": premises,
-            "text_pair": hypotheses,
-            "return_tensors": "pt",
-            "padding": True,
-            "truncation": nli_config.truncation,
-        }
-        if nli_config.max_length is not None:
-            tokenizer_kwargs["max_length"] = nli_config.max_length
-
-        encoded = tokenizer(**tokenizer_kwargs)
-        encoded = {key: value.to(device) for key, value in encoded.items()}
-
-        with torch.inference_mode():
-            output = model(**encoded)
-            batch_logits = output.logits[:, entailment_id].detach().float().cpu()
-
-        logits.extend(float(value) for value in batch_logits.tolist())
-        del batch, premises, hypotheses, encoded, output, batch_logits
-        _release_chunk_memory()
-
-    return logits
-
-
 def _score_probability_payloads_for_chunk(
     records: list[MentionRecord],
     *,
@@ -766,7 +282,7 @@ def _score_probability_payloads_for_chunk(
     scoring_config: OceanScoringConfig,
     trait_labels: dict[str, dict[str, str]],
     weight_config: OceanWeightConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: OceanDirectNLIConfig,
 ) -> list[dict[str, Any]]:
     tasks = _trait_probability_tasks(
         subject=subject,
@@ -785,7 +301,7 @@ def _score_probability_payloads_for_chunk(
                 pairs.append((record.context_text, hypothesis))
                 pair_metadata.append((record_index, task.task_name, label_key))
 
-    entailment_logits = _direct_entailment_logits_for_pairs(
+    entailment_logits = direct_entailment_logits_for_pairs(
         pairs,
         model_name=scoring_config.model_name,
         nli_config=nli_config,
@@ -801,28 +317,24 @@ def _score_probability_payloads_for_chunk(
         for trait in OCEAN_TRAITS:
             label_logits = grouped_logits[(record_index, trait)]
             ordered_keys = ["positive", "negative", "neutral"]
-            logits_tensor = torch.tensor([label_logits[key] for key in ordered_keys], dtype=torch.float32)
-            probabilities = torch.softmax(logits_tensor, dim=0).tolist()
+            probabilities = softmax_values([label_logits[key] for key in ordered_keys])
             probability_by_key = dict(zip(ordered_keys, probabilities))
             payload[f"{trait}_positive_probability"] = float(probability_by_key["positive"])
             payload[f"{trait}_negative_probability"] = float(probability_by_key["negative"])
             payload[f"{trait}_neutral_probability"] = float(probability_by_key["neutral"])
-            del logits_tensor
 
         label_logits = grouped_logits[(record_index, "OCEAN_weight")]
         ordered_keys = ["high", "medium", "low"]
-        logits_tensor = torch.tensor([label_logits[key] for key in ordered_keys], dtype=torch.float32)
-        probabilities = torch.softmax(logits_tensor, dim=0).tolist()
+        probabilities = softmax_values([label_logits[key] for key in ordered_keys])
         probability_by_key = dict(zip(ordered_keys, probabilities))
         payload["OCEAN_weight_high_probability"] = float(probability_by_key["high"])
         payload["OCEAN_weight_medium_probability"] = float(probability_by_key["medium"])
         payload["OCEAN_weight_low_probability"] = float(probability_by_key["low"])
-        del logits_tensor
 
         payloads.append(payload)
 
     del tasks, pair_metadata, pairs, entailment_logits, grouped_logits
-    _release_chunk_memory()
+    release_chunk_memory()
     return payloads
 
 
@@ -904,7 +416,7 @@ def _probability_cache_key(
     scoring_config: OceanScoringConfig,
     trait_labels: dict[str, dict[str, str]],
     weight_config: OceanWeightConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: OceanDirectNLIConfig,
 ) -> str:
     payload = {
         "schema_version": PROBABILITY_CACHE_SCHEMA_VERSION,
@@ -916,6 +428,7 @@ def _probability_cache_key(
         "nli_config": {
             "truncation": nli_config.truncation,
             "max_length": nli_config.max_length,
+            "device": nli_config.device,
         },
     }
     return hashlib.sha256(_stable_json(_json_ready(payload)).encode("utf-8")).hexdigest()
@@ -928,7 +441,7 @@ def _score_probability_rows_for_chunk_cached(
     scoring_config: OceanScoringConfig,
     trait_labels: dict[str, dict[str, str]],
     weight_config: OceanWeightConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: OceanDirectNLIConfig,
     cache: SQLiteProbabilityCache | None,
     chunk_index: int,
     elapsed_seconds_at_completion: float,
@@ -1001,7 +514,7 @@ def _score_probability_rows_for_chunk_cached(
         if payload is not None
     ]
     cache_misses = len(miss_records)
-    _release_chunk_memory()
+    release_chunk_memory()
     return rows, cache_hits, cache_misses
 
 
@@ -1115,12 +628,12 @@ def export_ocean_probability_csv_for_cluster(
     n_mentions: int | None,
     random_seed: int | None = None,
     sort_sample_by_cluster_order: bool = True,
-    context_config: ContextConfig | None = None,
-    rendering_config: MentionRenderingConfig | None = None,
+    context_config: OceanContextConfig | None = None,
+    rendering_config: OceanMentionRenderingConfig | None = None,
     scoring_config: OceanScoringConfig | None = None,
     trait_labels: dict[str, dict[str, str]] | None = None,
     weight_config: OceanWeightConfig | None = None,
-    nli_config: DirectNLIConfig | None = None,
+    nli_config: OceanDirectNLIConfig | None = None,
     chunk_size: int = 16,
     overwrite_csv: bool = False,
     resume_from_csv: bool = True,
@@ -1136,8 +649,8 @@ def export_ocean_probability_csv_for_cluster(
     if chunk_size <= 0:
         raise ValueError(f"chunk_size must be > 0, got {chunk_size}")
 
-    _require_entities(doc)
-    if cluster_id not in _require_entities(doc).clusters:
+    entities = require_entities(doc)
+    if cluster_id not in entities.clusters:
         raise KeyError(f"Unknown cluster_id: {cluster_id}")
 
     csv_path = Path(csv_path)
@@ -1149,12 +662,12 @@ def export_ocean_probability_csv_for_cluster(
     if overwrite_csv and csv_path.exists():
         csv_path.unlink()
 
-    context_config = context_config or ContextConfig(deduplicate=False)
-    rendering_config = rendering_config or MentionRenderingConfig()
+    context_config = context_config or OceanContextConfig(deduplicate=False)
+    rendering_config = rendering_config or OceanMentionRenderingConfig()
     scoring_config = scoring_config or OceanScoringConfig()
     trait_labels = trait_labels or OCEAN_LABELS
     weight_config = weight_config or OceanWeightConfig()
-    nli_config = nli_config or DirectNLIConfig()
+    nli_config = nli_config or OceanDirectNLIConfig()
 
     subject = canonical_name_for_cluster(doc, cluster_id)
     total_mentions_in_cluster = len(mention_ids_for_cluster(doc, cluster_id))
@@ -1168,7 +681,7 @@ def export_ocean_probability_csv_for_cluster(
         print(f"total mentions in cluster: {total_mentions_in_cluster}")
         print(f"csv_path: {csv_path}")
         print(f"cache_path: {cache_path if use_sqlite_cache else None}")
-        print(f"device: {_device_name()}")
+        print(f"device: {device_name(nli_config.device)}")
         print("=" * 100)
 
     extraction_start = time.perf_counter()
@@ -1215,7 +728,7 @@ def export_ocean_probability_csv_for_cluster(
         for chunk_index, start in enumerate(range(0, n_records_to_score, chunk_size), start=1):
             end = min(start + chunk_size, n_records_to_score)
             chunk_records = records[start:end]
-            _sync_cuda_if_available()
+            sync_cuda_if_available()
             chunk_start = time.perf_counter()
             elapsed_before = time.perf_counter() - scoring_start
             chunk_rows, cache_hits, cache_misses = _score_probability_rows_for_chunk_cached(
@@ -1229,7 +742,7 @@ def export_ocean_probability_csv_for_cluster(
                 chunk_index=chunk_index,
                 elapsed_seconds_at_completion=elapsed_before,
             )
-            _sync_cuda_if_available()
+            sync_cuda_if_available()
             chunk_elapsed = time.perf_counter() - chunk_start
             elapsed_so_far = time.perf_counter() - scoring_start
             for row in chunk_rows:
@@ -1267,7 +780,7 @@ def export_ocean_probability_csv_for_cluster(
                 )
 
             del chunk_df, chunk_rows, chunk_records
-            _release_chunk_memory()
+            release_chunk_memory()
     finally:
         if cache_manager is not None:
             cache_manager.close()
@@ -1291,7 +804,7 @@ def export_ocean_probability_csvs(
     doc: Any,
     config: OceanProbabilityExportConfig,
 ) -> dict[int, Path]:
-    entities = _require_entities(doc)
+    entities = require_entities(doc)
 
     if not config.cluster_ids:
         raise ValueError("cluster_ids cannot be empty.")
@@ -1323,7 +836,7 @@ def export_ocean_probability_csvs(
             subject=subject,
             n_mentions=config.n_mentions_per_cluster,
         )
-        per_cluster_seed = _cluster_random_seed(config.random_seed, cluster_id)
+        per_cluster_seed = cluster_random_seed(config.random_seed, cluster_id)
 
         if config.print_progress:
             print()
