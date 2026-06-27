@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
-from coreference.local_clusters import (
+from entity_extraction.local_entities import (
     CHUNKS_COLUMNS,
     CLUSTERS_COLUMNS,
     MENTIONS_COLUMNS,

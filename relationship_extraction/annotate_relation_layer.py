@@ -12,14 +12,13 @@ except ImportError as exc:  # pragma: no cover
         "annotate_relation_layer.py requires spaCy. Install it with: pip install spacy"
     ) from exc
 
-from coreference.coref_schema import require_coref_layer
-from relationship_extraction.relation_schema import (
-    ClusterAssertion,
-    RelationAssignment,
-    RelationLayer,
-    RelationMention,
-    register_spacy_relation_extension,
+from annotation_layer.relations import (
+    RelationAssertionRecord,
+    RelationAssignmentRecord,
+    RelationInstanceRecord,
+    RelationSubLayer,
 )
+from annotation_layer.spacy_extension import require_annotation_layer, require_entities
 
 
 def _read_csv(path: str | Path) -> list[dict[str, Any]]:
@@ -28,117 +27,125 @@ def _read_csv(path: str | Path) -> list[dict[str, Any]]:
         return list(csv.DictReader(f))
 
 
-def _assignment_from_record(
+def _assignment_and_instance_from_record(
     *,
     record: dict[str, Any],
-    coref: Any,
-) -> tuple[str, RelationAssignment]:
-    relation_mention_id = str(record["relation_mention_id"])
+    entities: Any,
+) -> tuple[str, RelationInstanceRecord, RelationAssignmentRecord]:
+    relation_id = str(record["relation_id"])
     source_mention_id = int(record["source_mention_id"])
     target_mention_id = int(record["target_mention_id"])
 
-    if source_mention_id not in coref.mentions:
-        raise KeyError(f"source_mention_id={source_mention_id} not found in doc._.coref_layer")
+    if source_mention_id not in entities.mentions:
+        raise KeyError(
+            f"source_mention_id={source_mention_id} not found in doc._.annotation_layer.entities"
+        )
 
-    if target_mention_id not in coref.mentions:
-        raise KeyError(f"target_mention_id={target_mention_id} not found in doc._.coref_layer")
+    if target_mention_id not in entities.mentions:
+        raise KeyError(
+            f"target_mention_id={target_mention_id} not found in doc._.annotation_layer.entities"
+        )
 
-    relation_mention = RelationMention(
-        relation_mention_id=relation_mention_id,
-        source_mention=coref.mentions[source_mention_id],
+    instance = RelationInstanceRecord(
+        relation_id=relation_id,
+        source_mention_id=source_mention_id,
         predicate_token_i=int(record["predicate_token_i"]),
         predicate_start=int(record["predicate_start"]),
         predicate_end=int(record["predicate_end"]),
-        target_mention=coref.mentions[target_mention_id],
+        target_mention_id=target_mention_id,
     )
 
     logits = json.loads(record["object_property_logits_json"])
-    assignment = RelationAssignment(
-        relation_mention=relation_mention,
+    assignment = RelationAssignmentRecord(
+        relation_id=relation_id,
         object_property_logits={str(k): float(v) for k, v in logits.items()},
         selection_method=str(record["selection_method"]),
     )
 
-    return relation_mention_id, assignment
+    return relation_id, instance, assignment
 
 
-def _cluster_assertion_from_record(record: dict[str, Any]) -> tuple[str, ClusterAssertion]:
+def _cluster_assertion_from_record(record: dict[str, Any]) -> tuple[str, RelationAssertionRecord]:
     assertion_id = str(record["cluster_assertion_id"])
-    support_assignment_ids = tuple(json.loads(record["support_assignment_ids_json"]))
+    support_relation_ids = tuple(str(value) for value in json.loads(record["support_relation_ids_json"]))
+    confidence_raw = record.get("aggregated_score") or record.get("confidence")
+    confidence = None if confidence_raw in (None, "") else float(confidence_raw)
 
-    assertion = ClusterAssertion(
-        cluster_assertion_id=assertion_id,
+    assertion = RelationAssertionRecord(
+        assertion_id=assertion_id,
         source_cluster_id=int(record["source_cluster_id"]),
         object_property_iri=str(record["object_property_iri"]),
         target_cluster_id=int(record["target_cluster_id"]),
-        support_assignment_ids=support_assignment_ids,
+        support_relation_ids=support_relation_ids,
         aggregation_method=str(record["aggregation_method"]),
+        confidence=confidence,
     )
 
     return assertion_id, assertion
 
 
-def build_relation_layer_from_files(
+def build_relation_sublayer_from_files(
     *,
     doc: Doc,
     assignments_path: str | Path,
     cluster_assertions_path: str | Path,
-) -> RelationLayer:
-    """Build a RelationLayer from staging CSVs and doc._.coref_layer."""
+) -> RelationSubLayer:
+    """Build a RelationSubLayer from staging CSVs and entity annotations."""
 
-    coref = require_coref_layer(doc)
+    entities = require_entities(doc)
 
-    assignments = dict(
-        _assignment_from_record(record=record, coref=coref)
-        for record in _read_csv(assignments_path)
-    )
+    instances: dict[str, RelationInstanceRecord] = {}
+    assignments: dict[str, RelationAssignmentRecord] = {}
 
-    cluster_assertions = dict(
+    for record in _read_csv(assignments_path):
+        relation_id, instance, assignment = _assignment_and_instance_from_record(
+            record=record,
+            entities=entities,
+        )
+        instances[relation_id] = instance
+        assignments[relation_id] = assignment
+
+    assertions = dict(
         _cluster_assertion_from_record(record)
         for record in _read_csv(cluster_assertions_path)
     )
 
     missing_support_ids = sorted(
         {
-            assignment_id
-            for assertion in cluster_assertions.values()
-            for assignment_id in assertion.support_assignment_ids
-            if assignment_id not in assignments
+            relation_id
+            for assertion in assertions.values()
+            for relation_id in assertion.support_relation_ids
+            if relation_id not in assignments
         }
     )
     if missing_support_ids:
         preview = ", ".join(missing_support_ids[:20])
         raise ValueError(
-            "cluster_assertions reference assignment ids that are absent from assignments CSV: "
+            "cluster_assertions reference relation ids that are absent from assignments CSV: "
             f"{preview}"
         )
 
-    return RelationLayer.from_data(
+    return RelationSubLayer.from_data(
+        instances=instances,
         assignments=assignments,
-        cluster_assertions=cluster_assertions,
+        assertions=assertions,
     )
 
 
-def annotate_relation_layer_from_files(
+def attach_relations_from_files(
     *,
     doc: Doc,
     assignments_path: str | Path,
     cluster_assertions_path: str | Path,
-    force: bool = False,
-) -> RelationLayer:
-    """Create doc._.relation_layer from assignment/assertion staging files."""
+    overwrite: bool = False,
+) -> RelationSubLayer:
+    """Create doc._.annotation_layer.relations from assignment/assertion staging files."""
 
-    register_spacy_relation_extension(force=force)
-
-    if doc._.relation_layer is not None and not force:
-        raise ValueError(
-            "doc._.relation_layer already exists. Pass force=True to replace it."
-        )
-
-    relation_layer = build_relation_layer_from_files(
+    ann = require_annotation_layer(doc)
+    relation_layer = build_relation_sublayer_from_files(
         doc=doc,
         assignments_path=assignments_path,
         cluster_assertions_path=cluster_assertions_path,
     )
-    doc._.relation_layer = relation_layer
+    ann.attach_relations(relation_layer, overwrite=overwrite)
     return relation_layer

@@ -1,9 +1,9 @@
 """CSV-first OCEAN probability scoring.
 
 This module is the model-inference/export stage of the OCEAN staging pipeline.
-It consumes ``doc._.coref_layer`` and an explicit list of ``cluster_ids``.
+It consumes ``doc._.annotation_layer.entities`` and an explicit list of ``cluster_ids``.
 It does not choose clusters by semantic type, does not annotate the Doc, and
-never mutates ``doc._.coref_layer``.
+never mutates ``doc._.annotation_layer.entities``.
 
 Output contract:
     ``./outputs/OCEAN_profiles/{n_mentions}/OCEAN_scores_cluster_*.csv``
@@ -29,7 +29,7 @@ from typing import Any, Iterable, Optional
 
 import torch
 
-from ocean.ocean_schema import OCEAN_TRAITS
+from annotation_layer.entity_annotations import OCEAN_TRAITS
 
 
 __all__ = [
@@ -237,7 +237,7 @@ AMBIGUOUS_OR_RELATIONAL_NOMINALS: set[str] = {
 
 
 # =============================================================================
-# Text normalization and coreference helpers
+# Text normalization and entity helpers
 # =============================================================================
 
 
@@ -264,37 +264,34 @@ def normalize_context_for_dedup(text: str) -> str:
     return text.strip()
 
 
-def _require_coref_layer(doc: Any) -> Any:
-    if not hasattr(doc, "_") or not hasattr(doc._, "coref_layer"):
-        raise ValueError("doc has no doc._.coref_layer")
-    coref_layer = doc._.coref_layer
-    if coref_layer is None:
-        raise ValueError("doc._.coref_layer is None")
-    return coref_layer
+def _require_entities(doc: Any) -> Any:
+    from annotation_layer.spacy_extension import require_entities
+
+    return require_entities(doc)
 
 
 def mention_ids_for_cluster(doc: Any, cluster_id: int) -> list[int]:
-    coref_layer = _require_coref_layer(doc)
-    if cluster_id not in coref_layer.clusters:
+    entities = _require_entities(doc)
+    if cluster_id not in entities.clusters:
         raise KeyError(f"Unknown cluster_id: {cluster_id}")
-    return list(coref_layer.clusters[cluster_id].mention_ids)
+    return list(entities.clusters[cluster_id].mention_ids)
 
 
 def canonical_name_for_cluster(doc: Any, cluster_id: int) -> str:
-    coref_layer = _require_coref_layer(doc)
-    if cluster_id not in coref_layer.clusters:
+    entities = _require_entities(doc)
+    if cluster_id not in entities.clusters:
         raise KeyError(f"Unknown cluster_id: {cluster_id}")
-    canonical_name = str(coref_layer.clusters[cluster_id].canonical_name).strip()
+    canonical_name = str(entities.clusters[cluster_id].canonical_name).strip()
     if not canonical_name:
         raise ValueError(f"cluster_id={cluster_id} has an empty canonical_name")
     return canonical_name
 
 
 def find_mention_by_id(doc: Any, mention_id: int) -> Any:
-    coref_layer = _require_coref_layer(doc)
-    if hasattr(coref_layer, "mentions") and mention_id in coref_layer.mentions:
-        return coref_layer.mentions[mention_id]
-    raise KeyError(f"mention_id={mention_id} not found in doc._.coref_layer")
+    entities = _require_entities(doc)
+    if hasattr(entities, "mentions") and mention_id in entities.mentions:
+        return entities.mentions[mention_id]
+    raise KeyError(f"mention_id={mention_id} not found in doc._.annotation_layer.entities")
 
 
 def _sentences(doc: Any) -> list[Any]:
@@ -1139,8 +1136,8 @@ def export_ocean_probability_csv_for_cluster(
     if chunk_size <= 0:
         raise ValueError(f"chunk_size must be > 0, got {chunk_size}")
 
-    _require_coref_layer(doc)
-    if cluster_id not in _require_coref_layer(doc).clusters:
+    _require_entities(doc)
+    if cluster_id not in _require_entities(doc).clusters:
         raise KeyError(f"Unknown cluster_id: {cluster_id}")
 
     csv_path = Path(csv_path)
@@ -1294,7 +1291,7 @@ def export_ocean_probability_csvs(
     doc: Any,
     config: OceanProbabilityExportConfig,
 ) -> dict[int, Path]:
-    coref_layer = _require_coref_layer(doc)
+    entities = _require_entities(doc)
 
     if not config.cluster_ids:
         raise ValueError("cluster_ids cannot be empty.")
@@ -1316,7 +1313,7 @@ def export_ocean_probability_csvs(
     csv_paths: dict[int, Path] = {}
 
     for cluster_position, cluster_id in enumerate(config.cluster_ids, start=1):
-        if cluster_id not in coref_layer.clusters:
+        if cluster_id not in entities.clusters:
             raise KeyError(f"Unknown cluster_id: {cluster_id}")
 
         subject = canonical_name_for_cluster(doc, cluster_id)

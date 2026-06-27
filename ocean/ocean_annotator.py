@@ -1,30 +1,26 @@
 """OCEAN CSV annotator.
 
 This module reads raw probability CSVs produced by ``ocean_probability_scoring``
-and creates a fresh ``doc._.ocean_layer``. It does not decide which clusters
-should have been scored and does not inspect semantic types.
+and attaches final cluster-level OCEAN profiles to entity clusters stored in
+``doc._.annotation_layer.entities``. Mention-level OCEAN evidence remains in the
+CSV artifacts and is not persisted in the core annotation layer.
 """
 
 from __future__ import annotations
 
-from coreference.coref_schema import require_coref_layer
 from dataclasses import dataclass
 from pathlib import Path
-import warnings
 from typing import Any
+import warnings
 
 import pandas as pd
 
-from ocean.ocean_schema import (
+from annotation_layer.entity_annotations import (
     OCEAN_TRAITS,
-    ClusterOceanAnnotation,
-    MentionOceanAnnotation,
-    OceanLayer,
+    ClusterOceanProfile,
     OceanTraitScores,
-    OceanWeightEvidence,
-    TraitRawEvidence,
-    register_spacy_ocean_extension,
 )
+from annotation_layer.spacy_extension import require_annotation_layer, require_entities
 
 
 __all__ = [
@@ -32,7 +28,8 @@ __all__ = [
     "OceanAnnotationError",
     "collapse_bipolar",
     "collapse_ocean_weight",
-    "annotate_doc_with_ocean_folder",
+    "build_cluster_ocean_profiles_from_folder",
+    "attach_ocean_from_folder",
 ]
 
 
@@ -50,6 +47,24 @@ class OceanAnnotationConfig:
 
 class OceanAnnotationError(ValueError):
     """Raised when OCEAN CSV artifacts cannot annotate the given Doc."""
+
+
+@dataclass(frozen=True, slots=True)
+class TraitRawEvidence:
+    positive: float
+    neutral: float
+    negative: float
+
+
+@dataclass(frozen=True, slots=True)
+class MentionOceanScoringRecord:
+    mention_id: int
+    cluster_id: int
+    raw: dict[str, TraitRawEvidence]
+    scores: OceanTraitScores
+    ocean_weight: float
+    source_csv_path: str
+    source_row_index: int
 
 
 IDENTITY_COLUMNS: tuple[str, ...] = (
@@ -75,15 +90,6 @@ def _required_raw_trait_columns() -> tuple[str, ...]:
         for trait in OCEAN_TRAITS
         for polarity in ("positive", "neutral", "negative")
     )
-
-
-# def _require_coref_layer(doc: Any) -> Any:
-#     if not hasattr(doc, "_") or not hasattr(doc._, "coref_layer"):
-#         raise OceanAnnotationError("doc has no doc._.coref_layer")
-#     coref_layer = doc._.coref_layer
-#     if coref_layer is None:
-#         raise OceanAnnotationError("doc._.coref_layer is None")
-#     return coref_layer
 
 
 def collapse_bipolar(
@@ -180,59 +186,46 @@ def _coerce_required_numeric_columns(df: pd.DataFrame, *, csv_path: Path) -> pd.
     return working
 
 
-def _bool_or_none(value: Any) -> bool | None:
-    if value is None or pd.isna(value):
-        return None
-    if isinstance(value, bool):
-        return value
-    text = str(value).strip().lower()
-    if text in {"true", "1", "yes", "y"}:
-        return True
-    if text in {"false", "0", "no", "n"}:
-        return False
-    return None
-
-
 def _validate_row_alignment(
     *,
     row: Any,
-    coref_layer: Any,
+    entities: Any,
     csv_path: Path,
     row_index: int,
 ) -> tuple[int, int]:
     cluster_id = int(row.cluster_id)
     mention_id = int(row.mention_id)
 
-    if cluster_id not in coref_layer.clusters:
+    if cluster_id not in entities.clusters:
         raise OceanAnnotationError(
             f"CSV references unknown cluster_id={cluster_id}. CSV: {csv_path}, row={row_index}"
         )
 
-    if mention_id not in coref_layer.mentions:
+    if mention_id not in entities.mentions:
         raise OceanAnnotationError(
             f"CSV references unknown mention_id={mention_id}. CSV: {csv_path}, row={row_index}"
         )
 
-    mention = coref_layer.mentions[mention_id]
+    mention = entities.mentions[mention_id]
 
     if int(mention.cluster_id) != cluster_id:
         raise OceanAnnotationError(
-            f"CSV/coref cluster mismatch for mention_id={mention_id}: "
-            f"CSV cluster_id={cluster_id}, coref cluster_id={mention.cluster_id}. "
+            f"CSV/entity cluster mismatch for mention_id={mention_id}: "
+            f"CSV cluster_id={cluster_id}, entity cluster_id={mention.cluster_id}. "
             f"CSV: {csv_path}, row={row_index}"
         )
 
     if int(row.mention_start) != int(mention.start) or int(row.mention_end) != int(mention.end):
         raise OceanAnnotationError(
-            f"CSV/coref span mismatch for mention_id={mention_id}: "
+            f"CSV/entity span mismatch for mention_id={mention_id}: "
             f"CSV span=({int(row.mention_start)}, {int(row.mention_end)}), "
-            f"coref span=({mention.start}, {mention.end}). CSV: {csv_path}, row={row_index}"
+            f"entity span=({mention.start}, {mention.end}). CSV: {csv_path}, row={row_index}"
         )
 
     if str(row.mention_text) != str(mention.text):
         raise OceanAnnotationError(
-            f"CSV/coref text mismatch for mention_id={mention_id}: "
-            f"CSV text={str(row.mention_text)!r}, coref text={str(mention.text)!r}. "
+            f"CSV/entity text mismatch for mention_id={mention_id}: "
+            f"CSV text={str(row.mention_text)!r}, entity text={str(mention.text)!r}. "
             f"CSV: {csv_path}, row={row_index}"
         )
 
@@ -247,7 +240,7 @@ def _raw_trait_evidence_from_row(row: Any, trait: str) -> TraitRawEvidence:
     )
 
 
-def _mention_annotation_from_row(
+def _mention_scoring_record_from_row(
     *,
     row: Any,
     mention_id: int,
@@ -255,7 +248,7 @@ def _mention_annotation_from_row(
     csv_path: Path,
     row_index: int,
     config: OceanAnnotationConfig,
-) -> MentionOceanAnnotation:
+) -> MentionOceanScoringRecord:
     raw: dict[str, TraitRawEvidence] = {
         trait: _raw_trait_evidence_from_row(row, trait)
         for trait in OCEAN_TRAITS
@@ -278,39 +271,26 @@ def _mention_annotation_from_row(
         for trait in OCEAN_TRAITS
     }
 
-    weight_raw = OceanWeightEvidence(
+    ocean_weight = collapse_ocean_weight(
         high=float(row.OCEAN_weight_high_probability),
         medium=float(row.OCEAN_weight_medium_probability),
         low=float(row.OCEAN_weight_low_probability),
-    )
-    ocean_weight = collapse_ocean_weight(
-        high=weight_raw.high,
-        medium=weight_raw.medium,
-        low=weight_raw.low,
         rounding_digits=config.rounding_digits,
     )
 
-    return MentionOceanAnnotation(
+    return MentionOceanScoringRecord(
         mention_id=mention_id,
         cluster_id=cluster_id,
         raw=raw,
         scores=OceanTraitScores.from_mapping(collapsed_scores),
         ocean_weight=ocean_weight,
-        ocean_weight_raw=weight_raw,
         source_csv_path=str(csv_path),
         source_row_index=row_index,
-        context_text=getattr(row, "context_text", None),
-        normalized_context_text=getattr(row, "normalized_context_text", None),
-        original_context_text=getattr(row, "original_context_text", None),
-        rendered_context_text=getattr(row, "rendered_context_text", None),
-        mention_render_rule=getattr(row, "mention_render_rule", None),
-        mention_render_was_changed=_bool_or_none(getattr(row, "mention_render_was_changed", None)),
-        collapse_method=config.collapse_method,
     )
 
 
 def _aggregate_cluster_trait(
-    mention_annotations: list[MentionOceanAnnotation],
+    mention_records: list[MentionOceanScoringRecord],
     trait: str,
     *,
     neutral_score: float,
@@ -319,12 +299,12 @@ def _aggregate_cluster_trait(
     weighted_sum = 0.0
     total_weight = 0.0
 
-    for annotation in mention_annotations:
-        raw = annotation.raw[trait]
-        effective_weight = annotation.ocean_weight * (1.0 - raw.neutral)
+    for record in mention_records:
+        raw = record.raw[trait]
+        effective_weight = record.ocean_weight * (1.0 - raw.neutral)
         if effective_weight <= 0.0:
             continue
-        weighted_sum += annotation.scores[trait] * effective_weight
+        weighted_sum += record.scores[trait] * effective_weight
         total_weight += effective_weight
 
     if total_weight <= 1e-9:
@@ -333,46 +313,39 @@ def _aggregate_cluster_trait(
     return round(float(weighted_sum / total_weight), rounding_digits)
 
 
-def _cluster_annotation_from_mentions(
+def _cluster_profile_from_mentions(
     *,
     cluster_id: int,
-    mention_annotations: list[MentionOceanAnnotation],
+    mention_records: list[MentionOceanScoringRecord],
     config: OceanAnnotationConfig,
-) -> ClusterOceanAnnotation:
+) -> ClusterOceanProfile:
     scores = {
         trait: _aggregate_cluster_trait(
-            mention_annotations,
+            mention_records,
             trait,
             neutral_score=config.neutral_score,
             rounding_digits=config.rounding_digits,
         )
         for trait in OCEAN_TRAITS
     }
-    source_csv_paths = sorted({annotation.source_csv_path for annotation in mention_annotations})
+    source_csv_paths = sorted({record.source_csv_path for record in mention_records})
 
-    return ClusterOceanAnnotation(
-        cluster_id=cluster_id,
+    return ClusterOceanProfile(
         scores=OceanTraitScores.from_mapping(scores),
-        n_mentions_scored=len(mention_annotations),
-        source_csv_paths=source_csv_paths,
+        n_mentions_scored=len(mention_records),
+        evidence_ref="|".join(source_csv_paths),
         aggregation_method=config.aggregation_method,
         collapse_method=config.collapse_method,
     )
 
 
-def annotate_doc_with_ocean_folder(
+def build_cluster_ocean_profiles_from_folder(
     doc: Any,
     folder_path: str | Path,
     *,
     config: OceanAnnotationConfig | None = None,
     pattern: str = "OCEAN_scores_cluster_*.csv",
-) -> Any:
-    """Annotate ``doc`` with a fresh ``doc._.ocean_layer`` from a CSV folder.
-
-    The annotator processes every matching CSV in the folder. It does not decide
-    whether those CSVs should exist and does not inspect cluster semantic types.
-    """
-
+) -> dict[int, ClusterOceanProfile]:
     config = config or OceanAnnotationConfig()
     folder = Path(folder_path)
     if not folder.exists() or not folder.is_dir():
@@ -382,12 +355,8 @@ def annotate_doc_with_ocean_folder(
     if not csv_paths:
         raise OceanAnnotationError(f"No OCEAN CSV files found in {folder} with pattern {pattern!r}")
 
-    coref_layer = require_coref_layer(doc)
-    register_spacy_ocean_extension()
-
-    ocean_layer = OceanLayer(source_folder=str(folder))
-    mentions_by_cluster: dict[int, list[MentionOceanAnnotation]] = {}
-    seen_cluster_ids: set[int] = set()
+    entities = require_entities(doc)
+    records_by_cluster: dict[int, list[MentionOceanScoringRecord]] = {}
     seen_mention_ids: set[int] = set()
 
     for csv_path in csv_paths:
@@ -400,19 +369,18 @@ def annotate_doc_with_ocean_folder(
         df = _coerce_required_numeric_columns(df, csv_path=csv_path)
         cluster_id = _require_single_cluster_id(df, csv_path=csv_path)
 
-        if cluster_id in seen_cluster_ids:
+        if cluster_id in records_by_cluster:
             raise OceanAnnotationError(
                 f"Duplicate OCEAN CSVs for cluster_id={cluster_id}. "
                 f"Ambiguous cluster annotation in folder {folder}"
             )
-        seen_cluster_ids.add(cluster_id)
 
-        cluster_mentions: list[MentionOceanAnnotation] = []
+        cluster_records: list[MentionOceanScoringRecord] = []
 
         for row_index, row in enumerate(df.itertuples(index=False), start=0):
             mention_id, row_cluster_id = _validate_row_alignment(
                 row=row,
-                coref_layer=coref_layer,
+                entities=entities,
                 csv_path=csv_path,
                 row_index=row_index,
             )
@@ -423,25 +391,44 @@ def annotate_doc_with_ocean_folder(
                 )
             seen_mention_ids.add(mention_id)
 
-            annotation = _mention_annotation_from_row(
-                row=row,
-                mention_id=mention_id,
-                cluster_id=row_cluster_id,
-                csv_path=csv_path,
-                row_index=row_index,
-                config=config,
+            cluster_records.append(
+                _mention_scoring_record_from_row(
+                    row=row,
+                    mention_id=mention_id,
+                    cluster_id=row_cluster_id,
+                    csv_path=csv_path,
+                    row_index=row_index,
+                    config=config,
+                )
             )
-            ocean_layer.mentions[mention_id] = annotation
-            cluster_mentions.append(annotation)
 
-        mentions_by_cluster[cluster_id] = cluster_mentions
+        records_by_cluster[cluster_id] = cluster_records
 
-    for cluster_id, mention_annotations in mentions_by_cluster.items():
-        ocean_layer.clusters[cluster_id] = _cluster_annotation_from_mentions(
+    return {
+        cluster_id: _cluster_profile_from_mentions(
             cluster_id=cluster_id,
-            mention_annotations=mention_annotations,
+            mention_records=mention_records,
             config=config,
         )
+        for cluster_id, mention_records in records_by_cluster.items()
+    }
 
-    doc._.ocean_layer = ocean_layer
-    return doc
+
+def attach_ocean_from_folder(
+    doc: Any,
+    folder_path: str | Path,
+    *,
+    config: OceanAnnotationConfig | None = None,
+    pattern: str = "OCEAN_scores_cluster_*.csv",
+    overwrite: bool = False,
+) -> dict[int, ClusterOceanProfile]:
+    profiles = build_cluster_ocean_profiles_from_folder(
+        doc=doc,
+        folder_path=folder_path,
+        config=config,
+        pattern=pattern,
+    )
+    ann = require_annotation_layer(doc)
+    ann.require_entities().attach_cluster_ocean_profiles(profiles, overwrite=overwrite)
+    ann.mark_ocean_complete()
+    return profiles

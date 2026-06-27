@@ -8,7 +8,7 @@ import time
 
 import networkx as nx
 
-from coreference.coref_schema import require_coref_layer
+from annotation_layer.spacy_extension import require_entities
 
 from ocean.ocean_probability_scoring import (
     ContextConfig,
@@ -114,7 +114,7 @@ class ClusterTypingEvidenceExportConfig:
     """Configuration for all-cluster cluster-typing evidence export.
 
     Cluster selection is deliberately not configurable here: multi-cluster
-    export always processes every cluster in ``doc._.coref_layer``. Keep
+    export always processes every cluster in ``doc._.annotation_layer.entities``. Keep
     ``export_cluster_typing_evidence_jsonl_for_cluster`` for focused debugging or
     one-off experiments on a single cluster.
     """
@@ -442,8 +442,8 @@ def export_cluster_typing_evidence_jsonl_for_cluster(
     if chunk_size <= 0:
         raise ValueError(f"chunk_size must be > 0, got {chunk_size}")
 
-    coref_layer = require_coref_layer(doc)
-    if cluster_id not in coref_layer.clusters:
+    entities = require_entities(doc)
+    if cluster_id not in entities.clusters:
         raise KeyError(f"Unknown cluster_id: {cluster_id}")
 
     jsonl_path = Path(jsonl_path)
@@ -551,12 +551,12 @@ def export_cluster_typing_evidence_jsonl_for_cluster(
 
 
 def _all_cluster_ids_from_doc(doc: Any) -> list[int]:
-    """Return every coreference cluster ID in deterministic order."""
+    """Return every entity cluster ID in deterministic order."""
 
-    coref_layer = require_coref_layer(doc)
-    cluster_ids = sorted(int(cluster_id) for cluster_id in coref_layer.clusters)
+    entities = require_entities(doc)
+    cluster_ids = sorted(int(cluster_id) for cluster_id in entities.clusters)
     if not cluster_ids:
-        raise ValueError("doc._.coref_layer has no clusters to cluster-type.")
+        raise ValueError("doc._.annotation_layer.entities has no clusters to cluster-type.")
     return cluster_ids
 
 
@@ -565,7 +565,7 @@ def export_cluster_typing_evidence_jsonls(
     graph: nx.DiGraph,
     config: ClusterTypingEvidenceExportConfig,
 ) -> dict[int, Path]:
-    """Export cluster-typing evidence JSONLs for every cluster in ``doc._.coref_layer``."""
+    """Export cluster-typing evidence JSONLs for every cluster in ``doc._.annotation_layer.entities``."""
 
     validate_ontology_graph(graph)
     cluster_ids = _all_cluster_ids_from_doc(doc)
@@ -579,7 +579,7 @@ def export_cluster_typing_evidence_jsonls(
     if config.print_progress:
         print("=" * 100)
         print("All-cluster cluster-typing evidence export")
-        print(f"cluster source: doc._.coref_layer.clusters")
+        print(f"cluster source: doc._.annotation_layer.entities.clusters")
         print(f"n_clusters: {len(cluster_ids)}")
         print(f"cluster_ids: {cluster_ids}")
         print(f"n_mentions_per_cluster: {config.n_mentions_per_cluster}")
