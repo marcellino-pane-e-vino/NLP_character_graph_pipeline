@@ -10,16 +10,18 @@ import networkx as nx
 
 from annotation_layer.spacy_extension import require_entities
 
-from ocean.ocean_probability_scoring import (
-    ContextConfig,
-    MentionRenderingConfig,
-    DirectNLIConfig,
+from neural_runtime.mentions import (
+    ContextConfig as ClusterTypingContextConfig,
+    MentionRenderingConfig as ClusterTypingMentionRenderingConfig,
     canonical_name_for_cluster,
+    cluster_random_seed,
     mention_ids_for_cluster,
     mention_records_for_cluster,
-    _cluster_random_seed,
-    _device_name,
-    _direct_entailment_logits_for_pairs,
+)
+from neural_runtime.nli import (
+    DirectNLIConfig as ClusterTypingDirectNLIConfig,
+    device_name,
+    entailment_probabilities_for_hypotheses,
 )
 
 from .graph_contract import (
@@ -41,6 +43,9 @@ from .cluster_typing_artifacts import (
 __all__ = [
     "DEFAULT_MODEL_NAME",
     "CLUSTER_TYPING_MENTION_WEIGHT_LABELS",
+    "ClusterTypingContextConfig",
+    "ClusterTypingMentionRenderingConfig",
+    "ClusterTypingDirectNLIConfig",
     "ClusterTypingTraversalConfig",
     "ClusterTypingScoringConfig",
     "ClusterTypingMentionWeightConfig",
@@ -130,12 +135,12 @@ class ClusterTypingEvidenceExportConfig:
 
     chunk_size: int = 16
 
-    context_config: ContextConfig = field(default_factory=ContextConfig)
-    rendering_config: MentionRenderingConfig = field(default_factory=MentionRenderingConfig)
+    context_config: ClusterTypingContextConfig = field(default_factory=ClusterTypingContextConfig)
+    rendering_config: ClusterTypingMentionRenderingConfig = field(default_factory=ClusterTypingMentionRenderingConfig)
     traversal_config: ClusterTypingTraversalConfig = field(default_factory=ClusterTypingTraversalConfig)
     scoring_config: ClusterTypingScoringConfig = field(default_factory=ClusterTypingScoringConfig)
     mention_weight_config: ClusterTypingMentionWeightConfig = field(default_factory=ClusterTypingMentionWeightConfig)
-    nli_config: DirectNLIConfig = field(default_factory=DirectNLIConfig)
+    nli_config: ClusterTypingDirectNLIConfig = field(default_factory=ClusterTypingDirectNLIConfig)
 
     print_progress: bool = True
 
@@ -154,30 +159,19 @@ def _format_template(template: str, *, label: str, subject: str | None) -> str:
     return text
 
 
-def _softmax(values: list[float]) -> list[float]:
-    if not values:
-        return []
-    max_value = max(values)
-    exps = [pow(2.718281828459045, value - max_value) for value in values]
-    total = sum(exps)
-    if total <= 0.0:
-        return [1.0 / len(values)] * len(values)
-    return [value / total for value in exps]
-
-
 def _score_grouped_probabilities(
     *,
     premise: str,
     hypotheses: list[str],
     model_name: str,
-    nli_config: DirectNLIConfig,
+    nli_config: ClusterTypingDirectNLIConfig,
 ) -> list[float]:
-    logits = _direct_entailment_logits_for_pairs(
-        [(premise, hypothesis) for hypothesis in hypotheses],
+    return entailment_probabilities_for_hypotheses(
+        premise=premise,
+        hypotheses=hypotheses,
         model_name=model_name,
         nli_config=nli_config,
     )
-    return _softmax([float(value) for value in logits])
 
 
 def _candidate_hypothesis(
@@ -212,7 +206,7 @@ def _score_mention_weight_raw(
     subject: str | None,
     scoring_config: ClusterTypingScoringConfig,
     mention_weight_config: ClusterTypingMentionWeightConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: ClusterTypingDirectNLIConfig,
 ) -> dict[str, float]:
     template = (
         mention_weight_config.subject_hypothesis_template
@@ -245,7 +239,7 @@ def _selected_path_for_mention(
     subject: str | None,
     traversal_config: ClusterTypingTraversalConfig,
     scoring_config: ClusterTypingScoringConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: ClusterTypingDirectNLIConfig,
 ) -> list[dict[str, Any]]:
     roots = ontology_roots(graph)
     if not roots:
@@ -374,7 +368,7 @@ def _evidence_record_for_mention(
     traversal_config: ClusterTypingTraversalConfig,
     scoring_config: ClusterTypingScoringConfig,
     mention_weight_config: ClusterTypingMentionWeightConfig,
-    nli_config: DirectNLIConfig,
+    nli_config: ClusterTypingDirectNLIConfig,
 ) -> dict[str, Any]:
     selected_path = _selected_path_for_mention(
         graph=graph,
@@ -422,12 +416,12 @@ def export_cluster_typing_evidence_jsonl_for_cluster(
     n_mentions: int | None,
     random_seed: int | None = None,
     sort_sample_by_cluster_order: bool = True,
-    context_config: ContextConfig | None = None,
-    rendering_config: MentionRenderingConfig | None = None,
+    context_config: ClusterTypingContextConfig | None = None,
+    rendering_config: ClusterTypingMentionRenderingConfig | None = None,
     traversal_config: ClusterTypingTraversalConfig | None = None,
     scoring_config: ClusterTypingScoringConfig | None = None,
     mention_weight_config: ClusterTypingMentionWeightConfig | None = None,
-    nli_config: DirectNLIConfig | None = None,
+    nli_config: ClusterTypingDirectNLIConfig | None = None,
     chunk_size: int = 16,
     overwrite_jsonl: bool = False,
     resume_from_jsonl: bool = True,
@@ -451,12 +445,12 @@ def export_cluster_typing_evidence_jsonl_for_cluster(
     if overwrite_jsonl and jsonl_path.exists():
         jsonl_path.unlink()
 
-    context_config = context_config or ContextConfig(deduplicate=False)
-    rendering_config = rendering_config or MentionRenderingConfig()
+    context_config = context_config or ClusterTypingContextConfig(deduplicate=False)
+    rendering_config = rendering_config or ClusterTypingMentionRenderingConfig()
     traversal_config = traversal_config or ClusterTypingTraversalConfig()
     scoring_config = scoring_config or ClusterTypingScoringConfig()
     mention_weight_config = mention_weight_config or ClusterTypingMentionWeightConfig()
-    nli_config = nli_config or DirectNLIConfig()
+    nli_config = nli_config or ClusterTypingDirectNLIConfig()
 
     subject = canonical_name_for_cluster(doc, cluster_id)
     total_mentions_in_cluster = len(mention_ids_for_cluster(doc, cluster_id))
@@ -469,7 +463,7 @@ def export_cluster_typing_evidence_jsonl_for_cluster(
         print(f"requested mentions: {n_mentions}")
         print(f"total mentions in cluster: {total_mentions_in_cluster}")
         print(f"jsonl_path: {jsonl_path}")
-        print(f"device: {_device_name()}")
+        print(f"device: {device_name(nli_config.device)}")
         print("=" * 100)
 
     extraction_start = time.perf_counter()
@@ -596,7 +590,7 @@ def export_cluster_typing_evidence_jsonls(
             subject=subject,
             n_mentions=config.n_mentions_per_cluster,
         )
-        per_cluster_seed = _cluster_random_seed(config.random_seed, cluster_id)
+        per_cluster_seed = cluster_random_seed(config.random_seed, cluster_id)
 
         if config.print_progress:
             print()

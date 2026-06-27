@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from math import exp, log
 
 from annotation_layer.ids import (
     ClusterId,
@@ -26,32 +25,31 @@ class RelationInstanceRecord:
 @dataclass(frozen=True, slots=True)
 class RelationAssignmentRecord:
     relation_id: RelationId
-    object_property_logits: dict[ObjectPropertyIri, float]
+    object_property_probabilities: dict[ObjectPropertyIri, float]
     selection_method: str
 
-    def object_property_scores(self) -> dict[ObjectPropertyIri, float]:
-        return softmax_dict(self.object_property_logits)
-
     def chosen_object_property_iri(self) -> ObjectPropertyIri:
-        scores = self.object_property_scores()
-        if not scores:
-            raise ValueError(f"Relation assignment {self.relation_id!r} has no scores.")
-        return max(scores, key=scores.get)
+        probabilities = self.object_property_probabilities
+        if not probabilities:
+            raise ValueError(
+                f"Relation assignment {self.relation_id!r} has no object-property probabilities."
+            )
+        return max(probabilities, key=probabilities.get)
 
     def confidence(self) -> float:
-        scores = self.object_property_scores()
-        return max(scores.values()) if scores else 0.0
+        probabilities = self.object_property_probabilities
+        return float(max(probabilities.values())) if probabilities else 0.0
 
     def margin(self) -> float:
-        values = sorted(self.object_property_scores().values(), reverse=True)
+        values = sorted(
+            (float(value) for value in self.object_property_probabilities.values()),
+            reverse=True,
+        )
         if not values:
             return 0.0
         if len(values) == 1:
             return 1.0
         return float(values[0] - values[1])
-
-    def entropy(self) -> float:
-        return -sum(p * log(p) for p in self.object_property_scores().values() if p > 0.0)
 
 
 @dataclass(frozen=True, slots=True)
@@ -146,18 +144,6 @@ class RelationSubLayer:
             "n_target_cluster_indexes": len(self.by_target_cluster),
             "n_property_indexes": len(self.by_property),
         }
-
-
-def softmax_dict(logits: dict[ObjectPropertyIri, float]) -> dict[ObjectPropertyIri, float]:
-    if not logits:
-        return {}
-
-    max_logit = max(float(value) for value in logits.values())
-    exps = {key: exp(float(value) - max_logit) for key, value in logits.items()}
-    denominator = sum(exps.values())
-    if denominator == 0.0:
-        return {key: 0.0 for key in logits}
-    return {key: value / denominator for key, value in exps.items()}
 
 
 def make_relation_id(source_mention_id: int, predicate_token_i: int, target_mention_id: int) -> str:

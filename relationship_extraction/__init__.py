@@ -7,12 +7,11 @@ from relationship_extraction.extract_relation_candidates import (
     iter_syntax_relation_candidates,
 )
 from relationship_extraction.align_relation_assignments import (
-    RelationNLIConfig,
-    RelationPairScorer,
-    TransformersRelationNLISelector,
+    RelationAssignmentExportConfig,
+    RelationDirectNLIConfig,
+    RelationScoringConfig,
     export_relation_assignments,
     export_relation_assignments_csv,
-    load_relation_nli_selector,
 )
 from relationship_extraction.aggregate_cluster_assertions import (
     RelationAggregationConfig,
@@ -31,12 +30,11 @@ __all__ = [
     "export_routed_relation_candidates_jsonl",
     "extract_relation_candidates",
     "iter_syntax_relation_candidates",
-    "RelationNLIConfig",
-    "RelationPairScorer",
-    "TransformersRelationNLISelector",
+    "RelationAssignmentExportConfig",
+    "RelationDirectNLIConfig",
+    "RelationScoringConfig",
     "export_relation_assignments",
     "export_relation_assignments_csv",
-    "load_relation_nli_selector",
     "RelationAggregationConfig",
     "export_cluster_assertions",
     "export_cluster_assertions_csv",

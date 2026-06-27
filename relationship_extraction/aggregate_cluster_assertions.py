@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from annotation_layer.relations import make_relation_assertion_id, softmax_dict
+from annotation_layer.relations import make_relation_assertion_id
 
 
 @dataclass(frozen=True, slots=True)
@@ -24,9 +24,12 @@ def _read_assignment_rows(path: str | Path) -> list[dict[str, Any]]:
         return list(csv.DictReader(f))
 
 
-def _assignment_scores(row: dict[str, Any]) -> dict[str, float]:
-    logits = json.loads(row["object_property_logits_json"])
-    return softmax_dict({str(k): float(v) for k, v in logits.items()})
+def _assignment_probabilities(row: dict[str, Any]) -> dict[str, float]:
+    probabilities = json.loads(row["object_property_probabilities_json"])
+    return {
+        str(object_property_iri): float(probability)
+        for object_property_iri, probability in probabilities.items()
+    }
 
 
 def export_cluster_assertions_csv(
@@ -38,9 +41,9 @@ def export_cluster_assertions_csv(
 ) -> Path:
     """Aggregate relation assignments into one assertion per cluster pair.
 
-    V1 policy: group by (source_cluster_id, target_cluster_id), sum the softmax
-    probability mass per object property, and keep the best property when it
-    passes min_support_count and min_score.
+    V1 policy: group by (source_cluster_id, target_cluster_id), sum the
+    per-relation grouped-softmax probability mass per object property, and keep
+    the best property when it passes min_support_count and min_score.
     """
 
     config = aggregation_config or RelationAggregationConfig()
@@ -84,9 +87,9 @@ def export_cluster_assertions_csv(
                 relation_id = str(row["relation_id"])
                 support_relation_ids.append(relation_id)
 
-                for object_property_iri, score in _assignment_scores(row).items():
+                for object_property_iri, probability in _assignment_probabilities(row).items():
                     property_scores[object_property_iri] = (
-                        property_scores.get(object_property_iri, 0.0) + float(score)
+                        property_scores.get(object_property_iri, 0.0) + float(probability)
                     )
 
             if not property_scores:
