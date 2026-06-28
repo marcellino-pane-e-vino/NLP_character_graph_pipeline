@@ -22,6 +22,7 @@ MentionKey = tuple[int, int, str]
 GLOBAL_CLUSTER_SALIENCE_FILTER_ENABLED = True
 GLOBAL_CLUSTER_SALIENCE_PERCENTILE = 0.95
 MIN_GLOBAL_CLUSTER_MENTIONS: int | None = None
+MIN_KEPT_GLOBAL_CLUSTERS: int | None = 10
 REJECTED_GLOBAL_CLUSTERS_FILENAME = "rejected_global_clusters.csv"
 
 
@@ -1625,15 +1626,17 @@ def split_components_by_mention_percentile(
     *,
     percentile: float,
     min_mentions: int | None = None,
+    min_kept_clusters: int | None = None,
 ) -> tuple[dict[str, MergeComponent], dict[str, MergeComponent], int]:
     """Split components into kept/rejected by final mention-count salience.
 
     Policy:
         - compute the requested quantile over final global component sizes;
-        - use ceil(quantile) as the cutoff to avoid accepting components below
-          a fractional percentile boundary;
+        - use ceil(quantile) as the preferred cutoff;
         - keep components with len(component.mentions) >= cutoff;
-        - reject components with len(component.mentions) < cutoff.
+        - if fewer than min_kept_clusters survive, keep the top-N components
+          by mention count instead;
+        - reject every component not included in the final kept set.
 
     Returns:
         kept_components,
@@ -1643,6 +1646,11 @@ def split_components_by_mention_percentile(
 
     if not 0 <= percentile <= 1:
         raise ValueError(f"percentile must be between 0 and 1, got {percentile}")
+
+    if min_kept_clusters is not None and min_kept_clusters < 0:
+        raise ValueError(
+            f"min_kept_clusters must be non-negative or None, got {min_kept_clusters}"
+        )
 
     if not components:
         return {}, {}, 0
@@ -1663,10 +1671,33 @@ def split_components_by_mention_percentile(
         if len(component.mentions) >= cutoff
     }
 
+    if min_kept_clusters is not None and len(kept_components) < min_kept_clusters:
+        target_kept_count = min(int(min_kept_clusters), len(components))
+
+        ordered_components = sorted(
+            components.items(),
+            key=lambda item: (
+                -len(item[1].mentions),
+                component_document_order_key(item[1]),
+                item[0],
+            ),
+        )
+
+        kept_component_uids = {
+            component_uid
+            for component_uid, _component in ordered_components[:target_kept_count]
+        }
+
+        kept_components = {
+            component_uid: component
+            for component_uid, component in components.items()
+            if component_uid in kept_component_uids
+        }
+
     rejected_components = {
         component_uid: component
         for component_uid, component in components.items()
-        if len(component.mentions) < cutoff
+        if component_uid not in kept_components
     }
 
     return kept_components, rejected_components, cutoff
@@ -1795,7 +1826,7 @@ def export_rejected_global_clusters_csv(
                     component_uid
                 ],
                 "merge_component_uid": component_uid,
-                "rejection_reason": "below_global_cluster_salience_percentile",
+                "rejection_reason": "below_global_cluster_salience_policy",
                 "salience_percentile": salience_percentile,
                 "salience_cutoff": salience_cutoff,
                 "n_local_clusters": len(component.local_cluster_uids),
@@ -1874,6 +1905,7 @@ def merge_local_coreference_clusters(
             components,
             percentile=GLOBAL_CLUSTER_SALIENCE_PERCENTILE,
             min_mentions=MIN_GLOBAL_CLUSTER_MENTIONS,
+            min_kept_clusters=MIN_KEPT_GLOBAL_CLUSTERS,
         )
 
         if verbose:
@@ -1881,6 +1913,7 @@ def merge_local_coreference_clusters(
                 "[global-coref][salience-filter] "
                 f"percentile={GLOBAL_CLUSTER_SALIENCE_PERCENTILE:.2f}; "
                 f"cutoff={salience_cutoff}; "
+                f"min_kept_clusters={MIN_KEPT_GLOBAL_CLUSTERS}; "
                 f"kept={len(components)}; "
                 f"rejected={len(rejected_components)}"
             )
