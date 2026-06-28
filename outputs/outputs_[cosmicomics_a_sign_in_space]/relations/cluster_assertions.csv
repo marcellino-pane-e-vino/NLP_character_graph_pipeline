@@ -1,0 +1,3 @@
+cluster_assertion_id,source_cluster_id,object_property_iri,target_cluster_id,support_relation_ids_json,aggregation_method,aggregated_score
+assertion_1_holdsAttitudeToward_0,1,https://example.org/nlp-sdai/narrative-entity-ontology#holdsAttitudeToward,0,"[""rel_159_2600_160"", ""rel_204_3151_205""]",sum_softmax_by_cluster_pair,0.7053988993790572
+assertion_2_holdsAttitudeToward_1,2,https://example.org/nlp-sdai/narrative-entity-ontology#holdsAttitudeToward,1,"[""rel_175_2780_176"", ""rel_179_2808_180""]",sum_softmax_by_cluster_pair,0.7146770572726391

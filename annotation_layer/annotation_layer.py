@@ -19,6 +19,7 @@ class ArtifactManifest:
     ocean_artifact_root: str | None = None
     relation_artifact_root: str | None = None
     ontology_path: str | None = None
+    populated_ontology_path: str | None = None
 
 
 @dataclass(slots=True)

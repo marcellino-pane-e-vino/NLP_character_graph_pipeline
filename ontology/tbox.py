@@ -241,7 +241,10 @@ def load_tbox(
     *,
     require_property_descriptions: bool = True,
 ) -> tuple[SyncOntology, nx.DiGraph]:
-    """Load ontology, validate TBox, and return ontology + raw class graph."""
+    """Legacy functional API: load ontology and return ontology + class graph.
+
+    Prefer ``NarrativeOntology`` in notebook and orchestration code.
+    """
 
     onto = load_ontology(path)
     if require_property_descriptions:

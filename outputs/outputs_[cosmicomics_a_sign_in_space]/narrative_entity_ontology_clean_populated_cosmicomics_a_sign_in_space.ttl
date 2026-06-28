@@ -1,0 +1,448 @@
+@prefix : <https://example.org/nlp-sdai/narrative-entity-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://example.org/nlp-sdai/narrative-entity-ontology#> .
+
+<https://example.org/nlp-sdai/narrative-entity-ontology#> rdf:type owl:Ontology ;
+                                                           <http://purl.org/dc/terms/creator> "NLP+SDAI project"@en ;
+                                                           <http://purl.org/dc/terms/description> "A compact, book-agnostic ontology for classifying entities in fantasy and narrative fiction into stable narrative entity classes."@en ;
+                                                           <http://purl.org/dc/terms/title> "Narrative Entity Ontology"@en ;
+                                                           rdfs:comment "Parent classes such as Character, Group, Place, Object, Event, or Concept may be used directly when the available evidence does not justify a more specific subclass."@en ,
+                                                                        "The ontology does not include an Unknown, Ambiguous, or Unresolved class. Uncertainty should be handled by the consuming application rather than represented as a semantic entity type."@en ,
+                                                                        "This ontology defines semantic classes for narrative entities. It intentionally excludes implementation-specific metadata such as mention identifiers, coreference cluster identifiers, token offsets, classifier confidence values, and textual evidence records."@en ;
+                                                           owl:versionInfo "0.2.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#accompanies
+:accompanies rdf:type owl:ObjectProperty ;
+             rdfs:domain :Character ;
+             rdfs:range :Character ;
+             rdfs:label "accompanies"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to another character with whom they travel, go, come, remain, stay, live, join, or move together as companions or temporary associates."@en ;
+             <http://www.w3.org/2004/02/skos/core#example> "The Scarecrow goes with Dorothy; the Lion goes with Dorothy; Toto trots behind Dorothy."@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "accompanies"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#containedInPlace
+:containedInPlace rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :containsPlace ;
+                  rdfs:domain :Place ;
+                  rdfs:range :Place ;
+                  rdfs:label "contained in place"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Connects a place to a larger place that contains it."@en ;
+                  <http://www.w3.org/2004/02/skos/core#prefLabel> "containedInPlace"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#containsPlace
+:containsPlace rdf:type owl:ObjectProperty ;
+               rdfs:domain :Place ;
+               rdfs:range :Place ;
+               rdfs:label "contains place"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Connects a place to a smaller place contained within it."@en ;
+               <http://www.w3.org/2004/02/skos/core#prefLabel> "containsPlace"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#guides
+:guides rdf:type owl:ObjectProperty ;
+        rdfs:domain :Character ;
+        rdfs:range :NarrativeEntity ;
+        rdfs:label "guides"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to an entity that the character leads, guides, directs, escorts, brings, takes somewhere, sends onward, or helps navigate through a place or sequence of events."@en ;
+        <http://www.w3.org/2004/02/skos/core#example> "Boq leads Dorothy; the Scarecrow leads the travelers; Oz sends Dorothy."@en ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "guides"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#harms
+:harms rdf:type owl:ObjectProperty ;
+       rdfs:domain :Character ;
+       rdfs:range :NarrativeEntity ;
+       rdfs:label "harms"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to an entity that the character injures, kills, attacks, bites, strikes, hurts, threatens, beats, destroys, starves, melts, or otherwise damages."@en ;
+       <http://www.w3.org/2004/02/skos/core#example> "Dorothy kills the Wicked Witch; the Lion bites Toto; the Wicked Witch strikes Toto."@en ;
+       <http://www.w3.org/2004/02/skos/core#prefLabel> "harms"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           rdfs:domain :Group ;
+           rdfs:range :NarrativeEntity ;
+           rdfs:label "has member"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Connects a group to one of its members."@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "hasMember"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#hasParticipant
+:hasParticipant rdf:type owl:ObjectProperty ;
+                rdfs:domain :Event ;
+                rdfs:range :NarrativeEntity ;
+                rdfs:label "has participant"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Connects an event to a narrative entity that participates in it."@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "hasParticipant"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#holdsAttitudeToward
+:holdsAttitudeToward rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Character ;
+                     rdfs:range :NarrativeEntity ;
+                     rdfs:label "holds attitude toward"@en ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to an entity toward which the character expresses an emotional, evaluative, cognitive, or social attitude such as love, liking, trust, fear, worry, gratitude, agreement, suspicion, or longing."@en ;
+                     <http://www.w3.org/2004/02/skos/core#prefLabel> "holdsAttitudeToward"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#hostsEvent
+:hostsEvent rdf:type owl:ObjectProperty ;
+            owl:inverseOf :occursAt ;
+            rdfs:domain :Place ;
+            rdfs:range :Event ;
+            rdfs:label "hosts event"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Connects a place to an event that occurs there."@en ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "hostsEvent"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :NarrativeEntity ;
+           rdfs:range :Place ;
+           rdfs:label "located in"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Connects a narrative entity to a place where it is located or situated."@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "locatedIn"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#memberOf
+:memberOf rdf:type owl:ObjectProperty ;
+          owl:inverseOf :hasMember ;
+          rdfs:domain :NarrativeEntity ;
+          rdfs:range :Group ;
+          rdfs:label "member of"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Connects a narrative entity to a group of which it is a member."@en ;
+          <http://www.w3.org/2004/02/skos/core#prefLabel> "memberOf"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#movesToward
+:movesToward rdf:type owl:ObjectProperty ;
+             rdfs:domain :Character ;
+             rdfs:range :NarrativeEntity ;
+             rdfs:label "moves toward"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to an entity, place, destination, person, or goal that the character approaches, comes to, goes to, runs toward, follows, reaches, or moves toward."@en ;
+             <http://www.w3.org/2004/02/skos/core#example> "Dorothy comes to Oz; Dorothy runs toward Glinda; the Tin Woodman follows the Scarecrow."@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "movesToward"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#objectUsedBy
+:objectUsedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :usesObject ;
+              rdfs:domain :Object ;
+              rdfs:range :Character ;
+              rdfs:label "object used by"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Connects an object to a character that uses, carries, wields, reads, consumes, or otherwise handles it."@en ;
+              <http://www.w3.org/2004/02/skos/core#prefLabel> "objectUsedBy"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#occursAt
+:occursAt rdf:type owl:ObjectProperty ;
+          rdfs:domain :Event ;
+          rdfs:range :Place ;
+          rdfs:label "occurs at"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Connects an event to the place where it occurs."@en ;
+          <http://www.w3.org/2004/02/skos/core#prefLabel> "occursAt"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#participatesIn
+:participatesIn rdf:type owl:ObjectProperty ;
+                owl:inverseOf :hasParticipant ;
+                rdfs:domain :NarrativeEntity ;
+                rdfs:range :Event ;
+                rdfs:label "participates in"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Connects a narrative entity to an event in which it participates."@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "participatesIn"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#usesObject
+:usesObject rdf:type owl:ObjectProperty ;
+            rdfs:domain :Character ;
+            rdfs:range :Object ;
+            rdfs:label "uses object"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Connects a character to an object used, carried, wielded, read, consumed, or otherwise handled by that character."@en ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "usesObject"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Event ;
+        rdfs:label "Action"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "An event intentionally performed, initiated, or substantially caused by one or more narrative agents."@en ;
+        <http://www.w3.org/2004/02/skos/core#example> "the murder, the betrayal, the rescue, the coronation, the ritual, the battle, the journey."@en ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "Action"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#BeliefOrValue
+:BeliefOrValue rdf:type owl:Class ;
+               rdfs:subClassOf :Concept ;
+               rdfs:label "Belief or value"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A belief, value, doctrine, ideology, religion, moral principle, worldview, destiny-claim, or abstract evaluative idea in the narrative."@en ;
+               <http://www.w3.org/2004/02/skos/core#example> "honor, fate, loyalty, the old religion, the gods' will, the prophecy as a belief, justice."@en ;
+               <http://www.w3.org/2004/02/skos/core#prefLabel> "BeliefOrValue"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Character
+:Character rdf:type owl:Class ;
+           rdfs:subClassOf :NarrativeEntity ;
+           rdfs:comment "Use this class for individual beings, including non-human, magical, dead, artificial, divine, or monstrous beings, when the narrative treats them as individual participants."@en ;
+           rdfs:label "Character"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "An individual narrative participant treated as an agent, quasi-agent, speaker, experiencer, or intentional being in the storyworld."@en ;
+           <http://www.w3.org/2004/02/skos/core#example> "Dorothy, Gandalf, the witch, the dragon, the ghost, the talking wolf."@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Character"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Concept
+:Concept rdf:type owl:Class ;
+         rdfs:subClassOf :NarrativeEntity ;
+         rdfs:comment "Use Concept for abstract or intensional referents such as powers, abilities, rules, beliefs, values, metaphysical forces, laws, doctrines, and ideals."@en ;
+         rdfs:label "Concept"@en ;
+         <http://www.w3.org/2004/02/skos/core#definition> "An abstract, non-material, non-place, non-object, and non-event entity referred to in the narrative."@en ;
+         <http://www.w3.org/2004/02/skos/core#example> "magic, fate, honor, the old law, the pact, the prophecy, the curse, the royal bloodline."@en ;
+         <http://www.w3.org/2004/02/skos/core#prefLabel> "Concept"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Document
+:Document rdf:type owl:Class ;
+          rdfs:subClassOf :Object ;
+          rdfs:comment "Use Document for the object-like carrier of text. The content expressed by a document may separately be a Concept."@en ;
+          rdfs:label "Document"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A written, inscribed, recorded, or text-bearing object within or referenced by the narrative."@en ;
+          <http://www.w3.org/2004/02/skos/core#example> "the letter, the book, the scroll, the map, the treaty, the inscription, the prophecy tablet."@en ;
+          <http://www.w3.org/2004/02/skos/core#prefLabel> "Document"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf :NarrativeEntity ;
+       rdfs:comment "Use Event for things that happen or unfold over time, whether intentionally caused by agents or not."@en ;
+       rdfs:label "Event"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "A temporally situated happening, process, action, episode, incident, or change of state in the narrative."@en ;
+       <http://www.w3.org/2004/02/skos/core#example> "the battle, the coronation, the journey, the murder, the ritual, the storm, the fall of the city."@en ;
+       <http://www.w3.org/2004/02/skos/core#prefLabel> "Event"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Group
+:Group rdf:type owl:Class ;
+       rdfs:subClassOf :NarrativeEntity ;
+       rdfs:comment "Use this class for collective entities. A group may act as a collective agent in a narrative, but it remains a group rather than an individual character."@en ;
+       rdfs:label "Group"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "A plural or collective entity composed of multiple members, participants, or social units."@en ;
+       <http://www.w3.org/2004/02/skos/core#example> "the villagers, the army, the council, the elves, the guards, the crowd."@en ;
+       <http://www.w3.org/2004/02/skos/core#prefLabel> "Group"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#HumanCharacter
+:HumanCharacter rdf:type owl:Class ;
+                rdfs:subClassOf :Character ;
+                rdfs:comment "Use only when the narrative provides enough evidence that the character is human. Otherwise, use Character."@en ;
+                rdfs:label "Human character"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A character represented as human within the relevant storyworld context."@en ;
+                <http://www.w3.org/2004/02/skos/core#example> "the girl, the king, the soldier, the old woman."@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "HumanCharacter"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#InformalGroup
+:InformalGroup rdf:type owl:Class ;
+               rdfs:subClassOf :Group ;
+               rdfs:label "Informal group"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A loosely structured or temporary group without a stable institutional identity."@en ;
+               <http://www.w3.org/2004/02/skos/core#example> "the crowd, the villagers, the companions, the travelers, the children."@en ;
+               <http://www.w3.org/2004/02/skos/core#prefLabel> "InformalGroup"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Item
+:Item rdf:type owl:Class ;
+      rdfs:subClassOf :Object ;
+      rdfs:label "Item"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "A discrete object, tool, weapon, container, ornament, artifact, vehicle, or portable thing."@en ;
+      <http://www.w3.org/2004/02/skos/core#example> "the sword, the ring, the crown, the key, the ship, the lamp, the wand."@en ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Item"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#NarrativeEntity
+:NarrativeEntity rdf:type owl:Class ;
+                 rdfs:comment "Root class for entities represented in narrative fiction."@en ;
+                 rdfs:label "Narrative entity"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Any entity, participant, place, object, event, or concept referred to within a narrative text."@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "NarrativeEntity"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#NonHumanCharacter
+:NonHumanCharacter rdf:type owl:Class ;
+                   rdfs:subClassOf :Character ;
+                   rdfs:comment "Use for individual non-human beings treated as narrative participants. Avoid creating book-specific subclasses such as ElfCharacter or DragonCharacter in the core ontology."@en ;
+                   rdfs:label "Non-human character"@en ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "A character represented as non-human, partially non-human, supernatural, animal, monstrous, artificial, divine, undead, or otherwise not simply human within the storyworld."@en ;
+                   <http://www.w3.org/2004/02/skos/core#example> "the dragon, the ghost, the talking wolf, the demon, the spirit, the golem."@en ;
+                   <http://www.w3.org/2004/02/skos/core#prefLabel> "NonHumanCharacter"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Object
+:Object rdf:type owl:Class ;
+        rdfs:subClassOf :NarrativeEntity ;
+        rdfs:comment "Use Object for concrete things and in-world documents. Magical importance or symbolic value does not by itself require a separate class."@en ;
+        rdfs:label "Object"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "A material, quasi-material, portable, physical, magical, written, or substance-like entity in the storyworld."@en ;
+        <http://www.w3.org/2004/02/skos/core#example> "the sword, the ring, the wand, the crown, the potion, the letter, the book."@en ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "Object"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Occurrence
+:Occurrence rdf:type owl:Class ;
+            rdfs:subClassOf :Event ;
+            rdfs:label "Occurrence"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "An event, process, or change that happens, unfolds, or befalls the storyworld without being primarily classified as an intentional action."@en ;
+            <http://www.w3.org/2004/02/skos/core#example> "the storm, the earthquake, the plague, the fall of the city, the eclipse, the transformation."@en ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Occurrence"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Group ;
+              rdfs:label "Organization"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A structured group with some degree of institutional identity, role structure, authority, function, or continuity."@en ;
+              <http://www.w3.org/2004/02/skos/core#example> "the council, the army, the guild, the order, the guard, the court."@en ;
+              <http://www.w3.org/2004/02/skos/core#prefLabel> "Organization"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#PeopleOrSpecies
+:PeopleOrSpecies rdf:type owl:Class ;
+                 rdfs:subClassOf :Group ;
+                 rdfs:comment "This class is intentionally broad because fantasy novels often use species, peoples, races, tribes, and lineages in overlapping ways."@en ;
+                 rdfs:label "People or species"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A group identified by peoplehood, species, race, ancestry, origin, or shared biological or mythic kind in the storyworld."@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> "the elves, the dwarves, the humans, the Munchkins, the dragons, the old race."@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "PeopleOrSpecies"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Place
+:Place rdf:type owl:Class ;
+       rdfs:subClassOf :NarrativeEntity ;
+       rdfs:comment "Use Place for both fictional and real-world locations mentioned in the narrative."@en ;
+       rdfs:label "Place"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "A spatial entity, location, setting, region, settlement, building, room, landmark, or other place in or referenced by the narrative."@en ;
+       <http://www.w3.org/2004/02/skos/core#example> "Oz, Mordor, the castle, the forest, the village, the throne room, the underworld."@en ;
+       <http://www.w3.org/2004/02/skos/core#prefLabel> "Place"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#PowerOrAbility
+:PowerOrAbility rdf:type owl:Class ;
+                rdfs:subClassOf :Concept ;
+                rdfs:label "Power or ability"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An ability, capacity, magical force, supernatural power, skill, curse-power, or metaphysical capability referred to by the narrative."@en ;
+                <http://www.w3.org/2004/02/skos/core#example> "magic, the Force, prophecy, telepathy, immortality, invisibility, healing power."@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "PowerOrAbility"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Region
+:Region rdf:type owl:Class ;
+        rdfs:subClassOf :Place ;
+        rdfs:label "Region"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "A broad geographical or political area, territory, realm, land, kingdom, domain, or world-region."@en ;
+        <http://www.w3.org/2004/02/skos/core#example> "the North, Oz, the kingdom, the empire, the western lands, the underworld."@en ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "Region"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#RuleOrLaw
+:RuleOrLaw rdf:type owl:Class ;
+           rdfs:subClassOf :Concept ;
+           rdfs:label "Rule or law"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "A norm, rule, law, pact, oath, contract, taboo, commandment, institutional rule, or metaphysical constraint in the storyworld."@en ;
+           <http://www.w3.org/2004/02/skos/core#example> "the old law, the pact, the oath, the treaty, the taboo, the king's decree."@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "RuleOrLaw"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Settlement
+:Settlement rdf:type owl:Class ;
+            rdfs:subClassOf :Place ;
+            rdfs:label "Settlement"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "A city, town, village, camp, colony, or other inhabited settlement."@en ;
+            <http://www.w3.org/2004/02/skos/core#example> "the city, the village, the capital, the camp, the port town."@en ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Settlement"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Site
+:Site rdf:type owl:Class ;
+      rdfs:subClassOf :Place ;
+      rdfs:comment "Site is intentionally broad to avoid excessive book-specific place subclasses."@en ;
+      rdfs:label "Site"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "A localized place, building, room, landmark, natural location, or constructed site."@en ;
+      <http://www.w3.org/2004/02/skos/core#example> "the castle, the tower, the bridge, the forest, the cave, the throne room, the temple, the ruins."@en ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Site"@en .
+
+
+###  https://example.org/nlp-sdai/narrative-entity-ontology#Substance
+:Substance rdf:type owl:Class ;
+           rdfs:subClassOf :Object ;
+           rdfs:label "Substance"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "A material, fluid, powder, gas, food, poison, medicine, bodily material, or other substance-like entity."@en ;
+           <http://www.w3.org/2004/02/skos/core#example> "the poison, the blood, the ashes, the water, the smoke, the potion, the dust."@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Substance"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#I
+<https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#I> rdf:type owl:NamedIndividual ,
+                                                                                 :HumanCharacter ;
+                                                                        :holdsAttitudeToward <https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#space> ;
+                                                                        rdfs:label "I" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#Kgwgk
+<https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#Kgwgk> rdf:type owl:NamedIndividual ,
+                                                                                     :NonHumanCharacter ;
+                                                                            :holdsAttitudeToward <https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#I> ;
+                                                                            rdfs:label "Kgwgk" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#space
+<https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#space> rdf:type owl:NamedIndividual ,
+                                                                                     :BeliefOrValue ;
+                                                                            rdfs:label "space" .
+
+
+###  Generated by the OWL API (version 5.1.9.2018-12-12T06:37:32Z) https://github.com/owlcs/owlapi/
