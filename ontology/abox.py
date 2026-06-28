@@ -43,20 +43,6 @@ def populate_abox(
     abox_base_iri: str,
     print_result_summary: bool = False,
 ) -> None:
-    """Populate ``onto`` with ABox axioms from ``annotation_layer``.
-
-    The ontology is mutated in place.
-
-    Policy:
-        - every entity is declared and labelled;
-        - untyped entities are allowed and simply receive no class assertion;
-        - canonical names must be unique, case-insensitively;
-        - relation assertions are materialized when present, even if an endpoint
-          is untyped;
-        - an empty or missing relation layer silently produces an entity-only
-          ABox.
-    """
-
     entities = annotation_layer.require_entities()
     relations = annotation_layer.relations
 
@@ -74,6 +60,11 @@ def populate_abox(
         relations=relations,
         individuals=individuals,
     )
+
+    print("DEBUG DEBUG DEBUG ")
+    for entity_axiom in entity_axioms:
+        print(entity_axiom)
+    print("DEBUG DEBUG DEBUG ")
 
     axioms = entity_axioms + relation_axioms
 
