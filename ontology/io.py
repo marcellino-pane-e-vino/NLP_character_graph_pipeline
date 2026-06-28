@@ -1,8 +1,8 @@
 """Ontology file I/O.
 
-This module is the only place where ontology persistence is handled.  It wraps
-OWLAPY loading/saving so the rest of the pipeline does not construct or
-serialize ``SyncOntology`` objects directly.
+This module centralizes raw OWLAPY loading and saving.  Most orchestration
+code should use ``NarrativeOntology``, while the façade delegates persistence
+to these helpers.
 """
 
 from __future__ import annotations
