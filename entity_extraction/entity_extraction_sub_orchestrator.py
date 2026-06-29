@@ -12,7 +12,8 @@ from entity_extraction.annotator import annotate_doc_with_global_entities
 from artifact_io import LocalClusterMarathonStore, load_local_clusters_artifact
 from annotation_layer.spacy_extension import require_entities
 from entity_extraction.entity_cluster_extractor import create_coreference_cluster_extractor
-from entity_extraction.global_entity_merger_connected_components import merge_local_coreference_clusters
+# from entity_extraction.global_entity_merger_connected_components import merge_local_coreference_clusters
+from entity_extraction.global_entity_merger_aggregative import merge_local_coreference_clusters
 from entity_extraction.local_entities import (
     create_local_clusters_metadata,
     extracted_chunk_to_rows,
