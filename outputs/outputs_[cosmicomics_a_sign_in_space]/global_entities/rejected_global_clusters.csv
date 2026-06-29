@@ -1,0 +1,40 @@
+rejected_global_cluster_uid,would_be_global_cluster_uid,merge_component_uid,rejection_reason,salience_percentile,salience_cutoff,n_local_clusters,n_mentions,canonical_name,canonical_names,local_cluster_uids,chunk_min,chunk_max
+rejected_global_cluster_000011,global_cluster_000018,merge_component_000095,below_global_cluster_salience_policy,0.95,20,2,4,an ordinary spot,an ordinary spot|that spot,chunk_000::cluster_022|chunk_000::cluster_029,0,0
+rejected_global_cluster_000000,global_cluster_000002,merge_component_000004,below_global_cluster_salience_policy,0.95,20,1,2,the Sun,the sun,chunk_000::cluster_004,0,0
+rejected_global_cluster_000007,global_cluster_000013,merge_component_000088,below_global_cluster_salience_policy,0.95,20,2,2,the planets,planets|the planets,chunk_000::cluster_016|chunk_000::cluster_021,0,0
+rejected_global_cluster_000008,global_cluster_000015,merge_component_000089,below_global_cluster_salience_policy,0.95,20,2,2,its,its,chunk_000::cluster_018|chunk_000::cluster_042,0,0
+rejected_global_cluster_000009,global_cluster_000016,merge_component_000098,below_global_cluster_salience_policy,0.95,20,2,2,constellations,constellations|kgwgk's constellation,chunk_000::cluster_020|chunk_000::cluster_056,0,0
+rejected_global_cluster_000015,global_cluster_000024,merge_component_000034,below_global_cluster_salience_policy,0.95,20,1,2,the celestial bodies,the celestial bodies,chunk_000::cluster_034,0,0
+rejected_global_cluster_000019,global_cluster_000028,merge_component_000102,below_global_cluster_salience_policy,0.95,20,2,2,another planetary system which perfonned its galactic revolution before us,another planetary system which perfonned its galactic revolution before us|us,chunk_000::cluster_041|chunk_000::cluster_068,0,0
+rejected_global_cluster_000024,global_cluster_000034,merge_component_000097,below_global_cluster_salience_policy,0.95,20,2,2,every corner of the circum-galactic sphere,every corner of the circum-galactic sphere|the circum-galactic sphere,chunk_000::cluster_054|chunk_000::cluster_055,0,0
+rejected_global_cluster_000001,global_cluster_000003,merge_component_000001,below_global_cluster_salience_policy,0.95,20,1,1,Qfwfq,qfwfq,chunk_000::cluster_001,0,0
+rejected_global_cluster_000002,global_cluster_000007,merge_component_000008,below_global_cluster_salience_policy,0.95,20,1,1,your,your,chunk_000::cluster_008,0,0
+rejected_global_cluster_000003,global_cluster_000008,merge_component_000010,below_global_cluster_salience_policy,0.95,20,1,1,your,your,chunk_000::cluster_010,0,0
+rejected_global_cluster_000004,global_cluster_000009,merge_component_000013,below_global_cluster_salience_policy,0.95,20,1,1,you young ones,you young ones,chunk_000::cluster_013,0,0
+rejected_global_cluster_000005,global_cluster_000010,merge_component_000014,below_global_cluster_salience_policy,0.95,20,1,1,nobody,nobody,chunk_000::cluster_014,0,0
+rejected_global_cluster_000006,global_cluster_000012,merge_component_000015,below_global_cluster_salience_policy,0.95,20,1,1,all the other points in space,all the other points in space,chunk_000::cluster_015,0,0
+rejected_global_cluster_000010,global_cluster_000017,merge_component_000023,below_global_cluster_salience_policy,0.95,20,1,1,"an ordinary spot, out of all the orbit","an ordinary spot, out of all the orbit",chunk_000::cluster_023,0,0
+rejected_global_cluster_000012,global_cluster_000020,merge_component_000025,below_global_cluster_salience_policy,0.95,20,1,1,other points,other points,chunk_000::cluster_025,0,0
+rejected_global_cluster_000013,global_cluster_000021,merge_component_000027,below_global_cluster_salience_policy,0.95,20,1,1,that place,that place,chunk_000::cluster_027,0,0
+rejected_global_cluster_000014,global_cluster_000023,merge_component_000031,below_global_cluster_salience_policy,0.95,20,1,1,our,our,chunk_000::cluster_031,0,0
+rejected_global_cluster_000016,global_cluster_000025,merge_component_000038,below_global_cluster_salience_policy,0.95,20,1,1,that very point,that very point,chunk_000::cluster_038,0,0
+rejected_global_cluster_000017,global_cluster_000026,merge_component_000039,below_global_cluster_salience_policy,0.95,20,1,1,the one who had made the sign at that point,the one who had made the sign at that point,chunk_000::cluster_039,0,0
+rejected_global_cluster_000018,global_cluster_000027,merge_component_000040,below_global_cluster_salience_policy,0.95,20,1,1,a chasm,a chasm,chunk_000::cluster_040,0,0
+rejected_global_cluster_000020,global_cluster_000030,merge_component_000046,below_global_cluster_salience_policy,0.95,20,1,1,itself,itself,chunk_000::cluster_047,0,0
+rejected_global_cluster_000021,global_cluster_000031,merge_component_000050,below_global_cluster_salience_policy,0.95,20,1,1,worlds in flight,worlds in flight,chunk_000::cluster_051,0,0
+rejected_global_cluster_000022,global_cluster_000032,merge_component_000051,below_global_cluster_salience_policy,0.95,20,1,1,the craters of the volcanoes,the craters of the volcanoes,chunk_000::cluster_052,0,0
+rejected_global_cluster_000023,global_cluster_000033,merge_component_000052,below_global_cluster_salience_policy,0.95,20,1,1,the continents,the continents,chunk_000::cluster_053,0,0
+rejected_global_cluster_000025,global_cluster_000035,merge_component_000056,below_global_cluster_salience_policy,0.95,20,1,1,our,our,chunk_000::cluster_057,0,0
+rejected_global_cluster_000026,global_cluster_000036,merge_component_000057,below_global_cluster_salience_policy,0.95,20,1,1,the one who makes them,the one who makes them,chunk_000::cluster_058,0,0
+rejected_global_cluster_000027,global_cluster_000037,merge_component_000058,below_global_cluster_salience_policy,0.95,20,1,1,that uniformly barren and colorless expanse,that uniformly barren and colorless expanse,chunk_000::cluster_059,0,0
+rejected_global_cluster_000028,global_cluster_000038,merge_component_000059,below_global_cluster_salience_policy,0.95,20,1,1,the points where we passed,the points where we passed,chunk_000::cluster_060,0,0
+rejected_global_cluster_000029,global_cluster_000039,merge_component_000063,below_global_cluster_salience_policy,0.95,20,1,1,anybody who had an opportunity,anybody who had an opportunity,chunk_000::cluster_064,0,0
+rejected_global_cluster_000030,global_cluster_000040,merge_component_000064,below_global_cluster_salience_policy,0.95,20,1,1,his,his,chunk_000::cluster_065,0,0
+rejected_global_cluster_000031,global_cluster_000041,merge_component_000065,below_global_cluster_salience_policy,0.95,20,1,1,our,our,chunk_000::cluster_066,0,0
+rejected_global_cluster_000032,global_cluster_000042,merge_component_000066,below_global_cluster_salience_policy,0.95,20,1,1,the desert,the desert,chunk_000::cluster_067,0,0
+rejected_global_cluster_000033,global_cluster_000043,merge_component_000069,below_global_cluster_salience_policy,0.95,20,1,1,"those who meant to make a sign), the fire- streaks against a wall of schistose rock","those who meant to make a sign), the fire- streaks against a wall of schistose rock",chunk_000::cluster_070,0,0
+rejected_global_cluster_000034,global_cluster_000044,merge_component_000070,below_global_cluster_salience_policy,0.95,20,1,1,a tomb,a tomb,chunk_000::cluster_071,0,0
+rejected_global_cluster_000035,global_cluster_000045,merge_component_000072,below_global_cluster_salience_policy,0.95,20,1,1,the Melbourne docks,the melbourne docks,chunk_000::cluster_073,0,0
+rejected_global_cluster_000036,global_cluster_000046,merge_component_000073,below_global_cluster_salience_policy,0.95,20,1,1,Melbourne,melbourne,chunk_000::cluster_074,0,0
+rejected_global_cluster_000037,global_cluster_000047,merge_component_000074,below_global_cluster_salience_policy,0.95,20,1,1,the Earth,the earth,chunk_000::cluster_075,0,0
+rejected_global_cluster_000038,global_cluster_000048,merge_component_000075,below_global_cluster_salience_policy,0.95,20,1,1,a container,a container,chunk_000::cluster_076,0,0

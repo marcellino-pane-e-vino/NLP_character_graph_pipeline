@@ -1,0 +1,10 @@
+cluster_assertion_id,source_cluster_id,object_property_iri,target_cluster_id,support_relation_ids_json,aggregation_method,aggregated_score
+assertion_0_caresFor_2,0,https://example.org/narrative-character-ontology#caresFor,2,"[""rel_1076_10530_1077"", ""rel_1089_10563_1090""]",multi_label_noisy_or_by_cluster_pair,0.9183952614586355
+assertion_0_usesObject_3,0,https://example.org/narrative-character-ontology#usesObject,3,"[""rel_45_473_46"", ""rel_311_3690_312"", ""rel_648_7200_649""]",multi_label_noisy_or_by_cluster_pair,0.7946031677717369
+assertion_0_caresFor_12,0,https://example.org/narrative-character-ontology#caresFor,12,"[""rel_1076_10530_1078"", ""rel_1089_10563_1091""]",multi_label_noisy_or_by_cluster_pair,0.8808579073309554
+assertion_0_caresFor_15,0,https://example.org/narrative-character-ontology#caresFor,15,"[""rel_1076_10530_1079"", ""rel_1089_10563_1092""]",multi_label_noisy_or_by_cluster_pair,0.8329403271622366
+assertion_3_corrupts_7,3,https://example.org/narrative-character-ontology#corrupts,7,"[""rel_792_8273_794"", ""rel_950_9772_951"", ""rel_1217_11443_1218""]",multi_label_noisy_or_by_cluster_pair,0.8227165487990669
+assertion_3_curses_7,3,https://example.org/narrative-character-ontology#curses,7,"[""rel_808_8438_809"", ""rel_1398_12916_1399""]",multi_label_noisy_or_by_cluster_pair,0.8182071561786182
+assertion_3_locatedIn_11,3,https://example.org/narrative-character-ontology#locatedIn,11,"[""rel_540_5947_542"", ""rel_729_7854_731"", ""rel_950_9772_952""]",multi_label_noisy_or_by_cluster_pair,1.0
+assertion_7_usesObject_3,7,https://example.org/narrative-character-ontology#usesObject,3,"[""rel_407_4524_408"", ""rel_769_8125_770"", ""rel_838_8647_839"", ""rel_886_9133_887"", ""rel_901_9349_902"", ""rel_903_9354_904"", ""rel_921_9559_922"", ""rel_1452_13394_1453"", ""rel_1464_13452_1465""]",multi_label_noisy_or_by_cluster_pair,0.9956137568736043
+assertion_7_usesObject_14,7,https://example.org/narrative-character-ontology#usesObject,14,"[""rel_1145_10937_1146"", ""rel_1186_11288_1187"", ""rel_1222_11480_1223""]",multi_label_noisy_or_by_cluster_pair,0.8206522138036056

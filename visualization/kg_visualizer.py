@@ -45,6 +45,24 @@ SCHEMA_PREDICATES = {
     OWL.versionIRI,
     OWL.priorVersion,
     OWL.deprecated,
+    OWL.onProperty,
+    OWL.onClass,
+    OWL.onDataRange,
+    OWL.onDatatype,
+    OWL.withRestrictions,
+    OWL.someValuesFrom,
+    OWL.allValuesFrom,
+    OWL.hasValue,
+    OWL.cardinality,
+    OWL.minCardinality,
+    OWL.maxCardinality,
+    OWL.qualifiedCardinality,
+    OWL.minQualifiedCardinality,
+    OWL.maxQualifiedCardinality,
+    OWL.unionOf,
+    OWL.intersectionOf,
+    OWL.complementOf,
+    OWL.oneOf,
 }
 
 LABEL_PREDICATES = tuple(
@@ -83,6 +101,32 @@ BORDER_PALETTE = [
     "#B99A2F",
 ]
 
+OCEAN_TRAIT_ORDER = (
+    "Openness",
+    "Conscientiousness",
+    "Extraversion",
+    "Agreeableness",
+    "Neuroticism",
+)
+
+OCEAN_TRAIT_LOCAL_NAMES = {
+    "hasoceanopenness": "Openness",
+    "oceanopenness": "Openness",
+    "openness": "Openness",
+    "hasoceanconscientiousness": "Conscientiousness",
+    "oceanconscientiousness": "Conscientiousness",
+    "conscientiousness": "Conscientiousness",
+    "hasoceanextraversion": "Extraversion",
+    "oceanextraversion": "Extraversion",
+    "extraversion": "Extraversion",
+    "hasoceanagreeableness": "Agreeableness",
+    "oceanagreeableness": "Agreeableness",
+    "agreeableness": "Agreeableness",
+    "hasoceanneuroticism": "Neuroticism",
+    "oceanneuroticism": "Neuroticism",
+    "neuroticism": "Neuroticism",
+}
+
 
 @dataclass(frozen=True)
 class KGVisualStyle:
@@ -108,8 +152,11 @@ class KGVisualConfig:
     include_schema_edges: bool = False
     include_literals: bool = False
     include_isolated_nodes: bool = False
+    show_ocean_traits: bool = True
     max_literal_properties_per_node: int = 4
     max_literal_chars: int = 90
+    ocean_trait_node_width: float = 2.85
+    ocean_trait_value_chars: int = 16
     max_nodes: int | None = None
     max_edges: int | None = None
     focus_classes: frozenset[str] = field(default_factory=frozenset)
@@ -125,6 +172,7 @@ class KGNode:
     label: str
     classes: tuple[str, ...] = ()
     literal_properties: tuple[tuple[str, str], ...] = ()
+    ocean_traits: tuple[tuple[str, str], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -180,10 +228,10 @@ def render_knowledge_graph(
     rdf_graph.parse(source, format=cfg.rdf_format or guess_rdf_format(source))
 
     projection = project_abox(rdf_graph, cfg)
-    if not projection.nodes or not projection.edges:
+    if not projection.nodes:
         raise ValueError(
             "The projected knowledge graph is empty. Try include_schema_edges=True, "
-            "include_isolated_nodes=True, or relax focus/hide filters."
+            "include_isolated_nodes=True, show_ocean_traits=True, or relax focus/hide filters."
         )
 
     dot = build_graphviz(projection, cfg)
@@ -247,6 +295,20 @@ def project_abox(rdf_graph: Graph, config: KGVisualConfig) -> KGProjection:
             resource_nodes.add(resource)
 
     literal_properties = _literal_properties_by_resource(rdf_graph, labels, config)
+    ocean_traits = _ocean_traits_by_resource(rdf_graph, config)
+
+    if config.show_ocean_traits:
+        for resource in ocean_traits:
+            if _resource_hidden_by_class(resource, types_by_resource, config):
+                continue
+            if config.focus_classes and not _resource_has_focus_class(resource, types_by_resource, config):
+                continue
+            if not config.include_schema_edges and any(
+                cls in SCHEMA_CLASSES for cls in types_by_resource.get(resource, ())
+            ):
+                continue
+            resource_nodes.add(resource)
+
     node_candidates = list(resource_nodes)
 
     if config.max_nodes is not None and len(node_candidates) > config.max_nodes:
@@ -265,6 +327,7 @@ def project_abox(rdf_graph: Graph, config: KGVisualConfig) -> KGProjection:
                 )
             ),
             literal_properties=tuple(literal_properties.get(resource, ())),
+            ocean_traits=tuple(ocean_traits.get(resource, ())),
         )
         for resource in node_candidates
     }
@@ -279,7 +342,12 @@ def project_abox(rdf_graph: Graph, config: KGVisualConfig) -> KGProjection:
 
     connected_node_ids = {edge.source for edge in edges} | {edge.target for edge in edges}
     if not config.include_isolated_nodes:
-        nodes = {node_id: node for node_id, node in nodes.items() if node_id in connected_node_ids}
+        nodes = {
+            node_id: node
+            for node_id, node in nodes.items()
+            if node_id in connected_node_ids
+            or (config.show_ocean_traits and bool(node.ocean_traits))
+        }
 
     class_counts = Counter(
         node.classes[0] if node.classes else "Resource"
@@ -333,12 +401,20 @@ def build_graphviz(projection: KGProjection, config: KGVisualConfig) -> Digraph:
     for node in sorted(projection.nodes.values(), key=lambda n: n.label.lower()):
         main_class = node.classes[0] if node.classes else "Resource"
         palette_index = class_to_palette_index.get(main_class, 0) % len(PALETTE)
-        dot.node(
-            node.id,
-            label=_node_label(node, config),
-            fillcolor=PALETTE[palette_index],
-            color=BORDER_PALETTE[palette_index],
-        )
+        node_attrs = {
+            "label": _node_label(node, config),
+            "fillcolor": PALETTE[palette_index],
+            "color": BORDER_PALETTE[palette_index],
+        }
+        if config.show_ocean_traits and node.ocean_traits:
+            node_attrs.update(
+                {
+                    "width": f"{config.ocean_trait_node_width:.2f}",
+                    "margin": "0.18,0.10",
+                    "penwidth": "2.20",
+                }
+            )
+        dot.node(node.id, **node_attrs)
 
     for edge in projection.edges:
         edge_label = " / ".join(edge.predicates)
@@ -425,12 +501,51 @@ def _literal_properties_by_resource(
             continue
         if str(predicate) in config.hide_properties:
             continue
+        if config.show_ocean_traits and _ocean_trait_name(predicate) is not None:
+            continue
         value = _truncate(str(object_), config.max_literal_chars)
         literal_properties[subject].append((_compact_label(rdf_graph, predicate, labels), value))
 
     for subject, props in literal_properties.items():
         literal_properties[subject] = sorted(props)[: config.max_literal_properties_per_node]
     return literal_properties
+
+
+def _ocean_traits_by_resource(
+    rdf_graph: Graph,
+    config: KGVisualConfig,
+) -> dict[URIRef | BNode, list[tuple[str, str]]]:
+    if not config.show_ocean_traits:
+        return {}
+
+    traits_by_resource: dict[URIRef | BNode, dict[str, str]] = defaultdict(dict)
+    for subject, predicate, object_ in rdf_graph:
+        if not isinstance(subject, (URIRef, BNode)):
+            continue
+        if not isinstance(predicate, URIRef):
+            continue
+        if not isinstance(object_, Literal):
+            continue
+        if str(predicate) in config.hide_properties:
+            continue
+
+        trait_name = _ocean_trait_name(predicate)
+        if trait_name is None:
+            continue
+
+        traits_by_resource[subject][trait_name] = _truncate(
+            _literal_value_text(object_),
+            config.ocean_trait_value_chars,
+        )
+
+    return {
+        subject: [
+            (trait, values[trait])
+            for trait in OCEAN_TRAIT_ORDER
+            if trait in values
+        ]
+        for subject, values in traits_by_resource.items()
+    }
 
 
 def _top_resources_by_degree(
@@ -529,10 +644,28 @@ def _safe_id(text: str) -> str:
     return hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
 
 
+def _ocean_trait_name(predicate: URIRef) -> str | None:
+    local_name = _local_name(str(predicate))
+    normalized = re.sub(r"[^a-z0-9]", "", local_name.lower())
+    return OCEAN_TRAIT_LOCAL_NAMES.get(normalized)
+
+
+def _literal_value_text(value: Literal) -> str:
+    python_value = value.toPython()
+    if isinstance(python_value, float):
+        return f"{python_value:.2f}".rstrip("0").rstrip(".")
+    return str(value)
+
+
 def _node_label(node: KGNode, config: KGVisualConfig) -> str:
     lines = [_truncate(node.label, 45)]
     if node.classes:
         lines.append(f"«{', '.join(node.classes[:2])}»")
+    if config.show_ocean_traits and node.ocean_traits:
+        lines.append("────────")
+        lines.append("OCEAN traits")
+        for trait_name, value in node.ocean_traits:
+            lines.append(f"{trait_name}: {value}")
     if config.include_literals and node.literal_properties:
         lines.append("────────")
         for key, value in node.literal_properties:
@@ -579,6 +712,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-nodes", type=int, default=None, help="Keep only the highest-degree N nodes")
     parser.add_argument("--max-edges", type=int, default=None, help="Keep at most N rendered edges")
     parser.add_argument("--include-literals", action="store_true", help="Show literal data properties inside node labels")
+    parser.add_argument(
+        "--hide-ocean-traits",
+        action="store_true",
+        help="Do not render OCEAN trait data properties as a dedicated character node block",
+    )
+    parser.add_argument(
+        "--ocean-node-width",
+        type=float,
+        default=2.85,
+        help="Minimum Graphviz width, in inches, for nodes that show an OCEAN trait block",
+    )
     parser.add_argument("--include-schema-edges", action="store_true", help="Render schema/TBox triples too")
     parser.add_argument("--include-isolated-nodes", action="store_true", help="Render typed resources even when disconnected")
     parser.add_argument("--no-legend", action="store_true", help="Hide the class legend")
@@ -596,6 +740,8 @@ def main(argv: list[str] | None = None) -> int:
         include_schema_edges=args.include_schema_edges,
         include_literals=args.include_literals,
         include_isolated_nodes=args.include_isolated_nodes,
+        show_ocean_traits=not args.hide_ocean_traits,
+        ocean_trait_node_width=args.ocean_node_width,
         max_nodes=args.max_nodes,
         max_edges=args.max_edges,
         focus_classes=_split_csv_uris(args.focus_classes),

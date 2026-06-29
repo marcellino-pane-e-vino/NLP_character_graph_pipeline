@@ -1,0 +1,22 @@
+{
+  "chunk_size": 6000,
+  "max_expanded_chunk_tokens": 6000,
+  "overlap_sentences": 60,
+  "specs": [
+    {
+      "chunk_id": "chunk_000",
+      "chunk_index": 0,
+      "core_end": 4553,
+      "core_start": 0,
+      "global_end": 4553,
+      "global_start": 0,
+      "left_overlap_end": 0,
+      "left_overlap_start": 0,
+      "n_tokens": 4553,
+      "right_overlap_end": 4553,
+      "right_overlap_start": 4553,
+      "sentence_end": 196,
+      "sentence_start": 0
+    }
+  ]
+}

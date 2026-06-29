@@ -13,6 +13,7 @@ IRI strings as node ids and parent -> child subclass edges.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 import re
@@ -22,6 +23,15 @@ from rdflib import DCTERMS, Graph, Literal, Namespace, RDFS, SKOS, URIRef
 
 from owlapy.owl_ontology import SyncOntology
 from owlapy.owl_reasoner import SyncReasoner
+from owlapy.class_expression import (
+    OWLClass,
+    OWLDataExactCardinality,
+    OWLDataHasValue,
+    OWLDataMinCardinality,
+    OWLDataSomeValuesFrom,
+    OWLObjectIntersectionOf,
+)
+from owlapy.owl_axiom import OWLEquivalentClassesAxiom, OWLSubClassOfAxiom
 
 from ontology.io import load_ontology
 
@@ -38,6 +48,165 @@ LABEL_PREDICATES = (
     SKOS.prefLabel,
 )
 
+DIRECT_DATA_PROPERTY_IRIS_ATTR = "direct_data_property_iris"
+INHERITED_DATA_PROPERTY_IRIS_ATTR = "inherited_data_property_iris"
+
+
+def _direct_data_property_iris_by_class(onto: SyncOntology) -> dict[str, set[str]]:
+    """Extract direct data-property restrictions from TBox subclass/equivalence axioms.
+
+    This intentionally looks for restrictions such as::
+
+        Class ⊑ ∃ dataProperty.datatype
+        Class ⊑ >= 1 dataProperty.datatype
+        Class ⊑ = 1 dataProperty.datatype
+
+    Domain/range axioms are not treated as fields, because they do not make a
+    property available or mandatory for every instance of a class.
+    """
+
+    result: dict[str, set[str]] = {}
+
+    try:
+        tbox_axioms = tuple(onto.get_tbox_axioms())
+    except Exception:
+        return result
+
+    for axiom in tbox_axioms:
+        if isinstance(axiom, OWLSubClassOfAxiom):
+            sub_class = axiom.get_sub_class()
+            super_class = axiom.get_super_class()
+
+            if isinstance(sub_class, OWLClass):
+                property_iris = _field_data_property_iris_from_expression(super_class)
+                if property_iris:
+                    result.setdefault(iri_text(sub_class), set()).update(property_iris)
+
+        elif isinstance(axiom, OWLEquivalentClassesAxiom):
+            expressions = tuple(axiom.class_expressions())
+            named_classes = [expr for expr in expressions if isinstance(expr, OWLClass)]
+            property_iris = set().union(
+                *(
+                    _field_data_property_iris_from_expression(expr)
+                    for expr in expressions
+                    if not isinstance(expr, OWLClass)
+                )
+            )
+
+            if property_iris:
+                for named_class in named_classes:
+                    result.setdefault(iri_text(named_class), set()).update(property_iris)
+
+    return result
+
+
+def _field_data_property_iris_from_expression(expression: Any) -> set[str]:
+    """Return data-property IRIs that occur in field-like restrictions."""
+
+    if isinstance(
+        expression,
+        (
+            OWLDataSomeValuesFrom,
+            OWLDataMinCardinality,
+            OWLDataExactCardinality,
+            OWLDataHasValue,
+        ),
+    ):
+        return {iri_text(expression.get_property())}
+
+    if isinstance(expression, OWLObjectIntersectionOf):
+        result: set[str] = set()
+        for operand in expression.operands():
+            result.update(_field_data_property_iris_from_expression(operand))
+        return result
+
+    return set()
+
+
+def _attach_data_property_metadata(
+    class_graph: nx.DiGraph,
+    direct_by_class: dict[str, set[str]],
+) -> None:
+    """Attach direct and inherited data-property field metadata to class nodes."""
+
+    for class_iri in class_graph.nodes:
+        direct = set(direct_by_class.get(str(class_iri), set()))
+        class_graph.nodes[class_iri][DIRECT_DATA_PROPERTY_IRIS_ATTR] = tuple(sorted(direct))
+
+    for class_iri in class_graph.nodes:
+        # Class graph edges are parent -> child, so ancestors are superclasses.
+        inherited_from = nx.ancestors(class_graph, class_iri) | {class_iri}
+        inherited: set[str] = set()
+
+        for inherited_class_iri in inherited_from:
+            inherited.update(
+                class_graph.nodes[inherited_class_iri].get(
+                    DIRECT_DATA_PROPERTY_IRIS_ATTR,
+                    (),
+                )
+            )
+
+        class_graph.nodes[class_iri][INHERITED_DATA_PROPERTY_IRIS_ATTR] = tuple(sorted(inherited))
+
+
+def data_property_iris_for_class(
+    class_graph: nx.DiGraph,
+    class_iri: str,
+    *,
+    include_inherited: bool = True,
+) -> frozenset[str]:
+    """Return data-property field IRIs available for a class in the class graph."""
+
+    if class_iri not in class_graph:
+        raise KeyError(f"Unknown ontology class IRI: {class_iri!r}")
+
+    attr = (
+        INHERITED_DATA_PROPERTY_IRIS_ATTR
+        if include_inherited
+        else DIRECT_DATA_PROPERTY_IRIS_ATTR
+    )
+    return frozenset(str(value) for value in class_graph.nodes[class_iri].get(attr, ()))
+
+
+def class_has_data_properties(
+    class_graph: nx.DiGraph,
+    class_iri: str,
+    required_property_iris: Iterable[str],
+    *,
+    include_inherited: bool = True,
+) -> bool:
+    """Return True if a class has all required data-property field IRIs."""
+
+    required = frozenset(str(value) for value in required_property_iris)
+    available = data_property_iris_for_class(
+        class_graph,
+        class_iri,
+        include_inherited=include_inherited,
+    )
+    return required.issubset(available)
+
+
+def class_iris_with_data_properties(
+    class_graph: nx.DiGraph,
+    required_property_iris: Iterable[str],
+    *,
+    include_inherited: bool = True,
+) -> frozenset[str]:
+    """Return class IRIs whose field contract includes all required properties."""
+
+    required = frozenset(str(value) for value in required_property_iris)
+    return frozenset(
+        str(class_iri)
+        for class_iri in class_graph.nodes
+        if class_has_data_properties(
+            class_graph,
+            str(class_iri),
+            required,
+            include_inherited=include_inherited,
+        )
+    )
+
+
 
 __all__ = [
     "SCHEMA",
@@ -51,6 +220,11 @@ __all__ = [
     "first_literal",
     "require_object_property_descriptions",
     "validate_class_graph",
+    "DIRECT_DATA_PROPERTY_IRIS_ATTR",
+    "INHERITED_DATA_PROPERTY_IRIS_ATTR",
+    "data_property_iris_for_class",
+    "class_has_data_properties",
+    "class_iris_with_data_properties",
     "build_class_graph",
     "load_tbox",
 ]
@@ -231,6 +405,11 @@ def build_class_graph(
 
             if child_iri in class_iris and child_iri != parent_iri:
                 class_graph.add_edge(parent_iri, child_iri)
+
+    _attach_data_property_metadata(
+        class_graph,
+        _direct_data_property_iris_by_class(onto),
+    )
 
     validate_class_graph(class_graph)
     return class_graph

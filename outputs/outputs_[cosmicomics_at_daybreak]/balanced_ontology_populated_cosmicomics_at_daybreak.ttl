@@ -1,0 +1,535 @@
+@prefix : <https://example.org/narrative-character-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://example.org/narrative-character-ontology> .
+
+<https://example.org/narrative-character-ontology> rdf:type owl:Ontology ;
+                                                    rdfs:comment "Extraction-only version of the Narrative Character Ontology using the aggressive reduction-3 agent-agent relation set. The AgentiveEntity-to-AgentiveEntity extraction labels are compressed to caresFor, trusts, fears, opposes, deceives, guides, and follows." ;
+                                                    rdfs:label "Narrative Character Ontology" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://example.org/narrative-character-ontology#promptDescription
+:promptDescription rdf:type owl:AnnotationProperty ;
+                   rdfs:comment "A short NLI-facing description intended for entailment-style scoring prompts." ;
+                   rdfs:label "prompt description" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://example.org/narrative-character-ontology#caresFor
+:caresFor rdf:type owl:ObjectProperty ;
+          rdfs:domain :AgentiveEntity ;
+          rdfs:range :AgentiveEntity ;
+          rdfs:comment "connects an acting participant to another acting participant toward whom it shows care, attachment, concern, protection, affection, devotion, or preservation" ;
+          rdfs:label "caresFor" ;
+          :promptDescription "one acting participant cares for, protects, feels attachment toward, shows concern for, or tries to preserve another acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#corrupts
+:corrupts rdf:type owl:ObjectProperty ;
+          rdfs:domain :Object ;
+          rdfs:range :AgentiveEntity ;
+          rdfs:comment "connects an object to an acting participant whom it corrupts, morally weakens, tempts, taints, or turns toward harmful behavior" ;
+          rdfs:label "corrupts" ;
+          :promptDescription "an object corrupts, tempts, taints, morally weakens, or turns an acting participant toward harmful behavior" .
+
+
+###  https://example.org/narrative-character-ontology#createsObject
+:createsObject rdf:type owl:ObjectProperty ;
+               rdfs:domain :AgentiveEntity ;
+               rdfs:range :Object ;
+               rdfs:comment "connects an acting participant to an object it creates, makes, builds, forges, prepares, or brings into existence" ;
+               rdfs:label "createsObject" ;
+               :promptDescription "an acting participant creates, makes, builds, forges, prepares, or brings an object into existence" .
+
+
+###  https://example.org/narrative-character-ontology#curses
+:curses rdf:type owl:ObjectProperty ;
+        rdfs:domain :Object ;
+        rdfs:range :AgentiveEntity ;
+        rdfs:comment "connects an object to an acting participant whom it curses, afflicts, dooms, magically harms, or places under a harmful effect" ;
+        rdfs:label "curses" ;
+        :promptDescription "an object curses, afflicts, dooms, magically harms, or places a harmful effect on an acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#deceives
+:deceives rdf:type owl:ObjectProperty ;
+          rdfs:domain :AgentiveEntity ;
+          rdfs:range :AgentiveEntity ;
+          rdfs:comment "connects an acting participant to another acting participant whom it deceives, tricks, misleads, manipulates, betrays, abandons, turns against, or violates trust toward" ;
+          rdfs:label "deceives" ;
+          :promptDescription "one acting participant deceives, tricks, misleads, manipulates, betrays, abandons, or violates the trust of another acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#destroysObject
+:destroysObject rdf:type owl:ObjectProperty ;
+                rdfs:domain :AgentiveEntity ;
+                rdfs:range :Object ;
+                rdfs:comment "connects an acting participant to an object it destroys, breaks, ruins, burns, consumes, or renders unusable" ;
+                rdfs:label "destroysObject" ;
+                :promptDescription "an acting participant destroys, breaks, ruins, burns, consumes, or renders an object unusable" .
+
+
+###  https://example.org/narrative-character-ontology#empowers
+:empowers rdf:type owl:ObjectProperty ;
+          rdfs:domain :Object ;
+          rdfs:range :AgentiveEntity ;
+          rdfs:comment "connects an object to an acting participant whom it empowers, strengthens, enhances, enables, or grants power to" ;
+          rdfs:label "empowers" ;
+          :promptDescription "an object empowers, strengthens, enhances, enables, or grants power to an acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#fears
+:fears rdf:type owl:ObjectProperty ;
+       rdfs:domain :AgentiveEntity ;
+       rdfs:range :AgentiveEntity ;
+       rdfs:comment "connects an acting participant to another acting participant who is feared, dreaded, or perceived as dangerous" ;
+       rdfs:label "fears" ;
+       :promptDescription "one acting participant fears, dreads, or sees another acting participant as dangerous" .
+
+
+###  https://example.org/narrative-character-ontology#follows
+:follows rdf:type owl:ObjectProperty ;
+         rdfs:domain :AgentiveEntity ;
+         rdfs:range :AgentiveEntity ;
+         rdfs:comment "connects an acting participant to another acting participant whom it follows, accompanies, obeys, pursues, or accepts as a leader or guide" ;
+         rdfs:label "follows" ;
+         :promptDescription "one acting participant follows, accompanies, obeys, pursues, or accepts another acting participant as a leader or guide" .
+
+
+###  https://example.org/narrative-character-ontology#guides
+:guides rdf:type owl:ObjectProperty ;
+        rdfs:domain :AgentiveEntity ;
+        rdfs:range :AgentiveEntity ;
+        rdfs:comment "connects an acting participant to another acting participant whom it guides, leads, commands, orders, advises, directs, instructs, or helps direct" ;
+        rdfs:label "guides" ;
+        :promptDescription "one acting participant guides, leads, commands, advises, directs, instructs, or orders another acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#heals
+:heals rdf:type owl:ObjectProperty ;
+       rdfs:domain :Object ;
+       rdfs:range :AgentiveEntity ;
+       rdfs:comment "connects an object to an acting participant whom it heals, cures, restores, revives, or physically improves" ;
+       rdfs:label "heals" ;
+       :promptDescription "an object heals, cures, restores, revives, or physically improves an acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#leavesPlace
+:leavesPlace rdf:type owl:ObjectProperty ;
+             rdfs:domain :AgentiveEntity ;
+             rdfs:range :Place ;
+             rdfs:comment "connects an acting participant to a place it leaves, departs from, escapes from, abandons, or moves away from" ;
+             rdfs:label "leavesPlace" ;
+             :promptDescription "an acting participant leaves, departs from, escapes from, abandons, or moves away from a place" .
+
+
+###  https://example.org/narrative-character-ontology#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain :NarrativeEntity ;
+           rdfs:range :Place ;
+           rdfs:comment "connects something in the story to the place where it is located, present, situated, or found" ;
+           rdfs:label "locatedIn" ;
+           :promptDescription "something in the story is located, present, situated, or found in a place" .
+
+
+###  https://example.org/narrative-character-ontology#occursAt
+:occursAt rdf:type owl:ObjectProperty ;
+          rdfs:domain :Event ;
+          rdfs:range :Place ;
+          rdfs:comment "connects an event to the place where it occurs, happens, takes place, is held, or unfolds" ;
+          rdfs:label "occursAt" ;
+          :promptDescription "an event occurs, happens, takes place, is held, or unfolds at a place" .
+
+
+###  https://example.org/narrative-character-ontology#opposes
+:opposes rdf:type owl:ObjectProperty ;
+         rdfs:domain :AgentiveEntity ;
+         rdfs:range :AgentiveEntity ;
+         rdfs:comment "connects an acting participant to another acting participant whom it opposes, fights, threatens, attacks, harms, kills, hates, resists, or treats as an adversary" ;
+         rdfs:label "opposes" ;
+         :promptDescription "one acting participant opposes, fights, threatens, attacks, harms, kills, hates, resists, or treats another acting participant as an adversary" .
+
+
+###  https://example.org/narrative-character-ontology#participatesIn
+:participatesIn rdf:type owl:ObjectProperty ;
+                rdfs:domain :AgentiveEntity ;
+                rdfs:range :Event ;
+                rdfs:comment "connects an acting participant to an event it participates in, takes part in, joins, attends, performs, or is involved in" ;
+                rdfs:label "participatesIn" ;
+                :promptDescription "an acting participant participates in, takes part in, joins, attends, performs, or is involved in an event" .
+
+
+###  https://example.org/narrative-character-ontology#possessesObject
+:possessesObject rdf:type owl:ObjectProperty ;
+                 rdfs:domain :AgentiveEntity ;
+                 rdfs:range :Object ;
+                 rdfs:comment "connects an acting participant to an object it has, owns, holds, carries, keeps, or possesses" ;
+                 rdfs:label "possessesObject" ;
+                 :promptDescription "an acting participant has, owns, holds, carries, keeps, or possesses an object" .
+
+
+###  https://example.org/narrative-character-ontology#rulesOver
+:rulesOver rdf:type owl:ObjectProperty ;
+           rdfs:domain :AgentiveEntity ;
+           rdfs:range :Place ;
+           rdfs:comment "connects an acting participant to a place it rules, governs, controls, commands, or has political authority over" ;
+           rdfs:label "rulesOver" ;
+           :promptDescription "an acting participant rules, governs, controls, commands, or has authority over a place" .
+
+
+###  https://example.org/narrative-character-ontology#travelsTo
+:travelsTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :AgentiveEntity ;
+           rdfs:range :Place ;
+           rdfs:comment "connects an acting participant to a place it travels to, goes toward, reaches, enters, or journeys toward" ;
+           rdfs:label "travelsTo" ;
+           :promptDescription "an acting participant travels to, goes toward, reaches, enters, or journeys toward a place" .
+
+
+###  https://example.org/narrative-character-ontology#trusts
+:trusts rdf:type owl:ObjectProperty ;
+        rdfs:domain :AgentiveEntity ;
+        rdfs:range :AgentiveEntity ;
+        rdfs:comment "connects an acting participant to another acting participant who is trusted, relied on, believed, or considered dependable" ;
+        rdfs:label "trusts" ;
+        :promptDescription "one acting participant trusts, relies on, or believes another acting participant" .
+
+
+###  https://example.org/narrative-character-ontology#usesObject
+:usesObject rdf:type owl:ObjectProperty ;
+            rdfs:domain :AgentiveEntity ;
+            rdfs:range :Object ;
+            rdfs:comment "connects an acting participant to an object it uses, wields, consumes, applies, operates, or employs" ;
+            rdfs:label "usesObject" ;
+            :promptDescription "an acting participant uses, wields, consumes, applies, operates, or employs an object" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://example.org/narrative-character-ontology#hasOceanAgreeableness
+:hasOceanAgreeableness rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Character ;
+                       rdfs:range xsd:double .
+
+
+###  https://example.org/narrative-character-ontology#hasOceanConscientiousness
+:hasOceanConscientiousness rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Character ;
+                           rdfs:range xsd:double .
+
+
+###  https://example.org/narrative-character-ontology#hasOceanExtraversion
+:hasOceanExtraversion rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Character ;
+                      rdfs:range xsd:double .
+
+
+###  https://example.org/narrative-character-ontology#hasOceanNeuroticism
+:hasOceanNeuroticism rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Character ;
+                     rdfs:range xsd:double .
+
+
+###  https://example.org/narrative-character-ontology#hasOceanOpenness
+:hasOceanOpenness rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Character ;
+                  rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://example.org/narrative-character-ontology#AgentiveEntity
+:AgentiveEntity rdf:type owl:Class ;
+                rdfs:subClassOf :NarrativeEntity ;
+                rdfs:comment "an acting participant in the story, either an individual character or a collective group" ;
+                rdfs:label "AgentiveEntity" ;
+                :promptDescription "an acting participant in the story, either an individual character or a collective group" .
+
+
+###  https://example.org/narrative-character-ontology#Artifact
+:Artifact rdf:type owl:Class ;
+          rdfs:subClassOf :Object ;
+          rdfs:comment "a notable object with special importance, identity, history, power, or plot significance" ;
+          rdfs:label "Artifact" ;
+          :promptDescription "a notable object with special importance, identity, history, power, or plot significance" .
+
+
+###  https://example.org/narrative-character-ontology#Character
+:Character rdf:type owl:Class ;
+           rdfs:subClassOf :AgentiveEntity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasOceanAgreeableness ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasOceanConscientiousness ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasOceanExtraversion ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasOceanNeuroticism ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasOceanOpenness ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ;
+           rdfs:comment "a single story participant, whether human or non-human, rather than a group, place, object, or event" ;
+           rdfs:label "Character" ;
+           :promptDescription "a single story participant, whether human or non-human, rather than a group, place, object, or event" .
+
+
+###  https://example.org/narrative-character-ontology#ConflictEvent
+:ConflictEvent rdf:type owl:Class ;
+               rdfs:subClassOf :Event ;
+               rdfs:comment "a conflict-based event such as a battle, duel, siege, war, raid, ambush, attack, or violent confrontation" ;
+               rdfs:label "ConflictEvent" ;
+               :promptDescription "a conflict-based event such as a battle, duel, siege, war, raid, ambush, attack, or violent confrontation" .
+
+
+###  https://example.org/narrative-character-ontology#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf :NarrativeEntity ;
+       rdfs:comment "a bounded occurrence in the story rather than a character, group, place, or object" ;
+       rdfs:label "Event" ;
+       :promptDescription "a bounded occurrence in the story rather than a character, group, place, or object" .
+
+
+###  https://example.org/narrative-character-ontology#Group
+:Group rdf:type owl:Class ;
+       rdfs:subClassOf :AgentiveEntity ;
+       rdfs:comment "a collection of agents treated as one collective participant in the story" ;
+       rdfs:label "Group" ;
+       :promptDescription "a collection of agents treated as one collective participant in the story" .
+
+
+###  https://example.org/narrative-character-ontology#InformalGroup
+:InformalGroup rdf:type owl:Class ;
+               rdfs:subClassOf :Group ;
+               rdfs:comment "a loose group of agents without a clear formal structure, hierarchy, or institution" ;
+               rdfs:label "InformalGroup" ;
+               :promptDescription "a loose group of agents without a clear formal structure, hierarchy, or institution" .
+
+
+###  https://example.org/narrative-character-ontology#JourneyEvent
+:JourneyEvent rdf:type owl:Class ;
+              rdfs:subClassOf :Event ;
+              rdfs:comment "a happening where one or more agents move from one place toward, through, or away from another place" ;
+              rdfs:label "JourneyEvent" ;
+              :promptDescription "a happening where one or more agents move from one place toward, through, or away from another place" .
+
+
+###  https://example.org/narrative-character-ontology#NarrativeEntity
+:NarrativeEntity rdf:type owl:Class ;
+                 rdfs:comment "a concrete story-world entity such as a character, group, place, object, or event rather than an abstract idea, theme, quality, or emotion" ;
+                 rdfs:label "NarrativeEntity" ;
+                 :promptDescription "a concrete story-world entity such as a character, group, place, object, or event rather than an abstract idea, theme, quality, or emotion" .
+
+
+###  https://example.org/narrative-character-ontology#Object
+:Object rdf:type owl:Class ;
+        rdfs:subClassOf :NarrativeEntity ;
+        rdfs:comment "a concrete thing in the story that can be held, used, sought, created, destroyed, carried, or consumed" ;
+        rdfs:label "Object" ;
+        :promptDescription "a concrete thing in the story that can be held, used, sought, created, destroyed, carried, or consumed" .
+
+
+###  https://example.org/narrative-character-ontology#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Group ;
+              rdfs:comment "a structured group with membership, hierarchy, purpose, authority, or a recognized identity" ;
+              rdfs:label "Organization" ;
+              :promptDescription "a structured group with membership, hierarchy, purpose, authority, or a recognized identity" .
+
+
+###  https://example.org/narrative-character-ontology#Place
+:Place rdf:type owl:Class ;
+       rdfs:subClassOf :NarrativeEntity ;
+       rdfs:comment "a location in the story where characters, groups, objects, or events can be" ;
+       rdfs:label "Place" ;
+       :promptDescription "a location in the story where characters, groups, objects, or events can be" .
+
+
+###  https://example.org/narrative-character-ontology#Region
+:Region rdf:type owl:Class ;
+        rdfs:subClassOf :Place ;
+        rdfs:comment "a broad geographic or political area in the story world" ;
+        rdfs:label "Region" ;
+        :promptDescription "a broad geographic or political area in the story world" .
+
+
+###  https://example.org/narrative-character-ontology#RitualEvent
+:RitualEvent rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "a bounded happening involving formal actions, spoken formulas, offerings, magic, worship, or ceremonial behavior" ;
+             rdfs:label "RitualEvent" ;
+             :promptDescription "a bounded happening involving formal actions, spoken formulas, offerings, magic, worship, or ceremonial behavior" .
+
+
+###  https://example.org/narrative-character-ontology#RouteOrPath
+:RouteOrPath rdf:type owl:Class ;
+             rdfs:subClassOf :Place ;
+             rdfs:comment "a place mainly defined by going through it or along it rather than living in it or staying there" ;
+             rdfs:label "RouteOrPath" ;
+             :promptDescription "a place mainly defined by going through it or along it rather than living in it or staying there" .
+
+
+###  https://example.org/narrative-character-ontology#Settlement
+:Settlement rdf:type owl:Class ;
+            rdfs:subClassOf :Place ;
+            rdfs:comment "a populated location smaller than a region and more general than a single building, room, or landmark" ;
+            rdfs:label "Settlement" ;
+            :promptDescription "a populated location smaller than a region and more general than a single building, room, or landmark" .
+
+
+###  https://example.org/narrative-character-ontology#Site
+:Site rdf:type owl:Class ;
+      rdfs:subClassOf :Place ;
+      rdfs:comment "a bounded location smaller or more specific than a region or settlement" ;
+      rdfs:label "Site" ;
+      :promptDescription "a bounded location smaller or more specific than a region or settlement" .
+
+
+###  https://example.org/narrative-character-ontology#Substance
+:Substance rdf:type owl:Class ;
+           rdfs:subClassOf :Object ;
+           rdfs:comment "a material, liquid, powder, food, drink, potion, poison, medicine, or other consumable matter" ;
+           rdfs:label "Substance" ;
+           :promptDescription "a material, liquid, powder, food, drink, potion, poison, medicine, or other consumable matter" .
+
+
+###  https://example.org/narrative-character-ontology#Tool
+:Tool rdf:type owl:Class ;
+      rdfs:subClassOf :Object ;
+      rdfs:comment "an object used for a practical task rather than mainly for fighting, transport, consumption, or special symbolic importance" ;
+      rdfs:label "Tool" ;
+      :promptDescription "an object used for a practical task rather than mainly for fighting, transport, consumption, or special symbolic importance" .
+
+
+###  https://example.org/narrative-character-ontology#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:subClassOf :Object ;
+         rdfs:comment "an object used to carry or transport characters, groups, or objects from one place to another" ;
+         rdfs:label "Vehicle" ;
+         :promptDescription "an object used to carry or transport characters, groups, or objects from one place to another" .
+
+
+###  https://example.org/narrative-character-ontology#Weapon
+:Weapon rdf:type owl:Class ;
+        rdfs:subClassOf :Object ;
+        rdfs:comment "an object used or intended for fighting, injuring, killing, threatening, or defending" ;
+        rdfs:label "Weapon" ;
+        :promptDescription "an object used or intended for fighting, injuring, killing, threatening, or defending" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Gdw_n
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Gdw_n> rdf:type owl:NamedIndividual ,
+                                                                                 :Character ;
+                                                                        :hasOceanAgreeableness "45.19"^^xsd:double ;
+                                                                        :hasOceanConscientiousness "47.31"^^xsd:double ;
+                                                                        :hasOceanExtraversion "43.44"^^xsd:double ;
+                                                                        :hasOceanNeuroticism "45.23"^^xsd:double ;
+                                                                        :hasOceanOpenness "42.04"^^xsd:double ;
+                                                                        rdfs:label "G'd(w) n" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Granny_Bbb
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Granny_Bbb> rdf:type owl:NamedIndividual ,
+                                                                                      :Character ;
+                                                                             :hasOceanAgreeableness "44.38"^^xsd:double ;
+                                                                             :hasOceanConscientiousness "52.74"^^xsd:double ;
+                                                                             :hasOceanExtraversion "59.21"^^xsd:double ;
+                                                                             :hasOceanNeuroticism "45.96"^^xsd:double ;
+                                                                             :hasOceanOpenness "45.81"^^xsd:double ;
+                                                                             rdfs:label "Granny Bb'b" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Mr_Hnw
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Mr_Hnw> rdf:type owl:NamedIndividual ,
+                                                                                  :Character ;
+                                                                         :hasOceanAgreeableness "40.64"^^xsd:double ;
+                                                                         :hasOceanConscientiousness "47.68"^^xsd:double ;
+                                                                         :hasOceanExtraversion "44.31"^^xsd:double ;
+                                                                         :hasOceanNeuroticism "39.38"^^xsd:double ;
+                                                                         :hasOceanOpenness "45.07"^^xsd:double ;
+                                                                         rdfs:label "Mr. Hnw" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Qfwfq
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#Qfwfq> rdf:type owl:NamedIndividual ,
+                                                                                 :NarrativeEntity ;
+                                                                        rdfs:label "Qfwfq" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#my_father
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#my_father> rdf:type owl:NamedIndividual ,
+                                                                                     :Character ;
+                                                                            :hasOceanAgreeableness "51.8"^^xsd:double ;
+                                                                            :hasOceanConscientiousness "64.87"^^xsd:double ;
+                                                                            :hasOceanExtraversion "54.22"^^xsd:double ;
+                                                                            :hasOceanNeuroticism "34.79"^^xsd:double ;
+                                                                            :hasOceanOpenness "49.6"^^xsd:double ;
+                                                                            rdfs:label "my father" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#the_heart_of_the_nebula
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#the_heart_of_the_nebula> rdf:type owl:NamedIndividual ,
+                                                                                                   :Region ;
+                                                                                          rdfs:label "the heart of the nebula" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#the_twins
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#the_twins> rdf:type owl:NamedIndividual ,
+                                                                                     :Substance ;
+                                                                            rdfs:label "the twins" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#those_relatives
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#those_relatives> rdf:type owl:NamedIndividual ,
+                                                                                           :Substance ;
+                                                                                  rdfs:label "those relatives" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#we
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#we> rdf:type owl:NamedIndividual ,
+                                                                              :InformalGroup ;
+                                                                     rdfs:label "we" .
+
+
+###  https://example.org/nlp-character-graph/cosmicomics_at_daybreak#you
+<https://example.org/nlp-character-graph/cosmicomics_at_daybreak#you> rdf:type owl:NamedIndividual ,
+                                                                               :Character ;
+                                                                      :hasOceanAgreeableness "47.98"^^xsd:double ;
+                                                                      :hasOceanConscientiousness "47.36"^^xsd:double ;
+                                                                      :hasOceanExtraversion "41.33"^^xsd:double ;
+                                                                      :hasOceanNeuroticism "39.93"^^xsd:double ;
+                                                                      :hasOceanOpenness "47.48"^^xsd:double ;
+                                                                      rdfs:label "you" .
+
+
+###  Generated by the OWL API (version 5.1.9.2018-12-12T06:37:32Z) https://github.com/owlcs/owlapi/

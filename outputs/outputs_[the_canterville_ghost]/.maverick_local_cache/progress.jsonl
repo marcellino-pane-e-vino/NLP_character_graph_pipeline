@@ -1,0 +1,15 @@
+{"timestamp": "2026-06-29T22:00:25.766712+00:00", "event": "cache_initialized", "cache_dir": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[the_canterville_ghost]\\.maverick_local_cache"}
+{"timestamp": "2026-06-29T22:00:25.766712+00:00", "event": "chunk_started", "chunk_id": "chunk_000", "chunk_index": 0, "expanded_tokens": 5989}
+{"timestamp": "2026-06-29T22:03:15.330143+00:00", "event": "chunk_committed", "chunk_id": "chunk_000", "chunk_index": 0, "n_clusters": 189, "n_mentions": 723}
+{"timestamp": "2026-06-29T22:03:16.089126+00:00", "event": "chunk_started", "chunk_id": "chunk_001", "chunk_index": 1, "expanded_tokens": 5965}
+{"timestamp": "2026-06-29T22:05:39.142903+00:00", "event": "chunk_committed", "chunk_id": "chunk_001", "chunk_index": 1, "n_clusters": 165, "n_mentions": 679}
+{"timestamp": "2026-06-29T22:05:39.941924+00:00", "event": "chunk_started", "chunk_id": "chunk_002", "chunk_index": 2, "expanded_tokens": 5997}
+{"timestamp": "2026-06-29T22:07:56.818673+00:00", "event": "chunk_committed", "chunk_id": "chunk_002", "chunk_index": 2, "n_clusters": 155, "n_mentions": 704}
+{"timestamp": "2026-06-29T22:07:57.609908+00:00", "event": "chunk_started", "chunk_id": "chunk_003", "chunk_index": 3, "expanded_tokens": 5973}
+{"timestamp": "2026-06-29T22:10:12.277111+00:00", "event": "chunk_committed", "chunk_id": "chunk_003", "chunk_index": 3, "n_clusters": 178, "n_mentions": 780}
+{"timestamp": "2026-06-29T22:10:13.032968+00:00", "event": "chunk_started", "chunk_id": "chunk_004", "chunk_index": 4, "expanded_tokens": 5995}
+{"timestamp": "2026-06-29T22:12:29.489210+00:00", "event": "chunk_committed", "chunk_id": "chunk_004", "chunk_index": 4, "n_clusters": 180, "n_mentions": 847}
+{"timestamp": "2026-06-29T22:12:30.317513+00:00", "event": "chunk_started", "chunk_id": "chunk_005", "chunk_index": 5, "expanded_tokens": 4262}
+{"timestamp": "2026-06-29T22:12:34.965216+00:00", "event": "chunk_committed", "chunk_id": "chunk_005", "chunk_index": 5, "n_clusters": 136, "n_mentions": 629}
+{"timestamp": "2026-06-29T22:12:35.636032+00:00", "event": "finalization_started", "output_zip_path": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[the_canterville_ghost]\\maverick_local_clusters.zip"}
+{"timestamp": "2026-06-29T22:12:35.831102+00:00", "event": "finalization_completed", "output_zip_path": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[the_canterville_ghost]\\maverick_local_clusters.zip", "counts": {"chunks.csv": 6, "clusters.csv": 1003, "mentions.csv": 4362, "n_overlap_mentions": 2585}}

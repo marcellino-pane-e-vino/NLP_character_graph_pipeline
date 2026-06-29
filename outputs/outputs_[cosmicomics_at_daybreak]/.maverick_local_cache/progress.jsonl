@@ -1,0 +1,5 @@
+{"timestamp": "2026-06-29T21:11:08.879804+00:00", "event": "cache_initialized", "cache_dir": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[cosmicomics_at_daybreak]\\.maverick_local_cache"}
+{"timestamp": "2026-06-29T21:11:08.879804+00:00", "event": "chunk_started", "chunk_id": "chunk_000", "chunk_index": 0, "expanded_tokens": 4553}
+{"timestamp": "2026-06-29T21:11:31.054252+00:00", "event": "chunk_committed", "chunk_id": "chunk_000", "chunk_index": 0, "n_clusters": 99, "n_mentions": 548}
+{"timestamp": "2026-06-29T21:11:31.397829+00:00", "event": "finalization_started", "output_zip_path": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[cosmicomics_at_daybreak]\\maverick_local_clusters.zip"}
+{"timestamp": "2026-06-29T21:11:31.453734+00:00", "event": "finalization_completed", "output_zip_path": "c:\\Users\\Bobby\\Desktop\\real_shit\\NLP_character_graph_pipeline\\outputs\\outputs_[cosmicomics_at_daybreak]\\maverick_local_clusters.zip", "counts": {"chunks.csv": 1, "clusters.csv": 99, "mentions.csv": 548, "n_overlap_mentions": 0}}

@@ -1,0 +1,284 @@
+@prefix nco: <https://example.org/narrative-character-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.org/narrative-character-ontology> a owl:Ontology ;
+    rdfs:label "Narrative Character Ontology" ;
+    rdfs:comment "Extraction-only version of the Narrative Character Ontology using the aggressive reduction-3 agent-agent relation set. The AgentiveEntity-to-AgentiveEntity extraction labels are compressed to caresFor, trusts, fears, opposes, deceives, guides, and follows." .
+
+nco:Artifact a owl:Class ;
+    rdfs:label "Artifact" ;
+    rdfs:comment "a notable object with special importance, identity, history, power, or plot significance" ;
+    rdfs:subClassOf nco:Object ;
+    nco:promptDescription "a notable object with special importance, identity, history, power, or plot significance" .
+
+nco:Character a owl:Class ;
+    rdfs:label "Character" ;
+    rdfs:comment "a single story participant, whether human or non-human, rather than a group, place, object, or event" ;
+    rdfs:subClassOf nco:AgentiveEntity ;
+    nco:promptDescription "a single story participant, whether human or non-human, rather than a group, place, object, or event" .
+
+nco:ConflictEvent a owl:Class ;
+    rdfs:label "ConflictEvent" ;
+    rdfs:comment "a conflict-based event such as a battle, duel, siege, war, raid, ambush, attack, or violent confrontation" ;
+    rdfs:subClassOf nco:Event ;
+    nco:promptDescription "a conflict-based event such as a battle, duel, siege, war, raid, ambush, attack, or violent confrontation" .
+
+nco:InformalGroup a owl:Class ;
+    rdfs:label "InformalGroup" ;
+    rdfs:comment "a loose group of agents without a clear formal structure, hierarchy, or institution" ;
+    rdfs:subClassOf nco:Group ;
+    nco:promptDescription "a loose group of agents without a clear formal structure, hierarchy, or institution" .
+
+nco:JourneyEvent a owl:Class ;
+    rdfs:label "JourneyEvent" ;
+    rdfs:comment "a happening where one or more agents move from one place toward, through, or away from another place" ;
+    rdfs:subClassOf nco:Event ;
+    nco:promptDescription "a happening where one or more agents move from one place toward, through, or away from another place" .
+
+nco:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "a structured group with membership, hierarchy, purpose, authority, or a recognized identity" ;
+    rdfs:subClassOf nco:Group ;
+    nco:promptDescription "a structured group with membership, hierarchy, purpose, authority, or a recognized identity" .
+
+nco:Region a owl:Class ;
+    rdfs:label "Region" ;
+    rdfs:comment "a broad geographic or political area in the story world" ;
+    rdfs:subClassOf nco:Place ;
+    nco:promptDescription "a broad geographic or political area in the story world" .
+
+nco:RitualEvent a owl:Class ;
+    rdfs:label "RitualEvent" ;
+    rdfs:comment "a bounded happening involving formal actions, spoken formulas, offerings, magic, worship, or ceremonial behavior" ;
+    rdfs:subClassOf nco:Event ;
+    nco:promptDescription "a bounded happening involving formal actions, spoken formulas, offerings, magic, worship, or ceremonial behavior" .
+
+nco:RouteOrPath a owl:Class ;
+    rdfs:label "RouteOrPath" ;
+    rdfs:comment "a place mainly defined by going through it or along it rather than living in it or staying there" ;
+    rdfs:subClassOf nco:Place ;
+    nco:promptDescription "a place mainly defined by going through it or along it rather than living in it or staying there" .
+
+nco:Settlement a owl:Class ;
+    rdfs:label "Settlement" ;
+    rdfs:comment "a populated location smaller than a region and more general than a single building, room, or landmark" ;
+    rdfs:subClassOf nco:Place ;
+    nco:promptDescription "a populated location smaller than a region and more general than a single building, room, or landmark" .
+
+nco:Site a owl:Class ;
+    rdfs:label "Site" ;
+    rdfs:comment "a bounded location smaller or more specific than a region or settlement" ;
+    rdfs:subClassOf nco:Place ;
+    nco:promptDescription "a bounded location smaller or more specific than a region or settlement" .
+
+nco:Substance a owl:Class ;
+    rdfs:label "Substance" ;
+    rdfs:comment "a material, liquid, powder, food, drink, potion, poison, medicine, or other consumable matter" ;
+    rdfs:subClassOf nco:Object ;
+    nco:promptDescription "a material, liquid, powder, food, drink, potion, poison, medicine, or other consumable matter" .
+
+nco:Tool a owl:Class ;
+    rdfs:label "Tool" ;
+    rdfs:comment "an object used for a practical task rather than mainly for fighting, transport, consumption, or special symbolic importance" ;
+    rdfs:subClassOf nco:Object ;
+    nco:promptDescription "an object used for a practical task rather than mainly for fighting, transport, consumption, or special symbolic importance" .
+
+nco:Vehicle a owl:Class ;
+    rdfs:label "Vehicle" ;
+    rdfs:comment "an object used to carry or transport characters, groups, or objects from one place to another" ;
+    rdfs:subClassOf nco:Object ;
+    nco:promptDescription "an object used to carry or transport characters, groups, or objects from one place to another" .
+
+nco:Weapon a owl:Class ;
+    rdfs:label "Weapon" ;
+    rdfs:comment "an object used or intended for fighting, injuring, killing, threatening, or defending" ;
+    rdfs:subClassOf nco:Object ;
+    nco:promptDescription "an object used or intended for fighting, injuring, killing, threatening, or defending" .
+
+nco:caresFor a owl:ObjectProperty ;
+    rdfs:label "caresFor" ;
+    rdfs:comment "connects an acting participant to another acting participant toward whom it shows care, attachment, concern, protection, affection, devotion, or preservation" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant cares for, protects, feels attachment toward, shows concern for, or tries to preserve another acting participant" .
+
+nco:corrupts a owl:ObjectProperty ;
+    rdfs:label "corrupts" ;
+    rdfs:comment "connects an object to an acting participant whom it corrupts, morally weakens, tempts, taints, or turns toward harmful behavior" ;
+    rdfs:domain nco:Object ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "an object corrupts, tempts, taints, morally weakens, or turns an acting participant toward harmful behavior" .
+
+nco:createsObject a owl:ObjectProperty ;
+    rdfs:label "createsObject" ;
+    rdfs:comment "connects an acting participant to an object it creates, makes, builds, forges, prepares, or brings into existence" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Object ;
+    nco:promptDescription "an acting participant creates, makes, builds, forges, prepares, or brings an object into existence" .
+
+nco:curses a owl:ObjectProperty ;
+    rdfs:label "curses" ;
+    rdfs:comment "connects an object to an acting participant whom it curses, afflicts, dooms, magically harms, or places under a harmful effect" ;
+    rdfs:domain nco:Object ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "an object curses, afflicts, dooms, magically harms, or places a harmful effect on an acting participant" .
+
+nco:deceives a owl:ObjectProperty ;
+    rdfs:label "deceives" ;
+    rdfs:comment "connects an acting participant to another acting participant whom it deceives, tricks, misleads, manipulates, betrays, abandons, turns against, or violates trust toward" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant deceives, tricks, misleads, manipulates, betrays, abandons, or violates the trust of another acting participant" .
+
+nco:destroysObject a owl:ObjectProperty ;
+    rdfs:label "destroysObject" ;
+    rdfs:comment "connects an acting participant to an object it destroys, breaks, ruins, burns, consumes, or renders unusable" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Object ;
+    nco:promptDescription "an acting participant destroys, breaks, ruins, burns, consumes, or renders an object unusable" .
+
+nco:empowers a owl:ObjectProperty ;
+    rdfs:label "empowers" ;
+    rdfs:comment "connects an object to an acting participant whom it empowers, strengthens, enhances, enables, or grants power to" ;
+    rdfs:domain nco:Object ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "an object empowers, strengthens, enhances, enables, or grants power to an acting participant" .
+
+nco:fears a owl:ObjectProperty ;
+    rdfs:label "fears" ;
+    rdfs:comment "connects an acting participant to another acting participant who is feared, dreaded, or perceived as dangerous" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant fears, dreads, or sees another acting participant as dangerous" .
+
+nco:follows a owl:ObjectProperty ;
+    rdfs:label "follows" ;
+    rdfs:comment "connects an acting participant to another acting participant whom it follows, accompanies, obeys, pursues, or accepts as a leader or guide" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant follows, accompanies, obeys, pursues, or accepts another acting participant as a leader or guide" .
+
+nco:guides a owl:ObjectProperty ;
+    rdfs:label "guides" ;
+    rdfs:comment "connects an acting participant to another acting participant whom it guides, leads, commands, orders, advises, directs, instructs, or helps direct" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant guides, leads, commands, advises, directs, instructs, or orders another acting participant" .
+
+nco:heals a owl:ObjectProperty ;
+    rdfs:label "heals" ;
+    rdfs:comment "connects an object to an acting participant whom it heals, cures, restores, revives, or physically improves" ;
+    rdfs:domain nco:Object ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "an object heals, cures, restores, revives, or physically improves an acting participant" .
+
+nco:leavesPlace a owl:ObjectProperty ;
+    rdfs:label "leavesPlace" ;
+    rdfs:comment "connects an acting participant to a place it leaves, departs from, escapes from, abandons, or moves away from" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Place ;
+    nco:promptDescription "an acting participant leaves, departs from, escapes from, abandons, or moves away from a place" .
+
+nco:locatedIn a owl:ObjectProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:comment "connects something in the story to the place where it is located, present, situated, or found" ;
+    rdfs:domain nco:NarrativeEntity ;
+    rdfs:range nco:Place ;
+    nco:promptDescription "something in the story is located, present, situated, or found in a place" .
+
+nco:occursAt a owl:ObjectProperty ;
+    rdfs:label "occursAt" ;
+    rdfs:comment "connects an event to the place where it occurs, happens, takes place, is held, or unfolds" ;
+    rdfs:domain nco:Event ;
+    rdfs:range nco:Place ;
+    nco:promptDescription "an event occurs, happens, takes place, is held, or unfolds at a place" .
+
+nco:opposes a owl:ObjectProperty ;
+    rdfs:label "opposes" ;
+    rdfs:comment "connects an acting participant to another acting participant whom it opposes, fights, threatens, attacks, harms, kills, hates, resists, or treats as an adversary" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant opposes, fights, threatens, attacks, harms, kills, hates, resists, or treats another acting participant as an adversary" .
+
+nco:participatesIn a owl:ObjectProperty ;
+    rdfs:label "participatesIn" ;
+    rdfs:comment "connects an acting participant to an event it participates in, takes part in, joins, attends, performs, or is involved in" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Event ;
+    nco:promptDescription "an acting participant participates in, takes part in, joins, attends, performs, or is involved in an event" .
+
+nco:possessesObject a owl:ObjectProperty ;
+    rdfs:label "possessesObject" ;
+    rdfs:comment "connects an acting participant to an object it has, owns, holds, carries, keeps, or possesses" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Object ;
+    nco:promptDescription "an acting participant has, owns, holds, carries, keeps, or possesses an object" .
+
+nco:promptDescription a owl:AnnotationProperty ;
+    rdfs:label "prompt description" ;
+    rdfs:comment "A short NLI-facing description intended for entailment-style scoring prompts." .
+
+nco:rulesOver a owl:ObjectProperty ;
+    rdfs:label "rulesOver" ;
+    rdfs:comment "connects an acting participant to a place it rules, governs, controls, commands, or has political authority over" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Place ;
+    nco:promptDescription "an acting participant rules, governs, controls, commands, or has authority over a place" .
+
+nco:travelsTo a owl:ObjectProperty ;
+    rdfs:label "travelsTo" ;
+    rdfs:comment "connects an acting participant to a place it travels to, goes toward, reaches, enters, or journeys toward" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Place ;
+    nco:promptDescription "an acting participant travels to, goes toward, reaches, enters, or journeys toward a place" .
+
+nco:trusts a owl:ObjectProperty ;
+    rdfs:label "trusts" ;
+    rdfs:comment "connects an acting participant to another acting participant who is trusted, relied on, believed, or considered dependable" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:AgentiveEntity ;
+    nco:promptDescription "one acting participant trusts, relies on, or believes another acting participant" .
+
+nco:usesObject a owl:ObjectProperty ;
+    rdfs:label "usesObject" ;
+    rdfs:comment "connects an acting participant to an object it uses, wields, consumes, applies, operates, or employs" ;
+    rdfs:domain nco:AgentiveEntity ;
+    rdfs:range nco:Object ;
+    nco:promptDescription "an acting participant uses, wields, consumes, applies, operates, or employs an object" .
+
+nco:Group a owl:Class ;
+    rdfs:label "Group" ;
+    rdfs:comment "a collection of agents treated as one collective participant in the story" ;
+    rdfs:subClassOf nco:AgentiveEntity ;
+    nco:promptDescription "a collection of agents treated as one collective participant in the story" .
+
+nco:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "a bounded occurrence in the story rather than a character, group, place, or object" ;
+    rdfs:subClassOf nco:NarrativeEntity ;
+    nco:promptDescription "a bounded occurrence in the story rather than a character, group, place, or object" .
+
+nco:NarrativeEntity a owl:Class ;
+    rdfs:label "NarrativeEntity" ;
+    rdfs:comment "a concrete story-world entity such as a character, group, place, object, or event rather than an abstract idea, theme, quality, or emotion" ;
+    nco:promptDescription "a concrete story-world entity such as a character, group, place, object, or event rather than an abstract idea, theme, quality, or emotion" .
+
+nco:Place a owl:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "a location in the story where characters, groups, objects, or events can be" ;
+    rdfs:subClassOf nco:NarrativeEntity ;
+    nco:promptDescription "a location in the story where characters, groups, objects, or events can be" .
+
+nco:Object a owl:Class ;
+    rdfs:label "Object" ;
+    rdfs:comment "a concrete thing in the story that can be held, used, sought, created, destroyed, carried, or consumed" ;
+    rdfs:subClassOf nco:NarrativeEntity ;
+    nco:promptDescription "a concrete thing in the story that can be held, used, sought, created, destroyed, carried, or consumed" .
+
+nco:AgentiveEntity a owl:Class ;
+    rdfs:label "AgentiveEntity" ;
+    rdfs:comment "an acting participant in the story, either an individual character or a collective group" ;
+    rdfs:subClassOf nco:NarrativeEntity ;
+    nco:promptDescription "an acting participant in the story, either an individual character or a collective group" .
+

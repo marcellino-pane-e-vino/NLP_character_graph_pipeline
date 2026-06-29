@@ -12,7 +12,7 @@ from annotation_layer.relations import make_relation_assertion_id
 
 MULTI_LABEL_NOISY_OR_METHOD = "multi_label_noisy_or_by_cluster_pair"
 LEGACY_SUM_SOFTMAX_METHOD = "sum_softmax_by_cluster_pair"
-DEFAULT_NOISY_OR_MIN_SCORE = 0.60
+DEFAULT_NOISY_OR_MIN_SCORE = 0.75
 
 
 @dataclass(frozen=True, slots=True)
@@ -41,7 +41,7 @@ class RelationAggregationConfig:
     """
 
     aggregation_method: str = MULTI_LABEL_NOISY_OR_METHOD
-    min_support_count: int = 1
+    min_support_count: int = 2
     min_score: float = DEFAULT_NOISY_OR_MIN_SCORE
 
 
