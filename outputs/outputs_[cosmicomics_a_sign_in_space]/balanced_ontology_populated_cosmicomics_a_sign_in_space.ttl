@@ -450,22 +450,22 @@
 ###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#I
 <https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#I> rdf:type owl:NamedIndividual ,
                                                                                  :Character ;
-                                                                        :hasOceanAgreeableness "44.79"^^xsd:double ;
-                                                                        :hasOceanConscientiousness "31.17"^^xsd:double ;
-                                                                        :hasOceanExtraversion "37.83"^^xsd:double ;
-                                                                        :hasOceanNeuroticism "57.17"^^xsd:double ;
-                                                                        :hasOceanOpenness "46.12"^^xsd:double ;
+                                                                        :hasOceanAgreeableness "41.85"^^xsd:double ;
+                                                                        :hasOceanConscientiousness "22.12"^^xsd:double ;
+                                                                        :hasOceanExtraversion "31.34"^^xsd:double ;
+                                                                        :hasOceanNeuroticism "61.17"^^xsd:double ;
+                                                                        :hasOceanOpenness "43.92"^^xsd:double ;
                                                                         rdfs:label "I" .
 
 
 ###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#Kgwgk
 <https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#Kgwgk> rdf:type owl:NamedIndividual ,
                                                                                      :Character ;
-                                                                            :hasOceanAgreeableness "19.16"^^xsd:double ;
-                                                                            :hasOceanConscientiousness "54.14"^^xsd:double ;
-                                                                            :hasOceanExtraversion "49.38"^^xsd:double ;
-                                                                            :hasOceanNeuroticism "41.16"^^xsd:double ;
-                                                                            :hasOceanOpenness "50.59"^^xsd:double ;
+                                                                            :hasOceanAgreeableness "8.79"^^xsd:double ;
+                                                                            :hasOceanConscientiousness "56.48"^^xsd:double ;
+                                                                            :hasOceanExtraversion "49.02"^^xsd:double ;
+                                                                            :hasOceanNeuroticism "36.29"^^xsd:double ;
+                                                                            :hasOceanOpenness "50.93"^^xsd:double ;
                                                                             rdfs:label "Kgwgk" .
 
 
@@ -514,11 +514,11 @@
 ###  https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#you
 <https://example.org/nlp-character-graph/cosmicomics_a_sign_in_space#you> rdf:type owl:NamedIndividual ,
                                                                                    :Character ;
-                                                                          :hasOceanAgreeableness "51.36"^^xsd:double ;
-                                                                          :hasOceanConscientiousness "50.11"^^xsd:double ;
-                                                                          :hasOceanExtraversion "39.8"^^xsd:double ;
-                                                                          :hasOceanNeuroticism "14.18"^^xsd:double ;
-                                                                          :hasOceanOpenness "53.14"^^xsd:double ;
+                                                                          :hasOceanAgreeableness "52.14"^^xsd:double ;
+                                                                          :hasOceanConscientiousness "50.18"^^xsd:double ;
+                                                                          :hasOceanExtraversion "34.25"^^xsd:double ;
+                                                                          :hasOceanNeuroticism "4.88"^^xsd:double ;
+                                                                          :hasOceanOpenness "54.92"^^xsd:double ;
                                                                           rdfs:label "you" .
 
 
