@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 import warnings
+import math
 
 import pandas as pd
 
@@ -289,6 +290,22 @@ def _mention_scoring_record_from_row(
     )
 
 
+def skewing_activation_function(score: float) -> float:
+    """
+    Pushes OCEAN scores away from 50 toward 0/100.
+
+    0   -> 0
+    50  -> 50
+    100 -> 100
+    """
+
+    score = max(0.0, min(100.0, float(score)))
+    x = (score - 50.0) / 50.0  # maps [0, 100] to [-1, 1]
+    y = math.sin((math.pi / 2.0) * x)
+
+    activated = 50.0 + 50.0 * y
+    return max(0.0, min(100.0, activated))
+
 def _aggregate_cluster_trait(
     mention_records: list[MentionOceanScoringRecord],
     trait: str,
@@ -310,7 +327,9 @@ def _aggregate_cluster_trait(
     if total_weight <= 1e-9:
         return float(neutral_score)
 
-    return round(float(weighted_sum / total_weight), rounding_digits)
+    trait_score = weighted_sum / total_weight
+    activated_score = skewing_activation_function(trait_score)
+    return round(float(activated_score), rounding_digits)
 
 
 def _cluster_profile_from_mentions(
